@@ -1,0 +1,132 @@
+spliter
+Time: Thu May 31 03:26:40 +0430 2018
+icc
+-D _GNU_SOURCE -Ofast -xHOST
+-no-vec
+CDF97ROW , 128x128, 46680
+CDF97ROW , 128x128, 46668
+spliter
+Time: Thu May 31 03:26:56 +0430 2018
+gcc
+-D _GNU_SOURCE -Ofast -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CDF97ROW , 128x128, 51540
+CDF97ROW , 128x128, 34054
+spliter
+Time: Thu May 31 03:27:12 +0430 2018
+clang
+-D _GNU_SOURCE -Ofast -march=native
+-fno-vectorize -fno-slp-vectorize
+CDF97ROW , 128x128, 46112
+CDF97ROW , 128x128, 46102
+spliter
+Time: Thu May 31 03:31:28 +0430 2018
+icc
+-D _GNU_SOURCE -Ofast -xHOST
+-no-vec
+CDF97ROW , 256x256, 193160
+CDF97ROW , 256x256, 193248
+spliter
+Time: Thu May 31 03:31:43 +0430 2018
+gcc
+-D _GNU_SOURCE -Ofast -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CDF97ROW , 256x256, 212580
+CDF97ROW , 256x256, 136566
+spliter
+Time: Thu May 31 03:31:59 +0430 2018
+clang
+-D _GNU_SOURCE -Ofast -march=native
+-fno-vectorize -fno-slp-vectorize
+CDF97ROW , 256x256, 192212
+CDF97ROW , 256x256, 192182
+spliter
+Time: Thu May 31 03:36:15 +0430 2018
+icc
+-D _GNU_SOURCE -Ofast -xHOST
+-no-vec
+CDF97ROW , 512x512, 777658
+CDF97ROW , 512x512, 777398
+spliter
+Time: Thu May 31 03:36:31 +0430 2018
+gcc
+-D _GNU_SOURCE -Ofast -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CDF97ROW , 512x512, 865422
+CDF97ROW , 512x512, 546572
+spliter
+Time: Thu May 31 03:36:47 +0430 2018
+clang
+-D _GNU_SOURCE -Ofast -march=native
+-fno-vectorize -fno-slp-vectorize
+CDF97ROW , 512x512, 773632
+CDF97ROW , 512x512, 773278
+spliter
+Time: Thu May 31 03:41:02 +0430 2018
+icc
+-D _GNU_SOURCE -Ofast -xHOST
+-no-vec
+CDF97ROW , 1024x1024, 3136410
+CDF97ROW , 1024x1024, 3141758
+spliter
+Time: Thu May 31 03:41:18 +0430 2018
+gcc
+-D _GNU_SOURCE -Ofast -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CDF97ROW , 1024x1024, 3509646
+CDF97ROW , 1024x1024, 2217856
+spliter
+Time: Thu May 31 03:41:34 +0430 2018
+clang
+-D _GNU_SOURCE -Ofast -march=native
+-fno-vectorize -fno-slp-vectorize
+CDF97ROW , 1024x1024, 3136996
+CDF97ROW , 1024x1024, 3138936
+spliter
+Time: Sun Jun  3 04:13:14 +0430 2018
+icc
+-D _GNU_SOURCE -Ofast -xHOST
+-no-vec
+CDF97ROW , 128x128, 46724
+CDF97ROW , 128x128, 46700
+spliter
+Time: Sun Jun  3 04:13:16 +0430 2018
+gcc
+-D _GNU_SOURCE -Ofast -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CDF97ROW , 128x128, 51862
+CDF97ROW , 128x128, 34548
+spliter
+Time: Sun Jun  3 04:13:18 +0430 2018
+clang
+-D _GNU_SOURCE -Ofast -march=native
+-fno-vectorize -fno-slp-vectorize
+CDF97ROW , 128x128, 46124
+CDF97ROW , 128x128, 46112
+spliter
+Time: Sun Jun  3 04:13:52 +0430 2018
+icc
+-D _GNU_SOURCE -Ofast -xHOST
+-no-vec
+CDF97ROW , 256x256, 193138
+CDF97ROW , 256x256, 194042
+spliter
+Time: Sun Jun  3 04:13:54 +0430 2018
+gcc
+-D _GNU_SOURCE -Ofast -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CDF97ROW , 256x256, 213808
+CDF97ROW , 256x256, 137968
+spliter
+Time: Sun Jun  3 04:13:56 +0430 2018
+clang
+-D _GNU_SOURCE -Ofast -march=native
+-fno-vectorize -fno-slp-vectorize
+CDF97ROW , 256x256, 192368
+CDF97ROW , 256x256, 192084
+spliter
+Time: Sun Jun  3 04:46:06 +0430 2018
+icc
+-D _GNU_SOURCE -Ofast -xHOST
+-no-vec
+CDF97ROW , 128x128, 46690

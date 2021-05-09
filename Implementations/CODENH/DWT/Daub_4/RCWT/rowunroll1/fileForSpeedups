@@ -1,0 +1,38 @@
+spliter
+Time: Wed Jun 20 11:18:10 +0430 2018
+icc
+-D _GNU_SOURCE -Ofast -xHOST
+-no-vec
+spliter
+Time: Wed Jun 20 11:18:10 +0430 2018
+gcc
+-D _GNU_SOURCE -Ofast -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+DUB4ROWunrol1, 128x128, 35838
+DUB4ROWunrol1, 128x128, 36376
+spliter
+Time: Wed Jun 20 11:18:26 +0430 2018
+clang
+-D _GNU_SOURCE -Ofast -march=native
+-fno-vectorize -fno-slp-vectorize
+DUB4ROWunrol1, 128x128, 26094
+DUB4ROWunrol1, 128x128, 26152
+spliter
+Time: Wed Jun 20 11:26:49 +0430 2018
+icc
+-D _GNU_SOURCE -Ofast -xHOST
+-no-vec
+spliter
+Time: Wed Jun 20 11:26:49 +0430 2018
+gcc
+-D _GNU_SOURCE -Ofast -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+DUB4ROWunrol1, 1024x1024, 2553576
+DUB4ROWunrol1, 1024x1024, 2420490
+spliter
+Time: Wed Jun 20 11:27:06 +0430 2018
+clang
+-D _GNU_SOURCE -Ofast -march=native
+-fno-vectorize -fno-slp-vectorize
+DUB4ROWunrol1, 1024x1024, 1740200
+DUB4ROWunrol1, 1024x1024, 1751200

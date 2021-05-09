@@ -1,0 +1,84 @@
+spliter
+Time: Thu May 17 01:24:07 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+CONMOD51, 128x128, 299018
+CONMOD51, 128x128, 147568
+spliter
+Time: Thu May 17 01:24:23 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CONMOD51, 128x128, 359556
+CONMOD51, 128x128, 126316
+spliter
+Time: Thu May 17 01:24:39 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+CONMOD51, 128x128, 333180
+CONMOD51, 128x128, 333324
+spliter
+Time: Thu May 17 01:44:54 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+CONMOD51, 256x256, 1233452
+CONMOD51, 256x256, 420582
+spliter
+Time: Thu May 17 01:45:10 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CONMOD51, 256x256, 1484574
+CONMOD51, 256x256, 452612
+spliter
+Time: Thu May 17 01:45:26 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+CONMOD51, 256x256, 1371828
+CONMOD51, 256x256, 1372278
+spliter
+Time: Thu May 17 02:05:39 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+CONMOD51, 512x512, 5013496
+CONMOD51, 512x512, 1632010
+spliter
+Time: Thu May 17 02:05:55 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CONMOD51, 512x512, 6007088
+CONMOD51, 512x512, 1694224
+spliter
+Time: Thu May 17 02:06:11 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+CONMOD51, 512x512, 5575560
+CONMOD51, 512x512, 5578274
+spliter
+Time: Thu May 17 02:26:27 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+CONMOD51, 1024x1024, 20230000
+CONMOD51, 1024x1024, 6508062
+spliter
+Time: Thu May 17 02:26:43 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CONMOD51, 1024x1024, 24313132
+CONMOD51, 1024x1024, 6893038
+spliter
+Time: Thu May 17 02:26:59 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+CONMOD51, 1024x1024, 22469618
+CONMOD51, 1024x1024, 22470824

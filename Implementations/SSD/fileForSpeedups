@@ -1,0 +1,108 @@
+spliter
+Time: Thu May 17 01:16:58 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+SSD1, 128x128, 18352
+SSD1, 128x128, 4650
+SSD2, 128x128, 2340
+SSD3, 128x128, 1614
+spliter
+Time: Thu May 17 01:17:29 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+SSD1, 128x128, 26648
+SSD1, 128x128, 4990
+SSD2, 128x128, 2232
+SSD3, 128x128, 1612
+spliter
+Time: Thu May 17 01:18:00 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+SSD1, 128x128, 16450
+SSD1, 128x128, 4866
+SSD2, 128x128, 2238
+SSD3, 128x128, 1620
+spliter
+Time: Thu May 17 01:37:43 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+SSD1, 256x256, 73290
+SSD1, 256x256, 18658
+SSD2, 256x256, 13020
+SSD3, 256x256, 7674
+spliter
+Time: Thu May 17 01:38:14 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+SSD1, 256x256, 103110
+SSD1, 256x256, 19760
+SSD2, 256x256, 13138
+SSD3, 256x256, 7434
+spliter
+Time: Thu May 17 01:38:46 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+SSD1, 256x256, 67714
+SSD1, 256x256, 17882
+SSD2, 256x256, 9810
+SSD3, 256x256, 7734
+spliter
+Time: Thu May 17 01:58:28 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+SSD1, 512x512, 293072
+SSD1, 512x512, 75638
+SSD2, 512x512, 54530
+SSD3, 512x512, 41860
+spliter
+Time: Thu May 17 01:58:59 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+SSD1, 512x512, 400620
+SSD1, 512x512, 78590
+SSD2, 512x512, 55134
+SSD3, 512x512, 41892
+spliter
+Time: Thu May 17 01:59:31 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+SSD1, 512x512, 264458
+SSD1, 512x512, 69536
+SSD2, 512x512, 56614
+SSD3, 512x512, 41668
+spliter
+Time: Thu May 17 02:19:16 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+SSD1, 1024x1024, 1174630
+SSD1, 1024x1024, 308248
+SSD2, 1024x1024, 251156
+SSD3, 1024x1024, 184648
+spliter
+Time: Thu May 17 02:19:47 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+SSD1, 1024x1024, 1583346
+SSD1, 1024x1024, 317128
+SSD2, 1024x1024, 243436
+SSD3, 1024x1024, 178018
+spliter
+Time: Thu May 17 02:20:19 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+SSD1, 1024x1024, 1052122
+SSD1, 1024x1024, 274178
+SSD2, 1024x1024, 232610
+SSD3, 1024x1024, 174812

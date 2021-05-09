@@ -1,0 +1,105 @@
+spliter
+Time: Thu May 31 03:27:28 +0430 2018
+icc
+-D _GNU_SOURCE -Ofast -xHOST
+-no-vec
+DUB4Horizontal_Filtering , 128x128, 30388
+DUB4Horizontal_Filtering , 128x128, 32060
+spliter
+Time: Thu May 31 03:27:44 +0430 2018
+gcc
+-D _GNU_SOURCE -Ofast -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+DUB4Horizontal_Filtering , 128x128, 78190
+DUB4Horizontal_Filtering , 128x128, 15240
+spliter
+Time: Thu May 31 03:28:00 +0430 2018
+clang
+-D _GNU_SOURCE -Ofast -march=native
+-fno-vectorize -fno-slp-vectorize
+DUB4Horizontal_Filtering , 128x128, 24700
+DUB4Horizontal_Filtering , 128x128, 24704
+spliter
+Time: Thu May 31 03:32:16 +0430 2018
+icc
+-D _GNU_SOURCE -Ofast -xHOST
+-no-vec
+DUB4Horizontal_Filtering , 256x256, 124922
+DUB4Horizontal_Filtering , 256x256, 32170
+spliter
+Time: Thu May 31 03:32:31 +0430 2018
+gcc
+-D _GNU_SOURCE -Ofast -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+DUB4Horizontal_Filtering , 256x256, 324104
+DUB4Horizontal_Filtering , 256x256, 63060
+spliter
+Time: Thu May 31 03:32:47 +0430 2018
+clang
+-D _GNU_SOURCE -Ofast -march=native
+-fno-vectorize -fno-slp-vectorize
+DUB4Horizontal_Filtering , 256x256, 101694
+DUB4Horizontal_Filtering , 256x256, 101046
+spliter
+Time: Thu May 31 03:37:03 +0430 2018
+icc
+-D _GNU_SOURCE -Ofast -xHOST
+-no-vec
+DUB4Horizontal_Filtering , 512x512, 493018
+DUB4Horizontal_Filtering , 512x512, 130866
+spliter
+Time: Thu May 31 03:37:19 +0430 2018
+gcc
+-D _GNU_SOURCE -Ofast -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+DUB4Horizontal_Filtering , 512x512, 1313746
+DUB4Horizontal_Filtering , 512x512, 252930
+spliter
+Time: Thu May 31 03:37:35 +0430 2018
+clang
+-D _GNU_SOURCE -Ofast -march=native
+-fno-vectorize -fno-slp-vectorize
+DUB4Horizontal_Filtering , 512x512, 401600
+DUB4Horizontal_Filtering , 512x512, 401508
+spliter
+Time: Thu May 31 03:41:50 +0430 2018
+icc
+-D _GNU_SOURCE -Ofast -xHOST
+-no-vec
+DUB4Horizontal_Filtering , 1024x1024, 2004628
+DUB4Horizontal_Filtering , 1024x1024, 948618
+spliter
+Time: Thu May 31 03:42:06 +0430 2018
+gcc
+-D _GNU_SOURCE -Ofast -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+DUB4Horizontal_Filtering , 1024x1024, 5304304
+DUB4Horizontal_Filtering , 1024x1024, 1155644
+spliter
+Time: Thu May 31 03:42:22 +0430 2018
+clang
+-D _GNU_SOURCE -Ofast -march=native
+-fno-vectorize -fno-slp-vectorize
+DUB4Horizontal_Filtering , 1024x1024, 1670792
+DUB4Horizontal_Filtering , 1024x1024, 1666588
+spliter
+Time: Sun Jun  3 04:13:27 +0430 2018
+icc
+-D _GNU_SOURCE -Ofast -xHOST
+-no-vec
+DUB4ROW, 128x128, 30388
+DUB4ROW, 128x128, 30496
+spliter
+Time: Sun Jun  3 04:13:29 +0430 2018
+gcc
+-D _GNU_SOURCE -Ofast -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+DUB4ROW, 128x128, 78510
+DUB4ROW, 128x128, 15324
+spliter
+Time: Sun Jun  3 04:13:31 +0430 2018
+clang
+-D _GNU_SOURCE -Ofast -march=native
+-fno-vectorize -fno-slp-vectorize
+DUB4ROW, 128x128, 24866
+DUB4ROW, 128x128, 24862

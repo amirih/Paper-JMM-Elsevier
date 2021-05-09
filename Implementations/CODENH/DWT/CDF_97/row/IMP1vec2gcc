@@ -1,0 +1,1285 @@
+	.file	"IMP1.c"
+	.text
+	.p2align 4,,15
+	.globl	assignToThisCore12
+	.type	assignToThisCore12, @function
+assignToThisCore12:
+.LFB5460:
+	.cfi_startproc
+	movl	%edi, %r8d
+	movl	$mask, %edx
+	movl	$16, %ecx
+	xorl	%eax, %eax
+	movq	%rdx, %rdi
+	rep stosq
+	movslq	%r8d, %rax
+	cmpq	$1023, %rax
+	ja	.L2
+	shrq	$6, %rax
+	movl	$1, %edx
+	shlx	%r8, %rdx, %r8
+	orq	%r8, mask(,%rax,8)
+.L2:
+	movslq	%esi, %rax
+	cmpq	$1023, %rax
+	ja	.L3
+	shrq	$6, %rax
+	movl	$1, %edx
+	shlx	%rsi, %rdx, %rsi
+	orq	%rsi, mask(,%rax,8)
+.L3:
+	movl	$mask, %edx
+	movl	$128, %esi
+	xorl	%edi, %edi
+	jmp	sched_setaffinity
+	.cfi_endproc
+.LFE5460:
+	.size	assignToThisCore12, .-assignToThisCore12
+	.p2align 4,,15
+	.globl	assignImagef32
+	.type	assignImagef32, @function
+assignImagef32:
+.LFB5461:
+	.cfi_startproc
+	xorl	%r8d, %r8d
+	vmovsd	.LC0(%rip), %xmm1
+	movl	$-2139062143, %r10d
+.L6:
+	xorl	%r9d, %r9d
+	movl	$1, %esi
+	.p2align 4,,10
+	.p2align 3
+.L7:
+	movl	%r8d, %eax
+	cltd
+	idivl	%esi
+	leal	(%rax,%r9), %ecx
+	movl	%ecx, %eax
+	mull	%r10d
+	shrl	$7, %edx
+	movl	%edx, %eax
+	sall	$8, %eax
+	subl	%edx, %eax
+	subl	%eax, %ecx
+	vcvtsi2sd	%ecx, %xmm0, %xmm0
+	vaddsd	%xmm1, %xmm0, %xmm0
+	vcvtsd2ss	%xmm0, %xmm2, %xmm2
+	vmovss	%xmm2, -4(%rdi,%rsi,4)
+	incq	%rsi
+	addl	%r8d, %r9d
+	cmpq	$1025, %rsi
+	jne	.L7
+	incl	%r8d
+	addq	$4096, %rdi
+	cmpl	$1024, %r8d
+	jne	.L6
+	ret
+	.cfi_endproc
+.LFE5461:
+	.size	assignImagef32, .-assignImagef32
+	.p2align 4,,15
+	.globl	assignMatrixf32
+	.type	assignMatrixf32, @function
+assignMatrixf32:
+.LFB5462:
+	.cfi_startproc
+	xorl	%r8d, %r8d
+	vmovsd	.LC0(%rip), %xmm1
+	movl	$274877907, %r10d
+.L12:
+	xorl	%r9d, %r9d
+	movl	$1, %esi
+	.p2align 4,,10
+	.p2align 3
+.L13:
+	movl	%r8d, %eax
+	cltd
+	idivl	%esi
+	leal	(%rax,%r9), %ecx
+	movl	%ecx, %eax
+	mull	%r10d
+	shrl	$6, %edx
+	imull	$1000, %edx, %edx
+	subl	%edx, %ecx
+	vcvtsi2sd	%ecx, %xmm0, %xmm0
+	vaddsd	%xmm1, %xmm0, %xmm0
+	vcvtsd2ss	%xmm0, %xmm2, %xmm2
+	vmovss	%xmm2, -4(%rdi,%rsi,4)
+	incq	%rsi
+	addl	%r8d, %r9d
+	cmpq	$1025, %rsi
+	jne	.L13
+	incl	%r8d
+	addq	$4096, %rdi
+	cmpl	$1024, %r8d
+	jne	.L12
+	ret
+	.cfi_endproc
+.LFE5462:
+	.size	assignMatrixf32, .-assignMatrixf32
+	.p2align 4,,15
+	.globl	assignImagei32
+	.type	assignImagei32, @function
+assignImagei32:
+.LFB5463:
+	.cfi_startproc
+	xorl	%r8d, %r8d
+	movl	$-2139062143, %r10d
+.L18:
+	xorl	%r9d, %r9d
+	movl	$1, %esi
+	.p2align 4,,10
+	.p2align 3
+.L19:
+	movl	%r8d, %eax
+	cltd
+	idivl	%esi
+	leal	(%rax,%r9), %ecx
+	movl	%ecx, %eax
+	mull	%r10d
+	shrl	$7, %edx
+	movl	%edx, %eax
+	sall	$8, %eax
+	subl	%edx, %eax
+	subl	%eax, %ecx
+	movl	%ecx, -4(%rdi,%rsi,4)
+	incq	%rsi
+	addl	%r8d, %r9d
+	cmpq	$1025, %rsi
+	jne	.L19
+	incl	%r8d
+	addq	$4096, %rdi
+	cmpl	$1024, %r8d
+	jne	.L18
+	ret
+	.cfi_endproc
+.LFE5463:
+	.size	assignImagei32, .-assignImagei32
+	.p2align 4,,15
+	.globl	assignMatrixi32
+	.type	assignMatrixi32, @function
+assignMatrixi32:
+.LFB5464:
+	.cfi_startproc
+	leaq	4096(%rdi), %rdx
+	xorl	%ecx, %ecx
+	vmovdqa	.LC2(%rip), %ymm8
+	vmovdqa	.LC3(%rip), %ymm4
+	vmovdqa	.LC4(%rip), %ymm7
+	vmovdqa	.LC5(%rip), %ymm6
+	vmovdqa	.LC1(%rip), %ymm9
+.L24:
+	vmovd	%ecx, %xmm5
+	vpbroadcastd	%xmm5, %ymm5
+	leaq	-4096(%rdx), %rax
+	vmovdqa	%ymm9, %ymm3
+	.p2align 4,,10
+	.p2align 3
+.L25:
+	vpmulld	%ymm5, %ymm3, %ymm2
+	vpsrlq	$32, %ymm2, %ymm1
+	vpmuldq	%ymm4, %ymm2, %ymm0
+	vpmuldq	%ymm4, %ymm1, %ymm1
+	vpshufb	%ymm7, %ymm0, %ymm0
+	vpshufb	%ymm6, %ymm1, %ymm1
+	vpor	%ymm1, %ymm0, %ymm0
+	vpsrad	$6, %ymm0, %ymm1
+	vpslld	$5, %ymm1, %ymm0
+	vpsubd	%ymm1, %ymm0, %ymm0
+	vpslld	$2, %ymm0, %ymm0
+	vpaddd	%ymm1, %ymm0, %ymm0
+	vpslld	$3, %ymm0, %ymm0
+	vpsubd	%ymm0, %ymm2, %ymm0
+	vmovdqu	%ymm0, (%rax)
+	addq	$32, %rax
+	vpaddd	%ymm8, %ymm3, %ymm3
+	cmpq	%rax, %rdx
+	jne	.L25
+	incl	%ecx
+	addq	$4096, %rdx
+	cmpl	$1024, %ecx
+	jne	.L24
+	vzeroupper
+	ret
+	.cfi_endproc
+.LFE5464:
+	.size	assignMatrixi32, .-assignMatrixi32
+	.p2align 4,,15
+	.globl	assignMatrixi16
+	.type	assignMatrixi16, @function
+assignMatrixi16:
+.LFB5465:
+	.cfi_startproc
+	pushq	%r14
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
+	pushq	%r13
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
+	pushq	%rbp
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	pushq	%rbx
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	leaq	2048(%rdi), %rbx
+	xorl	%ebp, %ebp
+	movl	$558694933, %r12d
+.L30:
+	leaq	-2048(%rbx), %r14
+	xorl	%r13d, %r13d
+	.p2align 4,,10
+	.p2align 3
+.L31:
+	call	rand
+	movl	%eax, %ecx
+	movl	%r13d, %edx
+	shrl	%edx
+	movl	%edx, %eax
+	mull	%r12d
+	shrl	$4, %edx
+	imull	$246, %edx, %edx
+	movl	%r13d, %esi
+	subl	%edx, %esi
+	movl	$1717986919, %edx
+	movl	%ecx, %eax
+	imull	%edx
+	sarl	$2, %edx
+	movl	%ecx, %eax
+	sarl	$31, %eax
+	subl	%eax, %edx
+	leal	(%rdx,%rdx,4), %eax
+	addl	%eax, %eax
+	subl	%eax, %ecx
+	addl	%esi, %ecx
+	movw	%cx, (%r14)
+	addl	%ebp, %r13d
+	addq	$2, %r14
+	cmpq	%r14, %rbx
+	jne	.L31
+	incl	%ebp
+	addq	$2048, %rbx
+	cmpl	$1024, %ebp
+	jne	.L30
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5465:
+	.size	assignMatrixi16, .-assignMatrixi16
+	.p2align 4,,15
+	.globl	assignImagei16
+	.type	assignImagei16, @function
+assignImagei16:
+.LFB5484:
+	.cfi_startproc
+	pushq	%r14
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
+	pushq	%r13
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
+	pushq	%rbp
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	pushq	%rbx
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	leaq	2048(%rdi), %rbx
+	xorl	%ebp, %ebp
+	movl	$558694933, %r12d
+.L37:
+	leaq	-2048(%rbx), %r14
+	xorl	%r13d, %r13d
+	.p2align 4,,10
+	.p2align 3
+.L38:
+	call	rand
+	movl	%eax, %ecx
+	movl	%r13d, %edx
+	shrl	%edx
+	movl	%edx, %eax
+	mull	%r12d
+	shrl	$4, %edx
+	imull	$246, %edx, %edx
+	movl	%r13d, %esi
+	subl	%edx, %esi
+	movl	$1717986919, %edx
+	movl	%ecx, %eax
+	imull	%edx
+	sarl	$2, %edx
+	movl	%ecx, %eax
+	sarl	$31, %eax
+	subl	%eax, %edx
+	leal	(%rdx,%rdx,4), %eax
+	addl	%eax, %eax
+	subl	%eax, %ecx
+	addl	%esi, %ecx
+	movw	%cx, (%r14)
+	addl	%ebp, %r13d
+	addq	$2, %r14
+	cmpq	%r14, %rbx
+	jne	.L38
+	incl	%ebp
+	addq	$2048, %rbx
+	cmpl	$1024, %ebp
+	jne	.L37
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5484:
+	.size	assignImagei16, .-assignImagei16
+	.p2align 4,,15
+	.globl	assignMatrixui16
+	.type	assignMatrixui16, @function
+assignMatrixui16:
+.LFB5467:
+	.cfi_startproc
+	leaq	2048(%rdi), %rdx
+	xorl	%ecx, %ecx
+	vmovdqa	.LC6(%rip), %ymm8
+	vmovdqa	.LC7(%rip), %ymm6
+	vmovdqa	.LC8(%rip), %ymm5
+	vmovdqa	.LC2(%rip), %ymm7
+	vmovdqa	.LC9(%rip), %ymm4
+	vmovdqa	.LC1(%rip), %ymm9
+.L44:
+	vmovd	%ecx, %xmm3
+	vpbroadcastd	%xmm3, %ymm3
+	leaq	-2048(%rdx), %rax
+	vmovdqa	%ymm9, %ymm2
+	.p2align 4,,10
+	.p2align 3
+.L45:
+	vpaddd	%ymm2, %ymm3, %ymm0
+	vpaddd	%ymm6, %ymm0, %ymm0
+	vpand	%ymm5, %ymm0, %ymm0
+	vpaddd	%ymm7, %ymm2, %ymm1
+	vpaddd	%ymm3, %ymm1, %ymm1
+	vpaddd	%ymm6, %ymm1, %ymm1
+	vpand	%ymm5, %ymm1, %ymm1
+	vpand	%ymm0, %ymm4, %ymm0
+	vpand	%ymm1, %ymm4, %ymm1
+	vpackusdw	%ymm1, %ymm0, %ymm0
+	vpermq	$216, %ymm0, %ymm0
+	vmovdqu	%ymm0, (%rax)
+	addq	$32, %rax
+	vpaddd	%ymm8, %ymm2, %ymm2
+	cmpq	%rax, %rdx
+	jne	.L45
+	incl	%ecx
+	addq	$2048, %rdx
+	cmpl	$1024, %ecx
+	jne	.L44
+	vzeroupper
+	ret
+	.cfi_endproc
+.LFE5467:
+	.size	assignMatrixui16, .-assignMatrixui16
+	.p2align 4,,15
+	.globl	assignMatrixi8
+	.type	assignMatrixi8, @function
+assignMatrixi8:
+.LFB5468:
+	.cfi_startproc
+	pushq	%r13
+	.cfi_def_cfa_offset 16
+	.cfi_offset 13, -16
+	pushq	%r12
+	.cfi_def_cfa_offset 24
+	.cfi_offset 12, -24
+	pushq	%rbp
+	.cfi_def_cfa_offset 32
+	.cfi_offset 6, -32
+	pushq	%rbx
+	.cfi_def_cfa_offset 40
+	.cfi_offset 3, -40
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 48
+	leaq	1024(%rdi), %rbp
+	xorl	%ebx, %ebx
+.L50:
+	leaq	-1024(%rbp), %r12
+	xorl	%r13d, %r13d
+	.p2align 4,,10
+	.p2align 3
+.L51:
+	call	rand
+	movzbl	%r13b, %edx
+	movl	%eax, %ecx
+	shrl	$31, %ecx
+	addl	%ecx, %eax
+	andl	$1, %eax
+	subl	%ecx, %eax
+	addl	%edx, %eax
+	cltd
+	shrl	$24, %edx
+	addl	%edx, %eax
+	movzbl	%al, %eax
+	subl	%edx, %eax
+	movb	%al, (%r12)
+	addl	%ebx, %r13d
+	incq	%r12
+	cmpq	%rbp, %r12
+	jne	.L51
+	incl	%ebx
+	leaq	1024(%r12), %rbp
+	cmpl	$1024, %ebx
+	jne	.L50
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r13
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5468:
+	.size	assignMatrixi8, .-assignMatrixi8
+	.p2align 4,,15
+	.globl	assignArrayi32
+	.type	assignArrayi32, @function
+assignArrayi32:
+.LFB5469:
+	.cfi_startproc
+	leaq	4194304(%rdi), %rax
+	vmovdqa	.LC10(%rip), %ymm4
+	vmovdqa	.LC1(%rip), %ymm3
+	vmovdqa	.LC2(%rip), %ymm6
+	vmovdqa	.LC3(%rip), %ymm5
+	vmovdqa	.LC4(%rip), %ymm8
+	vmovdqa	.LC5(%rip), %ymm7
+	.p2align 4,,10
+	.p2align 3
+.L57:
+	vpmulld	%ymm3, %ymm4, %ymm2
+	vpsrlq	$32, %ymm2, %ymm1
+	vpmuldq	%ymm5, %ymm2, %ymm0
+	vpmuldq	%ymm5, %ymm1, %ymm1
+	vpshufb	%ymm8, %ymm0, %ymm0
+	vpshufb	%ymm7, %ymm1, %ymm1
+	vpor	%ymm1, %ymm0, %ymm0
+	vpsrad	$6, %ymm0, %ymm1
+	vpslld	$5, %ymm1, %ymm0
+	vpsubd	%ymm1, %ymm0, %ymm0
+	vpslld	$2, %ymm0, %ymm0
+	vpaddd	%ymm1, %ymm0, %ymm0
+	vpslld	$3, %ymm0, %ymm0
+	vpsubd	%ymm0, %ymm2, %ymm0
+	vmovdqu	%ymm0, (%rdi)
+	addq	$32, %rdi
+	vpaddd	%ymm6, %ymm3, %ymm3
+	vpaddd	%ymm6, %ymm4, %ymm4
+	cmpq	%rdi, %rax
+	jne	.L57
+	vzeroupper
+	ret
+	.cfi_endproc
+.LFE5469:
+	.size	assignArrayi32, .-assignArrayi32
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC11:
+	.string	"CDF97ROW "
+	.section	.rodata.str1.8,"aMS",@progbits,1
+	.align 8
+.LC12:
+	.string	"\nthe best is %lld in %lldth iteration and %lld repetitions\n"
+	.section	.rodata.str1.1
+.LC13:
+	.string	"a"
+.LC14:
+	.string	"fileForSpeedups"
+.LC15:
+	.string	"%s, %dx%d, %lld\n"
+.LC16:
+	.string	"output = %f\n"
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB5482:
+	.cfi_startproc
+	leaq	8(%rsp), %r10
+	.cfi_def_cfa 10, 0
+	andq	$-32, %rsp
+	pushq	-8(%r10)
+	pushq	%rbp
+	.cfi_escape 0x10,0x6,0x2,0x76,0
+	movq	%rsp, %rbp
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%r10
+	.cfi_escape 0xf,0x3,0x76,0x58,0x6
+	.cfi_escape 0x10,0xf,0x2,0x76,0x78
+	.cfi_escape 0x10,0xe,0x2,0x76,0x70
+	.cfi_escape 0x10,0xd,0x2,0x76,0x68
+	.cfi_escape 0x10,0xc,0x2,0x76,0x60
+	pushq	%rbx
+	subq	$224, %rsp
+	.cfi_escape 0x10,0x3,0x2,0x76,0x50
+	movl	$3, %esi
+	movl	$2, %edi
+	call	assignToThisCore12
+	movq	$.LC11, programName(%rip)
+	movl	$512, half_row(%rip)
+	movl	$512, half_col(%rip)
+	movl	$in_image, %r9d
+	xorl	%edi, %edi
+	vmovsd	.LC0(%rip), %xmm1
+	movl	$-2139062143, %r10d
+.L60:
+	xorl	%r8d, %r8d
+	movl	$1, %esi
+	.p2align 4,,10
+	.p2align 3
+.L61:
+	movl	%edi, %eax
+	cltd
+	idivl	%esi
+	leal	(%rax,%r8), %ecx
+	movl	%ecx, %eax
+	mull	%r10d
+	shrl	$7, %edx
+	movl	%edx, %eax
+	sall	$8, %eax
+	subl	%edx, %eax
+	subl	%eax, %ecx
+	vcvtsi2sd	%ecx, %xmm0, %xmm0
+	vaddsd	%xmm1, %xmm0, %xmm0
+	vcvtsd2ss	%xmm0, %xmm7, %xmm7
+	vmovss	%xmm7, -4(%r9,%rsi,4)
+	incq	%rsi
+	addl	%edi, %r8d
+	cmpq	$1025, %rsi
+	jne	.L61
+	incl	%edi
+	addq	$4096, %r9
+	cmpl	$1024, %edi
+	jne	.L60
+	movq	$9999999, elapsed_rdtsc(%rip)
+	movabsq	$19999999999, %rax
+	movq	%rax, overal_time(%rip)
+	movq	$0, ttime(%rip)
+.L71:
+#APP
+# 27 "IMP1.c" 1
+	#mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm1
+# 0 "" 2
+#NO_APP
+	rdtsc
+	salq	$32, %rdx
+	orq	%rdx, %rax
+	movq	%rax, t1_rdtsc(%rip)
+	vmovss	low+16(%rip), %xmm3
+	vmovss	%xmm3, -212(%rbp)
+	vmovss	low+12(%rip), %xmm5
+	vmovss	%xmm5, -216(%rbp)
+	vmovss	low+8(%rip), %xmm4
+	vmovss	%xmm4, -244(%rbp)
+	vmovss	low+4(%rip), %xmm6
+	vmovss	%xmm6, -240(%rbp)
+	vmovss	low(%rip), %xmm2
+	vmovss	%xmm2, -220(%rbp)
+	vmovss	high+8(%rip), %xmm7
+	vmovss	%xmm7, -224(%rbp)
+	vmovss	high+4(%rip), %xmm1
+	vmovss	%xmm1, -228(%rbp)
+	vmovss	high(%rip), %xmm0
+	vmovss	%xmm0, -232(%rbp)
+	vmovss	high+12(%rip), %xmm9
+	vmovss	%xmm9, -236(%rbp)
+	movslq	half_col(%rip), %rdx
+	movq	%rdx, %rax
+	leal	7(%rdx), %ebx
+	movl	%ebx, -248(%rbp)
+	leaq	ou_image(,%rdx,4), %r15
+	leal	504(%rdx), %r14d
+	movslq	%r14d, %r14
+	salq	$2, %r14
+	leal	505(%rdx), %r13d
+	movslq	%r13d, %r13
+	salq	$2, %r13
+	leal	506(%rdx), %edx
+	movslq	%edx, %rdx
+	leaq	0(,%rdx,4), %rbx
+	movq	%rbx, -256(%rbp)
+	leal	507(%rax), %r12d
+	movslq	%r12d, %r12
+	salq	$2, %r12
+	movl	$in_image, %edx
+	xorl	%ecx, %ecx
+	xorl	%ebx, %ebx
+	vbroadcastss	%xmm2, %ymm13
+	vbroadcastss	%xmm6, %ymm12
+	vbroadcastss	%xmm4, %ymm11
+	vbroadcastss	%xmm5, %ymm10
+	vbroadcastss	%xmm3, %ymm3
+	vmovaps	%ymm3, -80(%rbp)
+	vbroadcastss	%xmm7, %ymm3
+	vmovaps	%ymm3, -112(%rbp)
+	vbroadcastss	%xmm1, %ymm3
+	vmovaps	%ymm3, -144(%rbp)
+	vbroadcastss	%xmm0, %ymm3
+	vmovaps	%ymm3, -176(%rbp)
+	vbroadcastss	%xmm9, %ymm3
+	vmovaps	%ymm3, -208(%rbp)
+.L67:
+	cmpl	$14, -248(%rbp)
+	jbe	.L63
+	leaq	8(%rdx), %r8
+	leaq	16(%rdx), %rdi
+	leaq	24(%rdx), %rsi
+	leaq	32(%rdx), %r11
+	leaq	ou_image(%rcx), %r10
+	leaq	(%rcx,%r15), %r9
+	vmovups	(%rdx), %ymm2
+	xorl	%eax, %eax
+	.p2align 4,,10
+	.p2align 3
+.L64:
+	vmovups	32(%rdx,%rax,2), %ymm4
+	vshufps	$136, %ymm4, %ymm2, %ymm1
+	vperm2f128	$3, %ymm1, %ymm1, %ymm0
+	vshufps	$68, %ymm0, %ymm1, %ymm9
+	vshufps	$238, %ymm0, %ymm1, %ymm0
+	vinsertf128	$1, %xmm0, %ymm9, %ymm9
+	vshufps	$221, %ymm4, %ymm2, %ymm2
+	vperm2f128	$3, %ymm2, %ymm2, %ymm0
+	vshufps	$68, %ymm0, %ymm2, %ymm8
+	vshufps	$238, %ymm0, %ymm2, %ymm0
+	vinsertf128	$1, %xmm0, %ymm8, %ymm8
+	vmovups	(%r8,%rax,2), %ymm0
+	vmovups	32(%r8,%rax,2), %ymm5
+	vshufps	$136, %ymm5, %ymm0, %ymm2
+	vperm2f128	$3, %ymm2, %ymm2, %ymm1
+	vshufps	$68, %ymm1, %ymm2, %ymm7
+	vshufps	$238, %ymm1, %ymm2, %ymm1
+	vinsertf128	$1, %xmm1, %ymm7, %ymm7
+	vshufps	$221, %ymm5, %ymm0, %ymm0
+	vperm2f128	$3, %ymm0, %ymm0, %ymm1
+	vshufps	$68, %ymm1, %ymm0, %ymm5
+	vshufps	$238, %ymm1, %ymm0, %ymm1
+	vinsertf128	$1, %xmm1, %ymm5, %ymm5
+	vmovups	(%rdi,%rax,2), %ymm0
+	vmovups	32(%rdi,%rax,2), %ymm6
+	vshufps	$136, %ymm6, %ymm0, %ymm2
+	vperm2f128	$3, %ymm2, %ymm2, %ymm1
+	vshufps	$68, %ymm1, %ymm2, %ymm3
+	vshufps	$238, %ymm1, %ymm2, %ymm1
+	vinsertf128	$1, %xmm1, %ymm3, %ymm3
+	vshufps	$221, %ymm6, %ymm0, %ymm6
+	vperm2f128	$3, %ymm6, %ymm6, %ymm0
+	vshufps	$68, %ymm0, %ymm6, %ymm1
+	vshufps	$238, %ymm0, %ymm6, %ymm0
+	vinsertf128	$1, %xmm0, %ymm1, %ymm0
+	vmovups	(%rsi,%rax,2), %ymm14
+	vmovups	32(%rsi,%rax,2), %ymm15
+	vshufps	$136, %ymm15, %ymm14, %ymm2
+	vperm2f128	$3, %ymm2, %ymm2, %ymm1
+	vshufps	$68, %ymm1, %ymm2, %ymm6
+	vshufps	$238, %ymm1, %ymm2, %ymm1
+	vinsertf128	$1, %xmm1, %ymm6, %ymm6
+	vmovups	32(%r11,%rax,2), %ymm2
+	vshufps	$221, %ymm15, %ymm14, %ymm14
+	vperm2f128	$3, %ymm14, %ymm14, %ymm15
+	vshufps	$68, %ymm15, %ymm14, %ymm1
+	vshufps	$238, %ymm15, %ymm14, %ymm15
+	vinsertf128	$1, %xmm15, %ymm1, %ymm1
+	vaddps	%ymm8, %ymm1, %ymm1
+	vmulps	%ymm10, %ymm1, %ymm1
+	vfmadd231ps	%ymm3, %ymm13, %ymm1
+	vaddps	%ymm7, %ymm6, %ymm15
+	vmulps	%ymm11, %ymm15, %ymm15
+	vaddps	%ymm5, %ymm0, %ymm14
+	vfmadd132ps	%ymm12, %ymm15, %ymm14
+	vaddps	%ymm14, %ymm1, %ymm1
+	vshufps	$136, %ymm2, %ymm4, %ymm4
+	vperm2f128	$3, %ymm4, %ymm4, %ymm15
+	vshufps	$68, %ymm15, %ymm4, %ymm14
+	vshufps	$238, %ymm15, %ymm4, %ymm15
+	vinsertf128	$1, %xmm15, %ymm14, %ymm14
+	vaddps	%ymm9, %ymm14, %ymm14
+	vfmadd231ps	-80(%rbp), %ymm14, %ymm1
+	vmovups	%ymm1, (%r10,%rax)
+	vaddps	%ymm9, %ymm6, %ymm6
+	vaddps	%ymm8, %ymm0, %ymm0
+	vmulps	-144(%rbp), %ymm0, %ymm0
+	vfmadd132ps	-112(%rbp), %ymm0, %ymm6
+	vmulps	-208(%rbp), %ymm5, %ymm5
+	vaddps	%ymm7, %ymm3, %ymm3
+	vfmadd132ps	-176(%rbp), %ymm5, %ymm3
+	vaddps	%ymm3, %ymm6, %ymm6
+	vmovups	%ymm6, (%r9,%rax)
+	addq	$32, %rax
+	cmpq	$2016, %rax
+	jne	.L64
+	vmovss	4036(%rdx), %xmm14
+	vmovss	4044(%rdx), %xmm6
+	vmovss	4052(%rdx), %xmm4
+	vmovss	4040(%rdx), %xmm5
+	vmovss	4048(%rdx), %xmm1
+	vmovss	4056(%rdx), %xmm0
+	vmovss	4032(%rdx), %xmm7
+	vmovss	4060(%rdx), %xmm3
+	vmovss	4064(%rdx), %xmm2
+	vaddss	%xmm0, %xmm5, %xmm8
+	vmovss	-244(%rbp), %xmm15
+	vmulss	%xmm15, %xmm8, %xmm8
+	vaddss	%xmm4, %xmm6, %xmm9
+	vfmadd132ss	-240(%rbp), %xmm8, %xmm9
+	vaddss	%xmm7, %xmm2, %xmm8
+	vmulss	-212(%rbp), %xmm8, %xmm8
+	vfmadd231ss	-220(%rbp), %xmm1, %xmm8
+	vaddss	%xmm8, %xmm9, %xmm8
+	vaddss	%xmm14, %xmm3, %xmm9
+	vfmadd231ss	-216(%rbp), %xmm9, %xmm8
+	vmovss	%xmm8, ou_image+2016(%rcx)
+	vaddss	%xmm4, %xmm14, %xmm8
+	vmulss	-228(%rbp), %xmm8, %xmm8
+	vaddss	%xmm0, %xmm7, %xmm7
+	vfmadd132ss	-224(%rbp), %xmm8, %xmm7
+	vmulss	-236(%rbp), %xmm6, %xmm9
+	vaddss	%xmm1, %xmm5, %xmm8
+	vfmadd132ss	-232(%rbp), %xmm9, %xmm8
+	vaddss	%xmm8, %xmm7, %xmm8
+	vmovss	%xmm8, ou_image(%r14,%rcx)
+	vmovss	4068(%rdx), %xmm7
+	vmovss	4072(%rdx), %xmm9
+	vaddss	%xmm1, %xmm2, %xmm8
+	vmulss	%xmm15, %xmm8, %xmm8
+	vaddss	%xmm4, %xmm3, %xmm14
+	vfmadd132ss	-240(%rbp), %xmm8, %xmm14
+	vaddss	%xmm9, %xmm5, %xmm8
+	vmulss	-212(%rbp), %xmm8, %xmm8
+	vfmadd231ss	-220(%rbp), %xmm0, %xmm8
+	vaddss	%xmm8, %xmm14, %xmm8
+	vaddss	%xmm7, %xmm6, %xmm14
+	vfmadd231ss	-216(%rbp), %xmm14, %xmm8
+	vmovss	%xmm8, ou_image+2020(%rcx)
+	vaddss	%xmm6, %xmm3, %xmm6
+	vmulss	-228(%rbp), %xmm6, %xmm6
+	vaddss	%xmm5, %xmm2, %xmm5
+	vfmadd132ss	-224(%rbp), %xmm6, %xmm5
+	vmulss	-236(%rbp), %xmm4, %xmm8
+	vaddss	%xmm0, %xmm1, %xmm6
+	vfmadd132ss	-232(%rbp), %xmm8, %xmm6
+	vaddss	%xmm6, %xmm5, %xmm6
+	vmovss	%xmm6, ou_image(%r13,%rcx)
+	vaddss	4076(%rdx), %xmm4, %xmm6
+	vmulss	-216(%rbp), %xmm6, %xmm6
+	vfmadd231ss	-220(%rbp), %xmm2, %xmm6
+	vaddss	%xmm9, %xmm0, %xmm8
+	vmulss	%xmm15, %xmm8, %xmm8
+	vaddss	%xmm7, %xmm3, %xmm5
+	vmovss	-240(%rbp), %xmm14
+	vfmadd132ss	%xmm14, %xmm8, %xmm5
+	vaddss	%xmm5, %xmm6, %xmm6
+	vaddss	4080(%rdx), %xmm1, %xmm5
+	vfmadd231ss	-212(%rbp), %xmm5, %xmm6
+	vmovss	%xmm6, ou_image+2024(%rcx)
+	vaddss	%xmm7, %xmm4, %xmm4
+	vmulss	-228(%rbp), %xmm4, %xmm4
+	vaddss	%xmm1, %xmm9, %xmm1
+	vfmadd132ss	-224(%rbp), %xmm4, %xmm1
+	vmulss	-236(%rbp), %xmm3, %xmm5
+	vaddss	%xmm0, %xmm2, %xmm4
+	vfmadd132ss	-232(%rbp), %xmm5, %xmm4
+	vaddss	%xmm4, %xmm1, %xmm4
+	movq	-256(%rbp), %rax
+	vmovss	%xmm4, ou_image(%rax,%rcx)
+	vmovss	4076(%rdx), %xmm8
+	vmovss	4080(%rdx), %xmm6
+	vaddss	4088(%rdx), %xmm0, %xmm1
+	vmulss	-212(%rbp), %xmm1, %xmm1
+	vaddss	4084(%rdx), %xmm3, %xmm4
+	vfmadd231ss	-216(%rbp), %xmm4, %xmm1
+	vaddss	%xmm6, %xmm2, %xmm5
+	vmulss	%xmm15, %xmm5, %xmm5
+	vaddss	%xmm8, %xmm7, %xmm4
+	vfmadd132ss	%xmm14, %xmm5, %xmm4
+	vaddss	%xmm4, %xmm1, %xmm1
+	vfmadd231ss	-220(%rbp), %xmm9, %xmm1
+	vmovss	%xmm1, ou_image+2028(%rcx)
+	vaddss	%xmm8, %xmm3, %xmm1
+	vmulss	-228(%rbp), %xmm1, %xmm1
+	vaddss	%xmm6, %xmm0, %xmm0
+	vfmadd132ss	-224(%rbp), %xmm1, %xmm0
+	vmulss	-236(%rbp), %xmm7, %xmm7
+	vaddss	%xmm9, %xmm2, %xmm2
+	vfmadd132ss	-232(%rbp), %xmm7, %xmm2
+	vaddss	%xmm2, %xmm0, %xmm0
+	vmovss	%xmm0, ou_image(%r12,%rcx)
+.L65:
+	incl	%ebx
+	addq	$4096, %rdx
+	addq	$4096, %rcx
+	cmpl	$1024, %ebx
+	jne	.L67
+	movl	$508, j(%rip)
+	movl	$1020, jj(%rip)
+	movl	$1024, i(%rip)
+	rdtsc
+	salq	$32, %rdx
+	orq	%rdx, %rax
+	movq	%rax, t2_rdtsc(%rip)
+#APP
+# 44 "IMP1.c" 1
+	#mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm2
+# 0 "" 2
+#NO_APP
+	movq	t2_rdtsc(%rip), %rax
+	subq	t1_rdtsc(%rip), %rax
+	movq	%rax, ttotal_rdtsc(%rip)
+	movq	ttbest_rdtsc(%rip), %rsi
+	movq	elapsed_rdtsc(%rip), %rdx
+	cmpq	%rsi, %rax
+	jge	.L69
+	movq	%rax, ttbest_rdtsc(%rip)
+	movq	elapsed_rdtsc(%rip), %rdx
+	movl	$9999999, %ecx
+	subq	%rdx, %rcx
+	movq	%rcx, elapsed(%rip)
+	movq	%rax, %rsi
+.L69:
+	addq	ttime(%rip), %rax
+	movq	%rax, ttime(%rip)
+	leaq	-1(%rdx), %rdi
+	movq	%rdi, elapsed_rdtsc(%rip)
+	testq	%rdx, %rdx
+	je	.L72
+	cmpq	overal_time(%rip), %rax
+	jl	.L71
+.L70:
+	movl	$9999999, %ecx
+	subq	%rdi, %rcx
+	movq	elapsed(%rip), %rdx
+	movl	$.LC12, %edi
+	xorl	%eax, %eax
+	vzeroupper
+	call	printf
+	movl	$.LC13, %esi
+	movl	$.LC14, %edi
+	call	fopen
+	movq	%rax, fileForSpeedups(%rip)
+	movq	ttbest_rdtsc(%rip), %r9
+	movl	$1024, %r8d
+	movl	$1024, %ecx
+	movq	programName(%rip), %rdx
+	movl	$.LC15, %esi
+	movq	%rax, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	vcvtss2sd	in_image+2099200(%rip), %xmm0, %xmm0
+	movl	$.LC16, %edi
+	movb	$1, %al
+	call	printf
+	xorl	%eax, %eax
+	addq	$224, %rsp
+	popq	%rbx
+	popq	%r10
+	.cfi_remember_state
+	.cfi_def_cfa 10, 0
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	leaq	-8(%r10), %rsp
+	.cfi_def_cfa 7, 8
+	ret
+.L63:
+	.cfi_restore_state
+	vmovss	4(%rdx), %xmm6
+	vmovss	12(%rdx), %xmm7
+	vmovss	20(%rdx), %xmm15
+	vmovss	8(%rdx), %xmm8
+	vmovss	16(%rdx), %xmm9
+	vmovss	24(%rdx), %xmm14
+	leaq	in_image(%rcx), %rax
+	leaq	ou_image(%rcx), %r8
+	leaq	(%rcx,%r15), %rdi
+	xorl	%r9d, %r9d
+	movl	$4, %esi
+.L66:
+	vmovss	(%rax), %xmm0
+	vaddss	%xmm9, %xmm8, %xmm3
+	vaddss	%xmm14, %xmm8, %xmm1
+	vmulss	-244(%rbp), %xmm1, %xmm1
+	vaddss	%xmm15, %xmm7, %xmm4
+	vfmadd132ss	-240(%rbp), %xmm1, %xmm4
+	vmovss	28(%rax), %xmm2
+	vmovss	32(%rax), %xmm8
+	vaddss	%xmm0, %xmm8, %xmm5
+	vmulss	-212(%rbp), %xmm5, %xmm5
+	vaddss	%xmm6, %xmm2, %xmm1
+	vfmadd132ss	-216(%rbp), %xmm5, %xmm1
+	vaddss	%xmm4, %xmm1, %xmm1
+	vfmadd231ss	-220(%rbp), %xmm9, %xmm1
+	vmovss	%xmm1, (%r8)
+	vmulss	-236(%rbp), %xmm7, %xmm1
+	vaddss	%xmm14, %xmm0, %xmm0
+	vfmadd132ss	-224(%rbp), %xmm1, %xmm0
+	vmulss	-232(%rbp), %xmm3, %xmm3
+	vaddss	%xmm15, %xmm6, %xmm6
+	vfmadd231ss	-228(%rbp), %xmm6, %xmm3
+	vaddss	%xmm3, %xmm0, %xmm0
+	vmovss	%xmm0, (%rdi)
+	vmovss	8(%rax), %xmm0
+	vaddss	%xmm14, %xmm9, %xmm4
+	vaddss	%xmm9, %xmm8, %xmm1
+	vmulss	-244(%rbp), %xmm1, %xmm1
+	vaddss	%xmm15, %xmm2, %xmm5
+	vfmadd132ss	-240(%rbp), %xmm1, %xmm5
+	vmovss	36(%rax), %xmm3
+	vmovss	40(%rax), %xmm9
+	vaddss	%xmm9, %xmm0, %xmm6
+	vmulss	-212(%rbp), %xmm6, %xmm6
+	vaddss	%xmm3, %xmm7, %xmm1
+	vfmadd132ss	-216(%rbp), %xmm6, %xmm1
+	vaddss	%xmm5, %xmm1, %xmm1
+	vfmadd231ss	-220(%rbp), %xmm14, %xmm1
+	vmovss	%xmm1, 4(%r8)
+	vaddss	%xmm7, %xmm2, %xmm1
+	vmulss	-228(%rbp), %xmm1, %xmm1
+	vaddss	%xmm0, %xmm8, %xmm0
+	vfmadd132ss	-224(%rbp), %xmm1, %xmm0
+	vmulss	-236(%rbp), %xmm15, %xmm1
+	vfmadd231ss	-232(%rbp), %xmm4, %xmm1
+	vaddss	%xmm1, %xmm0, %xmm1
+	vmovss	%xmm1, 4(%rdi)
+	vmovss	16(%rax), %xmm0
+	vaddss	%xmm14, %xmm8, %xmm4
+	addl	$6, %esi
+	vaddss	%xmm9, %xmm14, %xmm1
+	vmulss	-244(%rbp), %xmm1, %xmm1
+	vaddss	%xmm3, %xmm2, %xmm6
+	vfmadd132ss	-240(%rbp), %xmm1, %xmm6
+	vmovss	44(%rax), %xmm5
+	vmovss	48(%rax), %xmm14
+	vaddss	%xmm14, %xmm0, %xmm7
+	vmulss	-212(%rbp), %xmm7, %xmm7
+	vaddss	%xmm5, %xmm15, %xmm1
+	vfmadd132ss	-216(%rbp), %xmm7, %xmm1
+	vaddss	%xmm6, %xmm1, %xmm1
+	vfmadd231ss	-220(%rbp), %xmm8, %xmm1
+	vmovss	%xmm1, 8(%r8)
+	vaddss	%xmm3, %xmm15, %xmm1
+	vmulss	-228(%rbp), %xmm1, %xmm1
+	vaddss	%xmm0, %xmm9, %xmm0
+	vfmadd132ss	-224(%rbp), %xmm1, %xmm0
+	vmulss	-236(%rbp), %xmm2, %xmm1
+	vfmadd231ss	-232(%rbp), %xmm4, %xmm1
+	vaddss	%xmm1, %xmm0, %xmm1
+	vmovss	%xmm1, 8(%rdi)
+	addq	$24, %rax
+	addq	$12, %r8
+	addq	$12, %rdi
+	addl	$3, %r9d
+	vmovss	%xmm2, %xmm6, %xmm6
+	vmovss	%xmm3, %xmm7, %xmm7
+	vmovss	%xmm5, %xmm15, %xmm15
+	cmpl	$507, %r9d
+	jne	.L66
+	vmovss	4056(%rdx), %xmm5
+	vmovss	4060(%rdx), %xmm4
+	vmovss	4064(%rdx), %xmm9
+	vmovss	4068(%rdx), %xmm8
+	movslq	%esi, %rsi
+	movslq	%ebx, %rax
+	movq	%rax, %rdi
+	salq	$10, %rdi
+	addq	%rdi, %rsi
+	vmovss	in_image(,%rsi,4), %xmm3
+	vmovss	4076(%rdx), %xmm6
+	vmovss	4080(%rdx), %xmm7
+	salq	$12, %rax
+	vaddss	4088(%rdx), %xmm5, %xmm0
+	vmulss	-212(%rbp), %xmm0, %xmm0
+	vaddss	4084(%rdx), %xmm4, %xmm1
+	vfmadd231ss	-216(%rbp), %xmm1, %xmm0
+	vaddss	%xmm9, %xmm7, %xmm2
+	vmulss	-244(%rbp), %xmm2, %xmm2
+	vaddss	%xmm8, %xmm6, %xmm1
+	vfmadd132ss	-240(%rbp), %xmm2, %xmm1
+	vaddss	%xmm1, %xmm0, %xmm0
+	vfmadd231ss	-220(%rbp), %xmm3, %xmm0
+	vmovss	%xmm0, ou_image+2028(%rax)
+	vaddss	%xmm4, %xmm6, %xmm0
+	vmulss	-228(%rbp), %xmm0, %xmm0
+	vaddss	%xmm5, %xmm7, %xmm1
+	vfmadd231ss	-224(%rbp), %xmm1, %xmm0
+	vmulss	-236(%rbp), %xmm8, %xmm2
+	vaddss	%xmm9, %xmm3, %xmm1
+	vfmadd132ss	-232(%rbp), %xmm2, %xmm1
+	vaddss	%xmm1, %xmm0, %xmm1
+	vmovss	%xmm1, ou_image(%r12,%rcx)
+	jmp	.L65
+.L72:
+	orq	$-1, %rdi
+	jmp	.L70
+	.cfi_endproc
+.LFE5482:
+	.size	main, .-main
+	.globl	high
+	.data
+	.align 16
+	.type	high, @object
+	.size	high, 16
+high:
+	.long	3205979542
+	.long	3177951939
+	.long	1035660465
+	.long	1066318636
+	.globl	low
+	.align 16
+	.type	low, @object
+	.size	low, 20
+low:
+	.long	1058691821
+	.long	1049141866
+	.long	3181392773
+	.long	3163170463
+	.long	1020993590
+	.comm	ou_image,4227072,32
+	.comm	in_image,4227072,32
+	.comm	half_col,4,4
+	.comm	half_row,4,4
+	.comm	jj,4,4
+	.comm	j,4,4
+	.comm	i,4,4
+	.comm	temp2i16,32,32
+	.comm	mask,128,32
+	.globl	ttime
+	.bss
+	.align 8
+	.type	ttime, @object
+	.size	ttime, 8
+ttime:
+	.zero	8
+	.globl	overal_time
+	.data
+	.align 8
+	.type	overal_time, @object
+	.size	overal_time, 8
+overal_time:
+	.quad	19999999999
+	.globl	elapsed_rdtsc
+	.align 8
+	.type	elapsed_rdtsc, @object
+	.size	elapsed_rdtsc, 8
+elapsed_rdtsc:
+	.quad	9999999
+	.comm	elapsed,8,8
+	.globl	ttbest_rdtsc
+	.align 8
+	.type	ttbest_rdtsc, @object
+	.size	ttbest_rdtsc, 8
+ttbest_rdtsc:
+	.quad	99999999999999999
+	.comm	ttotal_rdtsc,8,8
+	.comm	t2_rdtsc,8,8
+	.comm	t1_rdtsc,8,8
+	.comm	mask1,128,32
+	.globl	programName
+	.section	.rodata.str1.1
+.LC17:
+	.string	" "
+	.data
+	.align 8
+	.type	programName, @object
+	.size	programName, 8
+programName:
+	.quad	.LC17
+	.globl	fileForSpeedups
+	.bss
+	.align 8
+	.type	fileForSpeedups, @object
+	.size	fileForSpeedups, 8
+fileForSpeedups:
+	.zero	8
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align 8
+.LC0:
+	.long	2439541424
+	.long	1069513965
+	.section	.rodata.cst32,"aM",@progbits,32
+	.align 32
+.LC1:
+	.long	0
+	.long	1
+	.long	2
+	.long	3
+	.long	4
+	.long	5
+	.long	6
+	.long	7
+	.align 32
+.LC2:
+	.long	8
+	.long	8
+	.long	8
+	.long	8
+	.long	8
+	.long	8
+	.long	8
+	.long	8
+	.align 32
+.LC3:
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.align 32
+.LC4:
+	.byte	4
+	.byte	5
+	.byte	6
+	.byte	7
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	12
+	.byte	13
+	.byte	14
+	.byte	15
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	4
+	.byte	5
+	.byte	6
+	.byte	7
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	12
+	.byte	13
+	.byte	14
+	.byte	15
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.align 32
+.LC5:
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	4
+	.byte	5
+	.byte	6
+	.byte	7
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	12
+	.byte	13
+	.byte	14
+	.byte	15
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	4
+	.byte	5
+	.byte	6
+	.byte	7
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	12
+	.byte	13
+	.byte	14
+	.byte	15
+	.align 32
+.LC6:
+	.long	16
+	.long	16
+	.long	16
+	.long	16
+	.long	16
+	.long	16
+	.long	16
+	.long	16
+	.align 32
+.LC7:
+	.long	10
+	.long	10
+	.long	10
+	.long	10
+	.long	10
+	.long	10
+	.long	10
+	.long	10
+	.align 32
+.LC8:
+	.long	255
+	.long	255
+	.long	255
+	.long	255
+	.long	255
+	.long	255
+	.long	255
+	.long	255
+	.align 32
+.LC9:
+	.long	65535
+	.long	65535
+	.long	65535
+	.long	65535
+	.long	65535
+	.long	65535
+	.long	65535
+	.long	65535
+	.align 32
+.LC10:
+	.long	1234
+	.long	1235
+	.long	1236
+	.long	1237
+	.long	1238
+	.long	1239
+	.long	1240
+	.long	1241
+	.ident	"GCC: (GNU) 8.1.1 20180502 (Red Hat 8.1.1-1)"
+	.section	.note.GNU-stack,"",@progbits

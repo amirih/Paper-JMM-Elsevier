@@ -1,0 +1,84 @@
+spliter
+Time: Thu May 17 01:24:55 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+CONMOD71, 128x128, 566852
+CONMOD71, 128x128, 255998
+spliter
+Time: Thu May 17 01:25:11 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CONMOD71, 128x128, 951748
+CONMOD71, 128x128, 263412
+spliter
+Time: Thu May 17 01:25:27 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+CONMOD71, 128x128, 563178
+CONMOD71, 128x128, 150936
+spliter
+Time: Thu May 17 01:45:42 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+CONMOD71, 256x256, 2382238
+CONMOD71, 256x256, 1017118
+spliter
+Time: Thu May 17 01:45:58 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CONMOD71, 256x256, 4003006
+CONMOD71, 256x256, 955262
+spliter
+Time: Thu May 17 01:46:14 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+CONMOD71, 256x256, 2355266
+CONMOD71, 256x256, 610862
+spliter
+Time: Thu May 17 02:06:27 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+CONMOD71, 512x512, 9880864
+CONMOD71, 512x512, 3989258
+spliter
+Time: Thu May 17 02:06:43 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CONMOD71, 512x512, 16401794
+CONMOD71, 512x512, 3648524
+spliter
+Time: Thu May 17 02:06:59 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+CONMOD71, 512x512, 9640530
+CONMOD71, 512x512, 2508172
+spliter
+Time: Thu May 17 02:27:15 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+CONMOD71, 1024x1024, 39893120
+CONMOD71, 1024x1024, 16230568
+spliter
+Time: Thu May 17 02:27:31 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CONMOD71, 1024x1024, 66352242
+CONMOD71, 1024x1024, 14195800
+spliter
+Time: Thu May 17 02:27:47 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+CONMOD71, 1024x1024, 38992646
+CONMOD71, 1024x1024, 10220528

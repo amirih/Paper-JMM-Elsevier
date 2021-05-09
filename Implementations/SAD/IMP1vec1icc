@@ -1,0 +1,2432 @@
+# mark_description "Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 18.0.1.163 Build 20171018";
+# mark_description "-D _GNU_SOURCE -O3 -march=native -c -S -o IMP1vec1icc";
+	.file "IMP1.c"
+	.text
+..TXTST0:
+.L_2__routine_start_main_0:
+# -- Begin  main
+	.text
+# mark_begin;
+       .align    16,0x90
+	.globl main
+# --- main()
+main:
+..B1.1:                         # Preds ..B1.0
+                                # Execution count [1.00e+00]
+	.cfi_startproc
+..___tag_value_main.1:
+..L2:
+                                                          #39.1
+        pushq     %rbp                                          #39.1
+	.cfi_def_cfa_offset 16
+        movq      %rsp, %rbp                                    #39.1
+	.cfi_def_cfa 6, 16
+	.cfi_offset 6, -16
+        andq      $-128, %rsp                                   #39.1
+        pushq     %r13                                          #39.1
+        pushq     %r14                                          #39.1
+        pushq     %r15                                          #39.1
+        pushq     %rbx                                          #39.1
+        subq      $96, %rsp                                     #39.1
+        xorl      %esi, %esi                                    #39.1
+        movl      $3, %edi                                      #39.1
+        call      __intel_new_feature_proc_init                 #39.1
+	.cfi_escape 0x10, 0x03, 0x0e, 0x38, 0x1c, 0x0d, 0x80, 0xff, 0xff, 0xff, 0x1a, 0x0d, 0xe0, 0xff, 0xff, 0xff, 0x22
+	.cfi_escape 0x10, 0x0d, 0x0e, 0x38, 0x1c, 0x0d, 0x80, 0xff, 0xff, 0xff, 0x1a, 0x0d, 0xf8, 0xff, 0xff, 0xff, 0x22
+	.cfi_escape 0x10, 0x0e, 0x0e, 0x38, 0x1c, 0x0d, 0x80, 0xff, 0xff, 0xff, 0x1a, 0x0d, 0xf0, 0xff, 0xff, 0xff, 0x22
+	.cfi_escape 0x10, 0x0f, 0x0e, 0x38, 0x1c, 0x0d, 0x80, 0xff, 0xff, 0xff, 0x1a, 0x0d, 0xe8, 0xff, 0xff, 0xff, 0x22
+                                # LOE r12 r13 r14 r15
+..B1.39:                        # Preds ..B1.1
+                                # Execution count [1.00e+00]
+        vstmxcsr  (%rsp)                                        #39.1
+        vpxor     %ymm0, %ymm0, %ymm0                           #40.2
+        orl       $32832, (%rsp)                                #39.1
+        vldmxcsr  (%rsp)                                        #39.1
+        vmovups   %ymm0, mask(%rip)                             #40.2
+        vmovups   %ymm0, 32+mask(%rip)                          #40.2
+        vmovups   %ymm0, 64+mask(%rip)                          #40.2
+        vmovups   %ymm0, 96+mask(%rip)                          #40.2
+                                # LOE r12 r13 r14 r15
+..B1.2:                         # Preds ..B1.39
+                                # Execution count [5.00e-01]
+        xorl      %edi, %edi                                    #40.2
+        movl      $128, %esi                                    #40.2
+        movl      $mask, %edx                                   #40.2
+        orq       $12, mask(%rip)                               #40.2
+        vzeroupper                                              #40.2
+..___tag_value_main.10:
+#       sched_setaffinity(__pid_t, size_t, const cpu_set_t *)
+        call      sched_setaffinity                             #40.2
+..___tag_value_main.11:
+                                # LOE r12 r13 r14 r15
+..B1.3:                         # Preds ..B1.2
+                                # Execution count [1.00e+00]
+        xorl      %eax, %eax                                    #41.2
+        xorl      %ebx, %ebx                                    #41.2
+        movq      %rax, %r13                                    #41.2
+                                # LOE r12 r13 ebx
+..B1.4:                         # Preds ..B1.7 ..B1.3
+                                # Execution count [1.28e+02]
+        xorl      %r15d, %r15d                                  #41.2
+        movq      %r13, %r14                                    #41.17
+                                # LOE r12 r13 r14 ebx r15d
+..B1.5:                         # Preds ..B1.33 ..B1.4
+                                # Execution count [1.64e+04]
+#       rand(void)
+        call      rand                                          #41.2
+                                # LOE r12 r13 r14 eax ebx r15d
+..B1.6:                         # Preds ..B1.5
+                                # Execution count [1.64e+04]
+        andl      $-2147483647, %eax                            #41.2
+        jge       ..B1.31       # Prob 50%                      #41.2
+                                # LOE r12 r13 r14 eax ebx r15d
+..B1.32:                        # Preds ..B1.6
+                                # Execution count [1.64e+04]
+        subl      $1, %eax                                      #41.2
+        orl       $-2, %eax                                     #41.2
+        incl      %eax                                          #41.2
+                                # LOE r12 r13 r14 eax ebx r15d
+..B1.31:                        # Preds ..B1.6 ..B1.32
+                                # Execution count [1.64e+04]
+        movl      %ebx, %edx                                    #41.2
+        imull     %r15d, %edx                                   #41.2
+        movzbl    %dl, %edx                                     #41.2
+        addl      %edx, %eax                                    #41.2
+        andl      $-2147483393, %eax                            #41.2
+        jge       ..B1.33       # Prob 50%                      #41.2
+                                # LOE r12 r13 r14 eax ebx r15d
+..B1.34:                        # Preds ..B1.31
+                                # Execution count [1.64e+04]
+        subl      $1, %eax                                      #41.2
+        incl      %eax                                          #41.2
+                                # LOE r12 r13 r14 eax ebx r15d
+..B1.33:                        # Preds ..B1.31 ..B1.34
+                                # Execution count [1.64e+04]
+        incl      %r15d                                         #41.2
+        movb      %al, a_char(%r14)                             #41.2
+        incq      %r14                                          #41.2
+        cmpl      $128, %r15d                                   #41.2
+        jl        ..B1.5        # Prob 99%                      #41.2
+                                # LOE r12 r13 r14 ebx r15d
+..B1.7:                         # Preds ..B1.33
+                                # Execution count [1.28e+02]
+        incl      %ebx                                          #41.2
+        addq      $128, %r13                                    #41.2
+        cmpl      $128, %ebx                                    #41.2
+        jl        ..B1.4        # Prob 99%                      #41.2
+                                # LOE r12 r13 ebx
+..B1.8:                         # Preds ..B1.7
+                                # Execution count [1.00e+00]
+        xorl      %eax, %eax                                    #42.2
+        xorl      %ebx, %ebx                                    #42.2
+        movq      %rax, %r15                                    #42.2
+                                # LOE r12 r15 ebx
+..B1.9:                         # Preds ..B1.12 ..B1.8
+                                # Execution count [1.28e+02]
+        xorl      %r14d, %r14d                                  #42.2
+        movq      %r15, %r13                                    #42.17
+                                # LOE r12 r13 r15 ebx r14d
+..B1.10:                        # Preds ..B1.37 ..B1.9
+                                # Execution count [1.64e+04]
+#       rand(void)
+        call      rand                                          #42.2
+                                # LOE r12 r13 r15 eax ebx r14d
+..B1.11:                        # Preds ..B1.10
+                                # Execution count [1.64e+04]
+        andl      $-2147483647, %eax                            #42.2
+        jge       ..B1.35       # Prob 50%                      #42.2
+                                # LOE r12 r13 r15 eax ebx r14d
+..B1.36:                        # Preds ..B1.11
+                                # Execution count [1.64e+04]
+        subl      $1, %eax                                      #42.2
+        orl       $-2, %eax                                     #42.2
+        incl      %eax                                          #42.2
+                                # LOE r12 r13 r15 eax ebx r14d
+..B1.35:                        # Preds ..B1.11 ..B1.36
+                                # Execution count [1.64e+04]
+        movl      %ebx, %edx                                    #42.2
+        imull     %r14d, %edx                                   #42.2
+        movzbl    %dl, %edx                                     #42.2
+        addl      %edx, %eax                                    #42.2
+        andl      $-2147483393, %eax                            #42.2
+        jge       ..B1.37       # Prob 50%                      #42.2
+                                # LOE r12 r13 r15 eax ebx r14d
+..B1.38:                        # Preds ..B1.35
+                                # Execution count [1.64e+04]
+        subl      $1, %eax                                      #42.2
+        incl      %eax                                          #42.2
+                                # LOE r12 r13 r15 eax ebx r14d
+..B1.37:                        # Preds ..B1.35 ..B1.38
+                                # Execution count [1.64e+04]
+        incl      %r14d                                         #42.2
+        movb      %al, b_char(%r13)                             #42.2
+        incq      %r13                                          #42.2
+        cmpl      $128, %r14d                                   #42.2
+        jl        ..B1.10       # Prob 99%                      #42.2
+                                # LOE r12 r13 r15 ebx r14d
+..B1.12:                        # Preds ..B1.37
+                                # Execution count [1.28e+02]
+        incl      %ebx                                          #42.2
+        addq      $128, %r15                                    #42.2
+        cmpl      $128, %ebx                                    #42.2
+        jl        ..B1.9        # Prob 99%                      #42.2
+                                # LOE r12 r15 ebx
+..B1.13:                        # Preds ..B1.12
+                                # Execution count [1.72e+00]
+        movq      $0x4a817c7ff, %rdx                            #47.2
+        xorl      %ebx, %ebx                                    #43.15
+        movq      $.L_2__STRING.8, programName(%rip)            #44.3
+        movq      $99999999, elapsed_rdtsc(%rip)                #47.2
+        movq      %rdx, overal_time(%rip)                       #47.2
+        movq      $0, ttime(%rip)                               #47.2
+                                # LOE r12 r13 r14 r15 ebx
+..B1.14:                        # Preds ..B1.22 ..B1.13
+                                # Execution count [2.91e+00]
+# Begin ASM
+# #mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm1
+# End ASM
+                                # LOE r12 r13 r14 r15 ebx
+..B1.43:                        # Preds ..B1.14
+                                # Execution count [2.91e+00]
+        rdtsc                                                   #47.2
+        shlq      $32, %rdx                                     #47.2
+        orq       %rdx, %rax                                    #47.2
+                                # LOE rax r12 r13 r14 r15 ebx
+..B1.15:                        # Preds ..B1.43
+                                # Execution count [2.91e+00]
+        movq      %rax, t1_rdtsc(%rip)                          #47.2
+        xorl      %edx, %edx                                    #48.3
+        vpxor     %ymm0, %ymm0, %ymm0                           #43.15
+                                # LOE rdx r12 r13 r14 r15 ebx ymm0
+..B1.16:                        # Preds ..B1.16 ..B1.15
+                                # Execution count [4.76e+04]
+        vmovdqu   a_char(%rdx), %ymm1                           #50.41
+        vmovdqu   32+a_char(%rdx), %ymm2                        #50.41
+        vmovdqu   64+a_char(%rdx), %ymm3                        #50.41
+        vmovdqu   96+a_char(%rdx), %ymm4                        #50.41
+        vpsadbw   b_char(%rdx), %ymm1, %ymm5                    #50.41
+        vpsadbw   32+b_char(%rdx), %ymm2, %ymm6                 #50.41
+        vpsadbw   64+b_char(%rdx), %ymm3, %ymm8                 #50.41
+        vpsadbw   96+b_char(%rdx), %ymm4, %ymm10                #50.41
+        vpaddd    %ymm5, %ymm0, %ymm0                           #50.5
+        vpaddd    %ymm6, %ymm0, %ymm7                           #50.5
+        addq      $128, %rdx                                    #48.3
+        vpaddd    %ymm8, %ymm7, %ymm9                           #50.5
+        vpaddd    %ymm10, %ymm9, %ymm0                          #50.5
+        cmpq      $16384, %rdx                                  #48.3
+        jb        ..B1.16       # Prob 99%                      #48.3
+                                # LOE rdx r12 r13 r14 r15 ebx ymm0
+..B1.17:                        # Preds ..B1.16
+                                # Execution count [2.91e+00]
+        vextractf128 $1, %ymm0, %xmm1                           #43.15
+        vpaddd    %xmm1, %xmm0, %xmm2                           #43.15
+        vpsrldq   $8, %xmm2, %xmm3                              #43.15
+        vpaddd    %xmm3, %xmm2, %xmm4                           #43.15
+        vpsrlq    $32, %xmm4, %xmm5                             #43.15
+        vpaddd    %xmm5, %xmm4, %xmm6                           #43.15
+        vmovd     %xmm6, %edx                                   #43.15
+        addl      %edx, %ebx                                    #43.15
+        vzeroupper                                              #53.2
+        rdtsc                                                   #53.2
+        shlq      $32, %rdx                                     #53.2
+        orq       %rdx, %rax                                    #53.2
+                                # LOE rax r12 r13 r14 r15 ebx
+..B1.18:                        # Preds ..B1.17
+                                # Execution count [2.91e+00]
+        movq      %rax, t2_rdtsc(%rip)                          #53.2
+                                # LOE r12 r13 r14 r15 ebx
+..B1.46:                        # Preds ..B1.18
+                                # Execution count [2.91e+00]
+# Begin ASM
+# #mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm2
+# End ASM
+                                # LOE r12 r13 r14 r15 ebx
+..B1.45:                        # Preds ..B1.46
+                                # Execution count [2.91e+00]
+        movq      t2_rdtsc(%rip), %rdi                          #53.2
+        subq      t1_rdtsc(%rip), %rdi                          #53.2
+        movq      ttbest_rdtsc(%rip), %rsi                      #53.2
+        movq      %rdi, ttotal_rdtsc(%rip)                      #53.2
+        cmpq      %rsi, %rdi                                    #53.2
+        jge       ..B1.20       # Prob 50%                      #53.2
+                                # LOE rsi rdi r12 r13 r14 r15 ebx
+..B1.19:                        # Preds ..B1.45
+                                # Execution count [1.45e+00]
+        movq      elapsed_rdtsc(%rip), %rcx                     #53.2
+        movq      %rcx, %rdx                                    #53.2
+        negq      %rdx                                          #53.2
+        movq      %rdi, %rsi                                    #53.2
+        addq      $99999999, %rdx                               #53.2
+        movq      %rdi, ttbest_rdtsc(%rip)                      #53.2
+        movq      %rdx, elapsed(%rip)                           #53.2
+        jmp       ..B1.21       # Prob 100%                     #53.2
+                                # LOE rcx rsi rdi r12 r13 r14 r15 ebx
+..B1.20:                        # Preds ..B1.45
+                                # Execution count [1.45e+00]
+        movq      elapsed_rdtsc(%rip), %rcx                     #53.2
+                                # LOE rcx rsi rdi r12 r13 r14 r15 ebx
+..B1.21:                        # Preds ..B1.19 ..B1.20
+                                # Execution count [2.91e+00]
+        movq      ttime(%rip), %rdx                             #53.2
+        addq      %rdi, %rdx                                    #53.2
+        movq      %rdx, ttime(%rip)                             #53.2
+        testq     %rcx, %rcx                                    #53.2
+        je        ..B1.24       # Prob 50%                      #53.2
+                                # LOE rdx rcx rsi r12 r13 r14 r15 ebx
+..B1.22:                        # Preds ..B1.21
+                                # Execution count [1.45e+00]
+        decq      %rcx                                          #53.2
+        movq      %rcx, elapsed_rdtsc(%rip)                     #53.2
+        cmpq      overal_time(%rip), %rdx                       #53.2
+        jl        ..B1.14       # Prob 82%                      #53.2
+        jmp       ..B1.25       # Prob 100%                     #53.2
+                                # LOE rcx rsi r12 r13 r14 r15 ebx
+..B1.24:                        # Preds ..B1.21
+                                # Execution count [1.45e+00]
+        movq      $-1, elapsed_rdtsc(%rip)                      #53.2
+        movq      $-1, %rcx                                     #53.2
+                                # LOE rcx rsi r12 r13 r14 r15 ebx
+..B1.25:                        # Preds ..B1.22 ..B1.24
+                                # Execution count [1.00e+00]
+        negq      %rcx                                          #53.2
+        movl      $.L_2__STRING.9, %edi                         #53.2
+        addq      $99999999, %rcx                               #53.2
+        xorl      %eax, %eax                                    #53.2
+        movq      elapsed(%rip), %rdx                           #53.2
+..___tag_value_main.12:
+#       printf(const char *__restrict__, ...)
+        call      printf                                        #53.2
+..___tag_value_main.13:
+                                # LOE r12 r13 r14 r15 ebx
+..B1.26:                        # Preds ..B1.25
+                                # Execution count [1.00e+00]
+        movl      $.L_2__STRING.10, %edi                        #53.2
+        movl      $.L_2__STRING.11, %esi                        #53.2
+#       fopen(const char *__restrict__, const char *__restrict__)
+        call      fopen                                         #53.2
+                                # LOE rax r12 r13 r14 r15 ebx
+..B1.27:                        # Preds ..B1.26
+                                # Execution count [1.00e+00]
+        movl      $128, %ecx                                    #53.2
+        movq      %rax, %rdi                                    #53.2
+        movq      %rax, fileForSpeedups(%rip)                   #53.2
+        movl      $.L_2__STRING.12, %esi                        #53.2
+        movl      %ecx, %r8d                                    #53.2
+        xorl      %eax, %eax                                    #53.2
+        movq      programName(%rip), %rdx                       #53.2
+        movq      ttbest_rdtsc(%rip), %r9                       #53.2
+#       fprintf(FILE *__restrict__, const char *__restrict__, ...)
+        call      fprintf                                       #53.2
+                                # LOE r12 r13 r14 r15 ebx
+..B1.28:                        # Preds ..B1.27
+                                # Execution count [1.00e+00]
+        movl      %ebx, %eax                                    #56.9
+        addq      $96, %rsp                                     #56.9
+	.cfi_restore 3
+        popq      %rbx                                          #56.9
+	.cfi_restore 15
+        popq      %r15                                          #56.9
+	.cfi_restore 14
+        popq      %r14                                          #56.9
+	.cfi_restore 13
+        popq      %r13                                          #56.9
+        movq      %rbp, %rsp                                    #56.9
+        popq      %rbp                                          #56.9
+	.cfi_def_cfa 7, 8
+	.cfi_restore 6
+        ret                                                     #56.9
+        .align    16,0x90
+                                # LOE
+	.cfi_endproc
+# mark_end;
+	.type	main,@function
+	.size	main,.-main
+..LNmain.0:
+	.data
+# -- End  main
+	.text
+.L_2__routine_start_assignToThisCore12_1:
+# -- Begin  assignToThisCore12
+	.text
+# mark_begin;
+       .align    16,0x90
+	.globl assignToThisCore12
+# --- assignToThisCore12(int, int)
+assignToThisCore12:
+# parameter 1: %edi
+# parameter 2: %esi
+..B2.1:                         # Preds ..B2.0
+                                # Execution count [1.00e+00]
+	.cfi_startproc
+..___tag_value_assignToThisCore12.21:
+..L22:
+                                                         #51.1
+        vpxor     %ymm0, %ymm0, %ymm0                           #52.2
+        vmovups   %ymm0, mask(%rip)                             #52.2
+        vmovups   %ymm0, 32+mask(%rip)                          #52.2
+        vmovups   %ymm0, 64+mask(%rip)                          #52.2
+        vmovups   %ymm0, 96+mask(%rip)                          #52.2
+        movslq    %edi, %r8                                     #51.1
+        movslq    %esi, %rax                                    #51.1
+                                # LOE rax rbx rbp r8 r12 r13 r14 r15 esi edi
+..B2.2:                         # Preds ..B2.1
+                                # Execution count [1.00e+00]
+        movq      %r8, %rdx                                     #53.2
+        shrq      $3, %rdx                                      #53.2
+        cmpq      $128, %rdx                                    #53.2
+        jae       ..B2.4        # Prob 50%                      #53.2
+                                # LOE rax rbx rbp r8 r12 r13 r14 r15 esi edi
+..B2.3:                         # Preds ..B2.2
+                                # Execution count [5.00e-01]
+        shrq      $6, %r8                                       #53.2
+        movl      $1, %edx                                      #53.2
+        movl      %edi, %edi                                    #53.2
+        shlx      %rdi, %rdx, %rcx                              #53.2
+        orq       %rcx, mask(,%r8,8)                            #53.2
+                                # LOE rax rbx rbp r12 r13 r14 r15 esi
+..B2.4:                         # Preds ..B2.2 ..B2.3
+                                # Execution count [1.00e+00]
+        movq      %rax, %rdx                                    #54.2
+        shrq      $3, %rdx                                      #54.2
+        cmpq      $128, %rdx                                    #54.2
+        jae       ..B2.6        # Prob 50%                      #54.2
+                                # LOE rax rbx rbp r12 r13 r14 r15 esi
+..B2.5:                         # Preds ..B2.4
+                                # Execution count [5.00e-01]
+        shrq      $6, %rax                                      #54.2
+        movl      $1, %edx                                      #54.2
+        movl      %esi, %esi                                    #54.2
+        shlx      %rsi, %rdx, %rcx                              #54.2
+        orq       %rcx, mask(,%rax,8)                           #54.2
+                                # LOE rbx rbp r12 r13 r14 r15
+..B2.6:                         # Preds ..B2.4 ..B2.5
+                                # Execution count [1.00e+00]
+        xorl      %edi, %edi                                    #55.2
+        movl      $128, %esi                                    #55.2
+        movl      $mask, %edx                                   #55.2
+        vzeroupper                                              #55.2
+#       sched_setaffinity(__pid_t, size_t, const cpu_set_t *)
+        jmp       sched_setaffinity                             #55.2
+        .align    16,0x90
+                                # LOE
+	.cfi_endproc
+# mark_end;
+	.type	assignToThisCore12,@function
+	.size	assignToThisCore12,.-assignToThisCore12
+..LNassignToThisCore12.1:
+	.data
+# -- End  assignToThisCore12
+	.text
+.L_2__routine_start_assignImagef32_2:
+# -- Begin  assignImagef32
+	.text
+# mark_begin;
+       .align    16,0x90
+	.globl assignImagef32
+# --- assignImagef32(float (*)[132])
+assignImagef32:
+# parameter 1: %rdi
+..B3.1:                         # Preds ..B3.0
+                                # Execution count [1.00e+00]
+	.cfi_startproc
+..___tag_value_assignImagef32.24:
+..L25:
+                                                         #65.1
+        pushq     %rbp                                          #65.1
+	.cfi_def_cfa_offset 16
+        movq      %rsp, %rbp                                    #65.1
+	.cfi_def_cfa 6, 16
+	.cfi_offset 6, -16
+        andq      $-32, %rsp                                    #65.1
+        pushq     %rbx                                          #65.1
+        subq      $24, %rsp                                     #65.1
+        xorl      %esi, %esi                                    #67.2
+        vmovdqu   .L_2il0floatpacket.1(%rip), %ymm11            #71.4
+        vmovsd    .L_2il0floatpacket.2(%rip), %xmm5             #71.67
+        vmovsd    .L_2il0floatpacket.3(%rip), %xmm4             #71.58
+        vmovdqu   .L_2il0floatpacket.6(%rip), %ymm3             #71.4
+        vmovdqu   .L_2il0floatpacket.7(%rip), %ymm2             #71.32
+        vmovupd   .L_2il0floatpacket.5(%rip), %ymm14            #71.46
+        vmovupd   .L_2il0floatpacket.8(%rip), %ymm8             #71.37
+	.cfi_escape 0x10, 0x03, 0x0e, 0x38, 0x1c, 0x0d, 0xe0, 0xff, 0xff, 0xff, 0x1a, 0x0d, 0xf8, 0xff, 0xff, 0xff, 0x22
+                                # LOE rdi r12 r13 r14 r15 esi xmm4 xmm5 ymm2 ymm3 ymm8 ymm11 ymm14
+..B3.2:                         # Preds ..B3.4 ..B3.1
+                                # Execution count [1.28e+02]
+        vxorpd    %xmm13, %xmm13, %xmm13                        #71.56
+        vmovd     %esi, %xmm0                                   #67.19
+        vcvtsi2sd %esi, %xmm13, %xmm13                          #71.56
+        vfmadd213sd %xmm5, %xmm4, %xmm13                        #71.46
+        xorl      %ebx, %ebx                                    #68.3
+        vmovdqa   %ymm3, %ymm10                                 #71.4
+        vmovdqa   %ymm2, %ymm9                                  #71.32
+        vbroadcastsd %xmm13, %ymm13                             #71.46
+        vpbroadcastd %xmm0, %ymm12                              #67.19
+                                # LOE rbx rdi r12 r13 r14 r15 esi ymm8 ymm9 ymm10 ymm11 ymm12 ymm13 ymm14
+..B3.3:                         # Preds ..B3.3 ..B3.2
+                                # Execution count [1.64e+04]
+        vpmulld   %ymm12, %ymm10, %ymm3                         #71.19
+        vmovdqa   %ymm12, %ymm0                                 #71.32
+        vmovdqa   %ymm9, %ymm1                                  #71.32
+        vpaddd    %ymm3, %ymm12, %ymm15                         #71.22
+..___tag_value_assignImagef32.30:
+        call      *__svml_idiv8_l9@GOTPCREL(%rip)               #71.37
+..___tag_value_assignImagef32.31:
+        vpaddd    %ymm0, %ymm15, %ymm2                          #71.32
+        vpaddd    %ymm11, %ymm9, %ymm9                          #71.32
+        vpshufd   $49, %ymm2, %ymm4                             #71.37
+        vpmuldq   %ymm8, %ymm2, %ymm5                           #71.37
+        vpmuldq   %ymm8, %ymm4, %ymm6                           #71.37
+        vpsrlq    $32, %ymm5, %ymm7                             #71.37
+        vpand     .L_2il0floatpacket.9(%rip), %ymm6, %ymm3      #71.37
+        vpsrad    $31, %ymm2, %ymm6                             #71.37
+        vpor      %ymm3, %ymm7, %ymm4                           #71.37
+        vpsrad    $6, %ymm4, %ymm5                              #71.37
+        vpsubd    %ymm6, %ymm5, %ymm7                           #71.37
+        vpmulld   .L_2il0floatpacket.10(%rip), %ymm7, %ymm15    #71.37
+        vpsubd    %ymm15, %ymm2, %ymm2                          #71.37
+        vcvtdq2pd %xmm2, %ymm3                                  #71.37
+        vextracti128 $1, %ymm2, %xmm2                           #71.37
+        vaddpd    %ymm3, %ymm13, %ymm4                          #71.58
+        vcvtdq2pd %xmm2, %ymm2                                  #71.37
+        vaddpd    %ymm2, %ymm13, %ymm5                          #71.58
+        vextracti128 $1, %ymm10, %xmm2                          #71.44
+        vcvtdq2pd %xmm10, %ymm3                                 #71.44
+        vpaddd    %ymm11, %ymm10, %ymm10                        #71.4
+        vcvtdq2pd %xmm2, %ymm2                                  #71.44
+        vfmadd231pd %ymm14, %ymm3, %ymm4                        #71.67
+        vfmadd231pd %ymm14, %ymm2, %ymm5                        #71.67
+        vcvtpd2ps %ymm4, %xmm2                                  #71.67
+        vcvtpd2ps %ymm5, %xmm3                                  #71.67
+        vinsertf128 $1, %xmm3, %ymm2, %ymm2                     #71.67
+        vmovups   %ymm2, (%rdi,%rbx,4)                          #71.4
+        addq      $8, %rbx                                      #68.3
+        cmpq      $128, %rbx                                    #68.3
+        jb        ..B3.3        # Prob 99%                      #68.3
+                                # LOE rbx rdi r12 r13 r14 r15 esi ymm8 ymm9 ymm10 ymm11 ymm12 ymm13 ymm14
+..B3.4:                         # Preds ..B3.3
+                                # Execution count [1.28e+02]
+        incl      %esi                                          #67.2
+        addq      $528, %rdi                                    #67.2
+        vmovdqu   .L_2il0floatpacket.7(%rip), %ymm2             #
+        vmovsd    .L_2il0floatpacket.3(%rip), %xmm4             #
+        vmovsd    .L_2il0floatpacket.2(%rip), %xmm5             #
+        vmovdqu   .L_2il0floatpacket.6(%rip), %ymm3             #
+        cmpl      $128, %esi                                    #67.2
+        jb        ..B3.2        # Prob 99%                      #67.2
+                                # LOE rdi r12 r13 r14 r15 esi xmm4 xmm5 ymm2 ymm3 ymm8 ymm11 ymm14
+..B3.5:                         # Preds ..B3.4
+                                # Execution count [1.00e+00]
+        vzeroupper                                              #74.1
+        addq      $24, %rsp                                     #74.1
+	.cfi_restore 3
+        popq      %rbx                                          #74.1
+        movq      %rbp, %rsp                                    #74.1
+        popq      %rbp                                          #74.1
+	.cfi_def_cfa 7, 8
+	.cfi_restore 6
+        ret                                                     #74.1
+        .align    16,0x90
+                                # LOE
+	.cfi_endproc
+# mark_end;
+	.type	assignImagef32,@function
+	.size	assignImagef32,.-assignImagef32
+..LNassignImagef32.2:
+	.data
+# -- End  assignImagef32
+	.text
+.L_2__routine_start_assignMatrixf32_3:
+# -- Begin  assignMatrixf32
+	.text
+# mark_begin;
+       .align    16,0x90
+	.globl assignMatrixf32
+# --- assignMatrixf32(float (*)[128])
+assignMatrixf32:
+# parameter 1: %rdi
+..B4.1:                         # Preds ..B4.0
+                                # Execution count [1.00e+00]
+	.cfi_startproc
+..___tag_value_assignMatrixf32.36:
+..L37:
+                                                         #77.1
+        pushq     %rbp                                          #77.1
+	.cfi_def_cfa_offset 16
+        movq      %rsp, %rbp                                    #77.1
+	.cfi_def_cfa 6, 16
+	.cfi_offset 6, -16
+        andq      $-32, %rsp                                    #77.1
+        pushq     %rbx                                          #77.1
+        subq      $24, %rsp                                     #77.1
+        xorl      %esi, %esi                                    #79.2
+        vmovdqu   .L_2il0floatpacket.1(%rip), %ymm12            #84.4
+        vmovdqu   .L_2il0floatpacket.6(%rip), %ymm2             #84.4
+        vmovdqu   .L_2il0floatpacket.7(%rip), %ymm9             #84.30
+        vmovupd   .L_2il0floatpacket.11(%rip), %ymm11           #84.44
+        vmovupd   .L_2il0floatpacket.13(%rip), %ymm8            #84.35
+	.cfi_escape 0x10, 0x03, 0x0e, 0x38, 0x1c, 0x0d, 0xe0, 0xff, 0xff, 0xff, 0x1a, 0x0d, 0xf8, 0xff, 0xff, 0xff, 0x22
+                                # LOE rdi r12 r13 r14 r15 esi ymm2 ymm8 ymm9 ymm11 ymm12
+..B4.2:                         # Preds ..B4.4 ..B4.1
+                                # Execution count [1.28e+02]
+        vmovd     %esi, %xmm0                                   #79.19
+        xorl      %ebx, %ebx                                    #80.3
+        vmovdqa   %ymm2, %ymm10                                 #84.4
+        vmovdqa   %ymm9, %ymm14                                 #84.30
+        vpbroadcastd %xmm0, %ymm13                              #79.19
+                                # LOE rbx rdi r12 r13 r14 r15 esi ymm8 ymm9 ymm10 ymm11 ymm12 ymm13 ymm14
+..B4.3:                         # Preds ..B4.3 ..B4.2
+                                # Execution count [1.64e+04]
+        vmovdqa   %ymm13, %ymm0                                 #84.30
+        vmovdqa   %ymm14, %ymm1                                 #84.30
+        vpmulld   %ymm13, %ymm10, %ymm15                        #84.19
+..___tag_value_assignMatrixf32.42:
+        call      *__svml_idiv8_l9@GOTPCREL(%rip)               #84.35
+..___tag_value_assignMatrixf32.43:
+        vpaddd    %ymm0, %ymm15, %ymm2                          #84.30
+        vpaddd    %ymm12, %ymm10, %ymm10                        #84.4
+        vpaddd    %ymm12, %ymm14, %ymm14                        #84.30
+        vpshufd   $49, %ymm2, %ymm3                             #84.35
+        vpmuldq   %ymm8, %ymm2, %ymm4                           #84.35
+        vpmuldq   %ymm8, %ymm3, %ymm5                           #84.35
+        vpsrlq    $32, %ymm4, %ymm6                             #84.35
+        vpand     .L_2il0floatpacket.9(%rip), %ymm5, %ymm7      #84.35
+        vpsrad    $31, %ymm2, %ymm5                             #84.35
+        vpor      %ymm7, %ymm6, %ymm3                           #84.35
+        vpsrad    $6, %ymm3, %ymm4                              #84.35
+        vpsubd    %ymm5, %ymm4, %ymm6                           #84.35
+        vpmulld   .L_2il0floatpacket.14(%rip), %ymm6, %ymm7     #84.35
+        vpsubd    %ymm7, %ymm2, %ymm2                           #84.35
+        vextracti128 $1, %ymm2, %xmm15                          #84.35
+        vcvtdq2pd %xmm2, %ymm3                                  #84.35
+        vcvtdq2pd %xmm15, %ymm2                                 #84.35
+        vaddpd    %ymm3, %ymm11, %ymm3                          #84.44
+        vaddpd    %ymm2, %ymm11, %ymm2                          #84.44
+        vcvtpd2ps %ymm3, %xmm3                                  #84.44
+        vcvtpd2ps %ymm2, %xmm2                                  #84.44
+        vinsertf128 $1, %xmm2, %ymm3, %ymm2                     #84.44
+        vmovups   %ymm2, (%rdi,%rbx,4)                          #84.4
+        addq      $8, %rbx                                      #80.3
+        cmpq      $128, %rbx                                    #80.3
+        jb        ..B4.3        # Prob 99%                      #80.3
+                                # LOE rbx rdi r12 r13 r14 r15 esi ymm8 ymm9 ymm10 ymm11 ymm12 ymm13 ymm14
+..B4.4:                         # Preds ..B4.3
+                                # Execution count [1.28e+02]
+        incl      %esi                                          #79.2
+        addq      $512, %rdi                                    #79.2
+        vmovdqu   .L_2il0floatpacket.6(%rip), %ymm2             #
+        cmpl      $128, %esi                                    #79.2
+        jb        ..B4.2        # Prob 99%                      #79.2
+                                # LOE rdi r12 r13 r14 r15 esi ymm2 ymm8 ymm9 ymm11 ymm12
+..B4.5:                         # Preds ..B4.4
+                                # Execution count [1.00e+00]
+        vzeroupper                                              #88.1
+        addq      $24, %rsp                                     #88.1
+	.cfi_restore 3
+        popq      %rbx                                          #88.1
+        movq      %rbp, %rsp                                    #88.1
+        popq      %rbp                                          #88.1
+	.cfi_def_cfa 7, 8
+	.cfi_restore 6
+        ret                                                     #88.1
+        .align    16,0x90
+                                # LOE
+	.cfi_endproc
+# mark_end;
+	.type	assignMatrixf32,@function
+	.size	assignMatrixf32,.-assignMatrixf32
+..LNassignMatrixf32.3:
+	.data
+# -- End  assignMatrixf32
+	.text
+.L_2__routine_start_assignImagei32_4:
+# -- Begin  assignImagei32
+	.text
+# mark_begin;
+       .align    16,0x90
+	.globl assignImagei32
+# --- assignImagei32(int (*)[132])
+assignImagei32:
+# parameter 1: %rdi
+..B5.1:                         # Preds ..B5.0
+                                # Execution count [1.00e+00]
+	.cfi_startproc
+..___tag_value_assignImagei32.48:
+..L49:
+                                                         #90.1
+        pushq     %rbp                                          #90.1
+	.cfi_def_cfa_offset 16
+        movq      %rsp, %rbp                                    #90.1
+	.cfi_def_cfa 6, 16
+	.cfi_offset 6, -16
+        andq      $-32, %rsp                                    #90.1
+        pushq     %rbx                                          #90.1
+        subq      $24, %rsp                                     #90.1
+        xorl      %esi, %esi                                    #92.2
+        vmovdqu   .L_2il0floatpacket.1(%rip), %ymm14            #96.4
+        vmovdqu   .L_2il0floatpacket.6(%rip), %ymm12            #96.4
+        vmovdqu   .L_2il0floatpacket.7(%rip), %ymm10            #96.30
+        vmovupd   .L_2il0floatpacket.16(%rip), %ymm8            #96.4
+	.cfi_escape 0x10, 0x03, 0x0e, 0x38, 0x1c, 0x0d, 0xe0, 0xff, 0xff, 0xff, 0x1a, 0x0d, 0xf8, 0xff, 0xff, 0xff, 0x22
+                                # LOE rdi r12 r13 r14 r15 esi ymm8 ymm10 ymm12 ymm14
+..B5.2:                         # Preds ..B5.4 ..B5.1
+                                # Execution count [1.28e+02]
+        vmovd     %esi, %xmm0                                   #92.19
+        xorl      %ebx, %ebx                                    #93.3
+        vmovdqa   %ymm12, %ymm11                                #96.4
+        vmovdqa   %ymm10, %ymm9                                 #96.30
+        vpbroadcastd %xmm0, %ymm13                              #92.19
+                                # LOE rbx rdi r12 r13 r14 r15 esi ymm8 ymm9 ymm10 ymm11 ymm12 ymm13 ymm14
+..B5.3:                         # Preds ..B5.3 ..B5.2
+                                # Execution count [1.64e+04]
+        vmovdqa   %ymm13, %ymm0                                 #96.30
+        vmovdqa   %ymm9, %ymm1                                  #96.30
+        vpmulld   %ymm13, %ymm11, %ymm15                        #96.19
+..___tag_value_assignImagei32.54:
+        call      *__svml_idiv8_l9@GOTPCREL(%rip)               #96.4
+..___tag_value_assignImagei32.55:
+        vpaddd    %ymm0, %ymm15, %ymm2                          #96.30
+        vpaddd    %ymm14, %ymm11, %ymm11                        #96.4
+        vpaddd    %ymm14, %ymm9, %ymm9                          #96.30
+        vpshufd   $49, %ymm2, %ymm3                             #96.4
+        vpmuldq   %ymm8, %ymm2, %ymm4                           #96.4
+        vpmuldq   %ymm8, %ymm3, %ymm5                           #96.4
+        vpsrlq    $32, %ymm4, %ymm6                             #96.4
+        vpand     .L_2il0floatpacket.9(%rip), %ymm5, %ymm7      #96.4
+        vpor      %ymm7, %ymm6, %ymm3                           #96.4
+        vpsrad    $31, %ymm2, %ymm6                             #96.4
+        vpaddd    %ymm2, %ymm3, %ymm4                           #96.4
+        vpsrad    $7, %ymm4, %ymm5                              #96.4
+        vpsubd    %ymm6, %ymm5, %ymm7                           #96.4
+        vpmulld   .L_2il0floatpacket.17(%rip), %ymm7, %ymm15    #96.4
+        vpsubd    %ymm15, %ymm2, %ymm2                          #96.4
+        vmovdqu   %ymm2, (%rdi,%rbx,4)                          #96.4
+        addq      $8, %rbx                                      #93.3
+        cmpq      $128, %rbx                                    #93.3
+        jb        ..B5.3        # Prob 99%                      #93.3
+                                # LOE rbx rdi r12 r13 r14 r15 esi ymm8 ymm9 ymm10 ymm11 ymm12 ymm13 ymm14
+..B5.4:                         # Preds ..B5.3
+                                # Execution count [1.28e+02]
+        incl      %esi                                          #92.2
+        addq      $528, %rdi                                    #92.2
+        cmpl      $128, %esi                                    #92.2
+        jb        ..B5.2        # Prob 99%                      #92.2
+                                # LOE rdi r12 r13 r14 r15 esi ymm8 ymm10 ymm12 ymm14
+..B5.5:                         # Preds ..B5.4
+                                # Execution count [1.00e+00]
+        vzeroupper                                              #99.1
+        addq      $24, %rsp                                     #99.1
+	.cfi_restore 3
+        popq      %rbx                                          #99.1
+        movq      %rbp, %rsp                                    #99.1
+        popq      %rbp                                          #99.1
+	.cfi_def_cfa 7, 8
+	.cfi_restore 6
+        ret                                                     #99.1
+        .align    16,0x90
+                                # LOE
+	.cfi_endproc
+# mark_end;
+	.type	assignImagei32,@function
+	.size	assignImagei32,.-assignImagei32
+..LNassignImagei32.4:
+	.data
+# -- End  assignImagei32
+	.text
+.L_2__routine_start_assignMatrixi32_5:
+# -- Begin  assignMatrixi32
+	.text
+# mark_begin;
+       .align    16,0x90
+	.globl assignMatrixi32
+# --- assignMatrixi32(int (*)[128])
+assignMatrixi32:
+# parameter 1: %rdi
+..B6.1:                         # Preds ..B6.0
+                                # Execution count [1.00e+00]
+	.cfi_startproc
+..___tag_value_assignMatrixi32.60:
+..L61:
+                                                         #103.1
+        xorl      %eax, %eax                                    #105.2
+        vmovdqu   .L_2il0floatpacket.1(%rip), %ymm2             #110.4
+        vmovdqu   .L_2il0floatpacket.6(%rip), %ymm4             #110.4
+        vmovupd   .L_2il0floatpacket.13(%rip), %ymm0            #110.4
+                                # LOE rbx rbp rdi r12 r13 r14 r15 eax ymm0 ymm2 ymm4
+..B6.2:                         # Preds ..B6.4 ..B6.1
+                                # Execution count [1.28e+02]
+        vmovd     %eax, %xmm3                                   #105.19
+        xorl      %edx, %edx                                    #106.3
+        vmovdqa   %ymm4, %ymm1                                  #110.4
+        vpbroadcastd %xmm3, %ymm3                               #105.19
+                                # LOE rdx rbx rbp rdi r12 r13 r14 r15 eax ymm0 ymm1 ymm2 ymm3 ymm4
+..B6.3:                         # Preds ..B6.3 ..B6.2
+                                # Execution count [1.64e+04]
+        vpmulld   %ymm3, %ymm1, %ymm14                          #110.17
+        vpshufd   $49, %ymm14, %ymm5                            #110.4
+        vpsrad    $31, %ymm14, %ymm12                           #110.4
+        vpaddd    %ymm2, %ymm1, %ymm1                           #110.4
+        vpmuldq   %ymm0, %ymm14, %ymm6                          #110.4
+        vpmuldq   %ymm0, %ymm5, %ymm7                           #110.4
+        vpsrlq    $32, %ymm6, %ymm8                             #110.4
+        vpand     .L_2il0floatpacket.9(%rip), %ymm7, %ymm9      #110.4
+        vpor      %ymm9, %ymm8, %ymm10                          #110.4
+        vpsrad    $6, %ymm10, %ymm11                            #110.4
+        vpsubd    %ymm12, %ymm11, %ymm13                        #110.4
+        vpmulld   .L_2il0floatpacket.14(%rip), %ymm13, %ymm15   #110.4
+        vpsubd    %ymm15, %ymm14, %ymm5                         #110.4
+        vmovdqu   %ymm5, (%rdi,%rdx,4)                          #110.4
+        addq      $8, %rdx                                      #106.3
+        cmpq      $128, %rdx                                    #106.3
+        jb        ..B6.3        # Prob 99%                      #106.3
+                                # LOE rdx rbx rbp rdi r12 r13 r14 r15 eax ymm0 ymm1 ymm2 ymm3 ymm4
+..B6.4:                         # Preds ..B6.3
+                                # Execution count [1.28e+02]
+        incl      %eax                                          #105.2
+        addq      $512, %rdi                                    #105.2
+        cmpl      $128, %eax                                    #105.2
+        jb        ..B6.2        # Prob 99%                      #105.2
+                                # LOE rbx rbp rdi r12 r13 r14 r15 eax ymm0 ymm2 ymm4
+..B6.5:                         # Preds ..B6.4
+                                # Execution count [1.00e+00]
+        vzeroupper                                              #113.1
+        ret                                                     #113.1
+        .align    16,0x90
+                                # LOE
+	.cfi_endproc
+# mark_end;
+	.type	assignMatrixi32,@function
+	.size	assignMatrixi32,.-assignMatrixi32
+..LNassignMatrixi32.5:
+	.data
+# -- End  assignMatrixi32
+	.text
+.L_2__routine_start_assignMatrixi16_6:
+# -- Begin  assignMatrixi16
+	.text
+# mark_begin;
+       .align    16,0x90
+	.globl assignMatrixi16
+# --- assignMatrixi16(short (*)[128])
+assignMatrixi16:
+# parameter 1: %rdi
+..B7.1:                         # Preds ..B7.0
+                                # Execution count [1.00e+00]
+	.cfi_startproc
+..___tag_value_assignMatrixi16.63:
+..L64:
+                                                         #116.1
+        pushq     %r12                                          #116.1
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+        pushq     %r13                                          #116.1
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+        pushq     %r14                                          #116.1
+	.cfi_def_cfa_offset 32
+	.cfi_offset 14, -32
+        xorl      %eax, %eax                                    #118.6
+        movl      %eax, %r12d                                   #118.6
+        movq      %rdi, %r13                                    #118.6
+                                # LOE rbx rbp r13 r15 r12d
+..B7.2:                         # Preds ..B7.5 ..B7.1
+                                # Execution count [1.28e+02]
+        xorl      %r14d, %r14d                                  #119.7
+                                # LOE rbx rbp r13 r14 r15 r12d
+..B7.3:                         # Preds ..B7.4 ..B7.2
+                                # Execution count [1.64e+04]
+#       rand(void)
+        call      rand                                          #123.28
+                                # LOE rbx rbp r13 r14 r15 eax r12d
+..B7.9:                         # Preds ..B7.3
+                                # Execution count [1.64e+04]
+        movl      %eax, %r10d                                   #123.28
+                                # LOE rbx rbp r13 r14 r15 r10d r12d
+..B7.4:                         # Preds ..B7.9
+                                # Execution count [1.64e+04]
+        movl      $1717986919, %eax                             #123.35
+        movl      %r10d, %ecx                                   #123.35
+        imull     %r10d                                         #123.35
+        movl      %r14d, %r9d                                   #123.4
+        movl      $558694933, %eax                              #123.21
+        sarl      $2, %edx                                      #123.35
+        sarl      $31, %ecx                                     #123.35
+        imull     %r12d, %r9d                                   #123.18
+        subl      %ecx, %edx                                    #123.35
+        lea       (%rdx,%rdx,4), %esi                           #123.35
+        imull     %r9d                                          #123.21
+        addl      %esi, %esi                                    #123.35
+        sarl      $5, %edx                                      #123.21
+        subl      %esi, %r10d                                   #123.35
+        imull     $-246, %edx, %r8d                             #123.21
+        addl      %r8d, %r9d                                    #123.21
+        addl      %r9d, %r10d                                   #123.35
+        movw      %r10w, (%r13,%r14,2)                          #123.4
+        incq      %r14                                          #119.20
+        cmpq      $128, %r14                                    #119.14
+        jl        ..B7.3        # Prob 99%                      #119.14
+                                # LOE rbx rbp r13 r14 r15 r12d
+..B7.5:                         # Preds ..B7.4
+                                # Execution count [1.28e+02]
+        incl      %r12d                                         #118.19
+        addq      $256, %r13                                    #118.19
+        cmpl      $128, %r12d                                   #118.13
+        jl        ..B7.2        # Prob 99%                      #118.13
+                                # LOE rbx rbp r13 r15 r12d
+..B7.6:                         # Preds ..B7.5
+                                # Execution count [1.00e+00]
+	.cfi_restore 14
+        popq      %r14                                          #126.1
+	.cfi_def_cfa_offset 24
+	.cfi_restore 13
+        popq      %r13                                          #126.1
+	.cfi_def_cfa_offset 16
+	.cfi_restore 12
+        popq      %r12                                          #126.1
+	.cfi_def_cfa_offset 8
+        ret                                                     #126.1
+        .align    16,0x90
+                                # LOE
+	.cfi_endproc
+# mark_end;
+	.type	assignMatrixi16,@function
+	.size	assignMatrixi16,.-assignMatrixi16
+..LNassignMatrixi16.6:
+	.data
+# -- End  assignMatrixi16
+	.text
+.L_2__routine_start_assignImagei16_7:
+# -- Begin  assignImagei16
+	.text
+# mark_begin;
+       .align    16,0x90
+	.globl assignImagei16
+# --- assignImagei16(short (*)[128])
+assignImagei16:
+# parameter 1: %rdi
+..B8.1:                         # Preds ..B8.0
+                                # Execution count [1.00e+00]
+	.cfi_startproc
+..___tag_value_assignImagei16.78:
+..L79:
+                                                         #128.1
+        pushq     %r12                                          #128.1
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+        pushq     %r13                                          #128.1
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+        pushq     %r14                                          #128.1
+	.cfi_def_cfa_offset 32
+	.cfi_offset 14, -32
+        xorl      %eax, %eax                                    #130.6
+        movl      %eax, %r12d                                   #130.6
+        movq      %rdi, %r13                                    #130.6
+                                # LOE rbx rbp r13 r15 r12d
+..B8.2:                         # Preds ..B8.5 ..B8.1
+                                # Execution count [1.28e+02]
+        xorl      %r14d, %r14d                                  #131.7
+                                # LOE rbx rbp r13 r14 r15 r12d
+..B8.3:                         # Preds ..B8.4 ..B8.2
+                                # Execution count [1.64e+04]
+#       rand(void)
+        call      rand                                          #135.28
+                                # LOE rbx rbp r13 r14 r15 eax r12d
+..B8.9:                         # Preds ..B8.3
+                                # Execution count [1.64e+04]
+        movl      %eax, %r10d                                   #135.28
+                                # LOE rbx rbp r13 r14 r15 r10d r12d
+..B8.4:                         # Preds ..B8.9
+                                # Execution count [1.64e+04]
+        movl      $1717986919, %eax                             #135.35
+        movl      %r10d, %ecx                                   #135.35
+        imull     %r10d                                         #135.35
+        movl      %r14d, %r9d                                   #135.4
+        movl      $558694933, %eax                              #135.21
+        sarl      $2, %edx                                      #135.35
+        sarl      $31, %ecx                                     #135.35
+        imull     %r12d, %r9d                                   #135.18
+        subl      %ecx, %edx                                    #135.35
+        lea       (%rdx,%rdx,4), %esi                           #135.35
+        imull     %r9d                                          #135.21
+        addl      %esi, %esi                                    #135.35
+        sarl      $5, %edx                                      #135.21
+        subl      %esi, %r10d                                   #135.35
+        imull     $-246, %edx, %r8d                             #135.21
+        addl      %r8d, %r9d                                    #135.21
+        addl      %r9d, %r10d                                   #135.35
+        movw      %r10w, (%r13,%r14,2)                          #135.4
+        incq      %r14                                          #131.20
+        cmpq      $128, %r14                                    #131.14
+        jl        ..B8.3        # Prob 99%                      #131.14
+                                # LOE rbx rbp r13 r14 r15 r12d
+..B8.5:                         # Preds ..B8.4
+                                # Execution count [1.28e+02]
+        incl      %r12d                                         #130.19
+        addq      $256, %r13                                    #130.19
+        cmpl      $128, %r12d                                   #130.13
+        jl        ..B8.2        # Prob 99%                      #130.13
+                                # LOE rbx rbp r13 r15 r12d
+..B8.6:                         # Preds ..B8.5
+                                # Execution count [1.00e+00]
+	.cfi_restore 14
+        popq      %r14                                          #138.1
+	.cfi_def_cfa_offset 24
+	.cfi_restore 13
+        popq      %r13                                          #138.1
+	.cfi_def_cfa_offset 16
+	.cfi_restore 12
+        popq      %r12                                          #138.1
+	.cfi_def_cfa_offset 8
+        ret                                                     #138.1
+        .align    16,0x90
+                                # LOE
+	.cfi_endproc
+# mark_end;
+	.type	assignImagei16,@function
+	.size	assignImagei16,.-assignImagei16
+..LNassignImagei16.7:
+	.data
+# -- End  assignImagei16
+	.text
+.L_2__routine_start_imageTranspose_8:
+# -- Begin  imageTranspose
+	.text
+# mark_begin;
+       .align    16,0x90
+	.globl imageTranspose
+# --- imageTranspose(float (*)[131])
+imageTranspose:
+# parameter 1: %rdi
+..B9.1:                         # Preds ..B9.0
+                                # Execution count [0.00e+00]
+	.cfi_startproc
+..___tag_value_imageTranspose.93:
+..L94:
+                                                         #140.1
+        pushq     %r12                                          #140.1
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+        pushq     %r13                                          #140.1
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+        pushq     %r15                                          #140.1
+	.cfi_def_cfa_offset 32
+	.cfi_offset 15, -32
+        pushq     %rbx                                          #140.1
+	.cfi_def_cfa_offset 40
+	.cfi_offset 3, -40
+        xorl      %ecx, %ecx                                    #143.2
+        movq      %rdi, %rdx                                    #143.2
+        xorl      %esi, %esi                                    #143.2
+                                # LOE rdx rcx rbp rsi rdi r14
+..B9.2:                         # Preds ..B9.24 ..B9.1 ..B9.22 ..B9.17 ..B9.3
+                                #      
+                                # Execution count [1.28e+02]
+        incq      %rcx                                          #143.2
+        addq      $524, %rdx                                    #143.2
+        cmpq      $128, %rcx                                    #143.2
+        jae       ..B9.29       # Prob 0%                       #143.2
+                                # LOE rdx rcx rbp rsi rdi r14
+..B9.3:                         # Preds ..B9.2
+                                # Execution count [1.27e+02]
+        testq     %rcx, %rcx                                    #144.14
+        jle       ..B9.2        # Prob 50%                      #144.14
+                                # LOE rdx rcx rbp rsi rdi r14
+..B9.4:                         # Preds ..B9.3
+                                # Execution count [1.15e+02]
+        movl      %ecx, %r10d                                   #144.3
+        cmpl      $16, %r10d                                    #144.3
+        jl        ..B9.16       # Prob 30%                      #144.3
+                                # LOE rdx rcx rbp rsi rdi r14 r10d
+..B9.5:                         # Preds ..B9.4
+                                # Execution count [1.15e+02]
+        movq      %rdx, %r9                                     #144.3
+        andq      $31, %r9                                      #144.3
+        movl      %r9d, %r9d                                    #144.3
+        testl     %r9d, %r9d                                    #144.3
+        je        ..B9.8        # Prob 50%                      #144.3
+                                # LOE rdx rcx rbp rsi rdi r9 r14 r10d
+..B9.6:                         # Preds ..B9.5
+                                # Execution count [1.15e+02]
+        testl     $3, %r9d                                      #144.3
+        jne       ..B9.16       # Prob 10%                      #144.3
+                                # LOE rdx rcx rbp rsi rdi r9 r14 r10d
+..B9.7:                         # Preds ..B9.6
+                                # Execution count [5.76e+01]
+        negl      %r9d                                          #144.3
+        addl      $32, %r9d                                     #144.3
+        shrl      $2, %r9d                                      #144.3
+                                # LOE rdx rcx rbp rsi rdi r9 r14 r10d
+..B9.8:                         # Preds ..B9.7 ..B9.5
+                                # Execution count [1.15e+02]
+        lea       16(%r9), %eax                                 #144.3
+        cmpl      %eax, %r10d                                   #144.3
+        jl        ..B9.16       # Prob 10%                      #144.3
+                                # LOE rdx rcx rbp rsi rdi r9 r14 r10d
+..B9.9:                         # Preds ..B9.8
+                                # Execution count [1.28e+02]
+        movl      %r10d, %eax                                   #144.3
+        movq      %rsi, %rbx                                    #144.3
+        subl      %r9d, %eax                                    #144.3
+        movq      %rdx, %r8                                     #144.3
+        andl      $15, %eax                                     #144.3
+        lea       (%rdi,%rcx,4), %r11                           #146.14
+        negl      %eax                                          #144.3
+        addl      %r10d, %eax                                   #144.3
+        testl     %r9d, %r9d                                    #144.3
+        jbe       ..B9.13       # Prob 9%                       #144.3
+                                # LOE rdx rcx rbx rbp rsi rdi r8 r9 r11 r14 eax r10d
+..B9.10:                        # Preds ..B9.9
+                                # Execution count [1.15e+02]
+        movq      %r11, %r12                                    #144.3
+                                # LOE rdx rcx rbx rbp rsi rdi r8 r9 r11 r12 r14 eax r10d
+..B9.11:                        # Preds ..B9.11 ..B9.10
+                                # Execution count [6.40e+02]
+        movl      (%r12), %r13d                                 #146.14
+        incq      %rbx                                          #144.3
+        movl      (%r8), %r15d                                  #145.11
+        movl      %r13d, (%r8)                                  #146.4
+        addq      $4, %r8                                       #144.3
+        movl      %r15d, (%r12)                                 #147.4
+        addq      $524, %r12                                    #144.3
+        cmpq      %r9, %rbx                                     #144.3
+        jb        ..B9.11       # Prob 82%                      #144.3
+                                # LOE rdx rcx rbx rbp rsi rdi r8 r9 r11 r12 r14 eax r10d
+..B9.13:                        # Preds ..B9.11 ..B9.9
+                                # Execution count [1.15e+02]
+        vmovups   .L_2il0floatpacket.18(%rip), %ymm1            #146.14
+        lea       (%rdx,%r9,4), %r12                            #144.3
+        imulq     $524, %r9, %r8                                #144.3
+        vpcmpeqd  %ymm0, %ymm0, %ymm0                           #146.14
+        movslq    %eax, %rbx                                    #144.3
+                                # LOE rdx rcx rbx rbp rsi rdi r8 r9 r11 r12 r14 eax r10d ymm0 ymm1
+..B9.14:                        # Preds ..B9.14 ..B9.13
+                                # Execution count [6.40e+02]
+        vmovdqa   %ymm0, %ymm4                                  #146.14
+        lea       (%r11,%r8), %r13                              #146.14
+        vxorps    %ymm6, %ymm6, %ymm6                           #146.14
+        addq      $16, %r9                                      #144.3
+        vxorps    %ymm7, %ymm7, %ymm7                           #146.14
+        addq      $8384, %r8                                    #144.3
+        vmovdqa   %ymm0, %ymm5                                  #146.14
+        vgatherdps %ymm4, (%r13,%ymm1,4), %ymm6                 #146.14
+        vgatherdps %ymm5, 4192(%r13,%ymm1,4), %ymm7             #146.14
+        vmovups   (%r12), %ymm2                                 #145.11
+        vmovups   32(%r12), %ymm3                               #145.11
+        vmovups   %ymm6, (%r12)                                 #146.4
+        vmovups   %ymm7, 32(%r12)                               #146.4
+        addq      $64, %r12                                     #144.3
+        cmpq      %rbx, %r9                                     #144.3
+        vextractf128 $1, %ymm2, %xmm8                           #147.4
+        vextractf128 $1, %ymm3, %xmm9                           #147.4
+        vmovss    %xmm2, (%r13)                                 #147.4
+        vmovss    %xmm8, 2096(%r13)                             #147.4
+        vextractps $1, %xmm2, 524(%r13)                         #147.4
+        vextractps $2, %xmm2, 1048(%r13)                        #147.4
+        vextractps $3, %xmm2, 1572(%r13)                        #147.4
+        vextractps $1, %xmm8, 2620(%r13)                        #147.4
+        vextractps $2, %xmm8, 3144(%r13)                        #147.4
+        vextractps $3, %xmm8, 3668(%r13)                        #147.4
+        vmovss    %xmm3, 4192(%r13)                             #147.4
+        vextractps $1, %xmm3, 4716(%r13)                        #147.4
+        vextractps $2, %xmm3, 5240(%r13)                        #147.4
+        vextractps $3, %xmm3, 5764(%r13)                        #147.4
+        vmovss    %xmm9, 6288(%r13)                             #147.4
+        vextractps $1, %xmm9, 6812(%r13)                        #147.4
+        vextractps $2, %xmm9, 7336(%r13)                        #147.4
+        vextractps $3, %xmm9, 7860(%r13)                        #147.4
+        jb        ..B9.14       # Prob 82%                      #144.3
+        jmp       ..B9.17       # Prob 100%                     #144.3
+                                # LOE rdx rcx rbx rbp rsi rdi r8 r9 r11 r12 r14 eax r10d ymm0 ymm1
+..B9.16:                        # Preds ..B9.6 ..B9.8 ..B9.4
+                                # Execution count [3.46e+01]
+        xorl      %eax, %eax                                    #144.3
+                                # LOE rdx rcx rbp rsi rdi r14 eax r10d
+..B9.17:                        # Preds ..B9.14 ..B9.16
+                                # Execution count [1.28e+02]
+        lea       1(%rax), %ebx                                 #144.3
+        cmpl      %r10d, %ebx                                   #144.3
+        ja        ..B9.2        # Prob 50%                      #144.3
+                                # LOE rdx rcx rbp rsi rdi r14 eax
+..B9.18:                        # Preds ..B9.17
+                                # Execution count [1.15e+02]
+        movslq    %eax, %rbx                                    #144.3
+        movslq    %ecx, %r10                                    #144.3
+        subq      %rbx, %r10                                    #144.3
+        cmpq      $4, %r10                                      #144.3
+        jl        ..B9.28       # Prob 10%                      #144.3
+                                # LOE rdx rcx rbx rbp rsi rdi r10 r14 eax
+..B9.19:                        # Preds ..B9.18
+                                # Execution count [1.15e+02]
+        movslq    %eax, %rax                                    #146.14
+        movl      %r10d, %r9d                                   #144.3
+        imulq     $524, %rax, %r13                              #146.14
+        andl      $-4, %r9d                                     #144.3
+        lea       (%rdi,%rcx,4), %r8                            #146.14
+        movslq    %r9d, %r9                                     #144.3
+        movq      %rsi, %r12                                    #144.3
+        addq      %r13, %r8                                     #146.14
+        lea       (%rdx,%rbx,4), %r11                           #145.11
+        .align    16,0x90
+                                # LOE rdx rcx rbx rbp rsi rdi r8 r9 r10 r11 r12 r14 eax
+..B9.20:                        # Preds ..B9.20 ..B9.19
+                                # Execution count [6.40e+02]
+        vmovss    524(%r8), %xmm0                               #146.14
+        addq      $4, %r12                                      #144.3
+        vmovss    (%r8), %xmm1                                  #146.14
+        vmovups   (%r11), %xmm5                                 #145.11
+        vinsertps $16, 1572(%r8), %xmm0, %xmm3                  #146.14
+        vinsertps $16, 1048(%r8), %xmm1, %xmm2                  #146.14
+        vunpcklps %xmm3, %xmm2, %xmm4                           #146.14
+        vmovups   %xmm4, (%r11)                                 #146.4
+        vmovss    %xmm5, (%r8)                                  #147.4
+        addq      $16, %r11                                     #144.3
+        vextractps $1, %xmm5, 524(%r8)                          #147.4
+        vextractps $2, %xmm5, 1048(%r8)                         #147.4
+        vextractps $3, %xmm5, 1572(%r8)                         #147.4
+        addq      $2096, %r8                                    #144.3
+        cmpq      %r9, %r12                                     #144.3
+        jb        ..B9.20       # Prob 82%                      #144.3
+                                # LOE rdx rcx rbx rbp rsi rdi r8 r9 r10 r11 r12 r14 eax
+..B9.22:                        # Preds ..B9.20 ..B9.28
+                                # Execution count [1.28e+02]
+        imulq     $524, %r9, %r8                                #144.3
+        cmpq      %r10, %r9                                     #144.3
+        jae       ..B9.2        # Prob 9%                       #144.3
+                                # LOE rdx rcx rbx rbp rsi rdi r8 r9 r10 r14 eax
+..B9.23:                        # Preds ..B9.22
+                                # Execution count [1.15e+02]
+        movslq    %eax, %rax                                    #146.14
+        lea       (%rdi,%rcx,4), %r12                           #146.14
+        imulq     $524, %rax, %r11                              #146.14
+        addq      %r11, %r12                                    #146.14
+        lea       (%rdx,%rbx,4), %rbx                           #145.11
+        addq      %r12, %r8                                     #146.14
+        lea       (%rbx,%r9,4), %rbx                            #145.11
+                                # LOE rdx rcx rbx rbp rsi rdi r8 r9 r10 r14
+..B9.24:                        # Preds ..B9.24 ..B9.23
+                                # Execution count [6.40e+02]
+        movl      (%r8), %eax                                   #146.14
+        incq      %r9                                           #144.3
+        movl      (%rbx), %r11d                                 #145.11
+        movl      %eax, (%rbx)                                  #146.4
+        addq      $4, %rbx                                      #144.3
+        movl      %r11d, (%r8)                                  #147.4
+        addq      $524, %r8                                     #144.3
+        cmpq      %r10, %r9                                     #144.3
+        jb        ..B9.24       # Prob 82%                      #144.3
+        jmp       ..B9.2        # Prob 100%                     #144.3
+                                # LOE rdx rcx rbx rbp rsi rdi r8 r9 r10 r14
+..B9.28:                        # Preds ..B9.18
+                                # Execution count [1.15e+01]: Infreq
+        movq      %rsi, %r9                                     #144.3
+        jmp       ..B9.22       # Prob 100%                     #144.3
+                                # LOE rdx rcx rbx rbp rsi rdi r9 r10 r14 eax
+..B9.29:                        # Preds ..B9.2
+                                # Execution count [1.00e+00]: Infreq
+        vzeroupper                                              #149.1
+	.cfi_restore 3
+        popq      %rbx                                          #149.1
+	.cfi_def_cfa_offset 32
+	.cfi_restore 15
+        popq      %r15                                          #149.1
+	.cfi_def_cfa_offset 24
+	.cfi_restore 13
+        popq      %r13                                          #149.1
+	.cfi_def_cfa_offset 16
+	.cfi_restore 12
+        popq      %r12                                          #149.1
+	.cfi_def_cfa_offset 8
+        ret                                                     #149.1
+        .align    16,0x90
+                                # LOE
+	.cfi_endproc
+# mark_end;
+	.type	imageTranspose,@function
+	.size	imageTranspose,.-imageTranspose
+..LNimageTranspose.8:
+	.data
+# -- End  imageTranspose
+	.text
+.L_2__routine_start_assignMatrixui16_9:
+# -- Begin  assignMatrixui16
+	.text
+# mark_begin;
+       .align    16,0x90
+	.globl assignMatrixui16
+# --- assignMatrixui16(unsigned short (*)[128])
+assignMatrixui16:
+# parameter 1: %rdi
+..B10.1:                        # Preds ..B10.0
+                                # Execution count [1.00e+00]
+	.cfi_startproc
+..___tag_value_assignMatrixui16.112:
+..L113:
+                                                        #152.1
+        xorl      %eax, %eax                                    #154.6
+                                # LOE rbx rbp rdi r12 r13 r14 r15 eax
+..B10.2:                        # Preds ..B10.4 ..B10.1
+                                # Execution count [1.28e+02]
+        xorl      %edx, %edx                                    #155.7
+                                # LOE rdx rbx rbp rdi r12 r13 r14 r15 eax
+..B10.3:                        # Preds ..B10.3 ..B10.2
+                                # Execution count [1.64e+04]
+        lea       10(%rax,%rdx), %ecx                           #159.20
+        movzbl    %cl, %ecx                                     #159.25
+        movw      %cx, (%rdi,%rdx,2)                            #159.4
+        incq      %rdx                                          #155.20
+        cmpq      $128, %rdx                                    #155.14
+        jl        ..B10.3       # Prob 99%                      #155.14
+                                # LOE rdx rbx rbp rdi r12 r13 r14 r15 eax
+..B10.4:                        # Preds ..B10.3
+                                # Execution count [1.28e+02]
+        incl      %eax                                          #154.19
+        addq      $256, %rdi                                    #154.19
+        cmpl      $128, %eax                                    #154.13
+        jl        ..B10.2       # Prob 99%                      #154.13
+                                # LOE rbx rbp rdi r12 r13 r14 r15 eax
+..B10.5:                        # Preds ..B10.4
+                                # Execution count [1.00e+00]
+        ret                                                     #162.1
+        .align    16,0x90
+                                # LOE
+	.cfi_endproc
+# mark_end;
+	.type	assignMatrixui16,@function
+	.size	assignMatrixui16,.-assignMatrixui16
+..LNassignMatrixui16.9:
+	.data
+# -- End  assignMatrixui16
+	.text
+.L_2__routine_start_assignMatrixi8_10:
+# -- Begin  assignMatrixi8
+	.text
+# mark_begin;
+       .align    16,0x90
+	.globl assignMatrixi8
+# --- assignMatrixi8(unsigned char (*)[128])
+assignMatrixi8:
+# parameter 1: %rdi
+..B11.1:                        # Preds ..B11.0
+                                # Execution count [1.00e+00]
+	.cfi_startproc
+..___tag_value_assignMatrixi8.115:
+..L116:
+                                                        #165.1
+        pushq     %r12                                          #165.1
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+        pushq     %r13                                          #165.1
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+        pushq     %r14                                          #165.1
+	.cfi_def_cfa_offset 32
+	.cfi_offset 14, -32
+        xorl      %eax, %eax                                    #167.6
+        movl      %eax, %r12d                                   #167.6
+        movq      %rdi, %r13                                    #167.6
+                                # LOE rbx rbp r13 r15 r12d
+..B11.2:                        # Preds ..B11.5 ..B11.1
+                                # Execution count [1.28e+02]
+        xorl      %r14d, %r14d                                  #168.7
+                                # LOE rbx rbp r13 r14 r15 r12d
+..B11.3:                        # Preds ..B11.11 ..B11.2
+                                # Execution count [1.64e+04]
+#       rand(void)
+        call      rand                                          #172.26
+                                # LOE rbx rbp r13 r14 r15 eax r12d
+..B11.4:                        # Preds ..B11.3
+                                # Execution count [1.64e+04]
+        andl      $-2147483647, %eax                            #172.33
+        jge       ..B11.9       # Prob 50%                      #172.33
+                                # LOE rbx rbp r13 r14 r15 eax r12d
+..B11.10:                       # Preds ..B11.4
+                                # Execution count [1.64e+04]
+        subl      $1, %eax                                      #172.33
+        orl       $-2, %eax                                     #172.33
+        incl      %eax                                          #172.33
+                                # LOE rbx rbp r13 r14 r15 eax r12d
+..B11.9:                        # Preds ..B11.4 ..B11.10
+                                # Execution count [1.64e+04]
+        movl      %r14d, %edx                                   #172.4
+        imull     %r12d, %edx                                   #172.18
+        movzbl    %dl, %edx                                     #172.21
+        addl      %edx, %eax                                    #172.33
+        andl      $-2147483393, %eax                            #172.36
+        jge       ..B11.11      # Prob 50%                      #172.36
+                                # LOE rbx rbp r13 r14 r15 eax r12d
+..B11.12:                       # Preds ..B11.9
+                                # Execution count [1.64e+04]
+        subl      $1, %eax                                      #172.36
+        incl      %eax                                          #172.36
+                                # LOE rbx rbp r13 r14 r15 eax r12d
+..B11.11:                       # Preds ..B11.9 ..B11.12
+                                # Execution count [1.64e+04]
+        movb      %al, (%r14,%r13)                              #172.4
+        incq      %r14                                          #168.20
+        cmpq      $128, %r14                                    #168.14
+        jl        ..B11.3       # Prob 99%                      #168.14
+                                # LOE rbx rbp r13 r14 r15 r12d
+..B11.5:                        # Preds ..B11.11
+                                # Execution count [1.28e+02]
+        incl      %r12d                                         #167.19
+        addq      $128, %r13                                    #167.19
+        cmpl      $128, %r12d                                   #167.13
+        jl        ..B11.2       # Prob 99%                      #167.13
+                                # LOE rbx rbp r13 r15 r12d
+..B11.6:                        # Preds ..B11.5
+                                # Execution count [1.00e+00]
+	.cfi_restore 14
+        popq      %r14                                          #175.1
+	.cfi_def_cfa_offset 24
+	.cfi_restore 13
+        popq      %r13                                          #175.1
+	.cfi_def_cfa_offset 16
+	.cfi_restore 12
+        popq      %r12                                          #175.1
+	.cfi_def_cfa_offset 8
+        ret                                                     #175.1
+        .align    16,0x90
+                                # LOE
+	.cfi_endproc
+# mark_end;
+	.type	assignMatrixi8,@function
+	.size	assignMatrixi8,.-assignMatrixi8
+..LNassignMatrixi8.10:
+	.data
+# -- End  assignMatrixi8
+	.text
+.L_2__routine_start_assignArrayi32_11:
+# -- Begin  assignArrayi32
+	.text
+# mark_begin;
+       .align    16,0x90
+	.globl assignArrayi32
+# --- assignArrayi32(int *)
+assignArrayi32:
+# parameter 1: %rdi
+..B12.1:                        # Preds ..B12.0
+                                # Execution count [1.00e+00]
+	.cfi_startproc
+..___tag_value_assignArrayi32.130:
+..L131:
+                                                        #178.1
+        movq      %rdi, %r8                                     #180.3
+        andq      $31, %r8                                      #180.3
+        testl     %r8d, %r8d                                    #180.3
+        je        ..B12.6       # Prob 50%                      #180.3
+                                # LOE rbx rbp rdi r12 r13 r14 r15 r8d
+..B12.2:                        # Preds ..B12.1
+                                # Execution count [1.00e+00]
+        xorl      %ecx, %ecx                                    #180.3
+        xorl      %esi, %esi                                    #180.3
+        testl     $3, %r8d                                      #180.3
+        jne       ..B12.9       # Prob 10%                      #180.3
+                                # LOE rbx rbp rsi rdi r12 r13 r14 r15 ecx r8d
+..B12.3:                        # Preds ..B12.2
+                                # Execution count [1.00e+00]
+        negl      %r8d                                          #180.3
+        addl      $32, %r8d                                     #180.3
+        shrl      $2, %r8d                                      #180.3
+                                # LOE rbx rbp rsi rdi r12 r13 r14 r15 ecx r8d
+..B12.4:                        # Preds ..B12.4 ..B12.3
+                                # Execution count [1.64e+04]
+        movl      $274877907, %eax                              #184.17
+        lea       1234(%rcx), %r9d                              #184.4
+        imull     %ecx, %r9d                                    #184.14
+        incl      %ecx                                          #180.3
+        imull     %r9d                                          #184.17
+        movl      %r9d, %r10d                                   #184.17
+        sarl      $6, %edx                                      #184.17
+        sarl      $31, %r10d                                    #184.17
+        subl      %r10d, %edx                                   #184.17
+        imull     $-1000, %edx, %r11d                           #184.17
+        addl      %r11d, %r9d                                   #184.17
+        movl      %r9d, (%rdi,%rsi,4)                           #184.4
+        incq      %rsi                                          #180.3
+        cmpl      %r8d, %ecx                                    #180.3
+        jb        ..B12.4       # Prob 99%                      #180.3
+                                # LOE rbx rbp rsi rdi r12 r13 r14 r15 ecx r8d
+..B12.6:                        # Preds ..B12.4 ..B12.1
+                                # Execution count [1.00e+00]
+        movl      %r8d, %ecx                                    #180.3
+        lea       1234(%r8), %eax                               #184.4
+        negl      %ecx                                          #180.3
+        vmovd     %r8d, %xmm3                                   #184.4
+        andl      $7, %ecx                                      #180.3
+        negl      %ecx                                          #180.3
+        vmovd     %eax, %xmm0                                   #184.4
+        addl      $16384, %ecx                                  #180.3
+        vpbroadcastd %xmm0, %ymm2                               #184.4
+        movl      %ecx, %eax                                    #180.3
+        vpbroadcastd %xmm3, %ymm4                               #184.4
+        vpaddd    .L_2il0floatpacket.6(%rip), %ymm2, %ymm0      #184.4
+        vpaddd    .L_2il0floatpacket.6(%rip), %ymm4, %ymm3      #184.4
+        vmovdqu   .L_2il0floatpacket.1(%rip), %ymm1             #184.4
+        vmovupd   .L_2il0floatpacket.13(%rip), %ymm2            #184.4
+        movl      %r8d, %r8d                                    #180.3
+                                # LOE rax rbx rbp rdi r8 r12 r13 r14 r15 ecx ymm0 ymm1 ymm2 ymm3
+..B12.7:                        # Preds ..B12.7 ..B12.6
+                                # Execution count [1.64e+04]
+        vpmulld   %ymm3, %ymm0, %ymm13                          #184.14
+        vpshufd   $49, %ymm13, %ymm4                            #184.4
+        vpsrad    $31, %ymm13, %ymm11                           #184.4
+        vpaddd    %ymm1, %ymm0, %ymm0                           #184.4
+        vpaddd    %ymm1, %ymm3, %ymm3                           #184.4
+        vpmuldq   %ymm2, %ymm13, %ymm5                          #184.4
+        vpmuldq   %ymm2, %ymm4, %ymm6                           #184.4
+        vpsrlq    $32, %ymm5, %ymm7                             #184.4
+        vpand     .L_2il0floatpacket.9(%rip), %ymm6, %ymm8      #184.4
+        vpor      %ymm8, %ymm7, %ymm9                           #184.4
+        vpsrad    $6, %ymm9, %ymm10                             #184.4
+        vpsubd    %ymm11, %ymm10, %ymm12                        #184.4
+        vpmulld   .L_2il0floatpacket.14(%rip), %ymm12, %ymm14   #184.4
+        vpsubd    %ymm14, %ymm13, %ymm15                        #184.4
+        vmovdqu   %ymm15, (%rdi,%r8,4)                          #184.4
+        addq      $8, %r8                                       #180.3
+        cmpq      %rax, %r8                                     #180.3
+        jb        ..B12.7       # Prob 99%                      #180.3
+                                # LOE rax rbx rbp rdi r8 r12 r13 r14 r15 ecx ymm0 ymm1 ymm2 ymm3
+..B12.8:                        # Preds ..B12.7
+                                # Execution count [9.00e-01]
+        cmpl      $16384, %ecx                                  #180.3
+        jae       ..B12.12      # Prob 0%                       #180.3
+                                # LOE rbx rbp rdi r12 r13 r14 r15 ecx
+..B12.9:                        # Preds ..B12.8 ..B12.2
+                                # Execution count [1.00e+00]
+        movl      %ecx, %r8d                                    #184.4
+        lea       1234(%rcx), %esi                              #184.4
+                                # LOE rbx rbp rdi r8 r12 r13 r14 r15 ecx esi
+..B12.10:                       # Preds ..B12.10 ..B12.9
+                                # Execution count [1.64e+04]
+        movl      %esi, %r9d                                    #184.14
+        movl      $274877907, %eax                              #184.17
+        imull     %ecx, %r9d                                    #184.14
+        incl      %ecx                                          #180.3
+        imull     %r9d                                          #184.17
+        movl      %r9d, %r10d                                   #184.17
+        incl      %esi                                          #180.3
+        sarl      $6, %edx                                      #184.17
+        sarl      $31, %r10d                                    #184.17
+        subl      %r10d, %edx                                   #184.17
+        imull     $-1000, %edx, %r11d                           #184.17
+        addl      %r11d, %r9d                                   #184.17
+        movl      %r9d, (%rdi,%r8,4)                            #184.4
+        incq      %r8                                           #180.3
+        cmpl      $16384, %ecx                                  #180.3
+        jb        ..B12.10      # Prob 99%                      #180.3
+                                # LOE rbx rbp rdi r8 r12 r13 r14 r15 ecx esi
+..B12.12:                       # Preds ..B12.10 ..B12.8
+                                # Execution count [1.00e+00]
+        vzeroupper                                              #189.1
+        ret                                                     #189.1
+        .align    16,0x90
+                                # LOE
+	.cfi_endproc
+# mark_end;
+	.type	assignArrayi32,@function
+	.size	assignArrayi32,.-assignArrayi32
+..LNassignArrayi32.11:
+	.data
+# -- End  assignArrayi32
+	.text
+.L_2__routine_start_savefloatMatrixFileForOutPuts_12:
+# -- Begin  savefloatMatrixFileForOutPuts
+	.text
+# mark_begin;
+       .align    16,0x90
+	.globl savefloatMatrixFileForOutPuts
+# --- savefloatMatrixFileForOutPuts(float (*)[128])
+savefloatMatrixFileForOutPuts:
+# parameter 1: %rdi
+..B13.1:                        # Preds ..B13.0
+                                # Execution count [1.00e+00]
+	.cfi_startproc
+..___tag_value_savefloatMatrixFileForOutPuts.133:
+..L134:
+                                                        #494.56
+        pushq     %r12                                          #494.56
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+        pushq     %r13                                          #494.56
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+        pushq     %r14                                          #494.56
+	.cfi_def_cfa_offset 32
+	.cfi_offset 14, -32
+        pushq     %r15                                          #494.56
+	.cfi_def_cfa_offset 40
+	.cfi_offset 15, -40
+        pushq     %rsi                                          #494.56
+	.cfi_def_cfa_offset 48
+        movq      %rdi, %r13                                    #494.56
+        movl      $.L_2__STRING.1, %edi                         #496.19
+        movl      $.L_2__STRING.2, %esi                         #496.19
+#       fopen(const char *__restrict__, const char *__restrict__)
+        call      fopen                                         #496.19
+                                # LOE rax rbx rbp r13 r14 r15
+..B13.2:                        # Preds ..B13.1
+                                # Execution count [1.00e+00]
+        movl      $128, %ecx                                    #497.2
+        movq      %rax, %rdi                                    #497.2
+        movq      %rax, fileForOutPuts(%rip)                    #496.2
+        movl      $.L_2__STRING.3, %esi                         #497.2
+        movl      %ecx, %r8d                                    #497.2
+        xorl      %eax, %eax                                    #497.2
+        movq      programName(%rip), %rdx                       #497.2
+#       fprintf(FILE *__restrict__, const char *__restrict__, ...)
+        call      fprintf                                       #497.2
+                                # LOE rbx rbp r13 r14 r15
+..B13.3:                        # Preds ..B13.2
+                                # Execution count [1.00e+00]
+        xorl      %edx, %edx                                    #498.11
+        movq      %r13, %r14                                    #499.11
+        movq      fileForOutPuts(%rip), %r12                    #499.11
+        movl      %edx, %r13d                                   #499.11
+                                # LOE rbx rbp r12 r14 r13d
+..B13.4:                        # Preds ..B13.8 ..B13.3
+                                # Execution count [1.28e+02]
+        movl      $il0_peep_printf_format_0, %edi               #499.3
+        movq      %r12, %rsi                                    #499.3
+        call      fputs                                         #499.3
+                                # LOE rbx rbp r12 r14 r13d
+..B13.5:                        # Preds ..B13.4
+                                # Execution count [1.28e+02]
+        xorl      %r15d, %r15d                                  #500.7
+                                # LOE rbx rbp r12 r14 r15 r13d
+..B13.6:                        # Preds ..B13.7 ..B13.5
+                                # Execution count [1.64e+04]
+        vxorpd    %xmm0, %xmm0, %xmm0                           #501.4
+        movq      %r12, %rdi                                    #501.4
+        vcvtss2sd (%r14,%r15,4), %xmm0, %xmm0                   #501.4
+        movl      $.L_2__STRING.5, %esi                         #501.4
+        movl      %r13d, %edx                                   #501.4
+        movl      %r15d, %ecx                                   #501.4
+        movl      $1, %eax                                      #501.4
+#       fprintf(FILE *__restrict__, const char *__restrict__, ...)
+        call      fprintf                                       #501.4
+                                # LOE rbx rbp r12 r14 r15 r13d
+..B13.7:                        # Preds ..B13.6
+                                # Execution count [1.64e+04]
+        incq      %r15                                          #500.21
+        cmpq      $128, %r15                                    #500.15
+        jl        ..B13.6       # Prob 99%                      #500.15
+                                # LOE rbx rbp r12 r14 r15 r13d
+..B13.8:                        # Preds ..B13.7
+                                # Execution count [1.28e+02]
+        incl      %r13d                                         #498.23
+        addq      $512, %r14                                    #498.23
+        cmpl      $128, %r13d                                   #498.17
+        jl        ..B13.4       # Prob 99%                      #498.17
+                                # LOE rbx rbp r12 r14 r13d
+..B13.9:                        # Preds ..B13.8
+                                # Execution count [1.00e+00]
+        movl      $il0_peep_printf_format_1, %edi               #505.2
+        movq      %r12, %rsi                                    #505.2
+        call      fputs                                         #505.2
+                                # LOE rbx rbp r12 r14 r15
+..B13.10:                       # Preds ..B13.9
+                                # Execution count [1.00e+00]
+        movq      %r12, %rdi                                    #506.2
+        addq      $8, %rsp                                      #506.2
+	.cfi_def_cfa_offset 40
+	.cfi_restore 15
+        popq      %r15                                          #506.2
+	.cfi_def_cfa_offset 32
+	.cfi_restore 14
+        popq      %r14                                          #506.2
+	.cfi_def_cfa_offset 24
+	.cfi_restore 13
+        popq      %r13                                          #506.2
+	.cfi_def_cfa_offset 16
+	.cfi_restore 12
+        popq      %r12                                          #506.2
+	.cfi_def_cfa_offset 8
+#       fclose(FILE *)
+        jmp       fclose                                        #506.2
+        .align    16,0x90
+                                # LOE
+	.cfi_endproc
+# mark_end;
+	.type	savefloatMatrixFileForOutPuts,@function
+	.size	savefloatMatrixFileForOutPuts,.-savefloatMatrixFileForOutPuts
+..LNsavefloatMatrixFileForOutPuts.12:
+	.section .rodata.str1.4, "aMS",@progbits,1
+	.align 4
+	.align 4
+il0_peep_printf_format_0:
+	.word	2570
+	.byte	0
+	.section .rodata.str1.32, "aMS",@progbits,1
+	.align 32
+	.align 32
+il0_peep_printf_format_1:
+	.long	707398176
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	170535466
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	1313424938
+	.long	1162367817
+	.long	707406404
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	705309226
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.word	2592
+	.byte	0
+	.data
+# -- End  savefloatMatrixFileForOutPuts
+	.text
+.L_2__routine_start_savefloatMatrixFileName_13:
+# -- Begin  savefloatMatrixFileName
+	.text
+# mark_begin;
+       .align    16,0x90
+	.globl savefloatMatrixFileName
+# --- savefloatMatrixFileName(float (*)[128], char *)
+savefloatMatrixFileName:
+# parameter 1: %rdi
+# parameter 2: %rsi
+..B14.1:                        # Preds ..B14.0
+                                # Execution count [1.00e+00]
+	.cfi_startproc
+..___tag_value_savefloatMatrixFileName.154:
+..L155:
+                                                        #509.66
+        pushq     %r12                                          #509.66
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+        pushq     %r13                                          #509.66
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+        pushq     %r14                                          #509.66
+	.cfi_def_cfa_offset 32
+	.cfi_offset 14, -32
+        pushq     %r15                                          #509.66
+	.cfi_def_cfa_offset 40
+	.cfi_offset 15, -40
+        pushq     %rsi                                          #509.66
+	.cfi_def_cfa_offset 48
+        movq      %rdi, %r13                                    #509.66
+        movq      %rsi, %rdi                                    #511.19
+        movl      $.L_2__STRING.2, %esi                         #511.19
+#       fopen(const char *__restrict__, const char *__restrict__)
+        call      fopen                                         #511.19
+                                # LOE rax rbx rbp r13 r14 r15
+..B14.2:                        # Preds ..B14.1
+                                # Execution count [1.00e+00]
+        movl      $128, %ecx                                    #512.2
+        movq      %rax, %rdi                                    #512.2
+        movq      %rax, fileForOutPuts(%rip)                    #511.2
+        movl      $.L_2__STRING.3, %esi                         #512.2
+        movl      %ecx, %r8d                                    #512.2
+        xorl      %eax, %eax                                    #512.2
+        movq      programName(%rip), %rdx                       #512.2
+#       fprintf(FILE *__restrict__, const char *__restrict__, ...)
+        call      fprintf                                       #512.2
+                                # LOE rbx rbp r13 r14 r15
+..B14.3:                        # Preds ..B14.2
+                                # Execution count [1.00e+00]
+        xorl      %edx, %edx                                    #513.11
+        movq      %r13, %r14                                    #514.11
+        movq      fileForOutPuts(%rip), %r12                    #514.11
+        movl      %edx, %r13d                                   #514.11
+                                # LOE rbx rbp r12 r14 r13d
+..B14.4:                        # Preds ..B14.8 ..B14.3
+                                # Execution count [1.28e+02]
+        movl      $il0_peep_printf_format_2, %edi               #514.3
+        movq      %r12, %rsi                                    #514.3
+        call      fputs                                         #514.3
+                                # LOE rbx rbp r12 r14 r13d
+..B14.5:                        # Preds ..B14.4
+                                # Execution count [1.28e+02]
+        xorl      %r15d, %r15d                                  #515.7
+                                # LOE rbx rbp r12 r14 r15 r13d
+..B14.6:                        # Preds ..B14.7 ..B14.5
+                                # Execution count [1.64e+04]
+        vxorpd    %xmm0, %xmm0, %xmm0                           #516.4
+        movq      %r12, %rdi                                    #516.4
+        vcvtss2sd (%r14,%r15,4), %xmm0, %xmm0                   #516.4
+        movl      $.L_2__STRING.5, %esi                         #516.4
+        movl      %r13d, %edx                                   #516.4
+        movl      %r15d, %ecx                                   #516.4
+        movl      $1, %eax                                      #516.4
+#       fprintf(FILE *__restrict__, const char *__restrict__, ...)
+        call      fprintf                                       #516.4
+                                # LOE rbx rbp r12 r14 r15 r13d
+..B14.7:                        # Preds ..B14.6
+                                # Execution count [1.64e+04]
+        incq      %r15                                          #515.21
+        cmpq      $128, %r15                                    #515.15
+        jl        ..B14.6       # Prob 99%                      #515.15
+                                # LOE rbx rbp r12 r14 r15 r13d
+..B14.8:                        # Preds ..B14.7
+                                # Execution count [1.28e+02]
+        incl      %r13d                                         #513.23
+        addq      $512, %r14                                    #513.23
+        cmpl      $128, %r13d                                   #513.17
+        jl        ..B14.4       # Prob 99%                      #513.17
+                                # LOE rbx rbp r12 r14 r13d
+..B14.9:                        # Preds ..B14.8
+                                # Execution count [1.00e+00]
+        movl      $il0_peep_printf_format_3, %edi               #520.2
+        movq      %r12, %rsi                                    #520.2
+        call      fputs                                         #520.2
+                                # LOE rbx rbp r12 r14 r15
+..B14.10:                       # Preds ..B14.9
+                                # Execution count [1.00e+00]
+        movq      %r12, %rdi                                    #521.2
+        addq      $8, %rsp                                      #521.2
+	.cfi_def_cfa_offset 40
+	.cfi_restore 15
+        popq      %r15                                          #521.2
+	.cfi_def_cfa_offset 32
+	.cfi_restore 14
+        popq      %r14                                          #521.2
+	.cfi_def_cfa_offset 24
+	.cfi_restore 13
+        popq      %r13                                          #521.2
+	.cfi_def_cfa_offset 16
+	.cfi_restore 12
+        popq      %r12                                          #521.2
+	.cfi_def_cfa_offset 8
+#       fclose(FILE *)
+        jmp       fclose                                        #521.2
+        .align    16,0x90
+                                # LOE
+	.cfi_endproc
+# mark_end;
+	.type	savefloatMatrixFileName,@function
+	.size	savefloatMatrixFileName,.-savefloatMatrixFileName
+..LNsavefloatMatrixFileName.13:
+	.section .rodata.str1.4, "aMS",@progbits,1
+	.space 1, 0x00 	# pad
+	.align 4
+il0_peep_printf_format_2:
+	.word	2570
+	.byte	0
+	.section .rodata.str1.32, "aMS",@progbits,1
+	.space 29, 0x00 	# pad
+	.align 32
+il0_peep_printf_format_3:
+	.long	707398176
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	170535466
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	1313424938
+	.long	1162367817
+	.long	707406404
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	705309226
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.word	2592
+	.byte	0
+	.data
+# -- End  savefloatMatrixFileName
+	.text
+.L_2__routine_start_saveintMatrixFileForOutPuts_14:
+# -- Begin  saveintMatrixFileForOutPuts
+	.text
+# mark_begin;
+       .align    16,0x90
+	.globl saveintMatrixFileForOutPuts
+# --- saveintMatrixFileForOutPuts(int (*)[128])
+saveintMatrixFileForOutPuts:
+# parameter 1: %rdi
+..B15.1:                        # Preds ..B15.0
+                                # Execution count [1.00e+00]
+	.cfi_startproc
+..___tag_value_saveintMatrixFileForOutPuts.175:
+..L176:
+                                                        #524.52
+        pushq     %r12                                          #524.52
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+        pushq     %r13                                          #524.52
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+        pushq     %r14                                          #524.52
+	.cfi_def_cfa_offset 32
+	.cfi_offset 14, -32
+        pushq     %r15                                          #524.52
+	.cfi_def_cfa_offset 40
+	.cfi_offset 15, -40
+        pushq     %rsi                                          #524.52
+	.cfi_def_cfa_offset 48
+        movq      %rdi, %r13                                    #524.52
+        movl      $.L_2__STRING.1, %edi                         #526.19
+        movl      $.L_2__STRING.2, %esi                         #526.19
+#       fopen(const char *__restrict__, const char *__restrict__)
+        call      fopen                                         #526.19
+                                # LOE rax rbx rbp r13 r14 r15
+..B15.2:                        # Preds ..B15.1
+                                # Execution count [1.00e+00]
+        movl      $128, %ecx                                    #527.2
+        movq      %rax, %rdi                                    #527.2
+        movq      %rax, fileForOutPuts(%rip)                    #526.2
+        movl      $.L_2__STRING.3, %esi                         #527.2
+        movl      %ecx, %r8d                                    #527.2
+        xorl      %eax, %eax                                    #527.2
+        movq      programName(%rip), %rdx                       #527.2
+#       fprintf(FILE *__restrict__, const char *__restrict__, ...)
+        call      fprintf                                       #527.2
+                                # LOE rbx rbp r13 r14 r15
+..B15.3:                        # Preds ..B15.2
+                                # Execution count [1.00e+00]
+        xorl      %edx, %edx                                    #528.11
+        movq      %r13, %r15                                    #529.11
+        movq      fileForOutPuts(%rip), %r12                    #529.11
+        movl      %edx, %r14d                                   #529.11
+                                # LOE rbx rbp r12 r15 r14d
+..B15.4:                        # Preds ..B15.8 ..B15.3
+                                # Execution count [1.28e+02]
+        movl      $il0_peep_printf_format_4, %edi               #529.3
+        movq      %r12, %rsi                                    #529.3
+        call      fputs                                         #529.3
+                                # LOE rbx rbp r12 r15 r14d
+..B15.5:                        # Preds ..B15.4
+                                # Execution count [1.28e+02]
+        xorl      %r13d, %r13d                                  #530.7
+                                # LOE rbx rbp r12 r13 r15 r14d
+..B15.6:                        # Preds ..B15.7 ..B15.5
+                                # Execution count [1.64e+04]
+        movq      %r12, %rdi                                    #531.4
+        movl      $.L_2__STRING.7, %esi                         #531.4
+        movl      %r14d, %edx                                   #531.4
+        movl      %r13d, %ecx                                   #531.4
+        xorl      %eax, %eax                                    #531.4
+        movl      (%r15,%r13,4), %r8d                           #531.4
+#       fprintf(FILE *__restrict__, const char *__restrict__, ...)
+        call      fprintf                                       #531.4
+                                # LOE rbx rbp r12 r13 r15 r14d
+..B15.7:                        # Preds ..B15.6
+                                # Execution count [1.64e+04]
+        incq      %r13                                          #530.21
+        cmpq      $128, %r13                                    #530.15
+        jl        ..B15.6       # Prob 99%                      #530.15
+                                # LOE rbx rbp r12 r13 r15 r14d
+..B15.8:                        # Preds ..B15.7
+                                # Execution count [1.28e+02]
+        incl      %r14d                                         #528.23
+        addq      $512, %r15                                    #528.23
+        cmpl      $128, %r14d                                   #528.17
+        jl        ..B15.4       # Prob 99%                      #528.17
+                                # LOE rbx rbp r12 r15 r14d
+..B15.9:                        # Preds ..B15.8
+                                # Execution count [1.00e+00]
+        movl      $il0_peep_printf_format_5, %edi               #535.2
+        movq      %r12, %rsi                                    #535.2
+        call      fputs                                         #535.2
+                                # LOE rbx rbp r12 r14 r15
+..B15.10:                       # Preds ..B15.9
+                                # Execution count [1.00e+00]
+        movq      %r12, %rdi                                    #536.2
+        addq      $8, %rsp                                      #536.2
+	.cfi_def_cfa_offset 40
+	.cfi_restore 15
+        popq      %r15                                          #536.2
+	.cfi_def_cfa_offset 32
+	.cfi_restore 14
+        popq      %r14                                          #536.2
+	.cfi_def_cfa_offset 24
+	.cfi_restore 13
+        popq      %r13                                          #536.2
+	.cfi_def_cfa_offset 16
+	.cfi_restore 12
+        popq      %r12                                          #536.2
+	.cfi_def_cfa_offset 8
+#       fclose(FILE *)
+        jmp       fclose                                        #536.2
+        .align    16,0x90
+                                # LOE
+	.cfi_endproc
+# mark_end;
+	.type	saveintMatrixFileForOutPuts,@function
+	.size	saveintMatrixFileForOutPuts,.-saveintMatrixFileForOutPuts
+..LNsaveintMatrixFileForOutPuts.14:
+	.section .rodata.str1.4, "aMS",@progbits,1
+	.space 1, 0x00 	# pad
+	.align 4
+il0_peep_printf_format_4:
+	.word	2570
+	.byte	0
+	.section .rodata.str1.32, "aMS",@progbits,1
+	.space 29, 0x00 	# pad
+	.align 32
+il0_peep_printf_format_5:
+	.long	707398176
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	170535466
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	1313424938
+	.long	1162367817
+	.long	707406404
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	705309226
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.word	2592
+	.byte	0
+	.data
+# -- End  saveintMatrixFileForOutPuts
+	.text
+.L_2__routine_start_saveintMatrixFileName_15:
+# -- Begin  saveintMatrixFileName
+	.text
+# mark_begin;
+       .align    16,0x90
+	.globl saveintMatrixFileName
+# --- saveintMatrixFileName(int (*)[128], char *)
+saveintMatrixFileName:
+# parameter 1: %rdi
+# parameter 2: %rsi
+..B16.1:                        # Preds ..B16.0
+                                # Execution count [1.00e+00]
+	.cfi_startproc
+..___tag_value_saveintMatrixFileName.196:
+..L197:
+                                                        #538.62
+        pushq     %r12                                          #538.62
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+        pushq     %r13                                          #538.62
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+        pushq     %r14                                          #538.62
+	.cfi_def_cfa_offset 32
+	.cfi_offset 14, -32
+        pushq     %r15                                          #538.62
+	.cfi_def_cfa_offset 40
+	.cfi_offset 15, -40
+        pushq     %rsi                                          #538.62
+	.cfi_def_cfa_offset 48
+        movq      %rdi, %r13                                    #538.62
+        movq      %rsi, %rdi                                    #540.19
+        movl      $.L_2__STRING.2, %esi                         #540.19
+#       fopen(const char *__restrict__, const char *__restrict__)
+        call      fopen                                         #540.19
+                                # LOE rax rbx rbp r13 r14 r15
+..B16.2:                        # Preds ..B16.1
+                                # Execution count [1.00e+00]
+        movl      $128, %ecx                                    #541.2
+        movq      %rax, %rdi                                    #541.2
+        movq      %rax, fileForOutPuts(%rip)                    #540.2
+        movl      $.L_2__STRING.3, %esi                         #541.2
+        movl      %ecx, %r8d                                    #541.2
+        xorl      %eax, %eax                                    #541.2
+        movq      programName(%rip), %rdx                       #541.2
+#       fprintf(FILE *__restrict__, const char *__restrict__, ...)
+        call      fprintf                                       #541.2
+                                # LOE rbx rbp r13 r14 r15
+..B16.3:                        # Preds ..B16.2
+                                # Execution count [1.00e+00]
+        xorl      %edx, %edx                                    #542.11
+        movq      %r13, %r15                                    #543.11
+        movq      fileForOutPuts(%rip), %r12                    #543.11
+        movl      %edx, %r14d                                   #543.11
+                                # LOE rbx rbp r12 r15 r14d
+..B16.4:                        # Preds ..B16.8 ..B16.3
+                                # Execution count [1.28e+02]
+        movl      $il0_peep_printf_format_6, %edi               #543.3
+        movq      %r12, %rsi                                    #543.3
+        call      fputs                                         #543.3
+                                # LOE rbx rbp r12 r15 r14d
+..B16.5:                        # Preds ..B16.4
+                                # Execution count [1.28e+02]
+        xorl      %r13d, %r13d                                  #544.7
+                                # LOE rbx rbp r12 r13 r15 r14d
+..B16.6:                        # Preds ..B16.7 ..B16.5
+                                # Execution count [1.64e+04]
+        movq      %r12, %rdi                                    #545.4
+        movl      $.L_2__STRING.7, %esi                         #545.4
+        movl      %r14d, %edx                                   #545.4
+        movl      %r13d, %ecx                                   #545.4
+        xorl      %eax, %eax                                    #545.4
+        movl      (%r15,%r13,4), %r8d                           #545.4
+#       fprintf(FILE *__restrict__, const char *__restrict__, ...)
+        call      fprintf                                       #545.4
+                                # LOE rbx rbp r12 r13 r15 r14d
+..B16.7:                        # Preds ..B16.6
+                                # Execution count [1.64e+04]
+        incq      %r13                                          #544.21
+        cmpq      $128, %r13                                    #544.15
+        jl        ..B16.6       # Prob 99%                      #544.15
+                                # LOE rbx rbp r12 r13 r15 r14d
+..B16.8:                        # Preds ..B16.7
+                                # Execution count [1.28e+02]
+        incl      %r14d                                         #542.23
+        addq      $512, %r15                                    #542.23
+        cmpl      $128, %r14d                                   #542.17
+        jl        ..B16.4       # Prob 99%                      #542.17
+                                # LOE rbx rbp r12 r15 r14d
+..B16.9:                        # Preds ..B16.8
+                                # Execution count [1.00e+00]
+        movl      $il0_peep_printf_format_7, %edi               #549.2
+        movq      %r12, %rsi                                    #549.2
+        call      fputs                                         #549.2
+                                # LOE rbx rbp r12 r14 r15
+..B16.10:                       # Preds ..B16.9
+                                # Execution count [1.00e+00]
+        movq      %r12, %rdi                                    #550.2
+        addq      $8, %rsp                                      #550.2
+	.cfi_def_cfa_offset 40
+	.cfi_restore 15
+        popq      %r15                                          #550.2
+	.cfi_def_cfa_offset 32
+	.cfi_restore 14
+        popq      %r14                                          #550.2
+	.cfi_def_cfa_offset 24
+	.cfi_restore 13
+        popq      %r13                                          #550.2
+	.cfi_def_cfa_offset 16
+	.cfi_restore 12
+        popq      %r12                                          #550.2
+	.cfi_def_cfa_offset 8
+#       fclose(FILE *)
+        jmp       fclose                                        #550.2
+        .align    16,0x90
+                                # LOE
+	.cfi_endproc
+# mark_end;
+	.type	saveintMatrixFileName,@function
+	.size	saveintMatrixFileName,.-saveintMatrixFileName
+..LNsaveintMatrixFileName.15:
+	.section .rodata.str1.4, "aMS",@progbits,1
+	.space 1, 0x00 	# pad
+	.align 4
+il0_peep_printf_format_6:
+	.word	2570
+	.byte	0
+	.section .rodata.str1.32, "aMS",@progbits,1
+	.space 29, 0x00 	# pad
+	.align 32
+il0_peep_printf_format_7:
+	.long	707398176
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	170535466
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	1313424938
+	.long	1162367817
+	.long	707406404
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	705309226
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.long	707406378
+	.word	2592
+	.byte	0
+	.data
+# -- End  saveintMatrixFileName
+	.bss
+	.align 8
+	.align 8
+	.globl fileForSpeedups
+fileForSpeedups:
+	.type	fileForSpeedups,@object
+	.size	fileForSpeedups,8
+	.space 8	# pad
+	.align 8
+	.globl ttime
+ttime:
+	.type	ttime,@object
+	.size	ttime,8
+	.space 8	# pad
+	.align 8
+	.globl fileForOutPuts
+fileForOutPuts:
+	.type	fileForOutPuts,@object
+	.size	fileForOutPuts,8
+	.space 8	# pad
+	.data
+	.align 8
+	.align 8
+	.globl programName
+programName:
+	.quad	.L_2__STRING.0
+	.type	programName,@object
+	.size	programName,8
+	.align 8
+	.globl ttbest_rdtsc
+ttbest_rdtsc:
+	.long	0x5d89ffff,0x01634578
+	.type	ttbest_rdtsc,@object
+	.size	ttbest_rdtsc,8
+	.align 8
+	.globl elapsed_rdtsc
+elapsed_rdtsc:
+	.long	0x05f5e0ff,0x00000000
+	.type	elapsed_rdtsc,@object
+	.size	elapsed_rdtsc,8
+	.align 8
+	.globl overal_time
+overal_time:
+	.long	0xa817c7ff,0x00000004
+	.type	overal_time,@object
+	.size	overal_time,8
+	.section .rodata, "a"
+	.align 32
+	.align 32
+.L_2il0floatpacket.1:
+	.long	0x00000008,0x00000008,0x00000008,0x00000008,0x00000008,0x00000008,0x00000008,0x00000008
+	.type	.L_2il0floatpacket.1,@object
+	.size	.L_2il0floatpacket.1,32
+	.align 32
+.L_2il0floatpacket.4:
+	.long	0x000000e6,0x000000e6,0x000000e6,0x000000e6,0x000000e6,0x000000e6,0x000000e6,0x000000e6
+	.type	.L_2il0floatpacket.4,@object
+	.size	.L_2il0floatpacket.4,32
+	.align 32
+.L_2il0floatpacket.5:
+	.long	0x88e368f1,0x3ee4f8b5,0x88e368f1,0x3ee4f8b5,0x88e368f1,0x3ee4f8b5,0x88e368f1,0x3ee4f8b5
+	.type	.L_2il0floatpacket.5,@object
+	.size	.L_2il0floatpacket.5,32
+	.align 32
+.L_2il0floatpacket.6:
+	.long	0x00000000,0x00000001,0x00000002,0x00000003,0x00000004,0x00000005,0x00000006,0x00000007
+	.type	.L_2il0floatpacket.6,@object
+	.size	.L_2il0floatpacket.6,32
+	.align 32
+.L_2il0floatpacket.7:
+	.long	0x00000001,0x00000002,0x00000003,0x00000004,0x00000005,0x00000006,0x00000007,0x00000008
+	.type	.L_2il0floatpacket.7,@object
+	.size	.L_2il0floatpacket.7,32
+	.align 32
+.L_2il0floatpacket.8:
+	.long	0x473c1ab7,0x473c1ab7,0x473c1ab7,0x473c1ab7,0x473c1ab7,0x473c1ab7,0x473c1ab7,0x473c1ab7
+	.type	.L_2il0floatpacket.8,@object
+	.size	.L_2il0floatpacket.8,32
+	.align 32
+.L_2il0floatpacket.9:
+	.long	0x00000000,0xffffffff,0x00000000,0xffffffff,0x00000000,0xffffffff,0x00000000,0xffffffff
+	.type	.L_2il0floatpacket.9,@object
+	.size	.L_2il0floatpacket.9,32
+	.align 32
+.L_2il0floatpacket.10:
+	.long	0x000000e6,0x000000e6,0x000000e6,0x000000e6,0x000000e6,0x000000e6,0x000000e6,0x000000e6
+	.type	.L_2il0floatpacket.10,@object
+	.size	.L_2il0floatpacket.10,32
+	.align 32
+.L_2il0floatpacket.11:
+	.long	0x916872b0,0x3fbf7ced,0x916872b0,0x3fbf7ced,0x916872b0,0x3fbf7ced,0x916872b0,0x3fbf7ced
+	.type	.L_2il0floatpacket.11,@object
+	.size	.L_2il0floatpacket.11,32
+	.align 32
+.L_2il0floatpacket.12:
+	.long	0x000003e8,0x000003e8,0x000003e8,0x000003e8,0x000003e8,0x000003e8,0x000003e8,0x000003e8
+	.type	.L_2il0floatpacket.12,@object
+	.size	.L_2il0floatpacket.12,32
+	.align 32
+.L_2il0floatpacket.13:
+	.long	0x10624dd3,0x10624dd3,0x10624dd3,0x10624dd3,0x10624dd3,0x10624dd3,0x10624dd3,0x10624dd3
+	.type	.L_2il0floatpacket.13,@object
+	.size	.L_2il0floatpacket.13,32
+	.align 32
+.L_2il0floatpacket.14:
+	.long	0x000003e8,0x000003e8,0x000003e8,0x000003e8,0x000003e8,0x000003e8,0x000003e8,0x000003e8
+	.type	.L_2il0floatpacket.14,@object
+	.size	.L_2il0floatpacket.14,32
+	.align 32
+.L_2il0floatpacket.15:
+	.long	0x000000ff,0x000000ff,0x000000ff,0x000000ff,0x000000ff,0x000000ff,0x000000ff,0x000000ff
+	.type	.L_2il0floatpacket.15,@object
+	.size	.L_2il0floatpacket.15,32
+	.align 32
+.L_2il0floatpacket.16:
+	.long	0x80808081,0x80808081,0x80808081,0x80808081,0x80808081,0x80808081,0x80808081,0x80808081
+	.type	.L_2il0floatpacket.16,@object
+	.size	.L_2il0floatpacket.16,32
+	.align 32
+.L_2il0floatpacket.17:
+	.long	0x000000ff,0x000000ff,0x000000ff,0x000000ff,0x000000ff,0x000000ff,0x000000ff,0x000000ff
+	.type	.L_2il0floatpacket.17,@object
+	.size	.L_2il0floatpacket.17,32
+	.align 32
+.L_2il0floatpacket.18:
+	.long	0x00000000,0x00000083,0x00000106,0x00000189,0x0000020c,0x0000028f,0x00000312,0x00000395
+	.type	.L_2il0floatpacket.18,@object
+	.size	.L_2il0floatpacket.18,32
+	.align 8
+.L_2il0floatpacket.2:
+	.long	0x916872b0,0x3fbf7ced
+	.type	.L_2il0floatpacket.2,@object
+	.size	.L_2il0floatpacket.2,8
+	.align 8
+.L_2il0floatpacket.3:
+	.long	0x88e368f1,0x3ef4f8b5
+	.type	.L_2il0floatpacket.3,@object
+	.size	.L_2il0floatpacket.3,8
+	.section .rodata.str1.4, "aMS",@progbits,1
+	.space 1, 0x00 	# pad
+	.align 4
+.L_2__STRING.8:
+	.long	826556755
+	.byte	0
+	.type	.L_2__STRING.8,@object
+	.size	.L_2__STRING.8,5
+	.space 3, 0x00 	# pad
+	.align 4
+.L_2__STRING.9:
+	.long	1701344266
+	.long	1936024096
+	.long	1936269428
+	.long	1819026720
+	.long	1852383332
+	.long	1819026720
+	.long	543716452
+	.long	1919251561
+	.long	1869182049
+	.long	1851859054
+	.long	1814372452
+	.long	1914725484
+	.long	1952804965
+	.long	1869182057
+	.long	684910
+	.type	.L_2__STRING.9,@object
+	.size	.L_2__STRING.9,60
+	.align 4
+.L_2__STRING.10:
+	.long	1701603686
+	.long	1400008518
+	.long	1684366704
+	.long	7565429
+	.type	.L_2__STRING.10,@object
+	.size	.L_2__STRING.10,16
+	.align 4
+.L_2__STRING.11:
+	.word	97
+	.type	.L_2__STRING.11,@object
+	.size	.L_2__STRING.11,2
+	.space 2, 0x00 	# pad
+	.align 4
+.L_2__STRING.12:
+	.long	539783973
+	.long	628646949
+	.long	622865508
+	.long	174353516
+	.byte	0
+	.type	.L_2__STRING.12,@object
+	.size	.L_2__STRING.12,17
+	.space 3, 0x00 	# pad
+	.align 4
+.L_2__STRING.1:
+	.long	1701603686
+	.long	1332899654
+	.long	1968206965
+	.word	29556
+	.byte	0
+	.type	.L_2__STRING.1,@object
+	.size	.L_2__STRING.1,15
+	.space 1, 0x00 	# pad
+	.align 4
+.L_2__STRING.2:
+	.word	119
+	.type	.L_2__STRING.2,@object
+	.size	.L_2__STRING.2,2
+	.space 2, 0x00 	# pad
+	.align 4
+.L_2__STRING.3:
+	.long	757101349
+	.long	2019829024
+	.long	169894949
+	.byte	0
+	.type	.L_2__STRING.3,@object
+	.size	.L_2__STRING.3,13
+	.space 3, 0x00 	# pad
+	.align 4
+.L_2__STRING.5:
+	.long	626737440
+	.long	626744676
+	.long	1025531236
+	.long	1718363424
+	.long	663596
+	.type	.L_2__STRING.5,@object
+	.size	.L_2__STRING.5,20
+	.align 4
+.L_2__STRING.7:
+	.long	626737440
+	.long	626744676
+	.long	1025531236
+	.long	744760608
+	.word	2592
+	.byte	0
+	.type	.L_2__STRING.7,@object
+	.size	.L_2__STRING.7,19
+	.space 1, 0x00 	# pad
+	.align 4
+.L_2__STRING.0:
+	.word	32
+	.type	.L_2__STRING.0,@object
+	.size	.L_2__STRING.0,2
+	.data
+	.comm mask1,128,32
+	.comm t1_rdtsc,8,8
+	.comm t2_rdtsc,8,8
+	.comm ttotal_rdtsc,8,8
+	.comm elapsed,8,8
+	.comm mask,128,32
+	.comm temp2i16,32,32
+	.comm ca,1,1
+	.comm sa,2,2
+	.comm ia,4,4
+	.comm la,8,8
+	.comm a_char,16384,32
+	.comm b_char,16384,32
+	.comm c_char,16384,32
+	.section .note.GNU-stack, ""
+// -- Begin DWARF2 SEGMENT .eh_frame
+	.section .eh_frame,"a",@progbits
+.eh_frame_seg:
+	.align 8
+# End

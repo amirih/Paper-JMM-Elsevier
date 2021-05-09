@@ -1,0 +1,131 @@
+spliter
+Time: Thu May 17 01:14:28 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+FIR1, 128x128, 98818
+FIR1, 128x128, 71370
+FIR2, 128x128, 29706
+FIR3, 128x128, 15256
+spliter
+Time: Thu May 17 01:14:59 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+FIR1, 128x128, 97290
+FIR1, 128x128, 27130
+FIR2, 128x128, 27612
+FIR3, 128x128, 14902
+spliter
+Time: Thu May 17 01:15:31 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+FIR1, 128x128, 97296
+FIR1, 128x128, 97296
+FIR2, 128x128, 30260
+FIR3, 128x128, 14916
+spliter
+Time: Thu May 17 01:34:32 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+FIR1, 256x256, 395388
+FIR1, 256x256, 285320
+FIR2, 256x256, 119188
+FIR3, 256x256, 61502
+spliter
+Time: Thu May 17 01:35:03 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+FIR1, 256x256, 389168
+FIR1, 256x256, 109688
+FIR2, 256x256, 110672
+FIR3, 256x256, 60144
+spliter
+Time: Thu May 17 01:35:35 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+FIR1, 256x256, 389174
+FIR1, 256x256, 389172
+FIR2, 256x256, 121030
+FIR3, 256x256, 60324
+spliter
+Time: Thu May 17 01:55:17 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+FIR1, 512x512, 1581362
+FIR1, 512x512, 1144870
+FIR2, 512x512, 477028
+FIR3, 512x512, 246198
+spliter
+Time: Thu May 17 01:55:48 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+FIR1, 512x512, 1556762
+FIR1, 512x512, 442552
+FIR2, 512x512, 443004
+FIR3, 512x512, 240500
+spliter
+Time: Thu May 17 01:56:20 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+FIR1, 512x512, 1556804
+FIR1, 512x512, 1556814
+FIR2, 512x512, 484936
+FIR3, 512x512, 241076
+spliter
+Time: Thu May 17 02:16:04 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+FIR1, 1024x1024, 6338420
+FIR1, 1024x1024, 4601562
+FIR2, 1024x1024, 2050306
+FIR3, 1024x1024, 1137680
+spliter
+Time: Thu May 17 02:16:35 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+FIR1, 1024x1024, 6238004
+FIR1, 1024x1024, 1856766
+FIR2, 1024x1024, 1825956
+FIR3, 1024x1024, 1123038
+spliter
+Time: Thu May 17 02:17:07 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+FIR1, 1024x1024, 6240098
+FIR1, 1024x1024, 6238256
+FIR2, 1024x1024, 2016298
+FIR3, 1024x1024, 1119934
+spliter
+Time: Fri May 18 20:17:18 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+FIR1, 128x128, 98818
+FIR1, 128x128, 71590
+FIR2, 128x128, 29716
+FIR3, 128x128, 15248
+spliter
+Time: Fri May 18 20:17:49 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+FIR1, 128x128, 97286
+FIR1, 128x128, 27126
+FIR2, 128x128, 27618
+FIR3, 128x128, 14942
+spliter
+Time: Fri May 18 20:18:21 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize

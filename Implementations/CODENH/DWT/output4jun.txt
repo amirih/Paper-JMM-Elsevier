@@ -1,0 +1,2775 @@
+[martin@mrt Daub_4]$ sh runsingle.sh
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/LBWT
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/LBWT/HorizonVertical
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 65600 in 219874th iteration and 283400 repetitions
+output = -3.299994
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 29898 in 55059th iteration and 632377 repetitions
+output = -3.299995
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 69772 in 262607th iteration and 277495 repetitions
+output = -3.299995
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 21690 in 69004th iteration and 863202 repetitions
+output = -3.299994
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 48900 in 201853th iteration and 362408 repetitions
+output = -3.299994
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 54176 in 128951th iteration and 355290 repetitions
+output = -3.299994
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/LBWT/HorizonVerticalunroll2
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 61656 in 87881th iteration and 148437 repetitions
+output = -3.299994
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 39090 in 121076th iteration and 238130 repetitions
+output = -3.299995
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 58224 in 144146th iteration and 165645 repetitions
+output = -3.299995
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 44774 in 202234th iteration and 214338 repetitions
+output = -3.299995
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 48612 in 30217th iteration and 197631 repetitions
+output = -3.299994
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 41808 in 56438th iteration and 231307 repetitions
+output = -3.299994
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/col
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 31758 in 231418th iteration and 299278 repetitions
+output = 0.006500
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 34878 in 153979th iteration and 274419 repetitions
+output = 0.006500
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 78372 in 113655th iteration and 122649 repetitions
+output = 0.006496
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 78634 in 87812th iteration and 122315 repetitions
+output = 0.006496
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 27940 in 51073th iteration and 337817 repetitions
+output = 0.006499
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 28672 in 323884th iteration and 329339 repetitions
+output = 0.006499
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/colunroll1
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 30426 in 106133th iteration and 315239 repetitions
+output = 0.006500
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 30464 in 102766th iteration and 315662 repetitions
+output = 0.006500
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 35378 in 173593th iteration and 266318 repetitions
+output = 0.006496
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 35794 in 48611th iteration and 266039 repetitions
+output = 0.006496
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 26050 in 285639th iteration and 369053 repetitions
+output = 0.006499
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 8930 in 889591th iteration and 1023517 repetitions
+output = 0.006499
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/colunroll2
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 31426 in 239264th iteration and 300917 repetitions
+output = 0.006500
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 32384 in 180759th iteration and 291887 repetitions
+output = 0.006500
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 31316 in 76262th iteration and 304843 repetitions
+output = 0.006496
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 31198 in 103534th iteration and 306230 repetitions
+output = 0.006496
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 26824 in 325702th iteration and 351194 repetitions
+output = 0.006499
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 27006 in 41923th iteration and 347999 repetitions
+output = 0.006499
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/row
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 30864 in 185065th iteration and 306853 repetitions
+output = 18.847893
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 30794 in 300350th iteration and 311133 repetitions
+output = 18.847893
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 78512 in 102865th iteration and 122897 repetitions
+output = 18.847881
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 15478 in 604109th iteration and 619567 repetitions
+output = 18.847881
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 25232 in 359158th iteration and 377943 repetitions
+output = 18.847889
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 25328 in 256215th iteration and 377553 repetitions
+output = 18.847889
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/rowunroll1
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 30528 in 83653th iteration and 315436 repetitions
+output = 18.847893
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 30600 in 241393th iteration and 315475 repetitions
+output = 18.847893
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 36404 in 77734th iteration and 257786 repetitions
+output = 18.847881
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 36590 in 82708th iteration and 234521 repetitions
+output = 18.847881
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 26190 in 140511th iteration and 318571 repetitions
+output = 18.847889
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 27718 in 108341th iteration and 335603 repetitions
+output = 18.847889
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/rowunroll2
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 32682 in 221401th iteration and 287255 repetitions
+output = 18.847893
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 32596 in 205427th iteration and 246395 repetitions
+output = 18.847893
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 32376 in 230287th iteration and 264040 repetitions
+output = 18.847881
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 29464 in 271992th iteration and 279984 repetitions
+output = 18.847881
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 26792 in 308601th iteration and 310179 repetitions
+output = 18.847889
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 26820 in 124526th iteration and 316109 repetitions
+output = 18.847889
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/fullfilter
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 67958 in 44817th iteration and 120531 repetitions
+output = -0.000010
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 69108 in 17005th iteration and 117308 repetitions
+output = 0.000004
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 166040 in 21759th iteration and 57614 repetitions
+output = -0.009252
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 99122 in 22071th iteration and 95077 repetitions
+output = -0.000104
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 57780 in 41099th iteration and 141347 repetitions
+output = -0.000003
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 57750 in 94015th iteration and 141710 repetitions
+output = -0.000002
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/fullfilterunroll2
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 66690 in 55001th iteration and 143048 repetitions
+output = -0.000001
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 66520 in 135339th iteration and 144570 repetitions
+output = 0.000000
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 65094 in 30719th iteration and 130269 repetitions
+output = 0.000002
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 62412 in 45237th iteration and 130265 repetitions
+output = -0.000005
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 54658 in 152433th iteration and 153225 repetitions
+output = -0.000000
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 55128 in 39794th iteration and 149474 repetitions
+output = -0.000001
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/rowtrarow
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 79130 in 93711th iteration and 104170 repetitions
+output = 0.000044
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 74770 in 23815th iteration and 109916 repetitions
+output = -0.000029
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 179618 in 9684th iteration and 51949 repetitions
+output = -0.000813
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 43894 in 147931th iteration and 200040 repetitions
+output = -0.000000
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 67172 in 33518th iteration and 127153 repetitions
+output = -0.000004
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 67218 in 34424th iteration and 143098 repetitions
+output = 0.000001
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/rowtrarowLPI
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 98982 in 61228th iteration and 96484 repetitions
+output = -0.000010
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 90028 in 14639th iteration and 106064 repetitions
+output = 0.000028
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 102938 in 88453th iteration and 92264 repetitions
+output = -0.000038
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 101280 in 21580th iteration and 94062 repetitions
+output = -0.000019
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 103298 in 56904th iteration and 91899 repetitions
+output = -0.000223
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 102254 in 76809th iteration and 93037 repetitions
+output = -0.000092
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/rowtrarowunroll
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 80130 in 72196th iteration and 119723 repetitions
+output = 0.000002
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 74610 in 115402th iteration and 129513 repetitions
+output = -0.000003
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 79488 in 76755th iteration and 107210 repetitions
+output = 0.000035
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 69798 in 84876th iteration and 120760 repetitions
+output = -0.000003
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 67218 in 125174th iteration and 138929 repetitions
+output = 0.000001
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 66826 in 53641th iteration and 139121 repetitions
+output = -0.000003
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/tracolcol
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 82616 in 35205th iteration and 113984 repetitions
+output = -0.000017
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 81792 in 85956th iteration and 108622 repetitions
+output = -0.000010
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 180402 in 10024th iteration and 51323 repetitions
+output = -0.009201
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 178926 in 51354th iteration and 52707 repetitions
+output = 0.008217
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 72604 in 98807th iteration and 110386 repetitions
+output = -0.000005
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 72682 in 34854th iteration and 110488 repetitions
+output = -0.000005
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/tracolcolLPI
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 81920 in 39405th iteration and 97157 repetitions
+output = 0.000001
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 82876 in 42336th iteration and 94619 repetitions
+output = 0.000171
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 180414 in 11690th iteration and 50172 repetitions
+output = -0.003684
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 179524 in 31100th iteration and 51938 repetitions
+output = -0.014555
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 74856 in 74222th iteration and 108781 repetitions
+output = 0.000015
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 73334 in 107728th iteration and 109824 repetitions
+output = -0.000051
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/LBWT
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/LBWT/HorizonVertical
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 281062 in 6910th iteration and 29306 repetitions
+output = -24.325048
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 128476 in 10285th iteration and 72205 repetitions
+output = -24.325043
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 303122 in 20459th iteration and 31726 repetitions
+output = -24.325043
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 88974 in 96371th iteration and 96592 repetitions
+output = -24.325048
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 198214 in 26928th iteration and 48069 repetitions
+output = -24.325045
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 218504 in 35581th iteration and 44070 repetitions
+output = -24.325045
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/LBWT/HorizonVerticalunroll2
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 260192 in 34714th iteration and 36265 repetitions
+output = -24.325048
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 162414 in 50127th iteration and 57277 repetitions
+output = -24.325043
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 233192 in 33597th iteration and 41465 repetitions
+output = -24.325043
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 231876 in 29035th iteration and 41658 repetitions
+output = -24.325043
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 194766 in 40340th iteration and 49473 repetitions
+output = -24.325045
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 167414 in 20514th iteration and 57793 repetitions
+output = -24.325045
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/col
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 236216 in 30874th iteration and 40204 repetitions
+output = 81.317902
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 151882 in 16013th iteration and 62597 repetitions
+output = 81.317902
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 333670 in 8544th iteration and 28919 repetitions
+output = 81.317894
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 333844 in 8292th iteration and 28772 repetitions
+output = 81.317894
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 153212 in 7608th iteration and 61944 repetitions
+output = 81.317902
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 152744 in 15278th iteration and 62271 repetitions
+output = 81.317902
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/colunroll1
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 139984 in 58341th iteration and 68509 repetitions
+output = 81.317902
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 136674 in 12125th iteration and 69280 repetitions
+output = 81.317902
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 170894 in 17570th iteration and 55242 repetitions
+output = 81.317894
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 162672 in 38504th iteration and 57879 repetitions
+output = 81.317894
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 112486 in 24126th iteration and 85552 repetitions
+output = 81.317902
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 65110 in 53535th iteration and 139606 repetitions
+output = 81.317902
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/colunroll2
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 154902 in 38884th iteration and 57900 repetitions
+output = 81.317902
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 152414 in 60774th iteration and 60866 repetitions
+output = 81.317902
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 152130 in 47785th iteration and 60744 repetitions
+output = 81.317894
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 152336 in 23405th iteration and 60551 repetitions
+output = 81.317894
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 142796 in 35610th iteration and 57219 repetitions
+output = 81.317902
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 140696 in 34943th iteration and 63915 repetitions
+output = 81.317902
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/row
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 127020 in 21301th iteration and 72613 repetitions
+output = 7.933802
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 33354 in 49697th iteration and 274253 repetitions
+output = 7.933802
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 326818 in 23084th iteration and 28736 repetitions
+output = 7.933800
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 63610 in 103348th iteration and 148119 repetitions
+output = 7.933800
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 102124 in 86445th iteration and 91812 repetitions
+output = 7.933802
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 102150 in 16818th iteration and 91350 repetitions
+output = 7.933802
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/rowunroll1
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 123930 in 13323th iteration and 75810 repetitions
+output = 7.933802
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 124086 in 50519th iteration and 76519 repetitions
+output = 7.933802
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 151244 in 7695th iteration and 62330 repetitions
+output = 7.933800
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 147846 in 61902th iteration and 63876 repetitions
+output = 7.933800
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 106244 in 26785th iteration and 88328 repetitions
+output = 7.933802
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 106836 in 78521th iteration and 88971 repetitions
+output = 7.933802
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/rowunroll2
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 122068 in 52829th iteration and 78337 repetitions
+output = 7.933802
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 122056 in 43114th iteration and 76995 repetitions
+output = 7.933802
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 121986 in 60596th iteration and 78623 repetitions
+output = 7.933800
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 153040 in 62432th iteration and 62584 repetitions
+output = 7.933800
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 100390 in 64527th iteration and 95010 repetitions
+output = 7.933802
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 100466 in 32248th iteration and 94916 repetitions
+output = 7.933802
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/fullfilter
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 364296 in 25935th iteration and 26230 repetitions
+output = -0.163462
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 182250 in 34984th iteration and 52096 repetitions
+output = -0.270573
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 655308 in 10338th iteration and 14626 repetitions
+output = 2.129789
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 397254 in 5252th iteration and 24178 repetitions
+output = -0.957398
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 261618 in 7406th iteration and 35992 repetitions
+output = -0.569707
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 260100 in 4509th iteration and 36794 repetitions
+output = 0.430683
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/fullfilterunroll2
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 275540 in 27629th iteration and 34751 repetitions
+output = -0.638515
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 277418 in 7922th iteration and 34592 repetitions
+output = 0.322953
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 277788 in 31393th iteration and 34593 repetitions
+output = 0.419031
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 306768 in 11179th iteration and 30992 repetitions
+output = -0.987542
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 242798 in 24483th iteration and 39586 repetitions
+output = -0.021588
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 241210 in 38991th iteration and 39530 repetitions
+output = 0.554324
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/rowtrarow
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 306758 in 31164th iteration and 31336 repetitions
+output = 0.827695
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 104684 in 80131th iteration and 90502 repetitions
+output = 0.044564
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 703696 in 13672th iteration and 13712 repetitions
+output = -2.261881
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 171656 in 52197th iteration and 55537 repetitions
+output = -0.249561
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 261414 in 8004th iteration and 36951 repetitions
+output = 0.219248
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 259884 in 33176th iteration and 36958 repetitions
+output = 0.284307
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/rowtrarowLPI
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 500654 in 11708th iteration and 18464 repetitions
+output = 0.719644
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 490782 in 5071th iteration and 18675 repetitions
+output = -0.337513
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 505506 in 13481th iteration and 18719 repetitions
+output = -1.142644
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 491430 in 3073th iteration and 19043 repetitions
+output = 0.628362
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 483202 in 13271th iteration and 19694 repetitions
+output = 0.473619
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 480312 in 16352th iteration and 19491 repetitions
+output = 0.300580
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/rowtrarowunroll
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 300186 in 25495th iteration and 32140 repetitions
+output = 1.364275
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 280800 in 30345th iteration and 34270 repetitions
+output = -0.182761
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 300042 in 4917th iteration and 31515 repetitions
+output = 0.338052
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 350778 in 26198th iteration and 26931 repetitions
+output = -0.102467
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 256152 in 11028th iteration and 36569 repetitions
+output = -0.793864
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 254752 in 24224th iteration and 37171 repetitions
+output = 0.526375
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/tracolcol
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 450854 in 17474th iteration and 20581 repetitions
+output = -0.311267
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 333014 in 27820th iteration and 27980 repetitions
+output = 0.739758
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 714718 in 8387th iteration and 13009 repetitions
+output = 2.339816
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 704320 in 3296th iteration and 13373 repetitions
+output = -1.072914
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 360584 in 22793th iteration and 25629 repetitions
+output = 0.880043
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 360062 in 16690th iteration and 26175 repetitions
+output = -0.098770
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/tracolcolLPI
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 451910 in 4113th iteration and 20901 repetitions
+output = -0.432818
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 334280 in 24182th iteration and 28321 repetitions
+output = -0.482984
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 715772 in 12930th iteration and 13353 repetitions
+output = -1.282920
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 704872 in 7882th iteration and 13620 repetitions
+output = 0.947373
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 361266 in 5416th iteration and 26255 repetitions
+output = 0.630707
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 360690 in 8100th iteration and 26298 repetitions
+output = 0.259093
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/LBWT
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/LBWT/HorizonVertical
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1058548 in 5025th iteration and 9080 repetitions
+output = -8.725937
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 521352 in 6503th iteration and 18270 repetitions
+output = -8.725935
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1141530 in 2084th iteration and 8424 repetitions
+output = -8.725935
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 355596 in 23636th iteration and 26948 repetitions
+output = -8.725938
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 789502 in 10659th iteration and 12096 repetitions
+output = -8.725936
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 870718 in 9135th iteration and 11049 repetitions
+output = -8.725936
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/LBWT/HorizonVerticalunroll2
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1050116 in 7074th iteration and 9092 repetitions
+output = -8.725937
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 653866 in 14291th iteration and 14319 repetitions
+output = -8.725935
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 931886 in 9162th iteration and 10332 repetitions
+output = -8.725935
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 995682 in 1608th iteration and 9674 repetitions
+output = -8.725935
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 781802 in 9790th iteration and 12236 repetitions
+output = -8.725936
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 670874 in 9195th iteration and 14388 repetitions
+output = -8.725936
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/col
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1092606 in 5813th iteration and 8744 repetitions
+output = 0.002701
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1294120 in 4099th iteration and 7428 repetitions
+output = 0.002701
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1350826 in 6034th iteration and 7104 repetitions
+output = 0.002701
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1348800 in 4545th iteration and 7109 repetitions
+output = 0.002701
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1206674 in 6966th iteration and 6982 repetitions
+output = 0.002701
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1167024 in 32th iteration and 7756 repetitions
+output = 0.002701
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/colunroll1
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 684322 in 12530th iteration and 13976 repetitions
+output = 0.002701
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 676866 in 4263th iteration and 14183 repetitions
+output = 0.002701
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 786690 in 2920th iteration and 12001 repetitions
+output = 0.002701
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 763742 in 7110th iteration and 12417 repetitions
+output = 0.002701
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 552420 in 5598th iteration and 17309 repetitions
+output = 0.002701
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 335910 in 7627th iteration and 27743 repetitions
+output = 0.002701
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/colunroll2
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1229840 in 6615th iteration and 7511 repetitions
+output = 0.002701
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1206888 in 6422th iteration and 7256 repetitions
+output = 0.002701
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1239994 in 2734th iteration and 7639 repetitions
+output = 0.002701
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1238914 in 5944th iteration and 7647 repetitions
+output = 0.002701
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1207208 in 4548th iteration and 7927 repetitions
+output = 0.002701
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1216552 in 1692th iteration and 7837 repetitions
+output = 0.002701
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/row
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 500562 in 5052th iteration and 19102 repetitions
+output = 67.186501
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 130374 in 69101th iteration and 71337 repetitions
+output = 67.186493
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1325854 in 1234th iteration and 7234 repetitions
+output = 67.186493
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 252918 in 25541th iteration and 37722 repetitions
+output = 67.186493
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 404496 in 4205th iteration and 23906 repetitions
+output = 67.186493
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 401678 in 7102th iteration and 23681 repetitions
+output = 67.186493
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/rowunroll1
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 492524 in 19335th iteration and 19355 repetitions
+output = 67.186501
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 492640 in 12143th iteration and 19316 repetitions
+output = 67.186501
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 597354 in 9922th iteration and 15658 repetitions
+output = 67.186493
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 581698 in 9520th iteration and 15822 repetitions
+output = 67.186493
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 423692 in 13433th iteration and 20472 repetitions
+output = 67.186493
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 422846 in 5818th iteration and 20768 repetitions
+output = 67.186493
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/rowunroll2
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 491130 in 6043th iteration and 19489 repetitions
+output = 67.186501
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 487406 in 16578th iteration and 19535 repetitions
+output = 67.186501
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 489782 in 16084th iteration and 19488 repetitions
+output = 67.186493
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 689648 in 10846th iteration and 13906 repetitions
+output = 67.186493
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 393990 in 18563th iteration and 23766 repetitions
+output = 67.186493
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 395760 in 5257th iteration and 23845 repetitions
+output = 67.186493
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/fullfilter
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1598120 in 1017th iteration and 5944 repetitions
+output = -1.722399
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1432148 in 6382th iteration and 6634 repetitions
+output = -0.664649
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 2659538 in 2349th iteration and 3574 repetitions
+output = -7.454390
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1610146 in 3406th iteration and 5937 repetitions
+output = -1.804655
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1657904 in 1499th iteration and 5727 repetitions
+output = -0.341944
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1642410 in 1328th iteration and 5791 repetitions
+output = -4.853590
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/fullfilterunroll2
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1699816 in 1467th iteration and 5640 repetitions
+output = -0.112336
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1684088 in 4481th iteration and 5686 repetitions
+output = 6.822076
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1751726 in 1739th iteration and 5452 repetitions
+output = 0.917199
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1920118 in 1887th iteration and 4972 repetitions
+output = -1.425357
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1623898 in 2042th iteration and 5891 repetitions
+output = -0.912109
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1615802 in 1577th iteration and 5920 repetitions
+output = 1.092489
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/rowtrarow
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1239686 in 4647th iteration and 7725 repetitions
+output = -0.862117
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 441210 in 4696th iteration and 21624 repetitions
+output = -0.312679
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 2888058 in 3306th iteration and 3328 repetitions
+output = -1.356831
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 698670 in 12865th iteration and 13643 repetitions
+output = 0.938500
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1055054 in 7515th iteration and 9105 repetitions
+output = 1.150646
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1055556 in 2745th iteration and 9059 repetitions
+output = 2.275852
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/rowtrarowLPI
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 2696144 in 2874th iteration and 3463 repetitions
+output = -6.689718
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 2512116 in 1443th iteration and 3829 repetitions
+output = 4.194358
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 2636014 in 994th iteration and 3528 repetitions
+output = 2.504480
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 2613822 in 3243th iteration and 3537 repetitions
+output = -1.729248
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 2333514 in 3510th iteration and 4011 repetitions
+output = -1.922166
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 2424868 in 3851th iteration and 3915 repetitions
+output = -4.544549
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/rowtrarowunroll
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1233770 in 5177th iteration and 7784 repetitions
+output = -1.083497
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1156336 in 2988th iteration and 8312 repetitions
+output = -0.781907
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1227540 in 7569th iteration and 7785 repetitions
+output = -0.945710
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1575566 in 4885th iteration and 6062 repetitions
+output = -0.135535
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1045456 in 9015th iteration and 9147 repetitions
+output = -1.129784
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1044208 in 2362th iteration and 9123 repetitions
+output = 2.946111
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/tracolcol
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 2596956 in 2077th iteration and 3548 repetitions
+output = -1.972522
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 2746510 in 684th iteration and 3144 repetitions
+output = -4.645008
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 2977044 in 2584th iteration and 3214 repetitions
+output = 2.083869
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 2889172 in 777th iteration and 3324 repetitions
+output = -2.335947
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 2645900 in 2899th iteration and 3638 repetitions
+output = -2.519824
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 2683032 in 943th iteration and 3573 repetitions
+output = 7.769534
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/tracolcolLPI
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 2536346 in 3379th iteration and 3791 repetitions
+output = 12.494402
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 2751408 in 1292th iteration and 3497 repetitions
+output = -1.960317
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 2942818 in 1062th iteration and 3256 repetitions
+output = 0.706649
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 2899066 in 1895th iteration and 3297 repetitions
+output = -2.852321
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 2708068 in 2937th iteration and 3545 repetitions
+output = -3.644406
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 2669990 in 1136th iteration and 3579 repetitions
+output = -2.091073
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/LBWT
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/LBWT/HorizonVertical
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 4284726 in 1858th iteration and 2222 repetitions
+output = 51.055157
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 2339646 in 3144th iteration and 3927 repetitions
+output = 51.055153
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 4613548 in 474th iteration and 2064 repetitions
+output = 51.055157
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1635922 in 4671th iteration and 5524 repetitions
+output = 51.055157
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 3238882 in 2329th iteration and 2889 repetitions
+output = 51.055157
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 3583584 in 864th iteration and 2635 repetitions
+output = 51.055157
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/LBWT/HorizonVerticalunroll2
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 4339672 in 294th iteration and 2171 repetitions
+output = 51.055157
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 2813556 in 2205th iteration and 3208 repetitions
+output = 51.055153
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 3825144 in 2054th iteration and 2479 repetitions
+output = 51.055157
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 4232104 in 2007th iteration and 2225 repetitions
+output = 51.055157
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 3220682 in 2761th iteration and 2926 repetitions
+output = 51.055157
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 2772228 in 2059th iteration and 3394 repetitions
+output = 51.055157
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/col
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 22818078 in 237th iteration and 426 repetitions
+output = 0.005301
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 23090692 in 88th iteration and 420 repetitions
+output = 0.005301
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 22311324 in 409th iteration and 425 repetitions
+output = 0.005299
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 22293644 in 162th iteration and 429 repetitions
+output = 0.005299
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 22951300 in 275th iteration and 423 repetitions
+output = 0.005301
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 22934270 in 401th iteration and 422 repetitions
+output = 0.005301
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/colunroll1
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 4483578 in 494th iteration and 2102 repetitions
+output = 0.005301
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 4438890 in 1449th iteration and 2118 repetitions
+output = 0.005301
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 5207856 in 1173th iteration and 1820 repetitions
+output = 0.005299
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 5129590 in 1463th iteration and 1842 repetitions
+output = 0.005299
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 3580980 in 2162th iteration and 2612 repetitions
+output = 0.005301
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 3233878 in 907th iteration and 2819 repetitions
+output = 0.005301
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/colunroll2
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 22571258 in 344th iteration and 426 repetitions
+output = 0.005301
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 22565976 in 141th iteration and 426 repetitions
+output = 0.005301
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 22505840 in 256th iteration and 426 repetitions
+output = 0.005299
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 22528084 in 255th iteration and 425 repetitions
+output = 0.005299
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 22768126 in 87th iteration and 422 repetitions
+output = 0.005301
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 22836716 in 256th iteration and 421 repetitions
+output = 0.005301
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/row
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 2023766 in 3110th iteration and 4520 repetitions
+output = 23.283005
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 933722 in 2380th iteration and 8661 repetitions
+output = 23.283003
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 5369022 in 1760th iteration and 1792 repetitions
+output = 23.283005
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1137764 in 1180th iteration and 7585 repetitions
+output = 23.283005
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1667216 in 1075th iteration and 5465 repetitions
+output = 23.283003
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1670684 in 932th iteration and 5440 repetitions
+output = 23.283003
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/rowunroll1
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 2004804 in 3145th iteration and 4604 repetitions
+output = 23.283005
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 2005040 in 3338th iteration and 4604 repetitions
+output = 23.283005
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 2551570 in 1175th iteration and 3590 repetitions
+output = 23.283005
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 2421236 in 1092th iteration and 3819 repetitions
+output = 23.283005
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1768046 in 2400th iteration and 5169 repetitions
+output = 23.283003
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1763158 in 4576th iteration and 5163 repetitions
+output = 23.283003
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/rowunroll2
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1991194 in 2717th iteration and 4653 repetitions
+output = 23.283005
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1990930 in 4121th iteration and 4662 repetitions
+output = 23.283005
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1989620 in 3202th iteration and 4648 repetitions
+output = 23.283005
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 2950540 in 1933th iteration and 3181 repetitions
+output = 23.283005
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 1672726 in 5139th iteration and 5448 repetitions
+output = 23.283003
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 1676172 in 5196th iteration and 5420 repetitions
+output = 23.283003
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/fullfilter
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 24956690 in 328th iteration and 388 repetitions
+output = 1.459826
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 23977928 in 226th iteration and 401 repetitions
+output = -18.874565
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 27658604 in 313th iteration and 347 repetitions
+output = -26.711330
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 23537984 in 247th iteration and 404 repetitions
+output = 65.799171
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 24665988 in 114th iteration and 391 repetitions
+output = -7.621940
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 24700484 in 357th iteration and 390 repetitions
+output = -37.315437
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/RCWT/fullfilterunroll2
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 24572062 in 57th iteration and 391 repetitions
+output = -7.622038
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 24663380 in 332th iteration and 390 repetitions
+output = -37.315472
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 24619240 in 374th iteration and 390 repetitions
+output = -37.315475
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 25511776 in 100th iteration and 377 repetitions
+output = 9.435460
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 24523154 in 308th iteration and 393 repetitions
+output = 52.411297
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 24545254 in 116th iteration and 390 repetitions
+output = -37.315437
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/rowtrarow
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 5722936 in 1101th iteration and 1602 repetitions
+output = 28.714413
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 3351432 in 1580th iteration and 2569 repetitions
+output = 10.227839
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 12311196 in 274th iteration and 767 repetitions
+output = -17.858841
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 3794716 in 1584th iteration and 2318 repetitions
+output = 8.289591
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 5069986 in 1581th iteration and 1785 repetitions
+output = -24.946140
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 5081720 in 256th iteration and 1779 repetitions
+output = 4.521808
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/rowtrarowLPI
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 26559880 in 346th iteration and 361 repetitions
+output = -71.736588
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 25876292 in 263th iteration and 368 repetitions
+output = 31.667015
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 26732068 in 206th iteration and 359 repetitions
+output = -24.189095
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 26344966 in 246th iteration and 365 repetitions
+output = -60.474548
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 26964782 in 248th iteration and 358 repetitions
+output = 36.933994
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 26984958 in 250th iteration and 356 repetitions
+output = 11.011750
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/rowtrarowunroll
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 5755864 in 1134th iteration and 1589 repetitions
+output = 2.186203
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 5379122 in 1534th iteration and 1712 repetitions
+output = 6.654123
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 5733974 in 1549th iteration and 1595 repetitions
+output = -34.855331
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 7266560 in 506th iteration and 1277 repetitions
+output = 7.868223
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 5111776 in 1358th iteration and 1774 repetitions
+output = 15.434031
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 5059592 in 1385th iteration and 1789 repetitions
+output = -12.746800
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/tracolcol
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 47250880 in 125th iteration and 204 repetitions
+output = -28.759956
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 47608212 in 32th iteration and 203 repetitions
+output = 107.751472
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 46663098 in 197th iteration and 205 repetitions
+output = 61.980839
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 46090482 in 126th iteration and 207 repetitions
+output = 95.592735
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 47704064 in 169th iteration and 203 repetitions
+output = 107.751358
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 47842304 in 66th iteration and 201 repetitions
+output = -17.194025
+
+******************************
+/home/martin/Desktop/Come with me/I am organized here/000 - My Atricles/001 - JMM - revision/Implementatios.JMM/CODENH/DWT/Daub_4/TRANSPOSE/tracolcolLPI
+
+*****************************************ICC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 47205184 in 183th iteration and 205 repetitions
+output = 61.980804
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 47445358 in 182th iteration and 204 repetitions
+output = -28.759956
+
+******************************
+
+*****************************************GCC*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 46509808 in 201th iteration and 206 repetitions
+output = -11.677383
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 46172266 in 65th iteration and 207 repetitions
+output = 95.592735
+
+******************************
+
+*****************************************LLVM*****************************************
+
+Out put for IMP1 scalar:
+
+the best is 47802554 in 72th iteration and 203 repetitions
+output = 107.751358
+
+******************************
+Out put for IMP1 CAV:
+
+the best is 47763582 in 134th iteration and 203 repetitions
+output = 107.751358
+
+******************************
+[martin@mrt Daub_4]$ 
+

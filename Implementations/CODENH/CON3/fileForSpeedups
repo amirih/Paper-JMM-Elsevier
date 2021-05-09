@@ -1,0 +1,84 @@
+spliter
+Time: Thu May 17 01:23:19 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+CONMOD31, 128x128, 119476
+CONMOD31, 128x128, 55424
+spliter
+Time: Thu May 17 01:23:35 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CONMOD31, 128x128, 117896
+CONMOD31, 128x128, 45622
+spliter
+Time: Thu May 17 01:23:51 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+CONMOD31, 128x128, 143804
+CONMOD31, 128x128, 143710
+spliter
+Time: Thu May 17 01:44:06 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+CONMOD31, 256x256, 482862
+CONMOD31, 256x256, 185414
+spliter
+Time: Thu May 17 01:44:22 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CONMOD31, 256x256, 481824
+CONMOD31, 256x256, 166418
+spliter
+Time: Thu May 17 01:44:38 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+CONMOD31, 256x256, 579870
+CONMOD31, 256x256, 580056
+spliter
+Time: Thu May 17 02:04:51 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+CONMOD31, 512x512, 1942108
+CONMOD31, 512x512, 713138
+spliter
+Time: Thu May 17 02:05:07 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CONMOD31, 512x512, 1937750
+CONMOD31, 512x512, 632620
+spliter
+Time: Thu May 17 02:05:23 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+CONMOD31, 512x512, 2329454
+CONMOD31, 512x512, 2341906
+spliter
+Time: Thu May 17 02:25:39 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+CONMOD31, 1024x1024, 7808116
+CONMOD31, 1024x1024, 2811806
+spliter
+Time: Thu May 17 02:25:55 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CONMOD31, 1024x1024, 7782358
+CONMOD31, 1024x1024, 2470834
+spliter
+Time: Thu May 17 02:26:11 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+CONMOD31, 1024x1024, 9353738
+CONMOD31, 1024x1024, 9353972

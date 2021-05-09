@@ -1,0 +1,11407 @@
+	.file	"IMP.c"
+	.text
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC0:
+	.string	"%s%n"
+.LC1:
+	.string	"P1"
+.LC2:
+	.string	"p1"
+	.section	.rodata.str1.8,"aMS",@progbits,1
+	.align 8
+.LC3:
+	.string	"PBMA_READ_HEADER: Fatal error."
+	.section	.rodata.str1.1
+.LC4:
+	.string	"  Bad magic number = %s.\n"
+.LC5:
+	.string	"%d%n"
+.LC6:
+	.string	"  End of input."
+	.text
+	.p2align 4,,15
+	.type	pbma_read_header.part.1, @function
+pbma_read_header.part.1:
+.LFB5560:
+	.cfi_startproc
+	pushq	%r14
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
+	pushq	%r13
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
+	pushq	%rbp
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	pushq	%rbx
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	subq	$16, %rsp
+	.cfi_def_cfa_offset 64
+	movq	%rdi, %r12
+	movq	%rsi, %r14
+	movq	%rdx, %r13
+	xorl	%ebp, %ebp
+.L3:
+	movq	%r12, %rdx
+	movl	$256, %esi
+	movl	$line, %edi
+	call	fgets
+	movq	%rax, %rbx
+	testq	%rax, %rax
+	je	.L26
+	cmpb	$35, line(%rip)
+	je	.L3
+	testl	%ebp, %ebp
+	je	.L27
+	decl	%ebp
+	je	.L6
+.L8:
+	leaq	12(%rsp), %rcx
+	movq	%r13, %rdx
+	movl	$.LC5, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	incl	%eax
+	je	.L28
+	xorl	%eax, %eax
+.L23:
+	addq	$16, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 48
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L27:
+	.cfi_restore_state
+	leaq	12(%rsp), %rcx
+	movl	$word, %edx
+	movl	$.LC0, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	incl	%eax
+	je	.L3
+	movslq	12(%rsp), %rax
+	addq	%rax, %rbx
+	movl	$word, %edx
+	movl	$.LC1, %edi
+	movl	$3, %ecx
+	movq	%rdx, %rsi
+	repz cmpsb
+	seta	%al
+	sbbb	$0, %al
+	testb	%al, %al
+	je	.L6
+	movl	$.LC2, %edi
+	movl	$3, %ecx
+	movq	%rdx, %rsi
+	repz cmpsb
+	seta	%al
+	sbbb	$0, %al
+	testb	%al, %al
+	jne	.L29
+.L6:
+	leaq	12(%rsp), %rcx
+	movq	%r14, %rdx
+	movl	$.LC5, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	movslq	12(%rsp), %rdx
+	addq	%rdx, %rbx
+	incl	%eax
+	jne	.L8
+	movl	$1, %ebp
+	jmp	.L3
+	.p2align 4,,10
+	.p2align 3
+.L28:
+	movl	$2, %ebp
+	jmp	.L3
+	.p2align 4,,10
+	.p2align 3
+.L26:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC3, %edi
+	call	puts
+	movl	$.LC6, %edi
+	call	puts
+	movl	$1, %eax
+	addq	$16, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 48
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+.L29:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC3, %edi
+	call	puts
+	movl	$word, %esi
+	movl	$.LC4, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	jmp	.L23
+	.cfi_endproc
+.LFE5560:
+	.size	pbma_read_header.part.1, .-pbma_read_header.part.1
+	.p2align 4,,15
+	.globl	assignToThisCore12
+	.type	assignToThisCore12, @function
+assignToThisCore12:
+.LFB5460:
+	.cfi_startproc
+	movl	%edi, %r8d
+	movl	$mask, %edx
+	movl	$16, %ecx
+	xorl	%eax, %eax
+	movq	%rdx, %rdi
+	rep stosq
+	movslq	%r8d, %rax
+	cmpq	$1023, %rax
+	ja	.L31
+	shrq	$6, %rax
+	movl	$1, %edx
+	shlx	%r8, %rdx, %r8
+	orq	%r8, mask(,%rax,8)
+.L31:
+	movslq	%esi, %rax
+	cmpq	$1023, %rax
+	ja	.L32
+	shrq	$6, %rax
+	movl	$1, %edx
+	shlx	%rsi, %rdx, %rsi
+	orq	%rsi, mask(,%rax,8)
+.L32:
+	movl	$mask, %edx
+	movl	$128, %esi
+	xorl	%edi, %edi
+	jmp	sched_setaffinity
+	.cfi_endproc
+.LFE5460:
+	.size	assignToThisCore12, .-assignToThisCore12
+	.p2align 4,,15
+	.globl	assignImagef32
+	.type	assignImagef32, @function
+assignImagef32:
+.LFB5461:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movq	%rdi, %rbx
+	xorl	%r9d, %r9d
+	vmovsd	.LC7(%rip), %xmm3
+	vmovsd	.LC8(%rip), %xmm5
+	vmovsd	.LC9(%rip), %xmm4
+	movl	$1195121335, %edi
+.L34:
+	vcvtsi2sd	%r9d, %xmm2, %xmm2
+	vfmadd132sd	%xmm5, %xmm4, %xmm2
+	movq	%rbx, %r11
+	movl	%r9d, %r10d
+	xorl	%esi, %esi
+	.p2align 4,,10
+	.p2align 3
+.L35:
+	leal	1(%rsi), %r8d
+	movl	%r9d, %eax
+	cltd
+	idivl	%r8d
+	leal	(%rax,%r10), %ecx
+	movl	%ecx, %edx
+	shrl	%edx
+	movl	%edx, %eax
+	mull	%edi
+	shrl	$5, %edx
+	imull	$230, %edx, %edx
+	subl	%edx, %ecx
+	vcvtsi2sd	%ecx, %xmm0, %xmm0
+	vcvtsi2sd	%esi, %xmm1, %xmm1
+	vfmadd132sd	%xmm3, %xmm2, %xmm1
+	vaddsd	%xmm1, %xmm0, %xmm0
+	vcvtsd2ss	%xmm0, %xmm6, %xmm6
+	vmovss	%xmm6, (%r11)
+	addl	%r9d, %r10d
+	addq	$4, %r11
+	movl	%r8d, %esi
+	cmpl	$1024, %r8d
+	jne	.L35
+	incl	%r9d
+	addq	$4112, %rbx
+	cmpl	$1024, %r9d
+	jne	.L34
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5461:
+	.size	assignImagef32, .-assignImagef32
+	.p2align 4,,15
+	.globl	assignMatrixf32
+	.type	assignMatrixf32, @function
+assignMatrixf32:
+.LFB5462:
+	.cfi_startproc
+	xorl	%r8d, %r8d
+	vmovsd	.LC9(%rip), %xmm1
+	movl	$274877907, %r10d
+.L41:
+	xorl	%r9d, %r9d
+	movl	$1, %esi
+	.p2align 4,,10
+	.p2align 3
+.L42:
+	movl	%r8d, %eax
+	cltd
+	idivl	%esi
+	leal	(%rax,%r9), %ecx
+	movl	%ecx, %eax
+	mull	%r10d
+	shrl	$6, %edx
+	imull	$1000, %edx, %edx
+	subl	%edx, %ecx
+	vcvtsi2sd	%ecx, %xmm0, %xmm0
+	vaddsd	%xmm1, %xmm0, %xmm0
+	vcvtsd2ss	%xmm0, %xmm2, %xmm2
+	vmovss	%xmm2, -4(%rdi,%rsi,4)
+	incq	%rsi
+	addl	%r8d, %r9d
+	cmpq	$1025, %rsi
+	jne	.L42
+	incl	%r8d
+	addq	$4096, %rdi
+	cmpl	$1024, %r8d
+	jne	.L41
+	ret
+	.cfi_endproc
+.LFE5462:
+	.size	assignMatrixf32, .-assignMatrixf32
+	.p2align 4,,15
+	.globl	assignImagei32
+	.type	assignImagei32, @function
+assignImagei32:
+.LFB5463:
+	.cfi_startproc
+	xorl	%r8d, %r8d
+	movl	$-2139062143, %r10d
+.L47:
+	xorl	%r9d, %r9d
+	movl	$1, %esi
+	.p2align 4,,10
+	.p2align 3
+.L48:
+	movl	%r8d, %eax
+	cltd
+	idivl	%esi
+	leal	(%rax,%r9), %ecx
+	movl	%ecx, %eax
+	mull	%r10d
+	shrl	$7, %edx
+	movl	%edx, %eax
+	sall	$8, %eax
+	subl	%edx, %eax
+	subl	%eax, %ecx
+	movl	%ecx, -4(%rdi,%rsi,4)
+	incq	%rsi
+	addl	%r8d, %r9d
+	cmpq	$1025, %rsi
+	jne	.L48
+	incl	%r8d
+	addq	$4112, %rdi
+	cmpl	$1024, %r8d
+	jne	.L47
+	ret
+	.cfi_endproc
+.LFE5463:
+	.size	assignImagei32, .-assignImagei32
+	.p2align 4,,15
+	.globl	assignMatrixi32
+	.type	assignMatrixi32, @function
+assignMatrixi32:
+.LFB5464:
+	.cfi_startproc
+	leaq	4096(%rdi), %rdx
+	xorl	%ecx, %ecx
+	vmovdqa	.LC11(%rip), %ymm8
+	vmovdqa	.LC12(%rip), %ymm4
+	vmovdqa	.LC13(%rip), %ymm7
+	vmovdqa	.LC14(%rip), %ymm6
+	vmovdqa	.LC10(%rip), %ymm9
+.L53:
+	vmovd	%ecx, %xmm5
+	vpbroadcastd	%xmm5, %ymm5
+	leaq	-4096(%rdx), %rax
+	vmovdqa	%ymm9, %ymm3
+	.p2align 4,,10
+	.p2align 3
+.L54:
+	vpmulld	%ymm5, %ymm3, %ymm2
+	vpsrlq	$32, %ymm2, %ymm1
+	vpmuldq	%ymm4, %ymm2, %ymm0
+	vpmuldq	%ymm4, %ymm1, %ymm1
+	vpshufb	%ymm7, %ymm0, %ymm0
+	vpshufb	%ymm6, %ymm1, %ymm1
+	vpor	%ymm1, %ymm0, %ymm0
+	vpsrad	$6, %ymm0, %ymm1
+	vpslld	$5, %ymm1, %ymm0
+	vpsubd	%ymm1, %ymm0, %ymm0
+	vpslld	$2, %ymm0, %ymm0
+	vpaddd	%ymm1, %ymm0, %ymm0
+	vpslld	$3, %ymm0, %ymm0
+	vpsubd	%ymm0, %ymm2, %ymm0
+	vmovdqu	%ymm0, (%rax)
+	addq	$32, %rax
+	vpaddd	%ymm8, %ymm3, %ymm3
+	cmpq	%rax, %rdx
+	jne	.L54
+	incl	%ecx
+	addq	$4096, %rdx
+	cmpl	$1024, %ecx
+	jne	.L53
+	vzeroupper
+	ret
+	.cfi_endproc
+.LFE5464:
+	.size	assignMatrixi32, .-assignMatrixi32
+	.p2align 4,,15
+	.globl	assignMatrixi16
+	.type	assignMatrixi16, @function
+assignMatrixi16:
+.LFB5465:
+	.cfi_startproc
+	pushq	%r14
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
+	pushq	%r13
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
+	pushq	%rbp
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	pushq	%rbx
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	leaq	2048(%rdi), %rbx
+	xorl	%ebp, %ebp
+	movl	$558694933, %r12d
+.L59:
+	leaq	-2048(%rbx), %r14
+	xorl	%r13d, %r13d
+	.p2align 4,,10
+	.p2align 3
+.L60:
+	call	rand
+	movl	%eax, %ecx
+	movl	%r13d, %edx
+	shrl	%edx
+	movl	%edx, %eax
+	mull	%r12d
+	shrl	$4, %edx
+	imull	$246, %edx, %edx
+	movl	%r13d, %esi
+	subl	%edx, %esi
+	movl	$1717986919, %edx
+	movl	%ecx, %eax
+	imull	%edx
+	sarl	$2, %edx
+	movl	%ecx, %eax
+	sarl	$31, %eax
+	subl	%eax, %edx
+	leal	(%rdx,%rdx,4), %eax
+	addl	%eax, %eax
+	subl	%eax, %ecx
+	addl	%esi, %ecx
+	movw	%cx, (%r14)
+	addl	%ebp, %r13d
+	addq	$2, %r14
+	cmpq	%r14, %rbx
+	jne	.L60
+	incl	%ebp
+	addq	$2048, %rbx
+	cmpl	$1024, %ebp
+	jne	.L59
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5465:
+	.size	assignMatrixi16, .-assignMatrixi16
+	.p2align 4,,15
+	.globl	assignImagei16
+	.type	assignImagei16, @function
+assignImagei16:
+.LFB5567:
+	.cfi_startproc
+	pushq	%r14
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
+	pushq	%r13
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
+	pushq	%rbp
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	pushq	%rbx
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	leaq	2048(%rdi), %rbx
+	xorl	%ebp, %ebp
+	movl	$558694933, %r12d
+.L66:
+	leaq	-2048(%rbx), %r14
+	xorl	%r13d, %r13d
+	.p2align 4,,10
+	.p2align 3
+.L67:
+	call	rand
+	movl	%eax, %ecx
+	movl	%r13d, %edx
+	shrl	%edx
+	movl	%edx, %eax
+	mull	%r12d
+	shrl	$4, %edx
+	imull	$246, %edx, %edx
+	movl	%r13d, %esi
+	subl	%edx, %esi
+	movl	$1717986919, %edx
+	movl	%ecx, %eax
+	imull	%edx
+	sarl	$2, %edx
+	movl	%ecx, %eax
+	sarl	$31, %eax
+	subl	%eax, %edx
+	leal	(%rdx,%rdx,4), %eax
+	addl	%eax, %eax
+	subl	%eax, %ecx
+	addl	%esi, %ecx
+	movw	%cx, (%r14)
+	addl	%ebp, %r13d
+	addq	$2, %r14
+	cmpq	%r14, %rbx
+	jne	.L67
+	incl	%ebp
+	addq	$2048, %rbx
+	cmpl	$1024, %ebp
+	jne	.L66
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5567:
+	.size	assignImagei16, .-assignImagei16
+	.p2align 4,,15
+	.globl	imageTranspose
+	.type	imageTranspose, @function
+imageTranspose:
+.LFB5467:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	.cfi_offset 14, -24
+	.cfi_offset 13, -32
+	.cfi_offset 12, -40
+	.cfi_offset 3, -48
+	leaq	4108(%rdi), %r8
+	movl	$4, %ebx
+	movl	$4112, %r11d
+	xorl	%r10d, %r10d
+	movl	$1, %r9d
+	.p2align 4,,10
+	.p2align 3
+.L73:
+	leaq	-4104(%r11), %rdx
+	movq	%r8, %rax
+	subq	%rdi, %rax
+	cmpq	%rax, %rdx
+	jg	.L81
+	cmpl	$6, %r10d
+	jbe	.L81
+	leaq	(%rbx,%rdi), %rax
+	movl	%r9d, %esi
+	shrl	$3, %esi
+	salq	$5, %rsi
+	addq	%r8, %rsi
+	movq	%r8, %rcx
+	movq	%r8, %rdx
+	.p2align 4,,10
+	.p2align 3
+.L74:
+	vmovups	(%rdx), %ymm0
+	vmovss	24648(%rax), %xmm2
+	vinsertps	$0x10, 28756(%rax), %xmm2, %xmm3
+	vmovss	16432(%rax), %xmm2
+	vinsertps	$0x10, 20540(%rax), %xmm2, %xmm2
+	vmovss	8216(%rax), %xmm1
+	vinsertps	$0x10, 12324(%rax), %xmm1, %xmm4
+	vmovss	(%rax), %xmm1
+	vinsertps	$0x10, 4108(%rax), %xmm1, %xmm1
+	vmovlhps	%xmm4, %xmm1, %xmm1
+	vmovlhps	%xmm3, %xmm2, %xmm2
+	vinsertf128	$0x1, %xmm2, %ymm1, %ymm1
+	vmovups	%ymm1, (%rcx)
+	vmovss	%xmm0, (%rax)
+	vextractps	$1, %xmm0, 4108(%rax)
+	vextractps	$2, %xmm0, 8216(%rax)
+	vextractps	$3, %xmm0, 12324(%rax)
+	vextractf128	$0x1, %ymm0, %xmm0
+	vmovss	%xmm0, 16432(%rax)
+	vextractps	$1, %xmm0, 20540(%rax)
+	vextractps	$2, %xmm0, 24648(%rax)
+	vextractps	$3, %xmm0, 28756(%rax)
+	addq	$32, %rdx
+	addq	$32864, %rax
+	addq	$32, %rcx
+	cmpq	%rsi, %rdx
+	jne	.L74
+	movl	%r9d, %eax
+	andl	$-8, %eax
+	cmpl	%r9d, %eax
+	je	.L77
+	movl	%eax, %edx
+	leaq	(%r8,%rdx,4), %r12
+	vmovss	(%r12), %xmm0
+	imulq	$4108, %rdx, %rdx
+	movslq	%r9d, %rcx
+	salq	$2, %rcx
+	leaq	(%rdx,%rcx), %rsi
+	addq	%rdi, %rsi
+	vmovss	(%rsi), %xmm1
+	vmovss	%xmm1, (%r12)
+	vmovss	%xmm0, (%rsi)
+	leal	1(%rax), %r13d
+	cmpl	%r10d, %eax
+	jge	.L77
+	movslq	%r13d, %rsi
+	leaq	(%r8,%rsi,4), %r14
+	vmovss	(%r14), %xmm0
+	leaq	4108(%rdx,%rcx), %rsi
+	addq	%rdi, %rsi
+	vmovss	(%rsi), %xmm1
+	vmovss	%xmm1, (%r14)
+	vmovss	%xmm0, (%rsi)
+	leal	2(%rax), %r14d
+	cmpl	%r10d, %r13d
+	jge	.L77
+	movslq	%r14d, %rsi
+	leaq	(%r8,%rsi,4), %r13
+	vmovss	0(%r13), %xmm0
+	leaq	8216(%rdx,%rcx), %rsi
+	addq	%rdi, %rsi
+	vmovss	(%rsi), %xmm1
+	vmovss	%xmm1, 0(%r13)
+	vmovss	%xmm0, (%rsi)
+	leal	3(%rax), %r13d
+	cmpl	%r10d, %r14d
+	jge	.L77
+	movslq	%r13d, %rsi
+	leaq	(%r8,%rsi,4), %r14
+	vmovss	(%r14), %xmm0
+	leaq	12324(%rdx,%rcx), %rsi
+	addq	%rdi, %rsi
+	vmovss	(%rsi), %xmm1
+	vmovss	%xmm1, (%r14)
+	vmovss	%xmm0, (%rsi)
+	leal	4(%rax), %r14d
+	cmpl	%r10d, %r13d
+	jge	.L77
+	movslq	%r14d, %rsi
+	leaq	(%r8,%rsi,4), %r13
+	vmovss	0(%r13), %xmm0
+	leaq	16432(%rdx,%rcx), %rsi
+	addq	%rdi, %rsi
+	vmovss	(%rsi), %xmm1
+	vmovss	%xmm1, 0(%r13)
+	vmovss	%xmm0, (%rsi)
+	leal	5(%rax), %r13d
+	cmpl	%r10d, %r14d
+	jge	.L77
+	movslq	%r13d, %rsi
+	leaq	(%r8,%rsi,4), %r14
+	vmovss	(%r14), %xmm0
+	leaq	20540(%rdx,%rcx), %rsi
+	addq	%rdi, %rsi
+	vmovss	(%rsi), %xmm1
+	vmovss	%xmm1, (%r14)
+	vmovss	%xmm0, (%rsi)
+	addl	$6, %eax
+	cmpl	%r10d, %r13d
+	jge	.L77
+	cltq
+	leaq	(%r8,%rax,4), %rsi
+	vmovss	(%rsi), %xmm0
+	leaq	24648(%rdx,%rcx), %rax
+	addq	%rdi, %rax
+	vmovss	(%rax), %xmm1
+	vmovss	%xmm1, (%rsi)
+	vmovss	%xmm0, (%rax)
+.L77:
+	incl	%r9d
+	incq	%r10
+	addq	$4108, %r8
+	addq	$4112, %r11
+	addq	$4, %rbx
+	cmpl	$1024, %r9d
+	jne	.L73
+	vzeroupper
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%rbp
+	.cfi_remember_state
+	.cfi_def_cfa 7, 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L81:
+	.cfi_restore_state
+	leaq	(%rdi,%rbx), %rdx
+	movq	%r8, %rax
+	leaq	(%rdi,%r11), %rcx
+	.p2align 4,,10
+	.p2align 3
+.L76:
+	vmovss	(%rax), %xmm0
+	vmovss	(%rdx), %xmm1
+	vmovss	%xmm1, (%rax)
+	vmovss	%xmm0, (%rdx)
+	addq	$4, %rax
+	addq	$4108, %rdx
+	cmpq	%rcx, %rax
+	jne	.L76
+	jmp	.L77
+	.cfi_endproc
+.LFE5467:
+	.size	imageTranspose, .-imageTranspose
+	.p2align 4,,15
+	.globl	assignMatrixui16
+	.type	assignMatrixui16, @function
+assignMatrixui16:
+.LFB5468:
+	.cfi_startproc
+	leaq	2048(%rdi), %rdx
+	xorl	%ecx, %ecx
+	vmovdqa	.LC15(%rip), %ymm8
+	vmovdqa	.LC16(%rip), %ymm6
+	vmovdqa	.LC17(%rip), %ymm5
+	vmovdqa	.LC11(%rip), %ymm7
+	vmovdqa	.LC18(%rip), %ymm4
+	vmovdqa	.LC10(%rip), %ymm9
+.L90:
+	vmovd	%ecx, %xmm3
+	vpbroadcastd	%xmm3, %ymm3
+	leaq	-2048(%rdx), %rax
+	vmovdqa	%ymm9, %ymm2
+	.p2align 4,,10
+	.p2align 3
+.L91:
+	vpaddd	%ymm2, %ymm3, %ymm0
+	vpaddd	%ymm6, %ymm0, %ymm0
+	vpand	%ymm5, %ymm0, %ymm0
+	vpaddd	%ymm7, %ymm2, %ymm1
+	vpaddd	%ymm3, %ymm1, %ymm1
+	vpaddd	%ymm6, %ymm1, %ymm1
+	vpand	%ymm5, %ymm1, %ymm1
+	vpand	%ymm0, %ymm4, %ymm0
+	vpand	%ymm1, %ymm4, %ymm1
+	vpackusdw	%ymm1, %ymm0, %ymm0
+	vpermq	$216, %ymm0, %ymm0
+	vmovdqu	%ymm0, (%rax)
+	addq	$32, %rax
+	vpaddd	%ymm8, %ymm2, %ymm2
+	cmpq	%rax, %rdx
+	jne	.L91
+	incl	%ecx
+	addq	$2048, %rdx
+	cmpl	$1024, %ecx
+	jne	.L90
+	vzeroupper
+	ret
+	.cfi_endproc
+.LFE5468:
+	.size	assignMatrixui16, .-assignMatrixui16
+	.p2align 4,,15
+	.globl	assignMatrixi8
+	.type	assignMatrixi8, @function
+assignMatrixi8:
+.LFB5469:
+	.cfi_startproc
+	pushq	%r13
+	.cfi_def_cfa_offset 16
+	.cfi_offset 13, -16
+	pushq	%r12
+	.cfi_def_cfa_offset 24
+	.cfi_offset 12, -24
+	pushq	%rbp
+	.cfi_def_cfa_offset 32
+	.cfi_offset 6, -32
+	pushq	%rbx
+	.cfi_def_cfa_offset 40
+	.cfi_offset 3, -40
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 48
+	leaq	1024(%rdi), %rbp
+	xorl	%ebx, %ebx
+.L96:
+	leaq	-1024(%rbp), %r12
+	xorl	%r13d, %r13d
+	.p2align 4,,10
+	.p2align 3
+.L97:
+	call	rand
+	movzbl	%r13b, %edx
+	movl	%eax, %ecx
+	shrl	$31, %ecx
+	addl	%ecx, %eax
+	andl	$1, %eax
+	subl	%ecx, %eax
+	addl	%edx, %eax
+	cltd
+	shrl	$24, %edx
+	addl	%edx, %eax
+	movzbl	%al, %eax
+	subl	%edx, %eax
+	movb	%al, (%r12)
+	addl	%ebx, %r13d
+	incq	%r12
+	cmpq	%rbp, %r12
+	jne	.L97
+	incl	%ebx
+	leaq	1024(%r12), %rbp
+	cmpl	$1024, %ebx
+	jne	.L96
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r13
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5469:
+	.size	assignMatrixi8, .-assignMatrixi8
+	.p2align 4,,15
+	.globl	assignArrayi32
+	.type	assignArrayi32, @function
+assignArrayi32:
+.LFB5470:
+	.cfi_startproc
+	leaq	4194304(%rdi), %rax
+	vmovdqa	.LC19(%rip), %ymm4
+	vmovdqa	.LC10(%rip), %ymm3
+	vmovdqa	.LC11(%rip), %ymm6
+	vmovdqa	.LC12(%rip), %ymm5
+	vmovdqa	.LC13(%rip), %ymm8
+	vmovdqa	.LC14(%rip), %ymm7
+	.p2align 4,,10
+	.p2align 3
+.L103:
+	vpmulld	%ymm3, %ymm4, %ymm2
+	vpsrlq	$32, %ymm2, %ymm1
+	vpmuldq	%ymm5, %ymm2, %ymm0
+	vpmuldq	%ymm5, %ymm1, %ymm1
+	vpshufb	%ymm8, %ymm0, %ymm0
+	vpshufb	%ymm7, %ymm1, %ymm1
+	vpor	%ymm1, %ymm0, %ymm0
+	vpsrad	$6, %ymm0, %ymm1
+	vpslld	$5, %ymm1, %ymm0
+	vpsubd	%ymm1, %ymm0, %ymm0
+	vpslld	$2, %ymm0, %ymm0
+	vpaddd	%ymm1, %ymm0, %ymm0
+	vpslld	$3, %ymm0, %ymm0
+	vpsubd	%ymm0, %ymm2, %ymm0
+	vmovdqu	%ymm0, (%rdi)
+	addq	$32, %rdi
+	vpaddd	%ymm6, %ymm3, %ymm3
+	vpaddd	%ymm6, %ymm4, %ymm4
+	cmpq	%rdi, %rax
+	jne	.L103
+	vzeroupper
+	ret
+	.cfi_endproc
+.LFE5470:
+	.size	assignArrayi32, .-assignArrayi32
+	.p2align 4,,15
+	.globl	bitchr75
+	.type	bitchr75, @function
+bitchr75:
+.LFB5504:
+	.cfi_startproc
+	subl	$33, %edi
+	cmpb	$93, %dil
+	ja	.L167
+	movzbl	%dil, %edi
+	jmp	*.L108(,%rdi,8)
+	.section	.rodata
+	.align 8
+	.align 4
+.L108:
+	.quad	.L163
+	.quad	.L162
+	.quad	.L161
+	.quad	.L160
+	.quad	.L167
+	.quad	.L167
+	.quad	.L159
+	.quad	.L158
+	.quad	.L157
+	.quad	.L167
+	.quad	.L167
+	.quad	.L156
+	.quad	.L155
+	.quad	.L154
+	.quad	.L153
+	.quad	.L152
+	.quad	.L151
+	.quad	.L150
+	.quad	.L149
+	.quad	.L148
+	.quad	.L147
+	.quad	.L146
+	.quad	.L145
+	.quad	.L144
+	.quad	.L143
+	.quad	.L142
+	.quad	.L141
+	.quad	.L140
+	.quad	.L139
+	.quad	.L138
+	.quad	.L167
+	.quad	.L167
+	.quad	.L137
+	.quad	.L136
+	.quad	.L135
+	.quad	.L134
+	.quad	.L133
+	.quad	.L132
+	.quad	.L131
+	.quad	.L130
+	.quad	.L129
+	.quad	.L128
+	.quad	.L127
+	.quad	.L126
+	.quad	.L125
+	.quad	.L124
+	.quad	.L123
+	.quad	.L122
+	.quad	.L121
+	.quad	.L120
+	.quad	.L119
+	.quad	.L118
+	.quad	.L117
+	.quad	.L116
+	.quad	.L115
+	.quad	.L114
+	.quad	.L113
+	.quad	.L112
+	.quad	.L111
+	.quad	.L167
+	.quad	.L110
+	.quad	.L167
+	.quad	.L109
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L167
+	.quad	.L107
+	.text
+.L109:
+	movl	$pat095.38157, %eax
+	.p2align 4,,10
+	.p2align 3
+.L106:
+	leaq	80(%rax), %rdx
+	cmpq	%rdx, %rsi
+	jnb	.L168
+	leaq	80(%rsi), %rdx
+	cmpq	%rdx, %rax
+	jb	.L164
+.L168:
+	vmovdqa	16(%rax), %xmm3
+	vmovdqa	32(%rax), %xmm2
+	vmovdqa	48(%rax), %xmm1
+	vmovdqa	64(%rax), %xmm0
+	vmovdqa	(%rax), %xmm4
+	vmovdqu	%xmm4, (%rsi)
+	vmovdqu	%xmm3, 16(%rsi)
+	vmovdqu	%xmm2, 32(%rsi)
+	vmovdqu	%xmm1, 48(%rsi)
+	vmovdqu	%xmm0, 64(%rsi)
+.L170:
+	movl	80(%rax), %edx
+	movl	%edx, 80(%rsi)
+	movl	84(%rax), %edx
+	movl	%edx, 84(%rsi)
+	movl	88(%rax), %edx
+	movl	%edx, 88(%rsi)
+	movl	92(%rax), %edx
+	movl	%edx, 92(%rsi)
+	movl	96(%rax), %edx
+	movl	%edx, 96(%rsi)
+	movl	100(%rax), %edx
+	movl	%edx, 100(%rsi)
+	movl	104(%rax), %edx
+	movl	%edx, 104(%rsi)
+	movl	108(%rax), %edx
+	movl	%edx, 108(%rsi)
+	movl	112(%rax), %edx
+	movl	%edx, 112(%rsi)
+	movl	116(%rax), %edx
+	movl	%edx, 116(%rsi)
+	movl	120(%rax), %edx
+	movl	%edx, 120(%rsi)
+	movl	124(%rax), %edx
+	movl	%edx, 124(%rsi)
+	movl	128(%rax), %edx
+	movl	%edx, 128(%rsi)
+	movl	132(%rax), %edx
+	movl	%edx, 132(%rsi)
+	movl	136(%rax), %eax
+	movl	%eax, 136(%rsi)
+	ret
+.L110:
+	movl	$pat093.38156, %eax
+	jmp	.L106
+.L111:
+	movl	$pat091.38155, %eax
+	jmp	.L106
+.L112:
+	movl	$pat090.38154, %eax
+	jmp	.L106
+.L113:
+	movl	$pat089.38153, %eax
+	jmp	.L106
+.L114:
+	movl	$pat088.38152, %eax
+	jmp	.L106
+.L115:
+	movl	$pat087.38151, %eax
+	jmp	.L106
+.L116:
+	movl	$pat086.38150, %eax
+	jmp	.L106
+.L117:
+	movl	$pat085.38149, %eax
+	jmp	.L106
+.L118:
+	movl	$pat084.38148, %eax
+	jmp	.L106
+.L119:
+	movl	$pat083.38147, %eax
+	jmp	.L106
+.L120:
+	movl	$pat082.38146, %eax
+	jmp	.L106
+.L121:
+	movl	$pat081.38145, %eax
+	jmp	.L106
+.L122:
+	movl	$pat080.38144, %eax
+	jmp	.L106
+.L123:
+	movl	$pat079.38143, %eax
+	jmp	.L106
+.L124:
+	movl	$pat078.38142, %eax
+	jmp	.L106
+.L125:
+	movl	$pat077.38141, %eax
+	jmp	.L106
+.L126:
+	movl	$pat076.38140, %eax
+	jmp	.L106
+.L127:
+	movl	$pat075.38139, %eax
+	jmp	.L106
+.L128:
+	movl	$pat074.38138, %eax
+	jmp	.L106
+.L129:
+	movl	$pat073.38137, %eax
+	jmp	.L106
+.L130:
+	movl	$pat072.38136, %eax
+	jmp	.L106
+.L131:
+	movl	$pat071.38135, %eax
+	jmp	.L106
+.L132:
+	movl	$pat070.38134, %eax
+	jmp	.L106
+.L133:
+	movl	$pat069.38133, %eax
+	jmp	.L106
+.L134:
+	movl	$pat068.38132, %eax
+	jmp	.L106
+.L135:
+	movl	$pat067.38131, %eax
+	jmp	.L106
+.L136:
+	movl	$pat066.38130, %eax
+	jmp	.L106
+.L137:
+	movl	$pat065.38129, %eax
+	jmp	.L106
+.L138:
+	movl	$pat062.38128, %eax
+	jmp	.L106
+.L139:
+	movl	$pat061.38127, %eax
+	jmp	.L106
+.L140:
+	movl	$pat060.38126, %eax
+	jmp	.L106
+.L141:
+	movl	$pat059.38125, %eax
+	jmp	.L106
+.L142:
+	movl	$pat058.38124, %eax
+	jmp	.L106
+.L143:
+	movl	$pat057.38123, %eax
+	jmp	.L106
+.L144:
+	movl	$pat056.38122, %eax
+	jmp	.L106
+.L145:
+	movl	$pat055.38121, %eax
+	jmp	.L106
+.L146:
+	movl	$pat054.38120, %eax
+	jmp	.L106
+.L147:
+	movl	$pat053.38119, %eax
+	jmp	.L106
+.L148:
+	movl	$pat052.38118, %eax
+	jmp	.L106
+.L149:
+	movl	$pat051.38117, %eax
+	jmp	.L106
+.L150:
+	movl	$pat050.38116, %eax
+	jmp	.L106
+.L151:
+	movl	$pat049.38115, %eax
+	jmp	.L106
+.L152:
+	movl	$pat048.38114, %eax
+	jmp	.L106
+.L153:
+	movl	$pat047.38113, %eax
+	jmp	.L106
+.L154:
+	movl	$pat046.38112, %eax
+	jmp	.L106
+.L155:
+	movl	$pat045.38111, %eax
+	jmp	.L106
+.L156:
+	movl	$pat044.38110, %eax
+	jmp	.L106
+.L157:
+	movl	$pat041.38109, %eax
+	jmp	.L106
+.L158:
+	movl	$pat040.38108, %eax
+	jmp	.L106
+.L159:
+	movl	$pat039.38107, %eax
+	jmp	.L106
+.L160:
+	movl	$pat036.38106, %eax
+	jmp	.L106
+.L161:
+	movl	$pat035.38105, %eax
+	jmp	.L106
+.L162:
+	movl	$pat034.38104, %eax
+	jmp	.L106
+.L163:
+	movl	$pat033.38103, %eax
+	jmp	.L106
+.L107:
+	movl	$pat126.38158, %eax
+	jmp	.L106
+.L167:
+	movl	$pat032.38102, %eax
+	jmp	.L106
+	.p2align 4,,10
+	.p2align 3
+.L164:
+	movl	(%rax), %edx
+	movl	%edx, (%rsi)
+	movl	4(%rax), %edx
+	movl	%edx, 4(%rsi)
+	movl	8(%rax), %edx
+	movl	%edx, 8(%rsi)
+	movl	12(%rax), %edx
+	movl	%edx, 12(%rsi)
+	movl	16(%rax), %edx
+	movl	%edx, 16(%rsi)
+	movl	20(%rax), %edx
+	movl	%edx, 20(%rsi)
+	movl	24(%rax), %edx
+	movl	%edx, 24(%rsi)
+	movl	28(%rax), %edx
+	movl	%edx, 28(%rsi)
+	movl	32(%rax), %edx
+	movl	%edx, 32(%rsi)
+	movl	36(%rax), %edx
+	movl	%edx, 36(%rsi)
+	movl	40(%rax), %edx
+	movl	%edx, 40(%rsi)
+	movl	44(%rax), %edx
+	movl	%edx, 44(%rsi)
+	movl	48(%rax), %edx
+	movl	%edx, 48(%rsi)
+	movl	52(%rax), %edx
+	movl	%edx, 52(%rsi)
+	movl	56(%rax), %edx
+	movl	%edx, 56(%rsi)
+	movl	60(%rax), %edx
+	movl	%edx, 60(%rsi)
+	movl	64(%rax), %edx
+	movl	%edx, 64(%rsi)
+	movl	68(%rax), %edx
+	movl	%edx, 68(%rsi)
+	movl	72(%rax), %edx
+	movl	%edx, 72(%rsi)
+	movl	76(%rax), %edx
+	movl	%edx, 76(%rsi)
+	jmp	.L170
+	.cfi_endproc
+.LFE5504:
+	.size	bitchr75, .-bitchr75
+	.section	.rodata.str1.8
+	.align 8
+.LC20:
+	.string	"PBM_CHECK_DATA: 0 >= XSIZE = %d.\n"
+	.align 8
+.LC21:
+	.string	"PBM_CHECK_DATA: 0 >= YSIZE = %d.\n"
+	.align 8
+.LC22:
+	.string	"PBM_CHECK_DATA: Null pointer to data."
+	.align 8
+.LC23:
+	.string	"PBM_CHECK_DATA: b(%d,%d) = %d.\n"
+	.text
+	.p2align 4,,15
+	.globl	pbm_check_data
+	.type	pbm_check_data, @function
+pbm_check_data:
+.LFB5505:
+	.cfi_startproc
+	pushq	%r13
+	.cfi_def_cfa_offset 16
+	.cfi_offset 13, -16
+	pushq	%r12
+	.cfi_def_cfa_offset 24
+	.cfi_offset 12, -24
+	pushq	%rbp
+	.cfi_def_cfa_offset 32
+	.cfi_offset 6, -32
+	pushq	%rbx
+	.cfi_def_cfa_offset 40
+	.cfi_offset 3, -40
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 64
+	movl	%edi, %r12d
+	testl	%edi, %edi
+	jle	.L184
+	testl	%esi, %esi
+	jle	.L185
+	movq	%rdx, %rbx
+	xorl	%r13d, %r13d
+	testq	%rdx, %rdx
+	je	.L186
+.L175:
+	xorl	%ebp, %ebp
+	.p2align 4,,10
+	.p2align 3
+.L177:
+	cmpl	$1, (%rbx)
+	ja	.L187
+	addq	$4, %rbx
+	incl	%ebp
+	cmpl	%ebp, %r12d
+	jne	.L177
+	incl	%r13d
+	cmpl	%r13d, %esi
+	jne	.L175
+	xorl	%eax, %eax
+	jmp	.L182
+	.p2align 4,,10
+	.p2align 3
+.L187:
+	movl	$10, %edi
+	call	putchar
+	movl	(%rbx), %ecx
+	movl	%r13d, %edx
+	movl	%ebp, %esi
+	movl	$.LC23, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+.L182:
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r13
+	.cfi_def_cfa_offset 8
+	ret
+.L186:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC22, %edi
+	call	puts
+	movl	$1, %eax
+	jmp	.L182
+	.p2align 4,,10
+	.p2align 3
+.L184:
+	movl	$10, %edi
+	call	putchar
+	movl	%r12d, %esi
+	movl	$.LC20, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r13
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L185:
+	.cfi_restore_state
+	movl	%esi, 12(%rsp)
+	movl	$10, %edi
+	call	putchar
+	movl	12(%rsp), %esi
+	movl	$.LC21, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	addq	$24, %rsp
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r13
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5505:
+	.size	pbm_check_data, .-pbm_check_data
+	.section	.rodata.str1.1
+.LC24:
+	.string	"PBMA_READ_DATA: Fatal error."
+.LC25:
+	.string	"%d"
+	.text
+	.p2align 4,,15
+	.globl	pbma_read_data
+	.type	pbma_read_data, @function
+pbma_read_data:
+.LFB5507:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 96
+	movl	$0, 12(%rsp)
+	testl	%edx, %edx
+	jle	.L190
+	movq	%rdi, %rbp
+	movl	%esi, %r14d
+	movl	%edx, %r15d
+	movq	%rcx, %r13
+	xorl	%ebx, %ebx
+	movl	$1, %r12d
+.L189:
+	testl	%r14d, %r14d
+	jle	.L195
+	cmpl	$1, %r12d
+	je	.L208
+	.p2align 4,,10
+	.p2align 3
+.L192:
+	leaq	28(%rsp), %rcx
+	movl	$word, %edx
+	movl	$.LC0, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	incl	%eax
+	jne	.L209
+.L194:
+	movq	%rbp, %rdx
+	movl	$256, %esi
+	movl	$line, %edi
+	call	fgets
+	movq	%rax, %rbx
+	testq	%rax, %rax
+	jne	.L192
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC24, %edi
+	call	puts
+	movl	$.LC6, %edi
+	call	puts
+	movl	$1, %eax
+.L205:
+	addq	$40, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L209:
+	.cfi_restore_state
+	movslq	28(%rsp), %rax
+	addq	%rax, %rbx
+	leaq	24(%rsp), %rdx
+	movl	$.LC25, %esi
+	movl	$word, %edi
+	xorl	%eax, %eax
+	call	sscanf
+	movl	24(%rsp), %eax
+	movl	%eax, 0(%r13)
+	addq	$4, %r13
+	incl	%r12d
+	cmpl	%r12d, %r14d
+	jne	.L192
+	xorl	%r12d, %r12d
+.L195:
+	incl	12(%rsp)
+	movl	12(%rsp), %eax
+	cmpl	%eax, %r15d
+	jne	.L189
+.L190:
+	xorl	%eax, %eax
+	jmp	.L205
+.L208:
+	xorl	%r12d, %r12d
+	jmp	.L194
+	.cfi_endproc
+.LFE5507:
+	.size	pbma_read_data, .-pbma_read_data
+	.section	.rodata.str1.1
+.LC26:
+	.string	"r"
+.LC27:
+	.string	"PBMA_READ: Fatal error!"
+	.section	.rodata.str1.8
+	.align 8
+.LC28:
+	.string	"  Cannot open the input file %s.\n"
+	.section	.rodata.str1.1
+.LC29:
+	.string	"  PBMA_READ_HEADER failed."
+	.section	.rodata.str1.8
+	.align 8
+.LC30:
+	.string	"  Unable to allocate memory for data."
+	.section	.rodata.str1.1
+.LC31:
+	.string	"  Seeking %d bytes.\n"
+.LC32:
+	.string	"  PBMA_READ_DATA failed."
+	.text
+	.p2align 4,,15
+	.globl	pbma_read
+	.type	pbma_read, @function
+pbma_read:
+.LFB5506:
+	.cfi_startproc
+	pushq	%r14
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
+	pushq	%r13
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
+	pushq	%rbp
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	pushq	%rbx
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	movq	%rdi, %r13
+	movq	%rsi, %r12
+	movq	%rdx, %rbp
+	movq	%rcx, %r14
+	movl	$.LC26, %esi
+	call	fopen
+	testq	%rax, %rax
+	je	.L218
+	movq	%rax, %rbx
+	movq	%rbp, %rdx
+	movq	%r12, %rsi
+	movq	%rax, %rdi
+	call	pbma_read_header.part.1
+	testl	%eax, %eax
+	jne	.L219
+	movl	(%r12), %r12d
+	movl	0(%rbp), %r13d
+	movl	%r12d, %ebp
+	imull	%r13d, %ebp
+	sall	$2, %ebp
+	movslq	%ebp, %rdi
+	call	malloc
+	movq	%rax, (%r14)
+	testq	%rax, %rax
+	je	.L220
+	movq	%rax, %rcx
+	movl	%r13d, %edx
+	movl	%r12d, %esi
+	movq	%rbx, %rdi
+	call	pbma_read_data
+	movl	%eax, %ebp
+	testl	%eax, %eax
+	jne	.L221
+	movq	%rbx, %rdi
+	call	fclose
+.L216:
+	movl	%ebp, %eax
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L219:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC27, %edi
+	call	puts
+	movl	$.LC29, %edi
+	call	puts
+	movl	$1, %ebp
+	movl	%ebp, %eax
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L220:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC27, %edi
+	call	puts
+	movl	$.LC30, %edi
+	call	puts
+	movl	%ebp, %esi
+	movl	$.LC31, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %ebp
+	jmp	.L216
+	.p2align 4,,10
+	.p2align 3
+.L218:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC27, %edi
+	call	puts
+	movq	%r13, %rsi
+	movl	$.LC28, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %ebp
+	movl	%ebp, %eax
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L221:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC27, %edi
+	call	puts
+	movl	$.LC32, %edi
+	call	puts
+	movl	$1, %ebp
+	movl	%ebp, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5506:
+	.size	pbma_read, .-pbma_read
+	.p2align 4,,15
+	.globl	pbma_read_header
+	.type	pbma_read_header, @function
+pbma_read_header:
+.LFB5508:
+	.cfi_startproc
+	jmp	pbma_read_header.part.1
+	.cfi_endproc
+.LFE5508:
+	.size	pbma_read_header, .-pbma_read_header
+	.section	.rodata.str1.1
+.LC33:
+	.string	"PBMA_READ_TEST: Fatal error!"
+.LC34:
+	.string	"  PBMA_READ failed."
+	.section	.rodata.str1.8
+	.align 8
+.LC35:
+	.string	"  PBM_CHECK_DATA reports bad data from the file."
+	.align 8
+.LC36:
+	.string	"  PBM_CHECK_DATA passes the data from the file."
+	.text
+	.p2align 4,,15
+	.globl	pbma_read_test
+	.type	pbma_read_test, @function
+pbma_read_test:
+.LFB5509:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	subq	$16, %rsp
+	.cfi_def_cfa_offset 32
+	movq	$0, 8(%rsp)
+	leaq	8(%rsp), %rcx
+	leaq	4(%rsp), %rdx
+	movq	%rsp, %rsi
+	call	pbma_read
+	testl	%eax, %eax
+	jne	.L235
+	movq	8(%rsp), %rdx
+	movl	4(%rsp), %esi
+	movl	(%rsp), %edi
+	call	pbm_check_data
+	movl	%eax, %ebx
+	movq	8(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L226
+	call	free
+.L226:
+	movl	$10, %edi
+	testl	%ebx, %ebx
+	jne	.L236
+	call	putchar
+	movl	$.LC36, %edi
+	call	puts
+.L233:
+	movl	%ebx, %eax
+	addq	$16, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L236:
+	.cfi_restore_state
+	call	putchar
+	movl	$.LC35, %edi
+	call	puts
+	movl	$1, %ebx
+	movl	%ebx, %eax
+	addq	$16, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L235:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC33, %edi
+	call	puts
+	movl	$.LC34, %edi
+	call	puts
+	movq	8(%rsp), %rdi
+	movl	$1, %ebx
+	testq	%rdi, %rdi
+	je	.L233
+	call	free
+	movl	%ebx, %eax
+	addq	$16, %rsp
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5509:
+	.size	pbma_read_test, .-pbma_read_test
+	.section	.rodata.str1.1
+.LC37:
+	.string	"w"
+.LC38:
+	.string	"PBMA_WRITE: Fatal error!"
+	.section	.rodata.str1.8
+	.align 8
+.LC39:
+	.string	"  Cannot open the output file %s.\n"
+	.section	.rodata.str1.1
+.LC40:
+	.string	"P1\n"
+.LC41:
+	.string	"# %s\n"
+.LC42:
+	.string	"%d %d\n"
+	.text
+	.p2align 4,,15
+	.globl	pbma_write
+	.type	pbma_write, @function
+pbma_write:
+.LFB5510:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 96
+	movq	%rdi, %r14
+	movl	%esi, %ebp
+	movl	%edx, %r12d
+	movq	%rcx, %r13
+	movl	$.LC37, %esi
+	call	fopen
+	testq	%rax, %rax
+	je	.L252
+	movq	%rax, %rbx
+	movq	%rax, %rcx
+	movl	$3, %edx
+	movl	$1, %esi
+	movl	$.LC40, %edi
+	call	fwrite
+	movq	%r14, %rdx
+	movl	$.LC41, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	movl	%r12d, %ecx
+	movl	%ebp, %edx
+	movl	$.LC42, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	testl	%r12d, %r12d
+	jle	.L240
+	movl	%r12d, %eax
+	imull	%ebp, %eax
+	movl	%eax, 20(%rsp)
+	testl	%ebp, %ebp
+	jle	.L240
+	leal	-1(%rbp), %eax
+	leaq	4(,%rax,4), %rax
+	movq	%rax, 24(%rsp)
+	xorl	%ecx, %ecx
+	movl	$0, 12(%rsp)
+	.p2align 4,,10
+	.p2align 3
+.L241:
+	movl	%ecx, %r15d
+	movq	%r13, %r14
+	leal	(%rcx,%rbp), %eax
+	movl	%eax, 16(%rsp)
+	jmp	.L245
+	.p2align 4,,10
+	.p2align 3
+.L243:
+	movl	$32, %edi
+	call	fputc
+	cmpl	16(%rsp), %r15d
+	je	.L253
+.L245:
+	movl	(%r14), %edx
+	movl	$.LC25, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	incl	%r15d
+	addq	$4, %r14
+	movl	$-368140053, %eax
+	imull	%r15d
+	addl	%r15d, %edx
+	sarl	$5, %edx
+	movl	%r15d, %eax
+	sarl	$31, %eax
+	subl	%eax, %edx
+	imull	$35, %edx, %edx
+	movq	%rbx, %rsi
+	cmpl	%edx, %r15d
+	je	.L242
+	cmpl	20(%rsp), %r15d
+	jne	.L243
+.L242:
+	movl	$10, %edi
+	call	fputc
+	cmpl	16(%rsp), %r15d
+	jne	.L245
+.L253:
+	addq	24(%rsp), %r13
+	incl	12(%rsp)
+	movl	12(%rsp), %eax
+	cmpl	%eax, %r12d
+	je	.L240
+	movl	%r15d, %ecx
+	jmp	.L241
+	.p2align 4,,10
+	.p2align 3
+.L240:
+	movq	%rbx, %rdi
+	call	fclose
+	xorl	%eax, %eax
+	addq	$40, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L252:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC38, %edi
+	call	puts
+	movq	%r14, %rsi
+	movl	$.LC39, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	addq	$40, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5510:
+	.size	pbma_write, .-pbma_write
+	.p2align 4,,15
+	.globl	pbma_write_data
+	.type	pbma_write_data, @function
+pbma_write_data:
+.LFB5511:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 96
+	movl	%esi, 16(%rsp)
+	movl	%edx, 20(%rsp)
+	movq	%rcx, 8(%rsp)
+	testl	%edx, %edx
+	jle	.L265
+	movl	%edx, %r14d
+	imull	%esi, %r14d
+	testl	%esi, %esi
+	jle	.L265
+	movq	%rdi, %rbp
+	movl	%esi, %r12d
+	leal	-1(%rsi), %eax
+	leaq	4(,%rax,4), %rax
+	movq	%rax, 24(%rsp)
+	movl	$0, 4(%rsp)
+	movl	$-368140053, %r13d
+	.p2align 4,,10
+	.p2align 3
+.L256:
+	movl	%r12d, %r15d
+	subl	16(%rsp), %r15d
+	movq	8(%rsp), %rbx
+	jmp	.L260
+	.p2align 4,,10
+	.p2align 3
+.L258:
+	movl	$32, %edi
+	call	fputc
+	cmpl	%r12d, %r15d
+	je	.L267
+.L260:
+	movl	(%rbx), %edx
+	movl	$.LC25, %esi
+	movq	%rbp, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	incl	%r15d
+	addq	$4, %rbx
+	movl	%r15d, %eax
+	imull	%r13d
+	addl	%r15d, %edx
+	sarl	$5, %edx
+	movl	%r15d, %eax
+	sarl	$31, %eax
+	subl	%eax, %edx
+	imull	$35, %edx, %edx
+	movq	%rbp, %rsi
+	cmpl	%edx, %r15d
+	je	.L257
+	cmpl	%r15d, %r14d
+	jne	.L258
+.L257:
+	movl	$10, %edi
+	call	fputc
+	cmpl	%r12d, %r15d
+	jne	.L260
+.L267:
+	movq	24(%rsp), %rcx
+	addq	%rcx, 8(%rsp)
+	incl	4(%rsp)
+	movl	4(%rsp), %eax
+	addl	16(%rsp), %r12d
+	cmpl	%eax, 20(%rsp)
+	jne	.L256
+.L265:
+	xorl	%eax, %eax
+	addq	$40, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5511:
+	.size	pbma_write_data, .-pbma_write_data
+	.p2align 4,,15
+	.globl	pbma_write_header
+	.type	pbma_write_header, @function
+pbma_write_header:
+.LFB5512:
+	.cfi_startproc
+	pushq	%r13
+	.cfi_def_cfa_offset 16
+	.cfi_offset 13, -16
+	pushq	%r12
+	.cfi_def_cfa_offset 24
+	.cfi_offset 12, -24
+	pushq	%rbp
+	.cfi_def_cfa_offset 32
+	.cfi_offset 6, -32
+	pushq	%rbx
+	.cfi_def_cfa_offset 40
+	.cfi_offset 3, -40
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 48
+	movq	%rdi, %rbx
+	movq	%rsi, %r13
+	movl	%edx, %ebp
+	movl	%ecx, %r12d
+	movq	%rdi, %rcx
+	movl	$3, %edx
+	movl	$1, %esi
+	movl	$.LC40, %edi
+	call	fwrite
+	movq	%r13, %rdx
+	movl	$.LC41, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	movl	%r12d, %ecx
+	movl	%ebp, %edx
+	movl	$.LC42, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	xorl	%eax, %eax
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r13
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5512:
+	.size	pbma_write_header, .-pbma_write_header
+	.section	.rodata.str1.1
+.LC43:
+	.string	"PBMA_WRITE_TEST: Fatal error!"
+.LC47:
+	.string	"  PBMA_WRITE failed."
+	.text
+	.p2align 4,,15
+	.globl	pbma_write_test
+	.type	pbma_write_test, @function
+pbma_write_test:
+.LFB5513:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	andq	$-32, %rsp
+	subq	$32, %rsp
+	.cfi_offset 15, -24
+	.cfi_offset 14, -32
+	.cfi_offset 13, -40
+	.cfi_offset 12, -48
+	.cfi_offset 3, -56
+	movq	%rdi, %r12
+	movl	$150000, %edi
+	call	malloc
+	testq	%rax, %rax
+	je	.L271
+	movq	%rax, %rbx
+	leaq	992(%rax), %rdx
+	movl	$-75, %ecx
+	vmovdqa	.LC10(%rip), %ymm10
+	vmovdqa	.LC11(%rip), %ymm9
+	vmovdqa	.LC44(%rip), %ymm8
+	vmovdqa	.LC45(%rip), %ymm7
+	vmovdqa	.LC46(%rip), %ymm6
+	vpxor	%xmm5, %xmm5, %xmm5
+	.p2align 4,,10
+	.p2align 3
+.L272:
+	movl	%ecx, %esi
+	negl	%esi
+	testl	%ecx, %ecx
+	cmovns	%ecx, %esi
+	movl	%esi, %edi
+	shrl	$31, %edi
+	leal	(%rsi,%rdi), %eax
+	andl	$1, %eax
+	subl	%edi, %eax
+	vmovd	%esi, %xmm4
+	vpbroadcastd	%xmm4, %ymm4
+	vmovd	%eax, %xmm3
+	vpbroadcastd	%xmm3, %ymm3
+	leaq	-992(%rdx), %rax
+	vmovdqa	%ymm10, %ymm2
+	.p2align 4,,10
+	.p2align 3
+.L274:
+	vpaddd	%ymm8, %ymm2, %ymm0
+	vpsubd	%ymm2, %ymm7, %ymm1
+	vpcmpgtd	%ymm0, %ymm5, %ymm11
+	vpblendvb	%ymm11, %ymm1, %ymm0, %ymm0
+	vpsrld	$31, %ymm0, %ymm11
+	vpaddd	%ymm0, %ymm11, %ymm1
+	vpand	%ymm6, %ymm1, %ymm1
+	vpsubd	%ymm11, %ymm1, %ymm1
+	vpcmpgtd	%ymm4, %ymm0, %ymm0
+	vpblendvb	%ymm0, %ymm1, %ymm3, %ymm0
+	vmovdqu	%ymm0, (%rax)
+	addq	$32, %rax
+	vpaddd	%ymm9, %ymm2, %ymm2
+	cmpq	%rax, %rdx
+	jne	.L274
+	movl	$1, (%rdx)
+	movl	$0, 4(%rdx)
+	incl	%ecx
+	addq	$1000, %rdx
+	cmpl	$75, %ecx
+	jne	.L272
+	movl	$.LC37, %esi
+	movq	%r12, %rdi
+	vzeroupper
+	call	fopen
+	movq	%rax, %r13
+	testq	%rax, %rax
+	je	.L288
+	movq	%rax, %rcx
+	movl	$3, %edx
+	movl	$1, %esi
+	movl	$.LC40, %edi
+	call	fwrite
+	movq	%r12, %rdx
+	movl	$.LC41, %esi
+	movq	%r13, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	movl	$150, %ecx
+	movl	$250, %edx
+	movl	$.LC42, %esi
+	movq	%r13, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	leaq	1000(%rbx), %r12
+	movl	$0, 28(%rsp)
+.L276:
+	leaq	-1000(%r12), %r14
+	movl	28(%rsp), %r15d
+	jmp	.L280
+.L290:
+	cmpl	$37500, %r15d
+	je	.L282
+	movl	$32, %edi
+	call	fputc
+	cmpq	%r12, %r14
+	je	.L289
+.L280:
+	movl	(%r14), %edx
+	movl	$.LC25, %esi
+	movq	%r13, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	incl	%r15d
+	addq	$4, %r14
+	movl	$-368140053, %eax
+	imull	%r15d
+	leal	(%rdx,%r15), %eax
+	sarl	$5, %eax
+	movl	%r15d, %edx
+	sarl	$31, %edx
+	subl	%edx, %eax
+	imull	$35, %eax, %eax
+	movq	%r13, %rsi
+	cmpl	%eax, %r15d
+	jne	.L290
+.L282:
+	movl	$10, %edi
+	call	fputc
+	cmpq	%r12, %r14
+	jne	.L280
+.L289:
+	addl	$250, 28(%rsp)
+	movl	28(%rsp), %eax
+	leaq	1000(%r14), %r12
+	cmpl	$37500, %eax
+	jne	.L276
+	movq	%r13, %rdi
+	call	fclose
+	movq	%rbx, %rdi
+	call	free
+	xorl	%eax, %eax
+.L286:
+	leaq	-40(%rbp), %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	.cfi_remember_state
+	.cfi_def_cfa 7, 8
+	ret
+.L288:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC38, %edi
+	call	puts
+	movq	%r12, %rsi
+	movl	$.LC39, %edi
+	xorl	%eax, %eax
+	call	printf
+	movq	%rbx, %rdi
+	call	free
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC43, %edi
+	call	puts
+	movl	$.LC47, %edi
+	call	puts
+	movl	$1, %eax
+	leaq	-40(%rbp), %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	.cfi_remember_state
+	.cfi_def_cfa 7, 8
+	ret
+.L271:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC43, %edi
+	call	puts
+	movl	$.LC30, %edi
+	call	puts
+	movl	$150000, %esi
+	movl	$.LC31, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	jmp	.L286
+	.cfi_endproc
+.LFE5513:
+	.size	pbma_write_test, .-pbma_write_test
+	.section	.rodata.str1.8
+	.align 8
+.LC48:
+	.string	"PBMB_READ_DATA: Failed reading data byte %d.\n"
+	.text
+	.p2align 4,,15
+	.globl	pbmb_read_data
+	.type	pbmb_read_data, @function
+pbmb_read_data:
+.LFB5515:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 80
+	movl	%edx, 12(%rsp)
+	movq	%rcx, %r13
+	testl	%edx, %edx
+	jle	.L293
+	movq	%rdi, %rbp
+	movl	%esi, %r15d
+	xorl	%ebx, %ebx
+	xorl	%r12d, %r12d
+.L292:
+	xorl	%r14d, %r14d
+	testl	%r15d, %r15d
+	jg	.L297
+	jmp	.L298
+	.p2align 4,,10
+	.p2align 3
+.L294:
+	movzbl	%al, %edx
+	movl	%r14d, %esi
+	notl	%esi
+	andl	$7, %esi
+	sarx	%esi, %edx, %edx
+	andl	$1, %edx
+	movl	%edx, 0(%r13)
+	addq	$4, %r13
+	incl	%r14d
+	cmpl	%r14d, %r15d
+	je	.L298
+.L297:
+	testb	$7, %r14b
+	jne	.L294
+	movq	%rbp, %rdi
+	call	fgetc
+	cmpl	$-1, %eax
+	je	.L307
+	incl	%ebx
+	jmp	.L294
+	.p2align 4,,10
+	.p2align 3
+.L298:
+	incl	%r12d
+	cmpl	%r12d, 12(%rsp)
+	jne	.L292
+.L293:
+	xorl	%eax, %eax
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L307:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	%ebx, %esi
+	movl	$.LC48, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	addq	$24, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5515:
+	.size	pbmb_read_data, .-pbmb_read_data
+	.section	.rodata.str1.1
+.LC49:
+	.string	"P4"
+.LC50:
+	.string	"p4"
+	.section	.rodata.str1.8
+	.align 8
+.LC51:
+	.string	"PBMB_READ_HEADER: Fatal error."
+	.text
+	.p2align 4,,15
+	.globl	pbmb_read_header
+	.type	pbmb_read_header, @function
+pbmb_read_header:
+.LFB5516:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$104, %rsp
+	.cfi_def_cfa_offset 160
+	movq	%rdi, %r12
+	movq	%rsi, %r14
+	movq	%rdx, 8(%rsp)
+	xorl	%ebx, %ebx
+	xorl	%ebp, %ebp
+	leaq	16(%rsp), %r13
+	.p2align 4,,10
+	.p2align 3
+.L309:
+	movq	%r12, %rdi
+	call	fgetc
+	movl	%eax, %r15d
+	cmpl	$-1, %eax
+	je	.L315
+.L310:
+	call	__ctype_b_loc
+	movslq	%r15d, %rdx
+	movq	(%rax), %rax
+	movw	(%rax,%rdx,2), %ax
+	andw	$8192, %ax
+	jne	.L312
+	movslq	%ebp, %rdx
+	movb	%r15b, 16(%rsp,%rdx)
+	incl	%ebp
+	cmpl	$1, %ebx
+	jg	.L344
+	movl	$1, %ebx
+	movq	%r12, %rdi
+	call	fgetc
+	movl	%eax, %r15d
+	cmpl	$-1, %eax
+	jne	.L310
+.L315:
+	movl	$1, %ebx
+.L342:
+	movl	%ebx, %eax
+	addq	$104, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L312:
+	.cfi_restore_state
+	testl	%ebx, %ebx
+	je	.L315
+	cmpl	$1, %ebx
+	je	.L317
+	cmpl	$2, %ebx
+	je	.L309
+	cmpl	$3, %ebx
+	je	.L345
+.L319:
+	cmpl	$4, %ebx
+	je	.L346
+	cmpl	$5, %ebx
+	jne	.L309
+	testw	%ax, %ax
+	je	.L309
+	movslq	%ebp, %rbp
+	movb	$0, 16(%rsp,%rbp)
+	movq	8(%rsp), %rdx
+	movl	$.LC25, %esi
+	leaq	16(%rsp), %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	xorl	%ebx, %ebx
+	incl	%eax
+	sete	%bl
+	jmp	.L342
+	.p2align 4,,10
+	.p2align 3
+.L317:
+	movslq	%ebp, %rbp
+	movb	$0, 16(%rsp,%rbp)
+	movl	$.LC49, %edi
+	movl	$3, %ecx
+	movq	%r13, %rsi
+	repz cmpsb
+	seta	%bpl
+	sbbb	$0, %bpl
+	movsbl	%bpl, %ebp
+	testl	%ebp, %ebp
+	je	.L323
+	movl	$.LC50, %edi
+	movl	$3, %ecx
+	movq	%r13, %rsi
+	repz cmpsb
+	seta	%bpl
+	sbbb	$0, %bpl
+	movsbl	%bpl, %ebp
+	testl	%ebp, %ebp
+	jne	.L347
+.L323:
+	movl	$2, %ebx
+	jmp	.L309
+	.p2align 4,,10
+	.p2align 3
+.L346:
+	testw	%ax, %ax
+	movl	$5, %eax
+	cmove	%eax, %ebx
+	jmp	.L309
+	.p2align 4,,10
+	.p2align 3
+.L345:
+	movslq	%ebp, %rbp
+	movb	$0, 16(%rsp,%rbp)
+	movq	%r14, %rdx
+	movl	$.LC25, %esi
+	movq	%r13, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	incl	%eax
+	je	.L315
+	movl	$4, %ebx
+	xorl	%ebp, %ebp
+	jmp	.L309
+	.p2align 4,,10
+	.p2align 3
+.L344:
+	cmpl	$2, %ebx
+	jne	.L348
+	movl	$3, %ebx
+	jmp	.L309
+.L347:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC51, %edi
+	call	puts
+	movq	%r13, %rsi
+	movl	$.LC4, %edi
+	xorl	%eax, %eax
+	call	printf
+	jmp	.L342
+.L348:
+	cmpl	$3, %ebx
+	jne	.L319
+	jmp	.L309
+	.cfi_endproc
+.LFE5516:
+	.size	pbmb_read_header, .-pbmb_read_header
+	.section	.rodata.str1.1
+.LC52:
+	.string	"rb"
+.LC53:
+	.string	"PBMB_READ: Fatal error!"
+.LC54:
+	.string	"  PBMB_READ_HEADER failed."
+.LC55:
+	.string	"  PBMB_READ_DATA failed."
+	.text
+	.p2align 4,,15
+	.globl	pbmb_read
+	.type	pbmb_read, @function
+pbmb_read:
+.LFB5514:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 80
+	movq	%rdi, %r12
+	movq	%rsi, %r13
+	movq	%rdx, %r14
+	movq	%rcx, %r15
+	movl	$.LC52, %esi
+	call	fopen
+	testq	%rax, %rax
+	je	.L367
+	movq	%rax, %rbp
+	movq	%r14, %rdx
+	movq	%r13, %rsi
+	movq	%rax, %rdi
+	call	pbmb_read_header
+	movl	%eax, %r12d
+	testl	%eax, %eax
+	jne	.L368
+	movl	0(%r13), %r13d
+	movl	(%r14), %r14d
+	movl	%r13d, %eax
+	imull	%r14d, %eax
+	sall	$2, %eax
+	movl	%eax, (%rsp)
+	movslq	%eax, %rdi
+	call	malloc
+	movq	%rax, %rcx
+	movq	%rax, (%r15)
+	testq	%rax, %rax
+	je	.L353
+	xorl	%r15d, %r15d
+	xorl	%esi, %esi
+	testl	%r14d, %r14d
+	jle	.L355
+.L354:
+	xorl	%edx, %edx
+	testl	%r13d, %r13d
+	jg	.L358
+	jmp	.L359
+	.p2align 4,,10
+	.p2align 3
+.L356:
+	movzbl	%bl, %eax
+	movl	%edx, %edi
+	notl	%edi
+	andl	$7, %edi
+	sarx	%edi, %eax, %eax
+	andl	$1, %eax
+	movl	%eax, (%rcx)
+	addq	$4, %rcx
+	incl	%edx
+	cmpl	%edx, %r13d
+	je	.L359
+.L358:
+	testb	$7, %dl
+	jne	.L356
+	movl	%esi, 12(%rsp)
+	movl	%edx, 8(%rsp)
+	movq	%rcx, (%rsp)
+	movq	%rbp, %rdi
+	call	fgetc
+	cmpl	$-1, %eax
+	movq	(%rsp), %rcx
+	movl	8(%rsp), %edx
+	movl	12(%rsp), %esi
+	je	.L369
+	movb	%al, %bl
+	incl	%r15d
+	jmp	.L356
+	.p2align 4,,10
+	.p2align 3
+.L359:
+	incl	%esi
+	cmpl	%esi, %r14d
+	jne	.L354
+.L355:
+	movq	%rbp, %rdi
+	call	fclose
+.L365:
+	movl	%r12d, %eax
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L369:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	%r15d, %esi
+	movl	$.LC48, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC53, %edi
+	call	puts
+	movl	$.LC55, %edi
+	call	puts
+	movl	$1, %r12d
+	jmp	.L365
+	.p2align 4,,10
+	.p2align 3
+.L368:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC53, %edi
+	call	puts
+	movl	$.LC54, %edi
+	call	puts
+	movl	$1, %r12d
+	jmp	.L365
+	.p2align 4,,10
+	.p2align 3
+.L353:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC53, %edi
+	call	puts
+	movl	$.LC30, %edi
+	call	puts
+	movl	(%rsp), %esi
+	movl	$.LC31, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %r12d
+	jmp	.L365
+	.p2align 4,,10
+	.p2align 3
+.L367:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC53, %edi
+	call	puts
+	movq	%r12, %rsi
+	movl	$.LC28, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %r12d
+	jmp	.L365
+	.cfi_endproc
+.LFE5514:
+	.size	pbmb_read, .-pbmb_read
+	.section	.rodata.str1.1
+.LC56:
+	.string	"PBMB_READ_TEST: Fatal error!"
+.LC57:
+	.string	"  PBMB_READ failed."
+	.text
+	.p2align 4,,15
+	.globl	pbmb_read_test
+	.type	pbmb_read_test, @function
+pbmb_read_test:
+.LFB5517:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	subq	$16, %rsp
+	.cfi_def_cfa_offset 32
+	movq	$0, 8(%rsp)
+	leaq	8(%rsp), %rcx
+	leaq	4(%rsp), %rdx
+	movq	%rsp, %rsi
+	call	pbmb_read
+	testl	%eax, %eax
+	jne	.L382
+	movq	8(%rsp), %rdx
+	movl	4(%rsp), %esi
+	movl	(%rsp), %edi
+	call	pbm_check_data
+	movl	%eax, %ebx
+	movq	8(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L373
+	call	free
+.L373:
+	movl	$10, %edi
+	testl	%ebx, %ebx
+	jne	.L383
+	call	putchar
+	movl	$.LC36, %edi
+	call	puts
+.L380:
+	movl	%ebx, %eax
+	addq	$16, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L383:
+	.cfi_restore_state
+	call	putchar
+	movl	$.LC35, %edi
+	call	puts
+	movl	$1, %ebx
+	movl	%ebx, %eax
+	addq	$16, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L382:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC56, %edi
+	call	puts
+	movl	$.LC57, %edi
+	call	puts
+	movq	8(%rsp), %rdi
+	movl	$1, %ebx
+	testq	%rdi, %rdi
+	je	.L380
+	call	free
+	movl	%ebx, %eax
+	addq	$16, %rsp
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5517:
+	.size	pbmb_read_test, .-pbmb_read_test
+	.section	.rodata.str1.1
+.LC58:
+	.string	"wb"
+.LC59:
+	.string	"PBMB_WRITE: Fatal error!"
+.LC60:
+	.string	"P4 %d %d "
+	.text
+	.p2align 4,,15
+	.globl	pbmb_write
+	.type	pbmb_write, @function
+pbmb_write:
+.LFB5518:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 80
+	movq	%rdi, %r13
+	movl	%esi, %ebx
+	movl	%edx, %r12d
+	movq	%rcx, %rbp
+	movl	$.LC58, %esi
+	call	fopen
+	testq	%rax, %rax
+	je	.L400
+	movq	%rax, %r15
+	movl	%r12d, %ecx
+	movl	%ebx, %edx
+	movl	$.LC60, %esi
+	movq	%rax, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	testl	%r12d, %r12d
+	jle	.L387
+	testl	%ebx, %ebx
+	jle	.L387
+	decl	%ebx
+	movl	%ebx, 12(%rsp)
+	leaq	4(,%rbx,4), %rax
+	movq	%rax, (%rsp)
+	xorl	%esi, %esi
+	xorl	%r13d, %r13d
+	.p2align 4,,10
+	.p2align 3
+.L389:
+	xorl	%r14d, %r14d
+	jmp	.L392
+	.p2align 4,,10
+	.p2align 3
+.L402:
+	cmpl	%r14d, 12(%rsp)
+	je	.L390
+	leaq	1(%r14), %rax
+	cmpq	%r14, %rbx
+	je	.L401
+.L393:
+	movq	%rax, %r14
+.L392:
+	movl	0(%rbp,%r14,4), %eax
+	movl	%eax, %r8d
+	shrl	$31, %r8d
+	leal	(%rax,%r8), %edi
+	andl	$1, %edi
+	movl	%edi, %eax
+	subl	%r8d, %eax
+	movl	%r14d, %edi
+	notl	%edi
+	andl	$7, %edi
+	shlx	%edi, %eax, %edi
+	orl	%esi, %edi
+	movb	%dil, %sil
+	leal	1(%r14), %eax
+	testb	$7, %al
+	jne	.L402
+.L390:
+	movq	%r15, %rsi
+	movzbl	%dil, %edi
+	call	fputc
+	xorl	%esi, %esi
+	leaq	1(%r14), %rax
+	cmpq	%r14, %rbx
+	jne	.L393
+.L401:
+	addq	(%rsp), %rbp
+	incl	%r13d
+	cmpl	%r13d, %r12d
+	jne	.L389
+.L387:
+	movq	%r15, %rdi
+	call	fclose
+	xorl	%eax, %eax
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L400:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC59, %edi
+	call	puts
+	movq	%r13, %rsi
+	movl	$.LC39, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	addq	$24, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5518:
+	.size	pbmb_write, .-pbmb_write
+	.p2align 4,,15
+	.globl	pbmb_write_data
+	.type	pbmb_write_data, @function
+pbmb_write_data:
+.LFB5519:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 80
+	movl	%edx, 4(%rsp)
+	testl	%edx, %edx
+	jle	.L413
+	testl	%esi, %esi
+	jle	.L413
+	movq	%rdi, %r12
+	movq	%rcx, %r15
+	leal	-1(%rsi), %ebx
+	movq	%rbx, %rbp
+	leaq	4(,%rbx,4), %rax
+	movq	%rax, 8(%rsp)
+	xorl	%r13d, %r13d
+	xorl	%esi, %esi
+	.p2align 4,,10
+	.p2align 3
+.L405:
+	xorl	%r14d, %r14d
+	jmp	.L408
+	.p2align 4,,10
+	.p2align 3
+.L416:
+	cmpl	%r14d, %ebp
+	je	.L406
+	leaq	1(%r14), %rax
+	cmpq	%rbx, %r14
+	je	.L415
+.L409:
+	movq	%rax, %r14
+.L408:
+	movl	(%r15,%r14,4), %eax
+	movl	%eax, %r8d
+	shrl	$31, %r8d
+	leal	(%rax,%r8), %edi
+	andl	$1, %edi
+	movl	%edi, %eax
+	subl	%r8d, %eax
+	movl	%r14d, %edi
+	notl	%edi
+	andl	$7, %edi
+	shlx	%edi, %eax, %edi
+	orl	%esi, %edi
+	movb	%dil, %sil
+	leal	1(%r14), %eax
+	testb	$7, %al
+	jne	.L416
+.L406:
+	movq	%r12, %rsi
+	movzbl	%dil, %edi
+	call	fputc
+	xorl	%esi, %esi
+	leaq	1(%r14), %rax
+	cmpq	%rbx, %r14
+	jne	.L409
+.L415:
+	addq	8(%rsp), %r15
+	incl	%r13d
+	cmpl	%r13d, 4(%rsp)
+	jne	.L405
+.L413:
+	xorl	%eax, %eax
+	addq	$24, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5519:
+	.size	pbmb_write_data, .-pbmb_write_data
+	.p2align 4,,15
+	.globl	pbmb_write_header
+	.type	pbmb_write_header, @function
+pbmb_write_header:
+.LFB5520:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movl	%edx, %ecx
+	movl	%esi, %edx
+	movl	$.LC60, %esi
+	xorl	%eax, %eax
+	call	fprintf
+	xorl	%eax, %eax
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5520:
+	.size	pbmb_write_header, .-pbmb_write_header
+	.section	.rodata.str1.1
+.LC61:
+	.string	"PBMB_WRITE_TEST: Fatal error!"
+.LC62:
+	.string	"  PBMB_WRITE failed."
+	.text
+	.p2align 4,,15
+	.globl	pbmb_write_test
+	.type	pbmb_write_test, @function
+pbmb_write_test:
+.LFB5521:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	andq	$-32, %rsp
+	subq	$32, %rsp
+	.cfi_offset 15, -24
+	.cfi_offset 14, -32
+	.cfi_offset 13, -40
+	.cfi_offset 12, -48
+	.cfi_offset 3, -56
+	movq	%rdi, %r12
+	movl	$150000, %edi
+	call	malloc
+	testq	%rax, %rax
+	je	.L420
+	movq	%rax, %rbx
+	leaq	992(%rax), %rdx
+	movl	$-75, %ecx
+	vmovdqa	.LC10(%rip), %ymm10
+	vmovdqa	.LC11(%rip), %ymm9
+	vmovdqa	.LC44(%rip), %ymm8
+	vmovdqa	.LC45(%rip), %ymm7
+	vmovdqa	.LC46(%rip), %ymm6
+	vpxor	%xmm5, %xmm5, %xmm5
+	.p2align 4,,10
+	.p2align 3
+.L421:
+	movl	%ecx, %esi
+	negl	%esi
+	testl	%ecx, %ecx
+	cmovns	%ecx, %esi
+	movl	%esi, %edi
+	shrl	$31, %edi
+	leal	(%rsi,%rdi), %eax
+	andl	$1, %eax
+	subl	%edi, %eax
+	vmovd	%esi, %xmm4
+	vpbroadcastd	%xmm4, %ymm4
+	vmovd	%eax, %xmm3
+	vpbroadcastd	%xmm3, %ymm3
+	leaq	-992(%rdx), %rax
+	vmovdqa	%ymm10, %ymm2
+	.p2align 4,,10
+	.p2align 3
+.L423:
+	vpaddd	%ymm8, %ymm2, %ymm0
+	vpsubd	%ymm2, %ymm7, %ymm1
+	vpcmpgtd	%ymm0, %ymm5, %ymm11
+	vpblendvb	%ymm11, %ymm1, %ymm0, %ymm0
+	vpsrld	$31, %ymm0, %ymm11
+	vpaddd	%ymm0, %ymm11, %ymm1
+	vpand	%ymm6, %ymm1, %ymm1
+	vpsubd	%ymm11, %ymm1, %ymm1
+	vpcmpgtd	%ymm4, %ymm0, %ymm0
+	vpblendvb	%ymm0, %ymm1, %ymm3, %ymm0
+	vmovdqu	%ymm0, (%rax)
+	addq	$32, %rax
+	vpaddd	%ymm9, %ymm2, %ymm2
+	cmpq	%rdx, %rax
+	jne	.L423
+	movl	$1, (%rax)
+	movl	$0, 4(%rax)
+	incl	%ecx
+	leaq	1000(%rax), %rdx
+	cmpl	$75, %ecx
+	jne	.L421
+	movl	$.LC58, %esi
+	movq	%r12, %rdi
+	vzeroupper
+	call	fopen
+	movq	%rax, %r13
+	testq	%rax, %rax
+	je	.L439
+	movl	$150, %ecx
+	movl	$250, %edx
+	movl	$.LC60, %esi
+	movq	%rax, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	leaq	4(%rbx), %r15
+	movq	%r15, %r12
+	leaq	150004(%rbx), %rax
+	movq	%rax, 24(%rsp)
+	movb	(%rbx), %cl
+	sall	$7, %ecx
+.L429:
+	movl	$2, %r14d
+	jmp	.L427
+.L425:
+	incl	%r14d
+	cmpl	$251, %r14d
+	je	.L440
+.L427:
+	movl	(%r15), %eax
+	movl	%eax, %esi
+	shrl	$31, %esi
+	addl	%esi, %eax
+	andl	$1, %eax
+	subl	%esi, %eax
+	movl	%r14d, %edi
+	negl	%edi
+	andl	$7, %edi
+	shlx	%edi, %eax, %edi
+	orl	%ecx, %edi
+	movb	%dil, %cl
+	addq	$4, %r15
+	testb	$7, %r14b
+	je	.L430
+	cmpl	$250, %r14d
+	jne	.L425
+.L430:
+	movq	%r13, %rsi
+	movzbl	%dil, %edi
+	call	fputc
+	xorl	%ecx, %ecx
+	incl	%r14d
+	cmpl	$251, %r14d
+	jne	.L427
+.L440:
+	addq	$1000, %r12
+	cmpq	%r12, 24(%rsp)
+	je	.L428
+	movq	%r12, %r15
+	movl	-4(%r12), %eax
+	movl	%eax, %esi
+	shrl	$31, %esi
+	addl	%esi, %eax
+	andl	$1, %eax
+	subl	%esi, %eax
+	sall	$7, %eax
+	orl	%eax, %ecx
+	jmp	.L429
+.L428:
+	movq	%r13, %rdi
+	call	fclose
+	movq	%rbx, %rdi
+	call	free
+	xorl	%eax, %eax
+.L437:
+	leaq	-40(%rbp), %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	.cfi_remember_state
+	.cfi_def_cfa 7, 8
+	ret
+.L439:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC59, %edi
+	call	puts
+	movq	%r12, %rsi
+	movl	$.LC39, %edi
+	xorl	%eax, %eax
+	call	printf
+	movq	%rbx, %rdi
+	call	free
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC61, %edi
+	call	puts
+	movl	$.LC62, %edi
+	call	puts
+	movl	$1, %eax
+	leaq	-40(%rbp), %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	.cfi_remember_state
+	.cfi_def_cfa 7, 8
+	ret
+.L420:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC61, %edi
+	call	puts
+	movl	$.LC30, %edi
+	call	puts
+	movl	$150000, %esi
+	movl	$.LC31, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	jmp	.L437
+	.cfi_endproc
+.LFE5521:
+	.size	pbmb_write_test, .-pbmb_write_test
+	.section	.rodata.str1.8
+	.align 8
+.LC63:
+	.string	"PGM_CHECK_DATA: 0 >= XSIZE = %d.\n"
+	.align 8
+.LC64:
+	.string	"PGM_CHECK_DATA: 0 >= YSIZE = %d.\n"
+	.align 8
+.LC65:
+	.string	"PGM_CHECK_DATA: Null pointer to data."
+	.align 8
+.LC66:
+	.string	"PGM_CHECK_DATA: G(%d,%d) = %d < 0.\n"
+	.align 8
+.LC67:
+	.string	"PGM_CHECK_DATA: G(%d,%d) = %d > %d.\n"
+	.text
+	.p2align 4,,15
+	.globl	pgm_check_data
+	.type	pgm_check_data, @function
+pgm_check_data:
+.LFB5522:
+	.cfi_startproc
+	pushq	%r14
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
+	pushq	%r12
+	.cfi_def_cfa_offset 24
+	.cfi_offset 12, -24
+	pushq	%rbp
+	.cfi_def_cfa_offset 32
+	.cfi_offset 6, -32
+	pushq	%rbx
+	.cfi_def_cfa_offset 40
+	.cfi_offset 3, -40
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 64
+	movl	%edi, %r12d
+	testl	%edi, %edi
+	jle	.L455
+	testl	%esi, %esi
+	jle	.L456
+	movq	%rcx, %rbx
+	xorl	%r14d, %r14d
+	testq	%rcx, %rcx
+	je	.L457
+.L445:
+	xorl	%ebp, %ebp
+	.p2align 4,,10
+	.p2align 3
+.L448:
+	movl	(%rbx), %eax
+	testl	%eax, %eax
+	js	.L458
+	cmpl	%eax, %edx
+	jl	.L459
+	addq	$4, %rbx
+	incl	%ebp
+	cmpl	%ebp, %r12d
+	jne	.L448
+	incl	%r14d
+	cmpl	%r14d, %esi
+	jne	.L445
+	xorl	%eax, %eax
+	jmp	.L453
+	.p2align 4,,10
+	.p2align 3
+.L458:
+	movl	$10, %edi
+	call	putchar
+	movl	(%rbx), %ecx
+	movl	%r14d, %edx
+	movl	%ebp, %esi
+	movl	$.LC66, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+.L453:
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L459:
+	.cfi_restore_state
+	movl	%edx, 12(%rsp)
+	movl	$10, %edi
+	call	putchar
+	movl	12(%rsp), %edx
+	movl	%edx, %r8d
+	movl	(%rbx), %ecx
+	movl	%r14d, %edx
+	movl	%ebp, %esi
+	movl	$.LC67, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+.L457:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC65, %edi
+	call	puts
+	movl	$1, %eax
+	jmp	.L453
+	.p2align 4,,10
+	.p2align 3
+.L455:
+	movl	$10, %edi
+	call	putchar
+	movl	%r12d, %esi
+	movl	$.LC63, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L456:
+	.cfi_restore_state
+	movl	%esi, 12(%rsp)
+	movl	$10, %edi
+	call	putchar
+	movl	12(%rsp), %esi
+	movl	$.LC64, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	addq	$24, %rsp
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5522:
+	.size	pgm_check_data, .-pgm_check_data
+	.section	.rodata.str1.1
+.LC68:
+	.string	"PGMA_READ_DATA: Fatal error."
+	.text
+	.p2align 4,,15
+	.globl	pgma_read_data
+	.type	pgma_read_data, @function
+pgma_read_data:
+.LFB5524:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 96
+	movl	$0, 12(%rsp)
+	testl	%edx, %edx
+	jle	.L462
+	movq	%rdi, %rbp
+	movl	%esi, %r14d
+	movl	%edx, %r15d
+	movq	%rcx, %r13
+	xorl	%ebx, %ebx
+	movl	$1, %r12d
+.L461:
+	testl	%r14d, %r14d
+	jle	.L467
+	cmpl	$1, %r12d
+	je	.L480
+	.p2align 4,,10
+	.p2align 3
+.L464:
+	leaq	28(%rsp), %rcx
+	movl	$word, %edx
+	movl	$.LC0, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	incl	%eax
+	jne	.L481
+.L466:
+	movq	%rbp, %rdx
+	movl	$256, %esi
+	movl	$line, %edi
+	call	fgets
+	movq	%rax, %rbx
+	testq	%rax, %rax
+	jne	.L464
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC68, %edi
+	call	puts
+	movl	$.LC6, %edi
+	call	puts
+	movl	$1, %eax
+.L477:
+	addq	$40, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L481:
+	.cfi_restore_state
+	movslq	28(%rsp), %rax
+	addq	%rax, %rbx
+	leaq	24(%rsp), %rdx
+	movl	$.LC25, %esi
+	movl	$word, %edi
+	xorl	%eax, %eax
+	call	sscanf
+	movl	24(%rsp), %eax
+	movl	%eax, 0(%r13)
+	addq	$4, %r13
+	incl	%r12d
+	cmpl	%r12d, %r14d
+	jne	.L464
+	xorl	%r12d, %r12d
+.L467:
+	incl	12(%rsp)
+	movl	12(%rsp), %eax
+	cmpl	%eax, %r15d
+	jne	.L461
+.L462:
+	xorl	%eax, %eax
+	jmp	.L477
+.L480:
+	xorl	%r12d, %r12d
+	jmp	.L466
+	.cfi_endproc
+.LFE5524:
+	.size	pgma_read_data, .-pgma_read_data
+	.section	.rodata.str1.1
+.LC69:
+	.string	"P2"
+.LC70:
+	.string	"p2"
+	.section	.rodata.str1.8
+	.align 8
+.LC71:
+	.string	"PGMA_READ_HEADER: Fatal error."
+	.text
+	.p2align 4,,15
+	.globl	pgma_read_header
+	.type	pgma_read_header, @function
+pgma_read_header:
+.LFB5525:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 80
+	movq	%rdi, %r12
+	movq	%rsi, %r15
+	movq	%rdx, %r13
+	movq	%rcx, %r14
+	xorl	%ebp, %ebp
+.L484:
+	movq	%r12, %rdx
+	movl	$256, %esi
+	movl	$line, %edi
+	call	fgets
+	movq	%rax, %rbx
+	testq	%rax, %rax
+	je	.L509
+	cmpb	$35, line(%rip)
+	je	.L484
+	testl	%ebp, %ebp
+	je	.L510
+	cmpl	$1, %ebp
+	je	.L487
+	cmpl	$2, %ebp
+	je	.L490
+.L491:
+	leaq	12(%rsp), %rcx
+	movq	%r14, %rdx
+	movl	$.LC5, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	incl	%eax
+	je	.L511
+	xorl	%eax, %eax
+.L507:
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L510:
+	.cfi_restore_state
+	leaq	12(%rsp), %rcx
+	movl	$word, %edx
+	movl	$.LC0, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	incl	%eax
+	je	.L484
+	movslq	12(%rsp), %rax
+	addq	%rax, %rbx
+	movl	$word, %edx
+	movl	$.LC69, %edi
+	movl	$3, %ecx
+	movq	%rdx, %rsi
+	repz cmpsb
+	seta	%al
+	sbbb	$0, %al
+	testb	%al, %al
+	je	.L487
+	movl	$.LC70, %edi
+	movl	$3, %ecx
+	movq	%rdx, %rsi
+	repz cmpsb
+	seta	%al
+	sbbb	$0, %al
+	testb	%al, %al
+	jne	.L512
+.L487:
+	leaq	12(%rsp), %rcx
+	movq	%r15, %rdx
+	movl	$.LC5, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	movslq	12(%rsp), %rdx
+	addq	%rdx, %rbx
+	incl	%eax
+	je	.L513
+.L490:
+	leaq	12(%rsp), %rcx
+	movq	%r13, %rdx
+	movl	$.LC5, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	movslq	12(%rsp), %rdx
+	addq	%rdx, %rbx
+	incl	%eax
+	jne	.L491
+	movl	$2, %ebp
+	jmp	.L484
+	.p2align 4,,10
+	.p2align 3
+.L513:
+	movl	$1, %ebp
+	jmp	.L484
+	.p2align 4,,10
+	.p2align 3
+.L511:
+	movl	$3, %ebp
+	jmp	.L484
+	.p2align 4,,10
+	.p2align 3
+.L509:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC71, %edi
+	call	puts
+	movl	$.LC6, %edi
+	call	puts
+	movl	$1, %eax
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+.L512:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC71, %edi
+	call	puts
+	movl	$word, %esi
+	movl	$.LC4, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	jmp	.L507
+	.cfi_endproc
+.LFE5525:
+	.size	pgma_read_header, .-pgma_read_header
+	.section	.rodata.str1.1
+.LC72:
+	.string	"PGMA_READ: Fatal error!"
+.LC73:
+	.string	"  PGMA_READ_HEADER failed."
+.LC74:
+	.string	"  PGMA_READ_DATA failed."
+	.text
+	.p2align 4,,15
+	.globl	pgma_read
+	.type	pgma_read, @function
+pgma_read:
+.LFB5523:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 64
+	movq	%rdi, %r13
+	movq	%rsi, %r12
+	movq	%rdx, %rbp
+	movq	%rcx, %r15
+	movq	%r8, %r14
+	movl	$.LC26, %esi
+	call	fopen
+	testq	%rax, %rax
+	je	.L522
+	movq	%rax, %rbx
+	movq	%r15, %rcx
+	movq	%rbp, %rdx
+	movq	%r12, %rsi
+	movq	%rax, %rdi
+	call	pgma_read_header
+	testl	%eax, %eax
+	jne	.L523
+	movl	(%r12), %r12d
+	movl	0(%rbp), %r13d
+	movl	%r12d, %ebp
+	imull	%r13d, %ebp
+	sall	$2, %ebp
+	movslq	%ebp, %rdi
+	call	malloc
+	movq	%rax, (%r14)
+	testq	%rax, %rax
+	je	.L524
+	movq	%rax, %rcx
+	movl	%r13d, %edx
+	movl	%r12d, %esi
+	movq	%rbx, %rdi
+	call	pgma_read_data
+	movl	%eax, %ebp
+	testl	%eax, %eax
+	jne	.L525
+	movq	%rbx, %rdi
+	call	fclose
+.L520:
+	movl	%ebp, %eax
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L523:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC72, %edi
+	call	puts
+	movl	$.LC73, %edi
+	call	puts
+	movl	$1, %ebp
+	jmp	.L520
+	.p2align 4,,10
+	.p2align 3
+.L524:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC72, %edi
+	call	puts
+	movl	$.LC30, %edi
+	call	puts
+	movl	%ebp, %esi
+	movl	$.LC31, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %ebp
+	jmp	.L520
+	.p2align 4,,10
+	.p2align 3
+.L522:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC72, %edi
+	call	puts
+	movq	%r13, %rsi
+	movl	$.LC28, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %ebp
+	jmp	.L520
+	.p2align 4,,10
+	.p2align 3
+.L525:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC72, %edi
+	call	puts
+	movl	$.LC74, %edi
+	call	puts
+	movl	$1, %ebp
+	jmp	.L520
+	.cfi_endproc
+.LFE5523:
+	.size	pgma_read, .-pgma_read
+	.section	.rodata.str1.1
+.LC75:
+	.string	"PGMA_READ_TEST: Fatal error!"
+.LC76:
+	.string	"  PGMA_READ failed."
+	.section	.rodata.str1.8
+	.align 8
+.LC77:
+	.string	"  PGM_CHECK_DATA reports bad data from the file."
+	.align 8
+.LC78:
+	.string	"  PGM_CHECK_DATA passes the data from the file."
+	.text
+	.p2align 4,,15
+	.globl	pgma_read_test
+	.type	pgma_read_test, @function
+pgma_read_test:
+.LFB5526:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	subq	$32, %rsp
+	.cfi_def_cfa_offset 48
+	movq	$0, 24(%rsp)
+	leaq	24(%rsp), %r8
+	leaq	12(%rsp), %rcx
+	leaq	20(%rsp), %rdx
+	leaq	16(%rsp), %rsi
+	call	pgma_read
+	testl	%eax, %eax
+	jne	.L538
+	movq	24(%rsp), %rcx
+	movl	12(%rsp), %edx
+	movl	20(%rsp), %esi
+	movl	16(%rsp), %edi
+	call	pgm_check_data
+	movl	%eax, %ebx
+	movq	24(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L529
+	call	free
+.L529:
+	movl	$10, %edi
+	testl	%ebx, %ebx
+	jne	.L539
+	call	putchar
+	movl	$.LC78, %edi
+	call	puts
+.L536:
+	movl	%ebx, %eax
+	addq	$32, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L539:
+	.cfi_restore_state
+	call	putchar
+	movl	$.LC77, %edi
+	call	puts
+	movl	$1, %ebx
+	movl	%ebx, %eax
+	addq	$32, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L538:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC75, %edi
+	call	puts
+	movl	$.LC76, %edi
+	call	puts
+	movq	24(%rsp), %rdi
+	movl	$1, %ebx
+	testq	%rdi, %rdi
+	je	.L536
+	call	free
+	movl	%ebx, %eax
+	addq	$32, %rsp
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5526:
+	.size	pgma_read_test, .-pgma_read_test
+	.section	.rodata.str1.1
+.LC79:
+	.string	"PGMA_WRITE: Fatal error!"
+.LC80:
+	.string	"P2\n"
+.LC81:
+	.string	"%d\n"
+	.text
+	.p2align 4,,15
+	.globl	pgma_write
+	.type	pgma_write, @function
+pgma_write:
+.LFB5527:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 96
+	movq	%rdi, %rbp
+	movl	%esi, %r12d
+	movl	%edx, %r13d
+	movl	%ecx, %r15d
+	movq	%r8, %r14
+	movl	$.LC37, %esi
+	call	fopen
+	testq	%rax, %rax
+	je	.L556
+	movq	%rax, %rbx
+	movq	%rax, %rcx
+	movl	$3, %edx
+	movl	$1, %esi
+	movl	$.LC80, %edi
+	call	fwrite
+	movq	%rbp, %rdx
+	movl	$.LC41, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	movl	%r13d, %ecx
+	movl	%r12d, %edx
+	movl	$.LC42, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	movl	%r15d, %edx
+	movl	$.LC81, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	testl	%r13d, %r13d
+	jle	.L543
+	movl	%r13d, %eax
+	imull	%r12d, %eax
+	movl	%eax, 16(%rsp)
+	testl	%r12d, %r12d
+	jle	.L543
+	leal	-1(%r12), %eax
+	movl	%eax, 20(%rsp)
+	movq	%rax, 8(%rsp)
+	leaq	4(,%rax,4), %rax
+	movq	%rax, (%rsp)
+	xorl	%r15d, %r15d
+	xorl	%eax, %eax
+	movl	%r12d, 24(%rsp)
+	movl	%eax, %r12d
+	movl	%r13d, 28(%rsp)
+	.p2align 4,,10
+	.p2align 3
+.L544:
+	movl	%r15d, %ebp
+	xorl	%r13d, %r13d
+	jmp	.L548
+	.p2align 4,,10
+	.p2align 3
+.L558:
+	cmpl	%r13d, 20(%rsp)
+	je	.L545
+	cmpl	16(%rsp), %ebp
+	je	.L545
+	movq	%rbx, %rsi
+	movl	$32, %edi
+	call	fputc
+	leaq	1(%r13), %rax
+	cmpq	8(%rsp), %r13
+	je	.L557
+.L549:
+	movq	%rax, %r13
+.L548:
+	movl	(%r14,%r13,4), %edx
+	movl	$.LC25, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	incl	%ebp
+	movl	$-858993459, %eax
+	mull	%ebp
+	shrl	$3, %edx
+	leal	(%rdx,%rdx,4), %eax
+	addl	%eax, %eax
+	cmpl	%eax, %ebp
+	jne	.L558
+.L545:
+	movq	%rbx, %rsi
+	movl	$10, %edi
+	call	fputc
+	leaq	1(%r13), %rax
+	cmpq	8(%rsp), %r13
+	jne	.L549
+.L557:
+	addq	(%rsp), %r14
+	addl	24(%rsp), %r15d
+	incl	%r12d
+	cmpl	%r12d, 28(%rsp)
+	jne	.L544
+.L543:
+	movq	%rbx, %rdi
+	call	fclose
+	xorl	%eax, %eax
+	addq	$40, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L556:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC79, %edi
+	call	puts
+	movq	%rbp, %rsi
+	movl	$.LC39, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	addq	$40, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5527:
+	.size	pgma_write, .-pgma_write
+	.p2align 4,,15
+	.globl	pgma_write_data
+	.type	pgma_write_data, @function
+pgma_write_data:
+.LFB5528:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 96
+	movl	%esi, 16(%rsp)
+	movl	%edx, 20(%rsp)
+	testl	%edx, %edx
+	jle	.L570
+	movl	%edx, %eax
+	imull	%esi, %eax
+	movl	%eax, 4(%rsp)
+	testl	%esi, %esi
+	jle	.L570
+	movq	%rdi, %rbx
+	movq	%rcx, %rbp
+	leal	-1(%rsi), %r14d
+	movl	%r14d, (%rsp)
+	leaq	4(,%r14,4), %rax
+	movq	%rax, 24(%rsp)
+	movl	$0, 12(%rsp)
+	movl	$0, 8(%rsp)
+	.p2align 4,,10
+	.p2align 3
+.L561:
+	xorl	%r15d, %r15d
+	movl	12(%rsp), %eax
+	leal	1(%rax), %r13d
+	movl	$1717986919, %r12d
+	jmp	.L565
+	.p2align 4,,10
+	.p2align 3
+.L573:
+	cmpl	%r15d, (%rsp)
+	je	.L562
+	cmpl	4(%rsp), %esi
+	je	.L562
+	movq	%rbx, %rsi
+	movl	$32, %edi
+	call	fputc
+	leaq	1(%r15), %rax
+	cmpq	%r14, %r15
+	je	.L572
+.L566:
+	movq	%rax, %r15
+.L565:
+	movl	0(%rbp,%r15,4), %edx
+	movl	$.LC25, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	leal	0(%r13,%r15), %esi
+	movl	%esi, %eax
+	imull	%r12d
+	sarl	$2, %edx
+	movl	%esi, %eax
+	sarl	$31, %eax
+	subl	%eax, %edx
+	leal	(%rdx,%rdx,4), %eax
+	addl	%eax, %eax
+	cmpl	%eax, %esi
+	jne	.L573
+.L562:
+	movq	%rbx, %rsi
+	movl	$10, %edi
+	call	fputc
+	leaq	1(%r15), %rax
+	cmpq	%r14, %r15
+	jne	.L566
+.L572:
+	addq	24(%rsp), %rbp
+	incl	8(%rsp)
+	movl	8(%rsp), %eax
+	movl	16(%rsp), %edi
+	addl	%edi, 12(%rsp)
+	cmpl	%eax, 20(%rsp)
+	jne	.L561
+.L570:
+	xorl	%eax, %eax
+	addq	$40, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5528:
+	.size	pgma_write_data, .-pgma_write_data
+	.p2align 4,,15
+	.globl	pgma_write_header
+	.type	pgma_write_header, @function
+pgma_write_header:
+.LFB5529:
+	.cfi_startproc
+	pushq	%r14
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
+	pushq	%r13
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
+	pushq	%rbp
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	pushq	%rbx
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	movq	%rdi, %rbx
+	movq	%rsi, %r14
+	movl	%edx, %r12d
+	movl	%ecx, %r13d
+	movl	%r8d, %ebp
+	movq	%rdi, %rcx
+	movl	$3, %edx
+	movl	$1, %esi
+	movl	$.LC80, %edi
+	call	fwrite
+	movq	%r14, %rdx
+	movl	$.LC41, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	movl	%r13d, %ecx
+	movl	%r12d, %edx
+	movl	$.LC42, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	movl	%ebp, %edx
+	movl	$.LC81, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5529:
+	.size	pgma_write_header, .-pgma_write_header
+	.section	.rodata.str1.1
+.LC82:
+	.string	"PGMA_WRITE_TEST: Fatal error!"
+.LC83:
+	.string	"  PGMA_WRITE failed."
+	.text
+	.p2align 4,,15
+	.globl	pgma_write_test
+	.type	pgma_write_test, @function
+pgma_write_test:
+.LFB5530:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	andq	$-32, %rsp
+	subq	$32, %rsp
+	.cfi_offset 15, -24
+	.cfi_offset 14, -32
+	.cfi_offset 13, -40
+	.cfi_offset 12, -48
+	.cfi_offset 3, -56
+	movq	%rdi, %r12
+	movl	$240000, %edi
+	call	malloc
+	testq	%rax, %rax
+	je	.L604
+	movq	%rax, %rbx
+	movq	%rax, %r9
+	xorl	%edi, %edi
+	movl	$255, %r10d
+.L577:
+	incl	%edi
+	movl	%r10d, %eax
+	cltd
+	idivl	%edi
+	movl	%eax, %r8d
+	movq	%r9, %rsi
+	xorl	%ecx, %ecx
+	.p2align 4,,10
+	.p2align 3
+.L579:
+	incl	%ecx
+	movl	%ecx, %eax
+	cltd
+	idivl	%edi
+	imull	%r8d, %edx
+	movl	%edx, (%rsi)
+	addq	$4, %rsi
+	cmpl	$300, %ecx
+	jne	.L579
+	addq	$1200, %r9
+	cmpl	$200, %edi
+	jne	.L577
+	leaq	1184(%rbx), %rdx
+	leaq	241184(%rbx), %rsi
+	xorl	%r13d, %r13d
+	.p2align 4,,10
+	.p2align 3
+.L580:
+	vmovd	%r13d, %xmm0
+	vpbroadcastd	%xmm0, %ymm0
+	leaq	-1184(%rdx), %rax
+	.p2align 4,,10
+	.p2align 3
+.L582:
+	vpmaxsd	(%rax), %ymm0, %ymm0
+	addq	$32, %rax
+	cmpq	%rax, %rdx
+	jne	.L582
+	vperm2i128	$1, %ymm0, %ymm0, %ymm1
+	vpmaxsd	%ymm1, %ymm0, %ymm0
+	vpsrldq	$8, %ymm0, %ymm1
+	vpmaxsd	%ymm1, %ymm0, %ymm0
+	vpsrldq	$4, %ymm0, %ymm1
+	vpmaxsd	%ymm1, %ymm0, %ymm0
+	vmovd	%xmm0, %eax
+	movl	(%rdx), %r13d
+	cmpl	%r13d, 4(%rdx)
+	cmovge	4(%rdx), %r13d
+	movl	8(%rdx), %ecx
+	cmpl	%ecx, %r13d
+	cmovl	%ecx, %r13d
+	movl	12(%rdx), %ecx
+	cmpl	%ecx, %r13d
+	cmovl	%ecx, %r13d
+	cmpl	%eax, %r13d
+	cmovl	%eax, %r13d
+	addq	$1200, %rdx
+	cmpq	%rdx, %rsi
+	jne	.L580
+	movl	$.LC37, %esi
+	movq	%r12, %rdi
+	vzeroupper
+	call	fopen
+	movq	%rax, %r14
+	testq	%rax, %rax
+	je	.L605
+	movq	%rax, %rcx
+	movl	$3, %edx
+	movl	$1, %esi
+	movl	$.LC80, %edi
+	call	fwrite
+	movq	%r12, %rdx
+	movl	$.LC41, %esi
+	movq	%r14, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	movl	$200, %ecx
+	movl	$300, %edx
+	movl	$.LC42, %esi
+	movq	%r14, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	movl	%r13d, %edx
+	movl	$.LC81, %esi
+	movq	%r14, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	movq	%rbx, %r12
+	movl	$0, 28(%rsp)
+.L585:
+	movl	28(%rsp), %r13d
+	xorl	%r15d, %r15d
+	jmp	.L589
+.L592:
+	movl	$10, %edi
+	call	fputc
+	incq	%r15
+	cmpq	$300, %r15
+	je	.L606
+.L589:
+	movl	(%r12,%r15,4), %edx
+	movl	$.LC25, %esi
+	movq	%r14, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	incl	%r13d
+	movl	$-858993459, %eax
+	mull	%r13d
+	movl	%edx, %eax
+	shrl	$3, %eax
+	leal	(%rax,%rax,4), %eax
+	addl	%eax, %eax
+	cmpl	%eax, %r13d
+	sete	%dl
+	cmpl	$60000, %r13d
+	sete	%al
+	movq	%r14, %rsi
+	orb	%al, %dl
+	jne	.L592
+	cmpl	$299, %r15d
+	je	.L592
+	movl	$32, %edi
+	call	fputc
+	incq	%r15
+	cmpq	$300, %r15
+	jne	.L589
+.L606:
+	addl	$300, 28(%rsp)
+	movl	28(%rsp), %eax
+	addq	$1200, %r12
+	cmpl	$60000, %eax
+	jne	.L585
+	movq	%r14, %rdi
+	call	fclose
+	movq	%rbx, %rdi
+	call	free
+	xorl	%eax, %eax
+.L601:
+	leaq	-40(%rbp), %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	.cfi_remember_state
+	.cfi_def_cfa 7, 8
+	ret
+.L605:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC79, %edi
+	call	puts
+	movq	%r12, %rsi
+	movl	$.LC39, %edi
+	xorl	%eax, %eax
+	call	printf
+	movq	%rbx, %rdi
+	call	free
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC82, %edi
+	call	puts
+	movl	$.LC83, %edi
+	call	puts
+	movl	$1, %eax
+	leaq	-40(%rbp), %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	.cfi_remember_state
+	.cfi_def_cfa 7, 8
+	ret
+.L604:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC82, %edi
+	call	puts
+	movl	$.LC30, %edi
+	call	puts
+	movl	$240000, %esi
+	movl	$.LC31, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	jmp	.L601
+	.cfi_endproc
+.LFE5530:
+	.size	pgma_write_test, .-pgma_write_test
+	.section	.rodata.str1.8
+	.align 8
+.LC84:
+	.string	"PGMB_READ_DATA: Failed reading data byte %d.\n"
+	.text
+	.p2align 4,,15
+	.globl	pgmb_read_data
+	.type	pgmb_read_data, @function
+pgmb_read_data:
+.LFB5532:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 80
+	movl	%edx, 12(%rsp)
+	testl	%edx, %edx
+	jle	.L609
+	movq	%rdi, %rbp
+	movl	%esi, %r13d
+	movq	%rcx, %r15
+	xorl	%ebx, %ebx
+	xorl	%r14d, %r14d
+.L608:
+	leal	(%rbx,%r13), %r12d
+	testl	%r13d, %r13d
+	jg	.L612
+	jmp	.L614
+	.p2align 4,,10
+	.p2align 3
+.L610:
+	movl	%eax, (%r15)
+	addq	$4, %r15
+	incl	%ebx
+	cmpl	%ebx, %r12d
+	je	.L614
+.L612:
+	movq	%rbp, %rdi
+	call	fgetc
+	cmpl	$-1, %eax
+	jne	.L610
+	movl	$10, %edi
+	call	putchar
+	movl	%ebx, %esi
+	movl	$.LC84, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L614:
+	.cfi_restore_state
+	incl	%r14d
+	cmpl	%r14d, 12(%rsp)
+	jne	.L608
+.L609:
+	xorl	%eax, %eax
+	addq	$24, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5532:
+	.size	pgmb_read_data, .-pgmb_read_data
+	.section	.rodata.str1.1
+.LC85:
+	.string	"P5"
+.LC86:
+	.string	"p5"
+	.section	.rodata.str1.8
+	.align 8
+.LC87:
+	.string	"PGMB_READ_HEADER: Fatal error."
+	.text
+	.p2align 4,,15
+	.globl	pgmb_read_header
+	.type	pgmb_read_header, @function
+pgmb_read_header:
+.LFB5533:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$104, %rsp
+	.cfi_def_cfa_offset 160
+	movq	%rdi, %r12
+	movq	%rsi, %r14
+	movq	%rdx, (%rsp)
+	movq	%rcx, 8(%rsp)
+	xorl	%ebx, %ebx
+	xorl	%ebp, %ebp
+	leaq	16(%rsp), %r13
+	.p2align 4,,10
+	.p2align 3
+.L623:
+	movq	%r12, %rdi
+	call	fgetc
+	movl	%eax, %r15d
+	cmpl	$-1, %eax
+	je	.L629
+.L624:
+	call	__ctype_b_loc
+	movslq	%r15d, %rdx
+	movq	(%rax), %rax
+	movw	(%rax,%rdx,2), %ax
+	andw	$8192, %ax
+	jne	.L626
+	movslq	%ebp, %rdx
+	movb	%r15b, 16(%rsp,%rdx)
+	incl	%ebp
+	cmpl	$1, %ebx
+	jg	.L666
+	movl	$1, %ebx
+	movq	%r12, %rdi
+	call	fgetc
+	movl	%eax, %r15d
+	cmpl	$-1, %eax
+	jne	.L624
+.L629:
+	movl	$1, %ebx
+.L664:
+	movl	%ebx, %eax
+	addq	$104, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L626:
+	.cfi_restore_state
+	testl	%ebx, %ebx
+	je	.L629
+	cmpl	$1, %ebx
+	je	.L633
+	cmpl	$2, %ebx
+	je	.L623
+	cmpl	$3, %ebx
+	je	.L667
+.L635:
+	cmpl	$4, %ebx
+	je	.L668
+	cmpl	$5, %ebx
+	je	.L669
+	cmpl	$6, %ebx
+	je	.L670
+	cmpl	$7, %ebx
+	jne	.L623
+	testw	%ax, %ax
+	je	.L623
+	movslq	%ebp, %rbp
+	movb	$0, 16(%rsp,%rbp)
+	movq	8(%rsp), %rdx
+	movl	$.LC25, %esi
+	leaq	16(%rsp), %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	xorl	%ebx, %ebx
+	incl	%eax
+	sete	%bl
+	jmp	.L664
+	.p2align 4,,10
+	.p2align 3
+.L633:
+	movslq	%ebp, %rbp
+	movb	$0, 16(%rsp,%rbp)
+	movl	$.LC85, %edi
+	movl	$3, %ecx
+	movq	%r13, %rsi
+	repz cmpsb
+	seta	%bpl
+	sbbb	$0, %bpl
+	movsbl	%bpl, %ebp
+	testl	%ebp, %ebp
+	je	.L639
+	movl	$.LC86, %edi
+	movl	$3, %ecx
+	movq	%r13, %rsi
+	repz cmpsb
+	seta	%bpl
+	sbbb	$0, %bpl
+	movsbl	%bpl, %ebp
+	testl	%ebp, %ebp
+	jne	.L671
+.L639:
+	movl	$2, %ebx
+	jmp	.L623
+	.p2align 4,,10
+	.p2align 3
+.L668:
+	testw	%ax, %ax
+	movl	$5, %eax
+	cmove	%eax, %ebx
+	jmp	.L623
+	.p2align 4,,10
+	.p2align 3
+.L669:
+	testw	%ax, %ax
+	je	.L623
+	movslq	%ebp, %rbp
+	movb	$0, 16(%rsp,%rbp)
+	movq	(%rsp), %rdx
+	movl	$.LC25, %esi
+	movq	%r13, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	incl	%eax
+	je	.L629
+	movl	$6, %ebx
+	xorl	%ebp, %ebp
+	jmp	.L623
+	.p2align 4,,10
+	.p2align 3
+.L667:
+	movslq	%ebp, %rbp
+	movb	$0, 16(%rsp,%rbp)
+	movq	%r14, %rdx
+	movl	$.LC25, %esi
+	movq	%r13, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	incl	%eax
+	je	.L629
+	movl	$4, %ebx
+	xorl	%ebp, %ebp
+	jmp	.L623
+	.p2align 4,,10
+	.p2align 3
+.L670:
+	testw	%ax, %ax
+	movl	$7, %eax
+	cmove	%eax, %ebx
+	jmp	.L623
+.L666:
+	cmpl	$2, %ebx
+	jne	.L672
+	movl	$3, %ebx
+	jmp	.L623
+.L671:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC87, %edi
+	call	puts
+	movq	%r13, %rsi
+	movl	$.LC4, %edi
+	xorl	%eax, %eax
+	call	printf
+	jmp	.L664
+.L672:
+	cmpl	$3, %ebx
+	jne	.L635
+	jmp	.L623
+	.cfi_endproc
+.LFE5533:
+	.size	pgmb_read_header, .-pgmb_read_header
+	.section	.rodata.str1.1
+.LC88:
+	.string	"PGMB_READ: Fatal error!"
+.LC89:
+	.string	"  PGMB_READ_HEADER failed."
+.LC90:
+	.string	"  PGMB_READ_DATA failed."
+	.text
+	.p2align 4,,15
+	.globl	pgmb_read
+	.type	pgmb_read, @function
+pgmb_read:
+.LFB5531:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 80
+	movq	%rdi, %rbp
+	movq	%rsi, %r12
+	movq	%rdx, %r13
+	movq	%rcx, %r14
+	movq	%r8, %r15
+	movl	$.LC52, %esi
+	call	fopen
+	testq	%rax, %rax
+	je	.L690
+	movq	%rax, %rbx
+	movq	%r14, %rcx
+	movq	%r13, %rdx
+	movq	%r12, %rsi
+	movq	%rax, %rdi
+	call	pgmb_read_header
+	movl	%eax, %ebp
+	testl	%eax, %eax
+	jne	.L691
+	movl	(%r12), %r12d
+	movl	0(%r13), %eax
+	movl	%eax, 12(%rsp)
+	movl	%eax, %r14d
+	imull	%r12d, %r14d
+	sall	$2, %r14d
+	movslq	%r14d, %rdi
+	call	malloc
+	movq	%rax, %r13
+	movq	%rax, (%r15)
+	testq	%rax, %rax
+	je	.L677
+	xorl	%r15d, %r15d
+	movl	$0, 8(%rsp)
+	movl	12(%rsp), %eax
+	testl	%eax, %eax
+	jle	.L679
+.L678:
+	leal	(%r15,%r12), %r14d
+	testl	%r12d, %r12d
+	jg	.L681
+	jmp	.L683
+	.p2align 4,,10
+	.p2align 3
+.L680:
+	movl	%eax, 0(%r13)
+	addq	$4, %r13
+	incl	%r15d
+	cmpl	%r14d, %r15d
+	je	.L683
+.L681:
+	movq	%rbx, %rdi
+	call	fgetc
+	cmpl	$-1, %eax
+	jne	.L680
+	movl	$10, %edi
+	call	putchar
+	movl	%r15d, %esi
+	movl	$.LC84, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC88, %edi
+	call	puts
+	movl	$.LC90, %edi
+	call	puts
+	movl	$1, %ebp
+.L688:
+	movl	%ebp, %eax
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L683:
+	.cfi_restore_state
+	incl	8(%rsp)
+	movl	8(%rsp), %eax
+	cmpl	%eax, 12(%rsp)
+	jne	.L678
+.L679:
+	movq	%rbx, %rdi
+	call	fclose
+	jmp	.L688
+	.p2align 4,,10
+	.p2align 3
+.L691:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC88, %edi
+	call	puts
+	movl	$.LC89, %edi
+	call	puts
+	movl	$1, %ebp
+	jmp	.L688
+	.p2align 4,,10
+	.p2align 3
+.L677:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC88, %edi
+	call	puts
+	movl	$.LC30, %edi
+	call	puts
+	movl	%r14d, %esi
+	movl	$.LC31, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %ebp
+	jmp	.L688
+	.p2align 4,,10
+	.p2align 3
+.L690:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC88, %edi
+	call	puts
+	movq	%rbp, %rsi
+	movl	$.LC28, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %ebp
+	jmp	.L688
+	.cfi_endproc
+.LFE5531:
+	.size	pgmb_read, .-pgmb_read
+	.section	.rodata.str1.1
+.LC91:
+	.string	"PGMB_READ_TEST: Fatal error!"
+.LC92:
+	.string	"  PGMB_READ failed."
+	.text
+	.p2align 4,,15
+	.globl	pgmb_read_test
+	.type	pgmb_read_test, @function
+pgmb_read_test:
+.LFB5534:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	subq	$32, %rsp
+	.cfi_def_cfa_offset 48
+	movq	$0, 24(%rsp)
+	leaq	24(%rsp), %r8
+	leaq	12(%rsp), %rcx
+	leaq	20(%rsp), %rdx
+	leaq	16(%rsp), %rsi
+	call	pgmb_read
+	testl	%eax, %eax
+	jne	.L704
+	movq	24(%rsp), %rcx
+	movl	12(%rsp), %edx
+	movl	20(%rsp), %esi
+	movl	16(%rsp), %edi
+	call	pgm_check_data
+	movl	%eax, %ebx
+	movq	24(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L695
+	call	free
+.L695:
+	movl	$10, %edi
+	testl	%ebx, %ebx
+	jne	.L705
+	call	putchar
+	movl	$.LC78, %edi
+	call	puts
+.L702:
+	movl	%ebx, %eax
+	addq	$32, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L705:
+	.cfi_restore_state
+	call	putchar
+	movl	$.LC77, %edi
+	call	puts
+	movl	$1, %ebx
+	movl	%ebx, %eax
+	addq	$32, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L704:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC91, %edi
+	call	puts
+	movl	$.LC92, %edi
+	call	puts
+	movq	24(%rsp), %rdi
+	movl	$1, %ebx
+	testq	%rdi, %rdi
+	je	.L702
+	call	free
+	movl	%ebx, %eax
+	addq	$32, %rsp
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5534:
+	.size	pgmb_read_test, .-pgmb_read_test
+	.section	.rodata.str1.1
+.LC93:
+	.string	"PGMB_WRITE: Fatal error!"
+.LC94:
+	.string	"P5 %d %d %d "
+	.text
+	.p2align 4,,15
+	.globl	pgmb_write
+	.type	pgmb_write, @function
+pgmb_write:
+.LFB5535:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 80
+	movq	%rdi, %r12
+	movl	%esi, %ebx
+	movl	%edx, 4(%rsp)
+	movl	%ecx, %r13d
+	movq	%r8, 8(%rsp)
+	movl	$.LC58, %esi
+	call	fopen
+	testq	%rax, %rax
+	movq	8(%rsp), %r9
+	je	.L715
+	movq	%rax, %rbp
+	movq	%r9, 8(%rsp)
+	movl	%r13d, %r8d
+	movl	4(%rsp), %r14d
+	movl	%r14d, %ecx
+	movl	%ebx, %edx
+	movl	$.LC94, %esi
+	movq	%rax, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	testl	%r14d, %r14d
+	jle	.L709
+	testl	%ebx, %ebx
+	jle	.L709
+	leal	-1(%rbx), %eax
+	leaq	4(,%rax,4), %r14
+	movq	8(%rsp), %r9
+	leaq	(%r9,%r14), %r13
+	movq	%r13, %rbx
+	xorl	%r12d, %r12d
+	.p2align 4,,10
+	.p2align 3
+.L710:
+	movq	%r9, %r15
+	.p2align 4,,10
+	.p2align 3
+.L711:
+	movq	%rbp, %rsi
+	movl	(%r15), %edi
+	call	fputc
+	addq	$4, %r15
+	cmpq	%rbx, %r15
+	jne	.L711
+	movq	%r13, %r9
+	incl	%r12d
+	addq	%r14, %rbx
+	cmpl	%r12d, 4(%rsp)
+	je	.L709
+	addq	%r14, %r13
+	jmp	.L710
+	.p2align 4,,10
+	.p2align 3
+.L709:
+	movq	%rbp, %rdi
+	call	fclose
+	xorl	%eax, %eax
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+.L715:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC93, %edi
+	call	puts
+	movq	%r12, %rsi
+	movl	$.LC39, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	addq	$24, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5535:
+	.size	pgmb_write, .-pgmb_write
+	.p2align 4,,15
+	.globl	pgmb_write_data
+	.type	pgmb_write_data, @function
+pgmb_write_data:
+.LFB5536:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 80
+	movl	%edx, 12(%rsp)
+	testl	%edx, %edx
+	jle	.L721
+	testl	%esi, %esi
+	jle	.L721
+	movq	%rdi, %rbp
+	leal	-1(%rsi), %eax
+	leaq	4(,%rax,4), %r14
+	leaq	(%rcx,%r14), %r13
+	movq	%r13, %rbx
+	xorl	%r12d, %r12d
+	.p2align 4,,10
+	.p2align 3
+.L718:
+	movq	%rcx, %r15
+	.p2align 4,,10
+	.p2align 3
+.L719:
+	movq	%rbp, %rsi
+	movl	(%r15), %edi
+	call	fputc
+	addq	$4, %r15
+	cmpq	%rbx, %r15
+	jne	.L719
+	movq	%r13, %rcx
+	incl	%r12d
+	addq	%r14, %rbx
+	cmpl	%r12d, 12(%rsp)
+	je	.L721
+	addq	%r14, %r13
+	jmp	.L718
+	.p2align 4,,10
+	.p2align 3
+.L721:
+	xorl	%eax, %eax
+	addq	$24, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5536:
+	.size	pgmb_write_data, .-pgmb_write_data
+	.p2align 4,,15
+	.globl	pgmb_write_header
+	.type	pgmb_write_header, @function
+pgmb_write_header:
+.LFB5537:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movl	%ecx, %r8d
+	movl	%edx, %ecx
+	movl	%esi, %edx
+	movl	$.LC94, %esi
+	xorl	%eax, %eax
+	call	fprintf
+	xorl	%eax, %eax
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5537:
+	.size	pgmb_write_header, .-pgmb_write_header
+	.section	.rodata.str1.1
+.LC95:
+	.string	"PGMB_WRITE_TEST: Fatal error!"
+.LC96:
+	.string	"  PGMB_WRITE failed."
+	.text
+	.p2align 4,,15
+	.globl	pgmb_write_test
+	.type	pgmb_write_test, @function
+pgmb_write_test:
+.LFB5538:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	andq	$-32, %rsp
+	.cfi_offset 15, -24
+	.cfi_offset 14, -32
+	.cfi_offset 13, -40
+	.cfi_offset 12, -48
+	.cfi_offset 3, -56
+	movq	%rdi, %r12
+	movl	$240000, %edi
+	call	malloc
+	movq	%rax, %rbx
+	movq	%rax, %r8
+	xorl	%edi, %edi
+	testq	%rax, %rax
+	je	.L749
+.L726:
+	incl	%edi
+	movq	%r8, %rsi
+	xorl	%ecx, %ecx
+	.p2align 4,,10
+	.p2align 3
+.L728:
+	incl	%ecx
+	movl	%ecx, %eax
+	cltd
+	idivl	%edi
+	movl	%edx, (%rsi)
+	addq	$4, %rsi
+	cmpl	$300, %ecx
+	jne	.L728
+	addq	$1200, %r8
+	cmpl	$200, %edi
+	jne	.L726
+	leaq	1184(%rbx), %rdx
+	leaq	241184(%rbx), %rsi
+	xorl	%r14d, %r14d
+	.p2align 4,,10
+	.p2align 3
+.L729:
+	vmovd	%r14d, %xmm0
+	vpbroadcastd	%xmm0, %ymm0
+	leaq	-1184(%rdx), %rax
+	.p2align 4,,10
+	.p2align 3
+.L731:
+	vpmaxsd	(%rax), %ymm0, %ymm0
+	addq	$32, %rax
+	cmpq	%rdx, %rax
+	jne	.L731
+	vperm2i128	$1, %ymm0, %ymm0, %ymm1
+	vpmaxsd	%ymm1, %ymm0, %ymm0
+	vpsrldq	$8, %ymm0, %ymm1
+	vpmaxsd	%ymm1, %ymm0, %ymm0
+	vpsrldq	$4, %ymm0, %ymm1
+	vpmaxsd	%ymm1, %ymm0, %ymm0
+	vmovd	%xmm0, %edx
+	movl	(%rax), %r8d
+	cmpl	%r8d, 4(%rax)
+	cmovge	4(%rax), %r8d
+	movl	8(%rax), %ecx
+	cmpl	%ecx, %r8d
+	cmovl	%ecx, %r8d
+	movl	12(%rax), %ecx
+	cmpl	%ecx, %r8d
+	cmovl	%ecx, %r8d
+	cmpl	%edx, %r8d
+	cmovge	%r8d, %edx
+	movl	%edx, %r14d
+	leaq	1200(%rax), %rdx
+	cmpq	%rsi, %rdx
+	jne	.L729
+	movl	$.LC58, %esi
+	movq	%r12, %rdi
+	vzeroupper
+	call	fopen
+	movq	%rax, %r13
+	testq	%rax, %rax
+	je	.L750
+	movl	%r14d, %r8d
+	movl	$200, %ecx
+	movl	$300, %edx
+	movl	$.LC94, %esi
+	movq	%rax, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	leaq	1200(%rbx), %r14
+	leaq	241200(%rbx), %r15
+.L734:
+	leaq	-1200(%r14), %r12
+.L735:
+	movq	%r13, %rsi
+	movl	(%r12), %edi
+	call	fputc
+	addq	$4, %r12
+	cmpq	%r14, %r12
+	jne	.L735
+	leaq	1200(%r12), %r14
+	cmpq	%r15, %r14
+	jne	.L734
+	movq	%r13, %rdi
+	call	fclose
+	movq	%rbx, %rdi
+	call	free
+	xorl	%eax, %eax
+.L746:
+	leaq	-40(%rbp), %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	.cfi_remember_state
+	.cfi_def_cfa 7, 8
+	ret
+.L749:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC95, %edi
+	call	puts
+	movl	$.LC30, %edi
+	call	puts
+	movl	$240000, %esi
+	movl	$.LC31, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	jmp	.L746
+.L750:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC93, %edi
+	call	puts
+	movq	%r12, %rsi
+	movl	$.LC39, %edi
+	xorl	%eax, %eax
+	call	printf
+	movq	%rbx, %rdi
+	call	free
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC95, %edi
+	call	puts
+	movl	$.LC96, %edi
+	call	puts
+	movl	$1, %eax
+	leaq	-40(%rbp), %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE5538:
+	.size	pgmb_write_test, .-pgmb_write_test
+	.section	.rodata.str1.8
+	.align 8
+.LC97:
+	.string	"PPM_CHECK_DATA: 0 >= XSIZE = %d.\n"
+	.align 8
+.LC98:
+	.string	"PPM_CHECK_DATA: 0 >= YSIZE = %d.\n"
+	.align 8
+.LC99:
+	.string	"PPM_CHECK_DATA: Null pointer to data."
+	.align 8
+.LC100:
+	.string	"PPM_CHECK_DATA: R(%d,%d) = %d < 0.\n"
+	.align 8
+.LC101:
+	.string	"PPM_CHECK_DATA: G(%d,%d) = %d < 0.\n"
+	.align 8
+.LC102:
+	.string	"PPM_CHECK_DATA: B(%d,%d) = %d < 0.\n"
+	.align 8
+.LC103:
+	.string	"PPM_CHECK_DATA: R(%d,%d) = %d > %d.\n"
+	.align 8
+.LC104:
+	.string	"PPM_CHECK_DATA: G(%d,%d) = %d > %d.\n"
+	.align 8
+.LC105:
+	.string	"PPM_CHECK_DATA: B(%d,%d) = %d > %d.\n"
+	.text
+	.p2align 4,,15
+	.globl	ppm_check_data
+	.type	ppm_check_data, @function
+ppm_check_data:
+.LFB5539:
+	.cfi_startproc
+	pushq	%r14
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
+	pushq	%r13
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
+	pushq	%rbp
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	pushq	%rbx
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	subq	$16, %rsp
+	.cfi_def_cfa_offset 64
+	movl	%edi, %ebp
+	testl	%edi, %edi
+	jle	.L779
+	testl	%esi, %esi
+	jle	.L780
+	movl	%edx, %r12d
+	testq	%r8, %r8
+	sete	%dl
+	testq	%r9, %r9
+	sete	%al
+	orb	%al, %dl
+	jne	.L771
+	xorl	%r13d, %r13d
+	testq	%rcx, %rcx
+	je	.L771
+	xorl	%r14d, %r14d
+.L766:
+	xorl	%ebx, %ebx
+	.p2align 4,,10
+	.p2align 3
+.L765:
+	movl	(%rcx), %eax
+	testl	%eax, %eax
+	js	.L781
+	cmpl	%eax, %r12d
+	jl	.L782
+	addq	$4, %rcx
+	incl	%ebx
+	cmpl	%ebx, %ebp
+	jne	.L765
+	incl	%r14d
+	cmpl	%r14d, %esi
+	jne	.L766
+	incl	%r13d
+	cmpl	$3, %r13d
+	jne	.L768
+	xorl	%r13d, %r13d
+	movl	%r13d, %eax
+	addq	$16, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 48
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L771:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC99, %edi
+	call	puts
+	movl	$1, %r13d
+.L777:
+	movl	%r13d, %eax
+	addq	$16, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 48
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+.L768:
+	.cfi_restore_state
+	cmpl	$1, %r13d
+	movq	%r9, %rcx
+	cmove	%r8, %rcx
+	xorl	%r14d, %r14d
+	jmp	.L766
+	.p2align 4,,10
+	.p2align 3
+.L781:
+	movq	%rcx, 8(%rsp)
+	movl	$10, %edi
+	testl	%r13d, %r13d
+	je	.L783
+	cmpl	$1, %r13d
+	je	.L784
+	call	putchar
+	movq	8(%rsp), %rcx
+	movl	(%rcx), %ecx
+	movl	%r14d, %edx
+	movl	%ebx, %esi
+	movl	$.LC102, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %r13d
+	jmp	.L777
+	.p2align 4,,10
+	.p2align 3
+.L782:
+	movq	%rcx, 8(%rsp)
+	movl	$10, %edi
+	testl	%r13d, %r13d
+	je	.L785
+	cmpl	$1, %r13d
+	je	.L786
+	call	putchar
+	movl	%r12d, %r8d
+	movq	8(%rsp), %rcx
+	movl	(%rcx), %ecx
+	movl	%r14d, %edx
+	movl	%ebx, %esi
+	movl	$.LC105, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %r13d
+	jmp	.L777
+	.p2align 4,,10
+	.p2align 3
+.L779:
+	movl	$10, %edi
+	call	putchar
+	movl	%ebp, %esi
+	movl	$.LC97, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %r13d
+	movl	%r13d, %eax
+	addq	$16, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 48
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L780:
+	.cfi_restore_state
+	movl	%esi, 8(%rsp)
+	movl	$10, %edi
+	call	putchar
+	movl	8(%rsp), %esi
+	movl	$.LC98, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %r13d
+	movl	%r13d, %eax
+	addq	$16, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 48
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L783:
+	.cfi_restore_state
+	call	putchar
+	movq	8(%rsp), %rcx
+	movl	(%rcx), %ecx
+	movl	%r14d, %edx
+	movl	%ebx, %esi
+	movl	$.LC100, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %r13d
+	jmp	.L777
+	.p2align 4,,10
+	.p2align 3
+.L785:
+	call	putchar
+	movl	%r12d, %r8d
+	movq	8(%rsp), %rcx
+	movl	(%rcx), %ecx
+	movl	%r14d, %edx
+	movl	%ebx, %esi
+	movl	$.LC103, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %r13d
+	jmp	.L777
+.L784:
+	call	putchar
+	movq	8(%rsp), %rcx
+	movl	(%rcx), %ecx
+	movl	%r14d, %edx
+	movl	%ebx, %esi
+	movl	$.LC101, %edi
+	xorl	%eax, %eax
+	call	printf
+	jmp	.L777
+.L786:
+	call	putchar
+	movl	%r12d, %r8d
+	movq	8(%rsp), %rcx
+	movl	(%rcx), %ecx
+	movl	%r14d, %edx
+	movl	%ebx, %esi
+	movl	$.LC104, %edi
+	xorl	%eax, %eax
+	call	printf
+	jmp	.L777
+	.cfi_endproc
+.LFE5539:
+	.size	ppm_check_data, .-ppm_check_data
+	.section	.rodata.str1.1
+.LC106:
+	.string	"PPMA_READ_DATA: Fatal error."
+	.text
+	.p2align 4,,15
+	.globl	ppma_read_data
+	.type	ppma_read_data, @function
+ppma_read_data:
+.LFB5541:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$56, %rsp
+	.cfi_def_cfa_offset 112
+	movl	%esi, 12(%rsp)
+	movl	%edx, 28(%rsp)
+	movq	%r8, 16(%rsp)
+	movl	$0, 24(%rsp)
+	testl	%edx, %edx
+	jle	.L789
+	movq	%rdi, %rbp
+	movq	%rcx, %r15
+	movq	%r9, %r13
+	xorl	%ebx, %ebx
+	movl	$1, %eax
+.L788:
+	xorl	%r14d, %r14d
+	movl	12(%rsp), %edx
+	testl	%edx, %edx
+	jle	.L798
+	decl	%eax
+	je	.L814
+.L810:
+	xorl	%r12d, %r12d
+	.p2align 4,,10
+	.p2align 3
+.L797:
+	leaq	44(%rsp), %rcx
+	movl	$word, %edx
+	movl	$.LC0, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	incl	%eax
+	jne	.L815
+.L792:
+	movq	%rbp, %rdx
+	movl	$256, %esi
+	movl	$line, %edi
+	call	fgets
+	movq	%rax, %rbx
+	testq	%rax, %rax
+	jne	.L797
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC106, %edi
+	call	puts
+	movl	$.LC6, %edi
+	call	puts
+	movl	$1, %eax
+.L811:
+	addq	$56, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L815:
+	.cfi_restore_state
+	movslq	44(%rsp), %rax
+	addq	%rax, %rbx
+	leaq	40(%rsp), %rdx
+	movl	$.LC25, %esi
+	movl	$word, %edi
+	xorl	%eax, %eax
+	call	sscanf
+	movl	40(%rsp), %eax
+	testl	%r12d, %r12d
+	je	.L816
+	cmpl	$1, %r12d
+	je	.L817
+	movl	%eax, 0(%r13)
+	addq	$4, %r13
+	cmpl	$2, %r12d
+	jne	.L800
+	incl	%r14d
+	xorl	%eax, %eax
+	cmpl	%r14d, 12(%rsp)
+	jne	.L810
+.L798:
+	incl	24(%rsp)
+	movl	24(%rsp), %edi
+	cmpl	%edi, 28(%rsp)
+	jne	.L788
+.L789:
+	xorl	%eax, %eax
+	jmp	.L811
+	.p2align 4,,10
+	.p2align 3
+.L816:
+	movl	%eax, (%r15)
+	addq	$4, %r15
+.L800:
+	incl	%r12d
+	jmp	.L797
+.L814:
+	xorl	%r12d, %r12d
+	jmp	.L792
+.L817:
+	movq	16(%rsp), %rdx
+	movl	%eax, (%rdx)
+	addq	$4, %rdx
+	movq	%rdx, 16(%rsp)
+	incl	%r12d
+	jmp	.L797
+	.cfi_endproc
+.LFE5541:
+	.size	ppma_read_data, .-ppma_read_data
+	.section	.rodata.str1.1
+.LC107:
+	.string	"P3"
+.LC108:
+	.string	"p3"
+	.section	.rodata.str1.8
+	.align 8
+.LC109:
+	.string	"PPMA_READ_HEADER: Fatal error."
+	.text
+	.p2align 4,,15
+	.globl	ppma_read_header
+	.type	ppma_read_header, @function
+ppma_read_header:
+.LFB5542:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 80
+	movq	%rdi, %r12
+	movq	%rsi, %r15
+	movq	%rdx, %r13
+	movq	%rcx, %r14
+	xorl	%ebp, %ebp
+.L820:
+	movq	%r12, %rdx
+	movl	$256, %esi
+	movl	$line, %edi
+	call	fgets
+	movq	%rax, %rbx
+	testq	%rax, %rax
+	je	.L845
+	cmpb	$35, line(%rip)
+	je	.L820
+	testl	%ebp, %ebp
+	je	.L846
+	cmpl	$1, %ebp
+	je	.L823
+	cmpl	$2, %ebp
+	je	.L826
+.L827:
+	leaq	12(%rsp), %rcx
+	movq	%r14, %rdx
+	movl	$.LC5, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	incl	%eax
+	je	.L847
+	xorl	%eax, %eax
+.L843:
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L846:
+	.cfi_restore_state
+	leaq	12(%rsp), %rcx
+	movl	$word, %edx
+	movl	$.LC0, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	incl	%eax
+	je	.L820
+	movslq	12(%rsp), %rax
+	addq	%rax, %rbx
+	movl	$word, %edx
+	movl	$.LC107, %edi
+	movl	$3, %ecx
+	movq	%rdx, %rsi
+	repz cmpsb
+	seta	%al
+	sbbb	$0, %al
+	testb	%al, %al
+	je	.L823
+	movl	$.LC108, %edi
+	movl	$3, %ecx
+	movq	%rdx, %rsi
+	repz cmpsb
+	seta	%al
+	sbbb	$0, %al
+	testb	%al, %al
+	jne	.L848
+.L823:
+	leaq	12(%rsp), %rcx
+	movq	%r15, %rdx
+	movl	$.LC5, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	movslq	12(%rsp), %rdx
+	addq	%rdx, %rbx
+	incl	%eax
+	je	.L849
+.L826:
+	leaq	12(%rsp), %rcx
+	movq	%r13, %rdx
+	movl	$.LC5, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	movslq	12(%rsp), %rdx
+	addq	%rdx, %rbx
+	incl	%eax
+	jne	.L827
+	movl	$2, %ebp
+	jmp	.L820
+	.p2align 4,,10
+	.p2align 3
+.L849:
+	movl	$1, %ebp
+	jmp	.L820
+	.p2align 4,,10
+	.p2align 3
+.L847:
+	movl	$3, %ebp
+	jmp	.L820
+	.p2align 4,,10
+	.p2align 3
+.L845:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC109, %edi
+	call	puts
+	movl	$.LC6, %edi
+	call	puts
+	movl	$1, %eax
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+.L848:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC109, %edi
+	call	puts
+	movl	$word, %esi
+	movl	$.LC4, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	jmp	.L843
+	.cfi_endproc
+.LFE5542:
+	.size	ppma_read_header, .-ppma_read_header
+	.section	.rodata.str1.1
+.LC110:
+	.string	"PPMA_READ: Fatal error!"
+.LC111:
+	.string	"  PPMA_READ_HEADER failed."
+.LC112:
+	.string	"  PPMA_READ_DATA failed."
+	.text
+	.p2align 4,,15
+	.globl	ppma_read
+	.type	ppma_read, @function
+ppma_read:
+.LFB5540:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 80
+	movq	%rdi, %r15
+	movq	%rsi, %r14
+	movq	%rdx, %rbp
+	movq	%rcx, 8(%rsp)
+	movq	%r8, %r12
+	movq	%r9, %r13
+	movl	$.LC26, %esi
+	call	fopen
+	testq	%rax, %rax
+	movq	8(%rsp), %rcx
+	je	.L862
+	movq	%rax, %rbx
+	movq	%rbp, %rdx
+	movq	%r14, %rsi
+	movq	%rax, %rdi
+	call	ppma_read_header
+	testl	%eax, %eax
+	jne	.L863
+	movl	(%r14), %r14d
+	movl	0(%rbp), %r15d
+	movl	%r14d, %eax
+	imull	%r15d, %eax
+	sall	$2, %eax
+	movl	%eax, 8(%rsp)
+	movslq	%eax, %rbp
+	movq	%rbp, %rdi
+	call	malloc
+	movq	%rax, (%r12)
+	testq	%rax, %rax
+	je	.L861
+	movq	%rbp, %rdi
+	call	malloc
+	movq	%rax, 0(%r13)
+	testq	%rax, %rax
+	je	.L861
+	movq	%rbp, %rdi
+	call	malloc
+	movq	%rax, %r9
+	movq	80(%rsp), %rax
+	movq	%r9, (%rax)
+	testq	%r9, %r9
+	je	.L861
+	movq	0(%r13), %r8
+	movq	(%r12), %rcx
+	movl	%r15d, %edx
+	movl	%r14d, %esi
+	movq	%rbx, %rdi
+	call	ppma_read_data
+	movl	%eax, %ebp
+	testl	%eax, %eax
+	jne	.L864
+	movq	%rbx, %rdi
+	call	fclose
+	jmp	.L858
+	.p2align 4,,10
+	.p2align 3
+.L861:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC110, %edi
+	call	puts
+	movl	$.LC30, %edi
+	call	puts
+	movl	8(%rsp), %esi
+	movl	$.LC31, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %ebp
+.L858:
+	movl	%ebp, %eax
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L863:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC110, %edi
+	call	puts
+	movl	$.LC111, %edi
+	call	puts
+	movl	$1, %ebp
+	jmp	.L858
+	.p2align 4,,10
+	.p2align 3
+.L864:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC110, %edi
+	call	puts
+	movl	$.LC112, %edi
+	call	puts
+	movl	$1, %ebp
+	jmp	.L858
+	.p2align 4,,10
+	.p2align 3
+.L862:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC110, %edi
+	call	puts
+	movq	%r15, %rsi
+	movl	$.LC28, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %ebp
+	jmp	.L858
+	.cfi_endproc
+.LFE5540:
+	.size	ppma_read, .-ppma_read
+	.section	.rodata.str1.1
+.LC113:
+	.string	"PPMA_READ_TEST: Fatal error!"
+.LC114:
+	.string	"  PPMA_READ failed."
+	.section	.rodata.str1.8
+	.align 8
+.LC115:
+	.string	"  PPM_CHECK_DATA reports bad data from the file."
+	.align 8
+.LC116:
+	.string	"  PPM_CHECK_DATA passes the data from the file."
+	.text
+	.p2align 4,,15
+	.globl	ppma_read_test
+	.type	ppma_read_test, @function
+ppma_read_test:
+.LFB5543:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	subq	$56, %rsp
+	.cfi_def_cfa_offset 72
+	movq	$0, 48(%rsp)
+	movq	$0, 40(%rsp)
+	movq	$0, 32(%rsp)
+	leaq	32(%rsp), %rax
+	pushq	%rax
+	.cfi_def_cfa_offset 80
+	leaq	48(%rsp), %r9
+	leaq	56(%rsp), %r8
+	leaq	28(%rsp), %rcx
+	leaq	36(%rsp), %rdx
+	leaq	32(%rsp), %rsi
+	call	ppma_read
+	popq	%rdx
+	.cfi_def_cfa_offset 72
+	popq	%rcx
+	.cfi_def_cfa_offset 64
+	testl	%eax, %eax
+	jne	.L893
+	movq	24(%rsp), %r9
+	movq	32(%rsp), %r8
+	movq	40(%rsp), %rcx
+	movl	12(%rsp), %edx
+	movl	20(%rsp), %esi
+	movl	16(%rsp), %edi
+	call	ppm_check_data
+	movl	%eax, %ebx
+	movq	40(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L870
+	call	free
+.L870:
+	movq	32(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L871
+	call	free
+.L871:
+	movq	24(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L872
+	call	free
+.L872:
+	movl	$10, %edi
+	testl	%ebx, %ebx
+	jne	.L894
+	call	putchar
+	movl	$.LC116, %edi
+	call	puts
+.L891:
+	movl	%ebx, %eax
+	addq	$48, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L894:
+	.cfi_restore_state
+	call	putchar
+	movl	$.LC115, %edi
+	call	puts
+	movl	$1, %ebx
+	movl	%ebx, %eax
+	addq	$48, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L893:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC113, %edi
+	call	puts
+	movl	$.LC114, %edi
+	call	puts
+	movq	40(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L867
+	call	free
+.L867:
+	movq	32(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L868
+	call	free
+.L868:
+	movq	24(%rsp), %rdi
+	movl	$1, %ebx
+	testq	%rdi, %rdi
+	je	.L891
+	call	free
+	movl	%ebx, %eax
+	addq	$48, %rsp
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5543:
+	.size	ppma_read_test, .-ppma_read_test
+	.section	.rodata.str1.1
+.LC117:
+	.string	"PPMA_WRITE: Fatal error!"
+.LC118:
+	.string	"P3\n"
+.LC119:
+	.string	"%d %d %d"
+	.text
+	.p2align 4,,15
+	.globl	ppma_write
+	.type	ppma_write, @function
+ppma_write:
+.LFB5544:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 96
+	movq	%rdi, %r14
+	movl	%esi, %ebp
+	movl	%edx, 12(%rsp)
+	movl	%ecx, %r15d
+	movq	%r8, %r12
+	movq	%r9, %r13
+	movl	$.LC37, %esi
+	call	fopen
+	testq	%rax, %rax
+	je	.L911
+	movq	%rax, %rbx
+	movq	%rax, %rcx
+	movl	$3, %edx
+	movl	$1, %esi
+	movl	$.LC118, %edi
+	call	fwrite
+	movq	%r14, %rdx
+	movl	$.LC41, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	movl	12(%rsp), %r14d
+	movl	%r14d, %ecx
+	movl	%ebp, %edx
+	movl	$.LC42, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	movl	%r15d, %edx
+	movl	$.LC81, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	movl	%r14d, %eax
+	testl	%r14d, %r14d
+	jle	.L898
+	imull	%ebp, %eax
+	leal	(%rax,%rax,2), %eax
+	movl	%eax, 20(%rsp)
+	testl	%ebp, %ebp
+	jle	.L898
+	leal	0(%rbp,%rbp,2), %eax
+	movl	%eax, 24(%rsp)
+	leal	-1(%rbp), %eax
+	movl	%eax, 28(%rsp)
+	leaq	4(,%rax,4), %rbp
+	xorl	%r14d, %r14d
+	movl	$0, 8(%rsp)
+	.p2align 4,,10
+	.p2align 3
+.L899:
+	movl	24(%rsp), %eax
+	addl	%r14d, %eax
+	movl	%eax, 16(%rsp)
+	xorl	%r15d, %r15d
+	jmp	.L903
+	.p2align 4,,10
+	.p2align 3
+.L913:
+	cmpl	%r15d, 28(%rsp)
+	je	.L900
+	cmpl	20(%rsp), %r14d
+	je	.L900
+	movq	%rbx, %rsi
+	movl	$32, %edi
+	call	fputc
+	incq	%r15
+	cmpl	16(%rsp), %r14d
+	je	.L912
+	.p2align 4,,10
+	.p2align 3
+.L903:
+	movl	0(%r13,%r15,4), %ecx
+	movl	(%r12,%r15,4), %edx
+	movq	96(%rsp), %rax
+	movl	(%rax,%r15,4), %r8d
+	movl	$.LC119, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	addl	$3, %r14d
+	movl	$-1431655765, %eax
+	mull	%r14d
+	shrl	$3, %edx
+	leal	(%rdx,%rdx,2), %eax
+	sall	$2, %eax
+	cmpl	%eax, %r14d
+	jne	.L913
+.L900:
+	movq	%rbx, %rsi
+	movl	$10, %edi
+	call	fputc
+	incq	%r15
+	cmpl	16(%rsp), %r14d
+	jne	.L903
+.L912:
+	addq	%rbp, 96(%rsp)
+	addq	%rbp, %r13
+	addq	%rbp, %r12
+	incl	8(%rsp)
+	movl	8(%rsp), %eax
+	cmpl	%eax, 12(%rsp)
+	jne	.L899
+.L898:
+	movq	%rbx, %rdi
+	call	fclose
+	xorl	%eax, %eax
+	addq	$40, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L911:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC117, %edi
+	call	puts
+	movq	%r14, %rsi
+	movl	$.LC39, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	addq	$40, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5544:
+	.size	ppma_write, .-ppma_write
+	.p2align 4,,15
+	.globl	ppma_write_data
+	.type	ppma_write_data, @function
+ppma_write_data:
+.LFB5545:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$56, %rsp
+	.cfi_def_cfa_offset 112
+	movl	%edx, 32(%rsp)
+	testl	%edx, %edx
+	jle	.L925
+	movl	%edx, %eax
+	movq	%rcx, %r12
+	leal	(%rsi,%rsi,2), %ecx
+	movl	%ecx, 36(%rsp)
+	imull	%ecx, %eax
+	movl	%eax, 20(%rsp)
+	testl	%esi, %esi
+	jle	.L925
+	movq	%rdi, %rbp
+	movq	%r8, %r13
+	movq	%r9, %r14
+	leal	-1(%rsi), %eax
+	movl	%eax, 16(%rsp)
+	movq	%rax, 8(%rsp)
+	leaq	4(,%rax,4), %rax
+	movq	%rax, 40(%rsp)
+	movl	$0, 28(%rsp)
+	movl	$0, 24(%rsp)
+	.p2align 4,,10
+	.p2align 3
+.L916:
+	movl	28(%rsp), %ebx
+	xorl	%r15d, %r15d
+	jmp	.L920
+	.p2align 4,,10
+	.p2align 3
+.L928:
+	cmpl	%r15d, 16(%rsp)
+	je	.L917
+	cmpl	%ebx, 20(%rsp)
+	je	.L917
+	movq	%rbp, %rsi
+	movl	$32, %edi
+	call	fputc
+	leaq	1(%r15), %rax
+	cmpq	8(%rsp), %r15
+	je	.L927
+.L921:
+	movq	%rax, %r15
+.L920:
+	movl	0(%r13,%r15,4), %ecx
+	movl	(%r12,%r15,4), %edx
+	movl	(%r14,%r15,4), %r8d
+	movl	$.LC119, %esi
+	movq	%rbp, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	addl	$3, %ebx
+	movl	$-1431655765, %eax
+	mull	%ebx
+	shrl	$3, %edx
+	leal	(%rdx,%rdx,2), %eax
+	sall	$2, %eax
+	cmpl	%eax, %ebx
+	jne	.L928
+.L917:
+	movq	%rbp, %rsi
+	movl	$10, %edi
+	call	fputc
+	leaq	1(%r15), %rax
+	cmpq	8(%rsp), %r15
+	jne	.L921
+.L927:
+	movq	40(%rsp), %rax
+	addq	%rax, %r14
+	addq	%rax, %r13
+	addq	%rax, %r12
+	movl	36(%rsp), %esi
+	addl	%esi, 28(%rsp)
+	incl	24(%rsp)
+	movl	24(%rsp), %eax
+	cmpl	%eax, 32(%rsp)
+	jne	.L916
+.L925:
+	xorl	%eax, %eax
+	addq	$56, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5545:
+	.size	ppma_write_data, .-ppma_write_data
+	.p2align 4,,15
+	.globl	ppma_write_header
+	.type	ppma_write_header, @function
+ppma_write_header:
+.LFB5546:
+	.cfi_startproc
+	pushq	%r14
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
+	pushq	%r13
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
+	pushq	%rbp
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	pushq	%rbx
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	movq	%rdi, %rbx
+	movq	%rsi, %r14
+	movl	%edx, %r12d
+	movl	%ecx, %r13d
+	movl	%r8d, %ebp
+	movq	%rdi, %rcx
+	movl	$3, %edx
+	movl	$1, %esi
+	movl	$.LC118, %edi
+	call	fwrite
+	movq	%r14, %rdx
+	movl	$.LC41, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	movl	%r13d, %ecx
+	movl	%r12d, %edx
+	movl	$.LC42, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	movl	%ebp, %edx
+	movl	$.LC81, %esi
+	movq	%rbx, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5546:
+	.size	ppma_write_header, .-ppma_write_header
+	.section	.rodata.str1.1
+.LC120:
+	.string	"PPMA_WRITE_TEST: Fatal error!"
+.LC123:
+	.string	"  PPMA_WRITE failed."
+	.text
+	.p2align 4,,15
+	.globl	ppma_write_test
+	.type	ppma_write_test, @function
+ppma_write_test:
+.LFB5547:
+	.cfi_startproc
+	leaq	8(%rsp), %r10
+	.cfi_def_cfa 10, 0
+	andq	$-32, %rsp
+	pushq	-8(%r10)
+	pushq	%rbp
+	.cfi_escape 0x10,0x6,0x2,0x76,0
+	movq	%rsp, %rbp
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%r10
+	.cfi_escape 0xf,0x3,0x76,0x60,0x6
+	.cfi_escape 0x10,0xe,0x2,0x76,0x78
+	.cfi_escape 0x10,0xd,0x2,0x76,0x70
+	.cfi_escape 0x10,0xc,0x2,0x76,0x68
+	pushq	%rbx
+	subq	$8, %rsp
+	.cfi_escape 0x10,0x3,0x2,0x76,0x58
+	movq	%rdi, %r12
+	movl	$160000, %edi
+	call	malloc
+	testq	%rax, %rax
+	je	.L934
+	movq	%rax, %rbx
+	movl	$160000, %edi
+	call	malloc
+	movq	%rax, %r14
+	testq	%rax, %rax
+	je	.L934
+	movl	$160000, %edi
+	call	malloc
+	movq	%rax, %r13
+	testq	%rax, %rax
+	je	.L934
+	movq	%rbx, %rsi
+	movq	%r14, %rcx
+	movq	%rax, %rdx
+	xorl	%edi, %edi
+	vmovdqa	.LC10(%rip), %ymm11
+	vmovdqa	.LC11(%rip), %ymm7
+	vmovdqa	.LC121(%rip), %ymm6
+	vmovdqa	.LC122(%rip), %ymm4
+	vpxor	%xmm2, %xmm2, %xmm2
+	vmovdqa	.LC17(%rip), %ymm8
+	vmovdqa	%ymm8, %ymm10
+	vmovdqa	%ymm8, %ymm9
+.L939:
+	vmovd	%edi, %xmm3
+	vpbroadcastd	%xmm3, %ymm3
+	xorl	%eax, %eax
+	vmovdqa	%ymm11, %ymm0
+	jmp	.L938
+	.p2align 4,,10
+	.p2align 3
+.L935:
+	vpaddd	%ymm3, %ymm0, %ymm0
+	vpmulld	%ymm6, %ymm0, %ymm0
+	vpcmpgtd	%ymm4, %ymm0, %ymm1
+	vpcmpeqd	%ymm2, %ymm1, %ymm1
+	vpand	%ymm12, %ymm1, %ymm1
+	vptest	%ymm1, %ymm1
+	jne	.L957
+.L936:
+	vpcmpgtd	%ymm4, %ymm0, %ymm0
+	vpand	%ymm12, %ymm0, %ymm0
+	vptest	%ymm0, %ymm0
+	jne	.L958
+	addq	$32, %rax
+	vmovdqa	%ymm5, %ymm0
+	cmpq	$800, %rax
+	je	.L959
+.L938:
+	vpaddd	%ymm7, %ymm0, %ymm5
+	vpcmpgtd	%ymm3, %ymm0, %ymm12
+	vpcmpeqd	%ymm2, %ymm12, %ymm1
+	vptest	%ymm1, %ymm1
+	je	.L935
+	vpmaskmovd	%ymm8, %ymm1, (%rsi,%rax)
+	vpmaskmovd	%ymm2, %ymm1, (%rcx,%rax)
+	vpmaskmovd	%ymm2, %ymm1, (%rdx,%rax)
+	jmp	.L935
+	.p2align 4,,10
+	.p2align 3
+.L958:
+	vpmaskmovd	%ymm2, %ymm0, (%rsi,%rax)
+	vpmaskmovd	%ymm2, %ymm0, (%rcx,%rax)
+	vpmaskmovd	%ymm9, %ymm0, (%rdx,%rax)
+	addq	$32, %rax
+	vmovdqa	%ymm5, %ymm0
+	cmpq	$800, %rax
+	jne	.L938
+.L959:
+	addq	$800, %rsi
+	addq	$800, %rcx
+	addq	$800, %rdx
+	incl	%edi
+	cmpl	$200, %edi
+	jne	.L939
+	leaq	160000(%rbx), %r8
+	movq	%rbx, %rdx
+	movq	%r14, %rdi
+	movq	%r13, %rsi
+	xorl	%ecx, %ecx
+.L940:
+	vmovd	%ecx, %xmm0
+	vpbroadcastd	%xmm0, %ymm0
+	xorl	%eax, %eax
+	.p2align 4,,10
+	.p2align 3
+.L941:
+	vmovdqu	(%rdx,%rax), %ymm6
+	vpmaxsd	(%rdi,%rax), %ymm6, %ymm1
+	vpmaxsd	(%rsi,%rax), %ymm0, %ymm0
+	vpmaxsd	%ymm0, %ymm1, %ymm0
+	addq	$32, %rax
+	cmpq	$800, %rax
+	jne	.L941
+	vperm2i128	$1, %ymm0, %ymm0, %ymm1
+	vpmaxsd	%ymm1, %ymm0, %ymm0
+	vpsrldq	$8, %ymm0, %ymm1
+	vpmaxsd	%ymm1, %ymm0, %ymm0
+	vpsrldq	$4, %ymm0, %ymm1
+	vpmaxsd	%ymm1, %ymm0, %ymm0
+	vmovd	%xmm0, %ecx
+	addq	$800, %rdx
+	addq	$800, %rdi
+	addq	$800, %rsi
+	cmpq	%rdx, %r8
+	jne	.L940
+	subq	$8, %rsp
+	pushq	%r13
+	movq	%r14, %r9
+	movq	%rbx, %r8
+	movl	$200, %edx
+	movl	$200, %esi
+	movq	%r12, %rdi
+	vzeroupper
+	call	ppma_write
+	movl	%eax, %r12d
+	movq	%rbx, %rdi
+	call	free
+	movq	%r14, %rdi
+	call	free
+	movq	%r13, %rdi
+	call	free
+	popq	%rax
+	popq	%rdx
+	testl	%r12d, %r12d
+	jne	.L960
+.L955:
+	movl	%r12d, %eax
+	leaq	-40(%rbp), %rsp
+	popq	%rbx
+	popq	%r10
+	.cfi_remember_state
+	.cfi_def_cfa 10, 0
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%rbp
+	leaq	-8(%r10), %rsp
+	.cfi_def_cfa 7, 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L957:
+	.cfi_restore_state
+	vpmaskmovd	%ymm2, %ymm1, (%rsi,%rax)
+	vpmaskmovd	%ymm10, %ymm1, (%rcx,%rax)
+	vpmaskmovd	%ymm2, %ymm1, (%rdx,%rax)
+	jmp	.L936
+.L934:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC120, %edi
+	call	puts
+	movl	$.LC30, %edi
+	call	puts
+	movl	$160000, %esi
+	movl	$.LC31, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %r12d
+	jmp	.L955
+.L960:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC120, %edi
+	call	puts
+	movl	$.LC123, %edi
+	call	puts
+	movl	$1, %r12d
+	jmp	.L955
+	.cfi_endproc
+.LFE5547:
+	.size	ppma_write_test, .-ppma_write_test
+	.section	.rodata.str1.8
+	.align 8
+.LC124:
+	.string	"PPMB_READ_DATA: Failed reading data byte %d.\n"
+	.text
+	.p2align 4,,15
+	.globl	ppmb_read_data
+	.type	ppmb_read_data, @function
+ppmb_read_data:
+.LFB5549:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 96
+	movl	%esi, 12(%rsp)
+	movl	%edx, 28(%rsp)
+	movq	%r8, 16(%rsp)
+	movl	$0, 24(%rsp)
+	testl	%edx, %edx
+	jle	.L963
+	movq	%rdi, %r14
+	movq	%rcx, %r12
+	movq	%r9, %rbp
+	xorl	%ebx, %ebx
+.L962:
+	xorl	%r13d, %r13d
+	movl	12(%rsp), %eax
+	testl	%eax, %eax
+	jg	.L971
+	jmp	.L972
+	.p2align 4,,10
+	.p2align 3
+.L967:
+	cmpl	$1, %r15d
+	je	.L981
+	movl	%eax, 0(%rbp)
+	addq	$4, %rbp
+	cmpl	$2, %r15d
+	jne	.L970
+	incl	%r13d
+	cmpl	%r13d, 12(%rsp)
+	je	.L972
+.L971:
+	xorl	%r15d, %r15d
+	movq	%r14, %rdi
+	call	fgetc
+	cmpl	$-1, %eax
+	je	.L982
+.L965:
+	incl	%ebx
+	testl	%r15d, %r15d
+	jne	.L967
+	movl	%eax, (%r12)
+	addq	$4, %r12
+.L970:
+	incl	%r15d
+	movq	%r14, %rdi
+	call	fgetc
+	cmpl	$-1, %eax
+	jne	.L965
+.L982:
+	movl	$10, %edi
+	call	putchar
+	movl	%ebx, %esi
+	movl	$.LC124, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+.L978:
+	addq	$40, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L981:
+	.cfi_restore_state
+	movq	16(%rsp), %rdx
+	movl	%eax, (%rdx)
+	addq	$4, %rdx
+	movq	%rdx, 16(%rsp)
+	jmp	.L970
+	.p2align 4,,10
+	.p2align 3
+.L972:
+	incl	24(%rsp)
+	movl	24(%rsp), %eax
+	cmpl	%eax, 28(%rsp)
+	jne	.L962
+.L963:
+	xorl	%eax, %eax
+	jmp	.L978
+	.cfi_endproc
+.LFE5549:
+	.size	ppmb_read_data, .-ppmb_read_data
+	.section	.rodata.str1.1
+.LC125:
+	.string	"P6"
+.LC126:
+	.string	"p6"
+	.section	.rodata.str1.8
+	.align 8
+.LC127:
+	.string	"PPMB_READ_HEADER: Fatal error."
+	.text
+	.p2align 4,,15
+	.globl	ppmb_read_header
+	.type	ppmb_read_header, @function
+ppmb_read_header:
+.LFB5550:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$104, %rsp
+	.cfi_def_cfa_offset 160
+	movq	%rdi, %r12
+	movq	%rsi, %r14
+	movq	%rdx, (%rsp)
+	movq	%rcx, 8(%rsp)
+	xorl	%ebx, %ebx
+	xorl	%ebp, %ebp
+	leaq	16(%rsp), %r13
+	.p2align 4,,10
+	.p2align 3
+.L984:
+	movq	%r12, %rdi
+	call	fgetc
+	movl	%eax, %r15d
+	cmpl	$-1, %eax
+	je	.L990
+.L985:
+	call	__ctype_b_loc
+	movslq	%r15d, %rdx
+	movq	(%rax), %rax
+	movw	(%rax,%rdx,2), %ax
+	andw	$8192, %ax
+	jne	.L987
+	movslq	%ebp, %rdx
+	movb	%r15b, 16(%rsp,%rdx)
+	incl	%ebp
+	cmpl	$1, %ebx
+	jg	.L1027
+	movl	$1, %ebx
+	movq	%r12, %rdi
+	call	fgetc
+	movl	%eax, %r15d
+	cmpl	$-1, %eax
+	jne	.L985
+.L990:
+	movl	$1, %ebx
+.L1025:
+	movl	%ebx, %eax
+	addq	$104, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L987:
+	.cfi_restore_state
+	testl	%ebx, %ebx
+	je	.L990
+	cmpl	$1, %ebx
+	je	.L994
+	cmpl	$2, %ebx
+	je	.L984
+	cmpl	$3, %ebx
+	je	.L1028
+.L996:
+	cmpl	$4, %ebx
+	je	.L1029
+	cmpl	$5, %ebx
+	je	.L1030
+	cmpl	$6, %ebx
+	je	.L1031
+	cmpl	$7, %ebx
+	jne	.L984
+	testw	%ax, %ax
+	je	.L984
+	movslq	%ebp, %rbp
+	movb	$0, 16(%rsp,%rbp)
+	movq	8(%rsp), %rdx
+	movl	$.LC25, %esi
+	leaq	16(%rsp), %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	xorl	%ebx, %ebx
+	incl	%eax
+	sete	%bl
+	jmp	.L1025
+	.p2align 4,,10
+	.p2align 3
+.L994:
+	movslq	%ebp, %rbp
+	movb	$0, 16(%rsp,%rbp)
+	movl	$.LC125, %edi
+	movl	$3, %ecx
+	movq	%r13, %rsi
+	repz cmpsb
+	seta	%bpl
+	sbbb	$0, %bpl
+	movsbl	%bpl, %ebp
+	testl	%ebp, %ebp
+	je	.L1000
+	movl	$.LC126, %edi
+	movl	$3, %ecx
+	movq	%r13, %rsi
+	repz cmpsb
+	seta	%bpl
+	sbbb	$0, %bpl
+	movsbl	%bpl, %ebp
+	testl	%ebp, %ebp
+	jne	.L1032
+.L1000:
+	movl	$2, %ebx
+	jmp	.L984
+	.p2align 4,,10
+	.p2align 3
+.L1029:
+	testw	%ax, %ax
+	movl	$5, %eax
+	cmove	%eax, %ebx
+	jmp	.L984
+	.p2align 4,,10
+	.p2align 3
+.L1030:
+	testw	%ax, %ax
+	je	.L984
+	movslq	%ebp, %rbp
+	movb	$0, 16(%rsp,%rbp)
+	movq	(%rsp), %rdx
+	movl	$.LC25, %esi
+	movq	%r13, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	incl	%eax
+	je	.L990
+	movl	$6, %ebx
+	xorl	%ebp, %ebp
+	jmp	.L984
+	.p2align 4,,10
+	.p2align 3
+.L1028:
+	movslq	%ebp, %rbp
+	movb	$0, 16(%rsp,%rbp)
+	movq	%r14, %rdx
+	movl	$.LC25, %esi
+	movq	%r13, %rdi
+	xorl	%eax, %eax
+	call	sscanf
+	incl	%eax
+	je	.L990
+	movl	$4, %ebx
+	xorl	%ebp, %ebp
+	jmp	.L984
+	.p2align 4,,10
+	.p2align 3
+.L1031:
+	testw	%ax, %ax
+	movl	$7, %eax
+	cmove	%eax, %ebx
+	jmp	.L984
+.L1027:
+	cmpl	$2, %ebx
+	jne	.L1033
+	movl	$3, %ebx
+	jmp	.L984
+.L1032:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC127, %edi
+	call	puts
+	movq	%r13, %rsi
+	movl	$.LC4, %edi
+	xorl	%eax, %eax
+	call	printf
+	jmp	.L1025
+.L1033:
+	cmpl	$3, %ebx
+	jne	.L996
+	jmp	.L984
+	.cfi_endproc
+.LFE5550:
+	.size	ppmb_read_header, .-ppmb_read_header
+	.section	.rodata.str1.1
+.LC128:
+	.string	"PPMB_READ: Fatal error!"
+.LC129:
+	.string	"  PPMB_READ_HEADER failed."
+.LC130:
+	.string	"  PPMB_READ_DATA failed."
+	.text
+	.p2align 4,,15
+	.globl	ppmb_read
+	.type	ppmb_read, @function
+ppmb_read:
+.LFB5548:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 96
+	movq	%rdi, %rbp
+	movq	%rsi, %r12
+	movq	%rdx, %r13
+	movq	%rcx, (%rsp)
+	movq	%r8, %r14
+	movq	%r9, %r15
+	movl	$.LC52, %esi
+	call	fopen
+	testq	%rax, %rax
+	movq	(%rsp), %rcx
+	je	.L1060
+	movq	%rax, %rbx
+	movq	%r13, %rdx
+	movq	%r12, %rsi
+	movq	%rax, %rdi
+	call	ppmb_read_header
+	movl	%eax, %ebp
+	testl	%eax, %eax
+	jne	.L1061
+	movl	(%r12), %r12d
+	movl	0(%r13), %eax
+	movl	%eax, 24(%rsp)
+	imull	%r12d, %eax
+	sall	$2, %eax
+	movl	%eax, (%rsp)
+	movslq	%eax, %r13
+	movq	%r13, %rdi
+	call	malloc
+	movq	%rax, (%r14)
+	testq	%rax, %rax
+	je	.L1059
+	movq	%r13, %rdi
+	call	malloc
+	movq	%rax, (%r15)
+	testq	%rax, %rax
+	je	.L1059
+	movq	%r13, %rdi
+	call	malloc
+	movq	%rax, %r13
+	movq	96(%rsp), %rax
+	movq	%r13, (%rax)
+	testq	%r13, %r13
+	je	.L1059
+	movq	(%r15), %rax
+	movq	%rax, 8(%rsp)
+	movq	(%r14), %r15
+	movl	$0, 20(%rsp)
+	movl	$0, 28(%rsp)
+	movl	24(%rsp), %eax
+	testl	%eax, %eax
+	jle	.L1042
+.L1041:
+	xorl	%r14d, %r14d
+	testl	%r12d, %r12d
+	jle	.L1050
+	.p2align 4,,10
+	.p2align 3
+.L1049:
+	xorl	%edx, %edx
+.L1043:
+	movl	%edx, (%rsp)
+	movq	%rbx, %rdi
+	call	fgetc
+	cmpl	$-1, %eax
+	movl	(%rsp), %edx
+	je	.L1062
+	incl	20(%rsp)
+	testl	%edx, %edx
+	je	.L1063
+	cmpl	$1, %edx
+	je	.L1064
+	movl	%eax, 0(%r13)
+	addq	$4, %r13
+	cmpl	$2, %edx
+	jne	.L1048
+	incl	%r14d
+	cmpl	%r14d, %r12d
+	jne	.L1049
+.L1050:
+	incl	28(%rsp)
+	movl	28(%rsp), %eax
+	cmpl	%eax, 24(%rsp)
+	jne	.L1041
+.L1042:
+	movq	%rbx, %rdi
+	call	fclose
+	jmp	.L1056
+	.p2align 4,,10
+	.p2align 3
+.L1059:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC128, %edi
+	call	puts
+	movl	$.LC30, %edi
+	call	puts
+	movl	(%rsp), %esi
+	movl	$.LC31, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %ebp
+.L1056:
+	movl	%ebp, %eax
+	addq	$40, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L1063:
+	.cfi_restore_state
+	movl	%eax, (%r15)
+	addq	$4, %r15
+.L1048:
+	incl	%edx
+	jmp	.L1043
+	.p2align 4,,10
+	.p2align 3
+.L1064:
+	movq	8(%rsp), %rcx
+	movl	%eax, (%rcx)
+	addq	$4, %rcx
+	movq	%rcx, 8(%rsp)
+	incl	%edx
+	jmp	.L1043
+	.p2align 4,,10
+	.p2align 3
+.L1061:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC128, %edi
+	call	puts
+	movl	$.LC129, %edi
+	call	puts
+	movl	$1, %ebp
+	jmp	.L1056
+	.p2align 4,,10
+	.p2align 3
+.L1062:
+	movl	$10, %edi
+	call	putchar
+	movl	20(%rsp), %esi
+	movl	$.LC124, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC128, %edi
+	call	puts
+	movl	$.LC130, %edi
+	call	puts
+	movl	$1, %ebp
+	jmp	.L1056
+	.p2align 4,,10
+	.p2align 3
+.L1060:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC128, %edi
+	call	puts
+	movq	%rbp, %rsi
+	movl	$.LC28, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %ebp
+	jmp	.L1056
+	.cfi_endproc
+.LFE5548:
+	.size	ppmb_read, .-ppmb_read
+	.section	.rodata.str1.1
+.LC131:
+	.string	"PPMB_READ_TEST: Fatal error!"
+.LC132:
+	.string	"  PPMB_READ failed."
+	.text
+	.p2align 4,,15
+	.globl	ppmb_read_test
+	.type	ppmb_read_test, @function
+ppmb_read_test:
+.LFB5551:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	subq	$56, %rsp
+	.cfi_def_cfa_offset 72
+	movq	$0, 48(%rsp)
+	movq	$0, 40(%rsp)
+	movq	$0, 32(%rsp)
+	leaq	32(%rsp), %rax
+	pushq	%rax
+	.cfi_def_cfa_offset 80
+	leaq	48(%rsp), %r9
+	leaq	56(%rsp), %r8
+	leaq	28(%rsp), %rcx
+	leaq	36(%rsp), %rdx
+	leaq	32(%rsp), %rsi
+	call	ppmb_read
+	popq	%rdx
+	.cfi_def_cfa_offset 72
+	popq	%rcx
+	.cfi_def_cfa_offset 64
+	testl	%eax, %eax
+	jne	.L1093
+	movq	24(%rsp), %r9
+	movq	32(%rsp), %r8
+	movq	40(%rsp), %rcx
+	movl	12(%rsp), %edx
+	movl	20(%rsp), %esi
+	movl	16(%rsp), %edi
+	call	ppm_check_data
+	movl	%eax, %ebx
+	movq	40(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L1070
+	call	free
+.L1070:
+	movq	32(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L1071
+	call	free
+.L1071:
+	movq	24(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L1072
+	call	free
+.L1072:
+	movl	$10, %edi
+	testl	%ebx, %ebx
+	jne	.L1094
+	call	putchar
+	movl	$.LC116, %edi
+	call	puts
+.L1091:
+	movl	%ebx, %eax
+	addq	$48, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L1094:
+	.cfi_restore_state
+	call	putchar
+	movl	$.LC115, %edi
+	call	puts
+	movl	$1, %ebx
+	movl	%ebx, %eax
+	addq	$48, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L1093:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC131, %edi
+	call	puts
+	movl	$.LC132, %edi
+	call	puts
+	movq	40(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L1067
+	call	free
+.L1067:
+	movq	32(%rsp), %rdi
+	testq	%rdi, %rdi
+	je	.L1068
+	call	free
+.L1068:
+	movq	24(%rsp), %rdi
+	movl	$1, %ebx
+	testq	%rdi, %rdi
+	je	.L1091
+	call	free
+	movl	%ebx, %eax
+	addq	$48, %rsp
+	.cfi_def_cfa_offset 16
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5551:
+	.size	ppmb_read_test, .-ppmb_read_test
+	.section	.rodata.str1.1
+.LC133:
+	.string	"PPMB_WRITE: Fatal error!"
+.LC134:
+	.string	"P6 %d %d %d "
+	.text
+	.p2align 4,,15
+	.globl	ppmb_write
+	.type	ppmb_write, @function
+ppmb_write:
+.LFB5552:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 96
+	movq	%rdi, 16(%rsp)
+	movl	%esi, %r15d
+	movl	%edx, %r14d
+	movl	%ecx, 8(%rsp)
+	movq	%r8, %rbp
+	movq	%r9, %r12
+	movq	96(%rsp), %r13
+	movl	$.LC58, %esi
+	call	fopen
+	testq	%rax, %rax
+	movl	8(%rsp), %ecx
+	je	.L1104
+	movq	%rax, %rbx
+	movl	%ecx, %r8d
+	movl	%r14d, %ecx
+	movl	%r15d, %edx
+	movl	$.LC134, %esi
+	movq	%rax, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	testl	%r14d, %r14d
+	jle	.L1098
+	testl	%r15d, %r15d
+	jle	.L1098
+	leal	-1(%r15), %r8d
+	leaq	4(,%r8,4), %rcx
+	xorl	%edx, %edx
+	.p2align 4,,10
+	.p2align 3
+.L1099:
+	xorl	%r15d, %r15d
+	jmp	.L1100
+	.p2align 4,,10
+	.p2align 3
+.L1101:
+	movq	%rax, %r15
+.L1100:
+	movl	%edx, 28(%rsp)
+	movq	%r8, 16(%rsp)
+	movq	%rcx, 8(%rsp)
+	movl	0(%rbp,%r15,4), %edi
+	movq	%rbx, %rsi
+	call	fputc
+	movl	(%r12,%r15,4), %edi
+	movq	%rbx, %rsi
+	call	fputc
+	movl	0(%r13,%r15,4), %edi
+	movq	%rbx, %rsi
+	call	fputc
+	leaq	1(%r15), %rax
+	movq	16(%rsp), %r8
+	cmpq	%r15, %r8
+	movq	8(%rsp), %rcx
+	movl	28(%rsp), %edx
+	jne	.L1101
+	addq	%rcx, %rbp
+	addq	%rcx, %r12
+	addq	%rcx, %r13
+	incl	%edx
+	cmpl	%edx, %r14d
+	jne	.L1099
+.L1098:
+	movq	%rbx, %rdi
+	call	fclose
+	xorl	%eax, %eax
+	addq	$40, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L1104:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC133, %edi
+	call	puts
+	movq	16(%rsp), %rsi
+	movl	$.LC39, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	addq	$40, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5552:
+	.size	ppmb_write, .-ppmb_write
+	.p2align 4,,15
+	.globl	ppmb_write_data
+	.type	ppmb_write_data, @function
+ppmb_write_data:
+.LFB5553:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 80
+	movl	%edx, 4(%rsp)
+	testl	%edx, %edx
+	jle	.L1110
+	testl	%esi, %esi
+	jle	.L1110
+	movq	%rdi, %rbx
+	movq	%rcx, %r14
+	movq	%r8, %rbp
+	movq	%r9, %r12
+	leal	-1(%rsi), %r13d
+	leaq	4(,%r13,4), %rax
+	movq	%rax, 8(%rsp)
+	movl	$0, (%rsp)
+	.p2align 4,,10
+	.p2align 3
+.L1107:
+	xorl	%r15d, %r15d
+	jmp	.L1108
+	.p2align 4,,10
+	.p2align 3
+.L1109:
+	movq	%rax, %r15
+.L1108:
+	movl	(%r14,%r15,4), %edi
+	movq	%rbx, %rsi
+	call	fputc
+	movl	0(%rbp,%r15,4), %edi
+	movq	%rbx, %rsi
+	call	fputc
+	movl	(%r12,%r15,4), %edi
+	movq	%rbx, %rsi
+	call	fputc
+	leaq	1(%r15), %rax
+	cmpq	%r13, %r15
+	jne	.L1109
+	movq	8(%rsp), %rax
+	addq	%rax, %r12
+	addq	%rax, %rbp
+	addq	%rax, %r14
+	incl	(%rsp)
+	movl	(%rsp), %eax
+	cmpl	%eax, 4(%rsp)
+	jne	.L1107
+.L1110:
+	xorl	%eax, %eax
+	addq	$24, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5553:
+	.size	ppmb_write_data, .-ppmb_write_data
+	.p2align 4,,15
+	.globl	ppmb_write_header
+	.type	ppmb_write_header, @function
+ppmb_write_header:
+.LFB5554:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movl	%ecx, %r8d
+	movl	%edx, %ecx
+	movl	%esi, %edx
+	movl	$.LC134, %esi
+	xorl	%eax, %eax
+	call	fprintf
+	xorl	%eax, %eax
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5554:
+	.size	ppmb_write_header, .-ppmb_write_header
+	.section	.rodata.str1.1
+.LC135:
+	.string	"PPMB_WRITE_TEST: Fatal error!"
+.LC136:
+	.string	"  PPMB_WRITE failed."
+	.text
+	.p2align 4,,15
+	.globl	ppmb_write_test
+	.type	ppmb_write_test, @function
+ppmb_write_test:
+.LFB5555:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	andq	$-32, %rsp
+	subq	$32, %rsp
+	.cfi_offset 15, -24
+	.cfi_offset 14, -32
+	.cfi_offset 13, -40
+	.cfi_offset 12, -48
+	.cfi_offset 3, -56
+	movq	%rdi, %r14
+	movl	$160000, %edi
+	call	malloc
+	movq	%rax, 16(%rsp)
+	testq	%rax, %rax
+	je	.L1117
+	movl	$160000, %edi
+	call	malloc
+	movq	%rax, %rbx
+	movq	%rax, 8(%rsp)
+	testq	%rax, %rax
+	je	.L1117
+	movl	$160000, %edi
+	call	malloc
+	movq	%rax, %rdx
+	movq	%rax, (%rsp)
+	testq	%rax, %rax
+	je	.L1117
+	movq	16(%rsp), %rsi
+	movq	%rbx, %rcx
+	xorl	%edi, %edi
+	vmovdqa	.LC10(%rip), %ymm11
+	vmovdqa	.LC11(%rip), %ymm7
+	vmovdqa	.LC121(%rip), %ymm6
+	vmovdqa	.LC122(%rip), %ymm4
+	vpxor	%xmm2, %xmm2, %xmm2
+	vmovdqa	.LC17(%rip), %ymm8
+	vmovdqa	%ymm8, %ymm10
+	vmovdqa	%ymm8, %ymm9
+.L1122:
+	vmovd	%edi, %xmm3
+	vpbroadcastd	%xmm3, %ymm3
+	xorl	%eax, %eax
+	vmovdqa	%ymm11, %ymm0
+	jmp	.L1121
+	.p2align 4,,10
+	.p2align 3
+.L1118:
+	vpaddd	%ymm3, %ymm0, %ymm0
+	vpmulld	%ymm6, %ymm0, %ymm0
+	vpcmpgtd	%ymm4, %ymm0, %ymm1
+	vpcmpeqd	%ymm2, %ymm1, %ymm1
+	vpand	%ymm12, %ymm1, %ymm1
+	vptest	%ymm1, %ymm1
+	jne	.L1142
+.L1119:
+	vpcmpgtd	%ymm4, %ymm0, %ymm0
+	vpand	%ymm12, %ymm0, %ymm0
+	vptest	%ymm0, %ymm0
+	jne	.L1143
+	addq	$32, %rax
+	vmovdqa	%ymm5, %ymm0
+	cmpq	$800, %rax
+	je	.L1144
+.L1121:
+	vpaddd	%ymm7, %ymm0, %ymm5
+	vpcmpgtd	%ymm3, %ymm0, %ymm12
+	vpcmpeqd	%ymm2, %ymm12, %ymm1
+	vptest	%ymm1, %ymm1
+	je	.L1118
+	vpmaskmovd	%ymm8, %ymm1, (%rsi,%rax)
+	vpmaskmovd	%ymm2, %ymm1, (%rcx,%rax)
+	vpmaskmovd	%ymm2, %ymm1, (%rdx,%rax)
+	jmp	.L1118
+	.p2align 4,,10
+	.p2align 3
+.L1143:
+	vpmaskmovd	%ymm2, %ymm0, (%rsi,%rax)
+	vpmaskmovd	%ymm2, %ymm0, (%rcx,%rax)
+	vpmaskmovd	%ymm9, %ymm0, (%rdx,%rax)
+	addq	$32, %rax
+	vmovdqa	%ymm5, %ymm0
+	cmpq	$800, %rax
+	jne	.L1121
+.L1144:
+	addq	$800, %rsi
+	addq	$800, %rcx
+	addq	$800, %rdx
+	incl	%edi
+	cmpl	$200, %edi
+	jne	.L1122
+	movq	16(%rsp), %rdx
+	leaq	160000(%rdx), %rax
+	movq	%rax, 24(%rsp)
+	movq	8(%rsp), %rsi
+	movq	(%rsp), %rcx
+	xorl	%r15d, %r15d
+.L1123:
+	vmovd	%r15d, %xmm0
+	vpbroadcastd	%xmm0, %ymm0
+	xorl	%eax, %eax
+	.p2align 4,,10
+	.p2align 3
+.L1124:
+	vmovdqu	(%rsi,%rax), %ymm6
+	vpmaxsd	(%rdx,%rax), %ymm6, %ymm1
+	vpmaxsd	(%rcx,%rax), %ymm0, %ymm0
+	vpmaxsd	%ymm0, %ymm1, %ymm0
+	addq	$32, %rax
+	cmpq	$800, %rax
+	jne	.L1124
+	vperm2i128	$1, %ymm0, %ymm0, %ymm1
+	vpmaxsd	%ymm1, %ymm0, %ymm0
+	vpsrldq	$8, %ymm0, %ymm1
+	vpmaxsd	%ymm1, %ymm0, %ymm0
+	vpsrldq	$4, %ymm0, %ymm1
+	vpmaxsd	%ymm1, %ymm0, %ymm0
+	vmovd	%xmm0, %r15d
+	addq	$800, %rdx
+	addq	$800, %rsi
+	addq	$800, %rcx
+	cmpq	24(%rsp), %rdx
+	jne	.L1123
+	movl	$.LC58, %esi
+	movq	%r14, %rdi
+	vzeroupper
+	call	fopen
+	movq	%rax, %rbx
+	testq	%rax, %rax
+	je	.L1145
+	movl	%r15d, %r8d
+	movl	$200, %ecx
+	movl	$200, %edx
+	movl	$.LC134, %esi
+	movq	%rax, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	movq	16(%rsp), %r13
+	movq	8(%rsp), %r15
+	movq	(%rsp), %r14
+.L1127:
+	xorl	%r12d, %r12d
+.L1128:
+	movl	0(%r13,%r12), %edi
+	movq	%rbx, %rsi
+	call	fputc
+	movl	(%r15,%r12), %edi
+	movq	%rbx, %rsi
+	call	fputc
+	movl	(%r14,%r12), %edi
+	movq	%rbx, %rsi
+	call	fputc
+	addq	$4, %r12
+	cmpq	$800, %r12
+	jne	.L1128
+	addq	$800, %r13
+	addq	$800, %r15
+	addq	$800, %r14
+	cmpq	24(%rsp), %r13
+	jne	.L1127
+	movq	%rbx, %rdi
+	call	fclose
+	movq	16(%rsp), %rdi
+	call	free
+	movq	8(%rsp), %rdi
+	call	free
+	movq	(%rsp), %rdi
+	call	free
+	xorl	%eax, %eax
+	leaq	-40(%rbp), %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	.cfi_remember_state
+	.cfi_def_cfa 7, 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L1142:
+	.cfi_restore_state
+	vpmaskmovd	%ymm2, %ymm1, (%rsi,%rax)
+	vpmaskmovd	%ymm10, %ymm1, (%rcx,%rax)
+	vpmaskmovd	%ymm2, %ymm1, (%rdx,%rax)
+	jmp	.L1119
+.L1117:
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC135, %edi
+	call	puts
+	movl	$.LC30, %edi
+	call	puts
+	movl	$160000, %esi
+	movl	$.LC31, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$1, %eax
+	leaq	-40(%rbp), %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	.cfi_remember_state
+	.cfi_def_cfa 7, 8
+	ret
+.L1145:
+	.cfi_restore_state
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC133, %edi
+	call	puts
+	movq	%r14, %rsi
+	movl	$.LC39, %edi
+	xorl	%eax, %eax
+	call	printf
+	movq	16(%rsp), %rdi
+	call	free
+	movq	8(%rsp), %rdi
+	call	free
+	movq	(%rsp), %rdi
+	call	free
+	movl	$10, %edi
+	call	putchar
+	movl	$.LC135, %edi
+	call	puts
+	movl	$.LC136, %edi
+	call	puts
+	movl	$1, %eax
+	leaq	-40(%rbp), %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE5555:
+	.size	ppmb_write_test, .-ppmb_write_test
+	.p2align 4,,15
+	.globl	Horizontal_Filtering
+	.type	Horizontal_Filtering, @function
+Horizontal_Filtering:
+.LFB5556:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	andq	$-32, %rsp
+	subq	$104, %rsp
+	vmovss	low(%rip), %xmm15
+	vmovss	low+4(%rip), %xmm7
+	vmovss	%xmm7, -92(%rsp)
+	vmovss	low+8(%rip), %xmm6
+	vmovss	%xmm6, -96(%rsp)
+	vmovss	low+12(%rip), %xmm2
+	vmovss	%xmm2, -100(%rsp)
+	vmovss	high(%rip), %xmm5
+	vmovss	%xmm5, -104(%rsp)
+	vmovss	high+4(%rip), %xmm3
+	vmovss	%xmm3, -108(%rsp)
+	vmovss	high+8(%rip), %xmm4
+	vmovss	%xmm4, -112(%rsp)
+	vmovss	high+12(%rip), %xmm0
+	vmovss	%xmm0, -116(%rsp)
+	movslq	half_col(%rip), %rax
+	leal	7(%rax), %r9d
+	leaq	0(,%rax,4), %r10
+	leaq	ou_image(%r10), %r11
+	xorl	%edx, %edx
+	vbroadcastss	%xmm15, %ymm14
+	vbroadcastss	%xmm7, %ymm13
+	vbroadcastss	%xmm6, %ymm12
+	vbroadcastss	%xmm2, %ymm11
+	vbroadcastss	%xmm5, %ymm10
+	vbroadcastss	%xmm3, %ymm9
+	vbroadcastss	%xmm4, %ymm8
+	vbroadcastss	%xmm0, %ymm7
+	.p2align 4,,10
+	.p2align 3
+.L1151:
+	cmpl	$14, %r9d
+	jbe	.L1147
+	leaq	in_image(%rdx), %rsi
+	leaq	in_image+8(%rdx), %rcx
+	leaq	ou_image(%rdx), %r8
+	leaq	(%rdx,%r11), %rdi
+	xorl	%eax, %eax
+	.p2align 4,,10
+	.p2align 3
+.L1148:
+	vmovups	(%rsi,%rax,2), %ymm1
+	vmovups	32(%rsi,%rax,2), %ymm4
+	vshufps	$136, %ymm4, %ymm1, %ymm3
+	vperm2f128	$3, %ymm3, %ymm3, %ymm0
+	vshufps	$68, %ymm0, %ymm3, %ymm2
+	vshufps	$238, %ymm0, %ymm3, %ymm0
+	vinsertf128	$1, %xmm0, %ymm2, %ymm2
+	vshufps	$221, %ymm4, %ymm1, %ymm1
+	vperm2f128	$3, %ymm1, %ymm1, %ymm0
+	vshufps	$68, %ymm0, %ymm1, %ymm3
+	vshufps	$238, %ymm0, %ymm1, %ymm0
+	vinsertf128	$1, %xmm0, %ymm3, %ymm3
+	vmovups	(%rcx,%rax,2), %ymm1
+	vmovups	32(%rcx,%rax,2), %ymm5
+	vshufps	$136, %ymm5, %ymm1, %ymm4
+	vperm2f128	$3, %ymm4, %ymm4, %ymm0
+	vshufps	$68, %ymm0, %ymm4, %ymm6
+	vshufps	$238, %ymm0, %ymm4, %ymm0
+	vinsertf128	$1, %xmm0, %ymm6, %ymm0
+	vshufps	$221, %ymm5, %ymm1, %ymm1
+	vperm2f128	$3, %ymm1, %ymm1, %ymm4
+	vshufps	$68, %ymm4, %ymm1, %ymm5
+	vshufps	$238, %ymm4, %ymm1, %ymm4
+	vinsertf128	$1, %xmm4, %ymm5, %ymm1
+	vmulps	%ymm1, %ymm11, %ymm4
+	vfmadd231ps	%ymm0, %ymm12, %ymm4
+	vmulps	%ymm3, %ymm13, %ymm5
+	vfmadd231ps	%ymm2, %ymm14, %ymm5
+	vaddps	%ymm5, %ymm4, %ymm4
+	vmovups	%ymm4, (%r8,%rax)
+	vmulps	%ymm7, %ymm1, %ymm1
+	vfmadd132ps	%ymm8, %ymm1, %ymm0
+	vmulps	%ymm3, %ymm9, %ymm3
+	vfmadd132ps	%ymm10, %ymm3, %ymm2
+	vaddps	%ymm2, %ymm0, %ymm0
+	vmovups	%ymm0, (%rdi,%rax)
+	addq	$32, %rax
+	cmpq	$1024, %rax
+	jne	.L1148
+	addq	$2048, %rdx
+	cmpq	$1048576, %rdx
+	jne	.L1151
+.L1156:
+	movl	$256, j(%rip)
+	movl	$512, jj(%rip)
+	movl	$512, i(%rip)
+	vzeroupper
+	leave
+	.cfi_remember_state
+	.cfi_def_cfa 7, 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L1147:
+	.cfi_restore_state
+	vmovss	in_image+4(%rdx), %xmm5
+	vmovss	in_image(%rdx), %xmm0
+	leaq	(%rdx,%r10), %rcx
+	xorl	%eax, %eax
+	vmovss	-116(%rsp), %xmm6
+	vmovaps	%ymm12, 72(%rsp)
+	vmovss	-112(%rsp), %xmm12
+	vmovaps	%ymm11, 40(%rsp)
+	vmovss	-108(%rsp), %xmm11
+	vmovaps	%ymm10, 8(%rsp)
+	vmovss	-104(%rsp), %xmm10
+	vmovaps	%ymm9, -24(%rsp)
+	vmovss	-100(%rsp), %xmm9
+	vmovaps	%ymm8, -56(%rsp)
+	vmovss	-96(%rsp), %xmm8
+	vmovaps	%ymm7, -88(%rsp)
+	vmovss	-92(%rsp), %xmm7
+	.p2align 4,,10
+	.p2align 3
+.L1150:
+	vmovss	in_image+8(%rdx,%rax,2), %xmm2
+	vmovss	in_image+12(%rdx,%rax,2), %xmm3
+	vmulss	%xmm3, %xmm9, %xmm1
+	vfmadd231ss	%xmm2, %xmm8, %xmm1
+	vmulss	%xmm7, %xmm5, %xmm4
+	vfmadd231ss	%xmm0, %xmm15, %xmm4
+	vaddss	%xmm4, %xmm1, %xmm1
+	vmovss	%xmm1, ou_image(%rdx,%rax)
+	vmulss	%xmm3, %xmm6, %xmm1
+	vfmadd231ss	%xmm2, %xmm12, %xmm1
+	vmulss	%xmm11, %xmm5, %xmm5
+	vfmadd231ss	%xmm10, %xmm0, %xmm5
+	vaddss	%xmm5, %xmm1, %xmm5
+	vmovss	%xmm5, ou_image(%rcx,%rax)
+	addq	$4, %rax
+	vmovss	%xmm3, %xmm5, %xmm5
+	vmovss	%xmm2, %xmm0, %xmm0
+	cmpq	$1024, %rax
+	jne	.L1150
+	vmovaps	72(%rsp), %ymm12
+	vmovaps	40(%rsp), %ymm11
+	vmovaps	8(%rsp), %ymm10
+	vmovaps	-24(%rsp), %ymm9
+	vmovaps	-56(%rsp), %ymm8
+	vmovaps	-88(%rsp), %ymm7
+	addq	$2048, %rdx
+	cmpq	$1048576, %rdx
+	jne	.L1151
+	jmp	.L1156
+	.cfi_endproc
+.LFE5556:
+	.size	Horizontal_Filtering, .-Horizontal_Filtering
+	.p2align 4,,15
+	.globl	Vertical_Filtering
+	.type	Vertical_Filtering, @function
+Vertical_Filtering:
+.LFB5557:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%r12
+	pushq	%rbx
+	andq	$-32, %rsp
+	subq	$104, %rsp
+	.cfi_offset 12, -24
+	.cfi_offset 3, -32
+	vmovss	low(%rip), %xmm15
+	vmovss	low+4(%rip), %xmm14
+	vmovss	low+8(%rip), %xmm6
+	vmovss	%xmm6, -92(%rsp)
+	vmovss	low+12(%rip), %xmm7
+	vmovss	%xmm7, -96(%rsp)
+	vmovss	high(%rip), %xmm4
+	vmovss	%xmm4, -100(%rsp)
+	vmovss	high+4(%rip), %xmm5
+	vmovss	%xmm5, -104(%rsp)
+	vmovss	high+8(%rip), %xmm2
+	vmovss	%xmm2, -108(%rsp)
+	vmovss	high+12(%rip), %xmm3
+	vmovss	%xmm3, -112(%rsp)
+	movslq	half_row_n64k(%rip), %rbx
+	movq	%rbx, %r12
+	salq	$11, %rbx
+	xorl	%ecx, %ecx
+	xorl	%esi, %esi
+	vbroadcastss	%xmm15, %ymm13
+	vbroadcastss	%xmm14, %ymm12
+	vbroadcastss	%xmm6, %ymm11
+	vbroadcastss	%xmm7, %ymm10
+	vbroadcastss	%xmm4, %ymm9
+	vbroadcastss	%xmm5, %ymm8
+	vbroadcastss	%xmm2, %ymm7
+	vbroadcastss	%xmm3, %ymm6
+	.p2align 4,,10
+	.p2align 3
+.L1162:
+	leaq	32(%rsi), %rax
+	cmpq	%rax, %rbx
+	jge	.L1164
+	leaq	32(%rbx), %rax
+	cmpq	%rax, %rsi
+	jl	.L1163
+.L1164:
+	leaq	ou_image(%rcx), %r11
+	leaq	ou_image+2048(%rcx), %r10
+	leaq	ou_image+4096(%rcx), %r9
+	leaq	ou_image+6144(%rcx), %r8
+	leaq	in_image(%rsi), %rdi
+	movslq	%r12d, %rdx
+	salq	$11, %rdx
+	addq	$in_image, %rdx
+	xorl	%eax, %eax
+	.p2align 4,,10
+	.p2align 3
+.L1160:
+	vmovups	(%r11,%rax), %ymm4
+	vmovups	(%r10,%rax), %ymm1
+	vmovups	(%r9,%rax), %ymm0
+	vmovups	(%r8,%rax), %ymm2
+	vmulps	%ymm10, %ymm2, %ymm3
+	vfmadd231ps	%ymm0, %ymm11, %ymm3
+	vmulps	%ymm1, %ymm12, %ymm5
+	vfmadd231ps	%ymm4, %ymm13, %ymm5
+	vaddps	%ymm5, %ymm3, %ymm3
+	vmovups	%ymm3, (%rdi,%rax)
+	vmulps	%ymm2, %ymm6, %ymm2
+	vfmadd132ps	%ymm7, %ymm2, %ymm0
+	vmulps	%ymm1, %ymm8, %ymm1
+	vfmadd231ps	%ymm4, %ymm9, %ymm1
+	vaddps	%ymm1, %ymm0, %ymm0
+	vmovups	%ymm0, (%rdx,%rax)
+	addq	$32, %rax
+	cmpq	$2048, %rax
+	jne	.L1160
+	leaq	4096(%rcx), %rdx
+.L1161:
+	addq	$2048, %rsi
+	addq	$2048, %rbx
+	movq	%rdx, %rcx
+	incl	%r12d
+	cmpq	$524288, %rsi
+	jne	.L1162
+	movl	$256, i(%rip)
+	movl	$512, j(%rip)
+	movl	$512, jj(%rip)
+	vzeroupper
+	leaq	-16(%rbp), %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%rbp
+	.cfi_remember_state
+	.cfi_def_cfa 7, 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L1163:
+	.cfi_restore_state
+	xorl	%eax, %eax
+	leaq	2048(%rcx), %r8
+	leaq	4096(%rcx), %rdx
+	leaq	6144(%rcx), %rdi
+	vmovaps	%ymm11, 72(%rsp)
+	vmovss	-112(%rsp), %xmm11
+	vmovaps	%ymm10, 40(%rsp)
+	vmovss	-108(%rsp), %xmm10
+	vmovaps	%ymm9, 8(%rsp)
+	vmovss	-104(%rsp), %xmm9
+	vmovaps	%ymm8, -24(%rsp)
+	vmovss	-100(%rsp), %xmm8
+	vmovaps	%ymm7, -56(%rsp)
+	vmovss	-96(%rsp), %xmm7
+	vmovaps	%ymm6, -88(%rsp)
+	vmovss	-92(%rsp), %xmm6
+	.p2align 4,,10
+	.p2align 3
+.L1158:
+	vmovss	ou_image(%rcx,%rax), %xmm5
+	vmovss	ou_image(%r8,%rax), %xmm0
+	vmovss	ou_image(%rdx,%rax), %xmm2
+	vmovss	ou_image(%rdi,%rax), %xmm3
+	vmulss	%xmm3, %xmm7, %xmm1
+	vfmadd231ss	%xmm2, %xmm6, %xmm1
+	vmulss	%xmm0, %xmm14, %xmm4
+	vfmadd231ss	%xmm5, %xmm15, %xmm4
+	vaddss	%xmm4, %xmm1, %xmm1
+	vmovss	%xmm1, in_image(%rsi,%rax)
+	vmulss	%xmm0, %xmm9, %xmm0
+	vfmadd231ss	%xmm5, %xmm8, %xmm0
+	vmulss	%xmm3, %xmm11, %xmm3
+	vfmadd231ss	%xmm2, %xmm10, %xmm3
+	vaddss	%xmm3, %xmm0, %xmm0
+	vmovss	%xmm0, in_image(%rbx,%rax)
+	addq	$4, %rax
+	cmpq	$2048, %rax
+	jne	.L1158
+	vmovaps	72(%rsp), %ymm11
+	vmovaps	40(%rsp), %ymm10
+	vmovaps	8(%rsp), %ymm9
+	vmovaps	-24(%rsp), %ymm8
+	vmovaps	-56(%rsp), %ymm7
+	vmovaps	-88(%rsp), %ymm6
+	jmp	.L1161
+	.cfi_endproc
+.LFE5557:
+	.size	Vertical_Filtering, .-Vertical_Filtering
+	.section	.rodata.str1.1
+.LC137:
+	.string	"!!!!..."
+.LC138:
+	.string	"xsize = %i\n"
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB5558:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movl	$garray, %r8d
+	movl	$maxgray, %ecx
+	movl	$ysize, %edx
+	movl	$xsize, %esi
+	movq	filein_name(%rip), %rdi
+	call	pgmb_read
+	movl	%eax, result(%rip)
+	testl	%eax, %eax
+	jne	.L1191
+	movl	%eax, %ebx
+	movl	xsize(%rip), %esi
+	movl	$.LC138, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$257, half_row_n64k(%rip)
+	movl	$0, i(%rip)
+	movl	xsize(%rip), %r9d
+	testl	%r9d, %r9d
+	jle	.L1176
+	movl	ysize(%rip), %r10d
+	movq	garray(%rip), %r11
+	xorl	%edx, %edx
+	xorl	%r8d, %r8d
+	movl	$1, %edi
+	leal	-1(%r10), %esi
+	addq	$2, %rsi
+	.p2align 4,,10
+	.p2align 3
+.L1175:
+	movl	$0, j(%rip)
+	testl	%r10d, %r10d
+	jle	.L1178
+	movslq	%r8d, %rax
+	leaq	(%r11,%rax,4), %rcx
+	movl	$1, %eax
+	.p2align 4,,10
+	.p2align 3
+.L1177:
+	vcvtsi2ss	-4(%rcx,%rax,4), %xmm0, %xmm0
+	vmovss	%xmm0, in_image-4(%rdx,%rax,4)
+	movl	$0x00000000, ou_image-4(%rdx,%rax,4)
+	movl	%eax, j(%rip)
+	incq	%rax
+	cmpq	%rax, %rsi
+	jne	.L1177
+.L1178:
+	movl	%edi, i(%rip)
+	leal	1(%rdi), %eax
+	addl	%r9d, %r8d
+	addq	$2048, %rdx
+	cmpl	%r9d, %edi
+	je	.L1176
+	movl	%eax, %edi
+	jmp	.L1175
+	.p2align 4,,10
+	.p2align 3
+.L1176:
+	xorl	%eax, %eax
+	call	Horizontal_Filtering
+	xorl	%eax, %eax
+	call	Vertical_Filtering
+	movl	$0, i(%rip)
+	movl	xsize(%rip), %esi
+	movq	garray(%rip), %r8
+	movl	ysize(%rip), %edx
+	testl	%esi, %esi
+	jle	.L1183
+	.p2align 4,,10
+	.p2align 3
+.L1182:
+	movl	$0, j(%rip)
+	testl	%edx, %edx
+	jle	.L1179
+	imull	%ebx, %esi
+	movslq	%esi, %rsi
+	movslq	%ebx, %rbx
+	salq	$11, %rbx
+	vcvttss2si	in_image(%rbx), %eax
+	movl	%eax, (%r8,%rsi,4)
+	movl	j(%rip), %eax
+	incl	%eax
+	movl	%eax, j(%rip)
+	movl	ysize(%rip), %edx
+	cmpl	%eax, %edx
+	jle	.L1181
+	.p2align 4,,10
+	.p2align 3
+.L1180:
+	movslq	i(%rip), %rdx
+	movl	xsize(%rip), %ecx
+	imull	%edx, %ecx
+	addl	%eax, %ecx
+	movslq	%ecx, %rcx
+	cltq
+	salq	$9, %rdx
+	addq	%rdx, %rax
+	vcvttss2si	in_image(,%rax,4), %eax
+	movl	%eax, (%r8,%rcx,4)
+	movl	j(%rip), %eax
+	incl	%eax
+	movl	%eax, j(%rip)
+	movl	ysize(%rip), %edx
+	cmpl	%edx, %eax
+	jl	.L1180
+.L1181:
+	movl	i(%rip), %ebx
+	movl	xsize(%rip), %esi
+.L1179:
+	incl	%ebx
+	movl	%ebx, i(%rip)
+	cmpl	%esi, %ebx
+	jl	.L1182
+.L1183:
+	movl	maxgray(%rip), %ecx
+	movq	fileou_name(%rip), %rdi
+	call	pgmb_write
+	movl	%eax, result(%rip)
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 8
+	ret
+.L1191:
+	.cfi_restore_state
+	movl	$.LC137, %edi
+	call	puts
+	movl	$1, %edi
+	call	exit
+	.cfi_endproc
+.LFE5558:
+	.size	main, .-main
+	.data
+	.align 32
+	.type	pat126.38158, @object
+	.size	pat126.38158, 140
+pat126.38158:
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.align 32
+	.type	pat095.38157, @object
+	.size	pat095.38157, 140
+pat095.38157:
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.align 32
+	.type	pat093.38156, @object
+	.size	pat093.38156, 140
+pat093.38156:
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.align 32
+	.type	pat091.38155, @object
+	.size	pat091.38155, 140
+pat091.38155:
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.align 32
+	.type	pat090.38154, @object
+	.size	pat090.38154, 140
+pat090.38154:
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.align 32
+	.type	pat089.38153, @object
+	.size	pat089.38153, 140
+pat089.38153:
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.align 32
+	.type	pat088.38152, @object
+	.size	pat088.38152, 140
+pat088.38152:
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.align 32
+	.type	pat087.38151, @object
+	.size	pat087.38151, 140
+pat087.38151:
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.align 32
+	.type	pat086.38150, @object
+	.size	pat086.38150, 140
+pat086.38150:
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.align 32
+	.type	pat085.38149, @object
+	.size	pat085.38149, 140
+pat085.38149:
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.align 32
+	.type	pat084.38148, @object
+	.size	pat084.38148, 140
+pat084.38148:
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.align 32
+	.type	pat083.38147, @object
+	.size	pat083.38147, 140
+pat083.38147:
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.align 32
+	.type	pat082.38146, @object
+	.size	pat082.38146, 140
+pat082.38146:
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.align 32
+	.type	pat081.38145, @object
+	.size	pat081.38145, 140
+pat081.38145:
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.align 32
+	.type	pat080.38144, @object
+	.size	pat080.38144, 140
+pat080.38144:
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.align 32
+	.type	pat079.38143, @object
+	.size	pat079.38143, 140
+pat079.38143:
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.align 32
+	.type	pat078.38142, @object
+	.size	pat078.38142, 140
+pat078.38142:
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.align 32
+	.type	pat077.38141, @object
+	.size	pat077.38141, 140
+pat077.38141:
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.align 32
+	.type	pat076.38140, @object
+	.size	pat076.38140, 140
+pat076.38140:
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.align 32
+	.type	pat075.38139, @object
+	.size	pat075.38139, 140
+pat075.38139:
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.align 32
+	.type	pat074.38138, @object
+	.size	pat074.38138, 140
+pat074.38138:
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.align 32
+	.type	pat073.38137, @object
+	.size	pat073.38137, 140
+pat073.38137:
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.align 32
+	.type	pat072.38136, @object
+	.size	pat072.38136, 140
+pat072.38136:
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.align 32
+	.type	pat071.38135, @object
+	.size	pat071.38135, 140
+pat071.38135:
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.align 32
+	.type	pat070.38134, @object
+	.size	pat070.38134, 140
+pat070.38134:
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.align 32
+	.type	pat069.38133, @object
+	.size	pat069.38133, 140
+pat069.38133:
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.align 32
+	.type	pat068.38132, @object
+	.size	pat068.38132, 140
+pat068.38132:
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.align 32
+	.type	pat067.38131, @object
+	.size	pat067.38131, 140
+pat067.38131:
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.align 32
+	.type	pat066.38130, @object
+	.size	pat066.38130, 140
+pat066.38130:
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.align 32
+	.type	pat065.38129, @object
+	.size	pat065.38129, 140
+pat065.38129:
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.align 32
+	.type	pat062.38128, @object
+	.size	pat062.38128, 140
+pat062.38128:
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.align 32
+	.type	pat061.38127, @object
+	.size	pat061.38127, 140
+pat061.38127:
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.align 32
+	.type	pat060.38126, @object
+	.size	pat060.38126, 140
+pat060.38126:
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.align 32
+	.type	pat059.38125, @object
+	.size	pat059.38125, 140
+pat059.38125:
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.align 32
+	.type	pat058.38124, @object
+	.size	pat058.38124, 140
+pat058.38124:
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.align 32
+	.type	pat057.38123, @object
+	.size	pat057.38123, 140
+pat057.38123:
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.align 32
+	.type	pat056.38122, @object
+	.size	pat056.38122, 140
+pat056.38122:
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.align 32
+	.type	pat055.38121, @object
+	.size	pat055.38121, 140
+pat055.38121:
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.align 32
+	.type	pat054.38120, @object
+	.size	pat054.38120, 140
+pat054.38120:
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.align 32
+	.type	pat053.38119, @object
+	.size	pat053.38119, 140
+pat053.38119:
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.align 32
+	.type	pat052.38118, @object
+	.size	pat052.38118, 140
+pat052.38118:
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.align 32
+	.type	pat051.38117, @object
+	.size	pat051.38117, 140
+pat051.38117:
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.align 32
+	.type	pat050.38116, @object
+	.size	pat050.38116, 140
+pat050.38116:
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.align 32
+	.type	pat049.38115, @object
+	.size	pat049.38115, 140
+pat049.38115:
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.align 32
+	.type	pat048.38114, @object
+	.size	pat048.38114, 140
+pat048.38114:
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.align 32
+	.type	pat047.38113, @object
+	.size	pat047.38113, 140
+pat047.38113:
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.align 32
+	.type	pat046.38112, @object
+	.size	pat046.38112, 140
+pat046.38112:
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.align 32
+	.type	pat045.38111, @object
+	.size	pat045.38111, 140
+pat045.38111:
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.align 32
+	.type	pat044.38110, @object
+	.size	pat044.38110, 140
+pat044.38110:
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.align 32
+	.type	pat041.38109, @object
+	.size	pat041.38109, 140
+pat041.38109:
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.align 32
+	.type	pat040.38108, @object
+	.size	pat040.38108, 140
+pat040.38108:
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.align 32
+	.type	pat039.38107, @object
+	.size	pat039.38107, 140
+pat039.38107:
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.align 32
+	.type	pat036.38106, @object
+	.size	pat036.38106, 140
+pat036.38106:
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.align 32
+	.type	pat035.38105, @object
+	.size	pat035.38105, 140
+pat035.38105:
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.align 32
+	.type	pat034.38104, @object
+	.size	pat034.38104, 140
+pat034.38104:
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.align 32
+	.type	pat033.38103, @object
+	.size	pat033.38103, 140
+pat033.38103:
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.long	1
+	.long	0
+	.long	0
+	.zero	20
+	.local	pat032.38102
+	.comm	pat032.38102,140,32
+	.globl	high
+	.align 16
+	.type	high, @object
+	.size	high, 16
+high:
+	.long	3203877831
+	.long	1062610141
+	.long	3194321528
+	.long	3187966319
+	.globl	low
+	.align 16
+	.type	low, @object
+	.size	low, 16
+low:
+	.long	3187966319
+	.long	1046837880
+	.long	1062610141
+	.long	1056394183
+	.comm	ou_image,1054720,32
+	.comm	in_image,1054720,32
+	.comm	half_row_n64k,4,4
+	.comm	half_col,4,4
+	.comm	half_row,4,4
+	.comm	jj,4,4
+	.comm	j,4,4
+	.comm	i,4,4
+	.comm	rep,4,4
+	.comm	numbytes,8,8
+	.comm	garray,8,8
+	.comm	maxgray,4,4
+	.comm	ysize,4,4
+	.comm	xsize,4,4
+	.comm	ij,4,4
+	.comm	result,4,4
+	.globl	fileou_name
+	.section	.rodata.str1.1
+.LC140:
+	.string	"AF.pgm"
+	.data
+	.align 8
+	.type	fileou_name, @object
+	.size	fileou_name, 8
+fileou_name:
+	.quad	.LC140
+	.globl	filein_name
+	.section	.rodata.str1.1
+.LC141:
+	.string	"lena.pgm"
+	.data
+	.align 8
+	.type	filein_name, @object
+	.size	filein_name, 8
+filein_name:
+	.quad	.LC141
+	.comm	word,256,32
+	.comm	line,256,32
+	.comm	temp2i16,32,32
+	.comm	mask,128,32
+	.globl	ttime
+	.bss
+	.align 8
+	.type	ttime, @object
+	.size	ttime, 8
+ttime:
+	.zero	8
+	.globl	overal_time
+	.data
+	.align 8
+	.type	overal_time, @object
+	.size	overal_time, 8
+overal_time:
+	.quad	19999999999
+	.globl	elapsed_rdtsc
+	.align 8
+	.type	elapsed_rdtsc, @object
+	.size	elapsed_rdtsc, 8
+elapsed_rdtsc:
+	.quad	9999999
+	.comm	elapsed,8,8
+	.globl	ttbest_rdtsc
+	.align 8
+	.type	ttbest_rdtsc, @object
+	.size	ttbest_rdtsc, 8
+ttbest_rdtsc:
+	.quad	99999999999999999
+	.comm	ttotal_rdtsc,8,8
+	.comm	t2_rdtsc,8,8
+	.comm	t1_rdtsc,8,8
+	.comm	mask1,128,32
+	.globl	programName
+	.section	.rodata.str1.1
+.LC142:
+	.string	" "
+	.data
+	.align 8
+	.type	programName, @object
+	.size	programName, 8
+programName:
+	.quad	.LC142
+	.globl	fileForSpeedups
+	.bss
+	.align 8
+	.type	fileForSpeedups, @object
+	.size	fileForSpeedups, 8
+fileForSpeedups:
+	.zero	8
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align 8
+.LC7:
+	.long	2296604913
+	.long	1055193269
+	.align 8
+.LC8:
+	.long	2296604913
+	.long	1056241845
+	.align 8
+.LC9:
+	.long	2439541424
+	.long	1069513965
+	.section	.rodata.cst32,"aM",@progbits,32
+	.align 32
+.LC10:
+	.long	0
+	.long	1
+	.long	2
+	.long	3
+	.long	4
+	.long	5
+	.long	6
+	.long	7
+	.align 32
+.LC11:
+	.long	8
+	.long	8
+	.long	8
+	.long	8
+	.long	8
+	.long	8
+	.long	8
+	.long	8
+	.align 32
+.LC12:
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.align 32
+.LC13:
+	.byte	4
+	.byte	5
+	.byte	6
+	.byte	7
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	12
+	.byte	13
+	.byte	14
+	.byte	15
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	4
+	.byte	5
+	.byte	6
+	.byte	7
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	12
+	.byte	13
+	.byte	14
+	.byte	15
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.align 32
+.LC14:
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	4
+	.byte	5
+	.byte	6
+	.byte	7
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	12
+	.byte	13
+	.byte	14
+	.byte	15
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	4
+	.byte	5
+	.byte	6
+	.byte	7
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	12
+	.byte	13
+	.byte	14
+	.byte	15
+	.align 32
+.LC15:
+	.long	16
+	.long	16
+	.long	16
+	.long	16
+	.long	16
+	.long	16
+	.long	16
+	.long	16
+	.align 32
+.LC16:
+	.long	10
+	.long	10
+	.long	10
+	.long	10
+	.long	10
+	.long	10
+	.long	10
+	.long	10
+	.align 32
+.LC17:
+	.long	255
+	.long	255
+	.long	255
+	.long	255
+	.long	255
+	.long	255
+	.long	255
+	.long	255
+	.align 32
+.LC18:
+	.long	65535
+	.long	65535
+	.long	65535
+	.long	65535
+	.long	65535
+	.long	65535
+	.long	65535
+	.long	65535
+	.align 32
+.LC19:
+	.long	1234
+	.long	1235
+	.long	1236
+	.long	1237
+	.long	1238
+	.long	1239
+	.long	1240
+	.long	1241
+	.align 32
+.LC44:
+	.long	-125
+	.long	-125
+	.long	-125
+	.long	-125
+	.long	-125
+	.long	-125
+	.long	-125
+	.long	-125
+	.align 32
+.LC45:
+	.long	125
+	.long	125
+	.long	125
+	.long	125
+	.long	125
+	.long	125
+	.long	125
+	.long	125
+	.align 32
+.LC46:
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.long	1
+	.align 32
+.LC121:
+	.long	199
+	.long	199
+	.long	199
+	.long	199
+	.long	199
+	.long	199
+	.long	199
+	.long	199
+	.align 32
+.LC122:
+	.long	39601
+	.long	39601
+	.long	39601
+	.long	39601
+	.long	39601
+	.long	39601
+	.long	39601
+	.long	39601
+	.ident	"GCC: (GNU) 8.1.1 20180502 (Red Hat 8.1.1-1)"
+	.section	.note.GNU-stack,"",@progbits

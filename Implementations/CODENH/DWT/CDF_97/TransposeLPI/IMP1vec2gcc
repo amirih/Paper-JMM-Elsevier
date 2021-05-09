@@ -1,0 +1,3052 @@
+	.file	"IMP1.c"
+	.text
+	.p2align 4,,15
+	.globl	assignToThisCore12
+	.type	assignToThisCore12, @function
+assignToThisCore12:
+.LFB5460:
+	.cfi_startproc
+	movl	%edi, %r8d
+	movl	$mask, %edx
+	movl	$16, %ecx
+	xorl	%eax, %eax
+	movq	%rdx, %rdi
+	rep stosq
+	movslq	%r8d, %rax
+	cmpq	$1023, %rax
+	ja	.L2
+	shrq	$6, %rax
+	movl	$1, %edx
+	shlx	%r8, %rdx, %r8
+	orq	%r8, mask(,%rax,8)
+.L2:
+	movslq	%esi, %rax
+	cmpq	$1023, %rax
+	ja	.L3
+	shrq	$6, %rax
+	movl	$1, %edx
+	shlx	%rsi, %rdx, %rsi
+	orq	%rsi, mask(,%rax,8)
+.L3:
+	movl	$mask, %edx
+	movl	$128, %esi
+	xorl	%edi, %edi
+	jmp	sched_setaffinity
+	.cfi_endproc
+.LFE5460:
+	.size	assignToThisCore12, .-assignToThisCore12
+	.p2align 4,,15
+	.globl	assignImagef32
+	.type	assignImagef32, @function
+assignImagef32:
+.LFB5461:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	xorl	%r12d, %r12d
+	xorl	%ebp, %ebp
+	xorl	%ebx, %ebx
+	xorl	%r11d, %r11d
+	xorl	%r9d, %r9d
+	xorl	%ecx, %ecx
+	vmovsd	.LC0(%rip), %xmm1
+	vmovsd	.LC1(%rip), %xmm14
+	vmovsd	.LC2(%rip), %xmm13
+	vmovsd	.LC3(%rip), %xmm12
+	vmovsd	.LC4(%rip), %xmm11
+	vmovsd	.LC5(%rip), %xmm10
+	vmovsd	.LC6(%rip), %xmm9
+	vmovsd	.LC7(%rip), %xmm8
+	vmovsd	.LC8(%rip), %xmm7
+	vmovsd	.LC9(%rip), %xmm6
+	vmovsd	.LC10(%rip), %xmm5
+	vmovsd	.LC11(%rip), %xmm4
+	vmovsd	.LC12(%rip), %xmm3
+	movl	$-1431655765, %r15d
+	movl	$-858993459, %r14d
+	movl	$613566757, %r13d
+	.p2align 4,,10
+	.p2align 3
+.L6:
+	leal	(%rcx,%rcx), %edx
+	vcvtsi2sd	%ecx, %xmm0, %xmm0
+	vcvtsi2sd	%edx, %xmm2, %xmm2
+	vmovsd	%xmm0, %xmm15, %xmm15
+	vfmadd132sd	%xmm1, %xmm14, %xmm15
+	vaddsd	%xmm15, %xmm2, %xmm2
+	vcvtsd2ss	%xmm2, %xmm2, %xmm2
+	vmovss	%xmm2, (%rdi)
+	movl	%ecx, %eax
+	sarl	%eax
+	addl	%edx, %eax
+	vcvtsi2sd	%eax, %xmm2, %xmm2
+	vmovsd	%xmm0, %xmm15, %xmm15
+	vfmadd132sd	%xmm1, %xmm13, %xmm15
+	vaddsd	%xmm15, %xmm2, %xmm2
+	vcvtsd2ss	%xmm2, %xmm2, %xmm2
+	vmovss	%xmm2, 4(%rdi)
+	movl	%ecx, %eax
+	mull	%r15d
+	movl	%edx, %esi
+	movl	%edx, %eax
+	shrl	%eax
+	addl	%r9d, %eax
+	vcvtsi2sd	%eax, %xmm2, %xmm2
+	vmovsd	%xmm0, %xmm15, %xmm15
+	vfmadd132sd	%xmm1, %xmm12, %xmm15
+	vaddsd	%xmm15, %xmm2, %xmm2
+	vcvtsd2ss	%xmm2, %xmm2, %xmm2
+	vmovss	%xmm2, 8(%rdi)
+	movl	%ecx, %eax
+	sarl	$2, %eax
+	leal	(%rax,%rcx,4), %eax
+	vcvtsi2sd	%eax, %xmm2, %xmm2
+	vmovsd	%xmm0, %xmm15, %xmm15
+	vfmadd132sd	%xmm1, %xmm11, %xmm15
+	vaddsd	%xmm15, %xmm2, %xmm2
+	vcvtsd2ss	%xmm2, %xmm2, %xmm2
+	vmovss	%xmm2, 12(%rdi)
+	movl	%ecx, %eax
+	mull	%r14d
+	movl	%edx, %r8d
+	movl	%edx, %eax
+	shrl	$2, %eax
+	addl	%r11d, %eax
+	vcvtsi2sd	%eax, %xmm2, %xmm2
+	vmovsd	%xmm0, %xmm15, %xmm15
+	vfmadd132sd	%xmm1, %xmm10, %xmm15
+	vaddsd	%xmm15, %xmm2, %xmm2
+	vcvtsd2ss	%xmm2, %xmm2, %xmm2
+	vmovss	%xmm2, 16(%rdi)
+	movl	%esi, %eax
+	shrl	$2, %eax
+	leal	(%rax,%r9,2), %eax
+	vcvtsi2sd	%eax, %xmm2, %xmm2
+	vmovsd	%xmm0, %xmm15, %xmm15
+	vfmadd132sd	%xmm1, %xmm9, %xmm15
+	vaddsd	%xmm15, %xmm2, %xmm2
+	vcvtsd2ss	%xmm2, %xmm2, %xmm2
+	vmovss	%xmm2, 20(%rdi)
+	movl	%ecx, %eax
+	mull	%r13d
+	movl	%ecx, %eax
+	subl	%edx, %eax
+	shrl	%eax
+	addl	%edx, %eax
+	shrl	$2, %eax
+	addl	%ebx, %eax
+	vcvtsi2sd	%eax, %xmm2, %xmm2
+	vmovsd	%xmm0, %xmm15, %xmm15
+	vfmadd132sd	%xmm1, %xmm8, %xmm15
+	vaddsd	%xmm15, %xmm2, %xmm2
+	vcvtsd2ss	%xmm2, %xmm2, %xmm2
+	vmovss	%xmm2, 24(%rdi)
+	leal	0(,%rcx,8), %r10d
+	movl	%ecx, %eax
+	sarl	$3, %eax
+	addl	%r10d, %eax
+	vcvtsi2sd	%eax, %xmm2, %xmm2
+	vmovsd	%xmm0, %xmm15, %xmm15
+	vfmadd132sd	%xmm1, %xmm7, %xmm15
+	vaddsd	%xmm15, %xmm2, %xmm2
+	vcvtsd2ss	%xmm2, %xmm2, %xmm2
+	vmovss	%xmm2, 28(%rdi)
+	addl	%ecx, %r10d
+	movl	$954437177, %eax
+	mull	%ecx
+	shrl	%edx
+	addl	%edx, %r10d
+	vcvtsi2sd	%r10d, %xmm2, %xmm2
+	vmovsd	%xmm0, %xmm15, %xmm15
+	vfmadd132sd	%xmm1, %xmm6, %xmm15
+	vaddsd	%xmm15, %xmm2, %xmm2
+	vcvtsd2ss	%xmm2, %xmm2, %xmm2
+	vmovss	%xmm2, 32(%rdi)
+	shrl	$3, %r8d
+	leal	(%r8,%r11,2), %eax
+	vcvtsi2sd	%eax, %xmm2, %xmm2
+	vmovsd	%xmm0, %xmm15, %xmm15
+	vfmadd132sd	%xmm1, %xmm5, %xmm15
+	vaddsd	%xmm15, %xmm2, %xmm2
+	vcvtsd2ss	%xmm2, %xmm2, %xmm2
+	vmovss	%xmm2, 36(%rdi)
+	movl	$-1171354717, %eax
+	mull	%ecx
+	shrl	$3, %edx
+	addl	%ebp, %edx
+	vcvtsi2sd	%edx, %xmm2, %xmm2
+	vmovsd	%xmm0, %xmm15, %xmm15
+	vfmadd132sd	%xmm1, %xmm4, %xmm15
+	vaddsd	%xmm15, %xmm2, %xmm2
+	vcvtsd2ss	%xmm2, %xmm2, %xmm2
+	vmovss	%xmm2, 40(%rdi)
+	leal	0(,%r9,4), %r8d
+	shrl	$3, %esi
+	addl	%r8d, %esi
+	vcvtsi2sd	%esi, %xmm2, %xmm2
+	vmovsd	%xmm0, %xmm15, %xmm15
+	vfmadd132sd	%xmm1, %xmm3, %xmm15
+	vaddsd	%xmm15, %xmm2, %xmm2
+	vcvtsd2ss	%xmm2, %xmm2, %xmm2
+	vmovss	%xmm2, 44(%rdi)
+	movl	$1321528399, %eax
+	mull	%ecx
+	shrl	$2, %edx
+	addl	%r12d, %edx
+	vcvtsi2sd	%edx, %xmm2, %xmm2
+	vmovsd	.LC13(%rip), %xmm15
+	vfmadd231sd	%xmm1, %xmm0, %xmm15
+	vaddsd	%xmm15, %xmm2, %xmm2
+	vcvtsd2ss	%xmm2, %xmm2, %xmm2
+	vmovss	%xmm2, 48(%rdi)
+	movl	%ecx, %edx
+	shrl	%edx
+	movl	$-1840700269, %eax
+	mull	%edx
+	shrl	$2, %edx
+	leal	(%rdx,%rbx,2), %eax
+	vcvtsi2sd	%eax, %xmm2, %xmm2
+	vmovsd	.LC14(%rip), %xmm15
+	vfmadd231sd	%xmm1, %xmm0, %xmm15
+	vaddsd	%xmm15, %xmm2, %xmm2
+	vcvtsd2ss	%xmm2, %xmm2, %xmm2
+	vmovss	%xmm2, 52(%rdi)
+	addl	%r9d, %r8d
+	movl	$-2004318071, %eax
+	mull	%ecx
+	shrl	$3, %edx
+	addl	%edx, %r8d
+	vcvtsi2sd	%r8d, %xmm2, %xmm2
+	vmovsd	.LC15(%rip), %xmm15
+	vfmadd231sd	%xmm1, %xmm0, %xmm15
+	vaddsd	%xmm15, %xmm2, %xmm2
+	vcvtsd2ss	%xmm2, %xmm2, %xmm2
+	vmovss	%xmm2, 56(%rdi)
+	movl	%ecx, %esi
+	sall	$4, %esi
+	movl	%esi, %edx
+	shrl	%edx
+	movl	$1195121335, %eax
+	mull	%edx
+	shrl	$5, %edx
+	imull	$230, %edx, %edx
+	subl	%edx, %esi
+	vcvtsi2sd	%esi, %xmm2, %xmm2
+	vfmadd213sd	.LC16(%rip), %xmm1, %xmm0
+	vaddsd	%xmm0, %xmm2, %xmm0
+	vcvtsd2ss	%xmm0, %xmm0, %xmm0
+	vmovss	%xmm0, 60(%rdi)
+	incl	%ecx
+	addq	$76, %rdi
+	addl	$3, %r9d
+	addl	$5, %r11d
+	addl	$7, %ebx
+	addl	$11, %ebp
+	addl	$13, %r12d
+	cmpl	$16, %ecx
+	jne	.L6
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5461:
+	.size	assignImagef32, .-assignImagef32
+	.p2align 4,,15
+	.globl	assignMatrixf32
+	.type	assignMatrixf32, @function
+assignMatrixf32:
+.LFB5462:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	andq	$-32, %rsp
+	subq	$104, %rsp
+	leaq	1024(%rdi), %rax
+	vmovdqa	.LC17(%rip), %ymm15
+	vmovapd	.LC19(%rip), %ymm14
+.L10:
+	vcvtdq2pd	%xmm15, %ymm3
+	vaddpd	%ymm14, %ymm3, %ymm3
+	vextracti128	$0x1, %ymm15, %xmm0
+	vcvtdq2pd	%xmm0, %ymm0
+	vaddpd	%ymm14, %ymm0, %ymm0
+	vcvtpd2psy	%ymm3, %xmm3
+	vcvtpd2psy	%ymm0, %xmm0
+	vinsertf128	$0x1, %xmm0, %ymm3, %ymm3
+	vpsrad	$1, %ymm15, %ymm0
+	vpaddd	%ymm15, %ymm0, %ymm0
+	vcvtdq2pd	%xmm0, %ymm8
+	vaddpd	%ymm14, %ymm8, %ymm8
+	vextracti128	$0x1, %ymm0, %xmm0
+	vcvtdq2pd	%xmm0, %ymm0
+	vaddpd	%ymm14, %ymm0, %ymm0
+	vcvtpd2psy	%ymm8, %xmm8
+	vcvtpd2psy	%ymm0, %xmm0
+	vinsertf128	$0x1, %xmm0, %ymm8, %ymm8
+	vpsrlq	$32, %ymm15, %ymm10
+	vpmuldq	.LC20(%rip), %ymm15, %ymm1
+	vpmuldq	.LC20(%rip), %ymm10, %ymm0
+	vpshufb	.LC21(%rip), %ymm1, %ymm1
+	vpshufb	.LC22(%rip), %ymm0, %ymm0
+	vpor	%ymm0, %ymm1, %ymm1
+	vpslld	$1, %ymm15, %ymm0
+	vpaddd	%ymm1, %ymm0, %ymm1
+	vcvtdq2pd	%xmm1, %ymm2
+	vaddpd	%ymm14, %ymm2, %ymm2
+	vextracti128	$0x1, %ymm1, %xmm1
+	vcvtdq2pd	%xmm1, %ymm1
+	vaddpd	%ymm14, %ymm1, %ymm1
+	vcvtpd2psy	%ymm2, %xmm2
+	vcvtpd2psy	%ymm1, %xmm1
+	vinsertf128	$0x1, %xmm1, %ymm2, %ymm2
+	vpsrad	$2, %ymm15, %ymm1
+	vpaddd	%ymm15, %ymm0, %ymm0
+	vpaddd	%ymm0, %ymm1, %ymm1
+	vcvtdq2pd	%xmm1, %ymm6
+	vaddpd	%ymm14, %ymm6, %ymm6
+	vextracti128	$0x1, %ymm1, %xmm1
+	vcvtdq2pd	%xmm1, %ymm1
+	vaddpd	%ymm14, %ymm1, %ymm1
+	vcvtpd2psy	%ymm6, %xmm6
+	vcvtpd2psy	%ymm1, %xmm1
+	vinsertf128	$0x1, %xmm1, %ymm6, %ymm6
+	vpmuldq	.LC23(%rip), %ymm15, %ymm12
+	vpmuldq	.LC23(%rip), %ymm10, %ymm1
+	vpshufb	.LC21(%rip), %ymm12, %ymm12
+	vpshufb	.LC22(%rip), %ymm1, %ymm1
+	vpor	%ymm1, %ymm12, %ymm12
+	vpsrad	$1, %ymm12, %ymm1
+	vpslld	$2, %ymm15, %ymm7
+	vpaddd	%ymm7, %ymm1, %ymm1
+	vcvtdq2pd	%xmm1, %ymm4
+	vaddpd	%ymm14, %ymm4, %ymm4
+	vextracti128	$0x1, %ymm1, %xmm1
+	vcvtdq2pd	%xmm1, %ymm1
+	vaddpd	%ymm14, %ymm1, %ymm1
+	vcvtpd2psy	%ymm4, %xmm4
+	vcvtpd2psy	%ymm1, %xmm1
+	vinsertf128	$0x1, %xmm1, %ymm4, %ymm5
+	vmovaps	%ymm5, -56(%rsp)
+	vpmuldq	.LC24(%rip), %ymm15, %ymm4
+	vpmuldq	.LC24(%rip), %ymm10, %ymm1
+	vpshufb	.LC21(%rip), %ymm4, %ymm4
+	vpshufb	.LC22(%rip), %ymm1, %ymm1
+	vpor	%ymm1, %ymm4, %ymm1
+	vpaddd	%ymm15, %ymm7, %ymm7
+	vpaddd	%ymm1, %ymm7, %ymm4
+	vcvtdq2pd	%xmm4, %ymm9
+	vaddpd	%ymm14, %ymm9, %ymm9
+	vextracti128	$0x1, %ymm4, %xmm5
+	vcvtdq2pd	%xmm5, %ymm5
+	vaddpd	%ymm14, %ymm5, %ymm5
+	vcvtpd2psy	%ymm9, %xmm9
+	vcvtpd2psy	%ymm5, %xmm5
+	vinsertf128	$0x1, %xmm5, %ymm9, %ymm4
+	vmovaps	%ymm4, -24(%rsp)
+	vpmuldq	.LC25(%rip), %ymm15, %ymm5
+	vpmuldq	.LC25(%rip), %ymm10, %ymm4
+	vpshufb	.LC21(%rip), %ymm5, %ymm5
+	vpshufb	.LC22(%rip), %ymm4, %ymm4
+	vpor	%ymm4, %ymm5, %ymm5
+	vpaddd	%ymm5, %ymm15, %ymm5
+	vpsrad	$2, %ymm5, %ymm9
+	vpslld	$1, %ymm0, %ymm4
+	vpaddd	%ymm4, %ymm9, %ymm4
+	vcvtdq2pd	%xmm4, %ymm9
+	vaddpd	%ymm14, %ymm9, %ymm9
+	vextracti128	$0x1, %ymm4, %xmm4
+	vcvtdq2pd	%xmm4, %ymm4
+	vaddpd	%ymm14, %ymm4, %ymm4
+	vcvtpd2psy	%ymm9, %xmm9
+	vcvtpd2psy	%ymm4, %xmm4
+	vinsertf128	$0x1, %xmm4, %ymm9, %ymm11
+	vmovaps	%ymm11, 72(%rsp)
+	vpsrad	$3, %ymm15, %ymm9
+	vpslld	$3, %ymm15, %ymm11
+	vpsubd	%ymm15, %ymm11, %ymm4
+	vpaddd	%ymm4, %ymm9, %ymm9
+	vcvtdq2pd	%xmm9, %ymm13
+	vaddpd	%ymm14, %ymm13, %ymm13
+	vextracti128	$0x1, %ymm9, %xmm9
+	vcvtdq2pd	%xmm9, %ymm9
+	vaddpd	%ymm14, %ymm9, %ymm9
+	vcvtpd2psy	%ymm13, %xmm13
+	vcvtpd2psy	%ymm9, %xmm9
+	vinsertf128	$0x1, %xmm9, %ymm13, %ymm13
+	vmovaps	%ymm13, 8(%rsp)
+	vpmuldq	.LC26(%rip), %ymm15, %ymm9
+	vpmuldq	.LC26(%rip), %ymm10, %ymm13
+	vpshufb	.LC21(%rip), %ymm9, %ymm9
+	vpshufb	.LC22(%rip), %ymm13, %ymm13
+	vpor	%ymm13, %ymm9, %ymm9
+	vpsrad	$1, %ymm9, %ymm9
+	vpaddd	%ymm11, %ymm9, %ymm9
+	vcvtdq2pd	%xmm9, %ymm13
+	vaddpd	%ymm14, %ymm13, %ymm13
+	vextracti128	$0x1, %ymm9, %xmm9
+	vcvtdq2pd	%xmm9, %ymm9
+	vaddpd	%ymm14, %ymm9, %ymm9
+	vcvtpd2psy	%ymm13, %xmm13
+	vcvtpd2psy	%ymm9, %xmm9
+	vinsertf128	$0x1, %xmm9, %ymm13, %ymm13
+	vpsrad	$2, %ymm12, %ymm12
+	vpaddd	%ymm15, %ymm11, %ymm9
+	vpaddd	%ymm9, %ymm12, %ymm9
+	vcvtdq2pd	%xmm9, %ymm11
+	vaddpd	%ymm14, %ymm11, %ymm11
+	vextracti128	$0x1, %ymm9, %xmm9
+	vcvtdq2pd	%xmm9, %ymm9
+	vaddpd	%ymm14, %ymm9, %ymm9
+	vcvtpd2psy	%ymm11, %xmm11
+	vcvtpd2psy	%ymm9, %xmm9
+	vinsertf128	$0x1, %xmm9, %ymm11, %ymm12
+	vpmuldq	.LC27(%rip), %ymm15, %ymm9
+	vpmuldq	.LC27(%rip), %ymm10, %ymm11
+	vpshufb	.LC21(%rip), %ymm9, %ymm9
+	vpshufb	.LC22(%rip), %ymm11, %ymm11
+	vpor	%ymm11, %ymm9, %ymm9
+	vpsrad	$1, %ymm9, %ymm9
+	vpslld	$1, %ymm7, %ymm7
+	vpaddd	%ymm7, %ymm9, %ymm7
+	vcvtdq2pd	%xmm7, %ymm9
+	vaddpd	%ymm14, %ymm9, %ymm9
+	vextracti128	$0x1, %ymm7, %xmm7
+	vcvtdq2pd	%xmm7, %ymm7
+	vaddpd	%ymm14, %ymm7, %ymm7
+	vcvtpd2psy	%ymm9, %xmm9
+	vcvtpd2psy	%ymm7, %xmm7
+	vinsertf128	$0x1, %xmm7, %ymm9, %ymm11
+	vpsrad	$1, %ymm1, %ymm1
+	vpslld	$2, %ymm0, %ymm0
+	vpsubd	%ymm15, %ymm0, %ymm7
+	vpaddd	%ymm7, %ymm1, %ymm1
+	vcvtdq2pd	%xmm1, %ymm7
+	vaddpd	%ymm14, %ymm7, %ymm7
+	vextracti128	$0x1, %ymm1, %xmm1
+	vcvtdq2pd	%xmm1, %ymm1
+	vaddpd	%ymm14, %ymm1, %ymm1
+	vcvtpd2psy	%ymm7, %xmm7
+	vcvtpd2psy	%ymm1, %xmm1
+	vinsertf128	$0x1, %xmm1, %ymm7, %ymm9
+	vpmuldq	.LC28(%rip), %ymm15, %ymm1
+	vpmuldq	.LC28(%rip), %ymm10, %ymm7
+	vpshufb	.LC21(%rip), %ymm1, %ymm1
+	vpshufb	.LC22(%rip), %ymm7, %ymm7
+	vpor	%ymm7, %ymm1, %ymm1
+	vpsrad	$2, %ymm1, %ymm1
+	vpaddd	%ymm0, %ymm1, %ymm1
+	vcvtdq2pd	%xmm1, %ymm7
+	vaddpd	%ymm14, %ymm7, %ymm7
+	vextracti128	$0x1, %ymm1, %xmm1
+	vcvtdq2pd	%xmm1, %ymm1
+	vaddpd	%ymm14, %ymm1, %ymm1
+	vcvtpd2psy	%ymm7, %xmm7
+	vcvtpd2psy	%ymm1, %xmm1
+	vinsertf128	$0x1, %xmm1, %ymm7, %ymm7
+	vpsrad	$3, %ymm5, %ymm5
+	vpaddd	%ymm15, %ymm0, %ymm0
+	vpaddd	%ymm0, %ymm5, %ymm0
+	vcvtdq2pd	%xmm0, %ymm1
+	vaddpd	%ymm14, %ymm1, %ymm1
+	vextracti128	$0x1, %ymm0, %xmm0
+	vcvtdq2pd	%xmm0, %ymm0
+	vaddpd	%ymm14, %ymm0, %ymm0
+	vcvtpd2psy	%ymm1, %xmm5
+	vcvtpd2psy	%ymm0, %xmm0
+	vinsertf128	$0x1, %xmm0, %ymm5, %ymm5
+	vpmuldq	.LC29(%rip), %ymm15, %ymm0
+	vpmuldq	.LC29(%rip), %ymm10, %ymm10
+	vpshufb	.LC21(%rip), %ymm0, %ymm0
+	vpshufb	.LC22(%rip), %ymm10, %ymm10
+	vpor	%ymm10, %ymm0, %ymm0
+	vpaddd	%ymm0, %ymm15, %ymm0
+	vpsrad	$3, %ymm0, %ymm0
+	vpslld	$1, %ymm4, %ymm4
+	vpaddd	%ymm4, %ymm0, %ymm0
+	vcvtdq2pd	%xmm0, %ymm1
+	vaddpd	%ymm14, %ymm1, %ymm1
+	vextracti128	$0x1, %ymm0, %xmm0
+	vcvtdq2pd	%xmm0, %ymm0
+	vaddpd	%ymm14, %ymm0, %ymm0
+	vcvtpd2psy	%ymm1, %xmm1
+	vcvtpd2psy	%ymm0, %xmm0
+	vinsertf128	$0x1, %xmm0, %ymm1, %ymm10
+	vpslld	$4, %ymm15, %ymm0
+	vpsubd	%ymm15, %ymm0, %ymm0
+	vcvtdq2pd	%xmm0, %ymm1
+	vaddpd	%ymm14, %ymm1, %ymm1
+	vextracti128	$0x1, %ymm0, %xmm0
+	vcvtdq2pd	%xmm0, %ymm0
+	vaddpd	%ymm14, %ymm0, %ymm0
+	vcvtpd2psy	%ymm1, %xmm1
+	vcvtpd2psy	%ymm0, %xmm0
+	vinsertf128	$0x1, %xmm0, %ymm1, %ymm1
+	vunpcklps	%ymm13, %ymm3, %ymm4
+	vunpckhps	%ymm13, %ymm3, %ymm3
+	vinsertf128	$1, %xmm3, %ymm4, %ymm0
+	vperm2f128	$49, %ymm3, %ymm4, %ymm4
+	vunpcklps	%ymm12, %ymm8, %ymm3
+	vunpckhps	%ymm12, %ymm8, %ymm12
+	vinsertf128	$1, %xmm12, %ymm3, %ymm8
+	vperm2f128	$49, %ymm12, %ymm3, %ymm3
+	vunpcklps	%ymm11, %ymm2, %ymm12
+	vunpckhps	%ymm11, %ymm2, %ymm11
+	vinsertf128	$1, %xmm11, %ymm12, %ymm2
+	vperm2f128	$49, %ymm11, %ymm12, %ymm12
+	vmovaps	%ymm12, -120(%rsp)
+	vunpcklps	%ymm9, %ymm6, %ymm11
+	vunpckhps	%ymm9, %ymm6, %ymm6
+	vinsertf128	$1, %xmm6, %ymm11, %ymm9
+	vmovaps	%ymm9, 40(%rsp)
+	vperm2f128	$49, %ymm6, %ymm11, %ymm11
+	vmovaps	-56(%rsp), %ymm6
+	vunpcklps	%ymm7, %ymm6, %ymm9
+	vunpckhps	%ymm7, %ymm6, %ymm7
+	vinsertf128	$1, %xmm7, %ymm9, %ymm13
+	vperm2f128	$49, %ymm7, %ymm9, %ymm9
+	vmovaps	-24(%rsp), %ymm7
+	vunpcklps	%ymm5, %ymm7, %ymm6
+	vunpckhps	%ymm5, %ymm7, %ymm5
+	vinsertf128	$1, %xmm5, %ymm6, %ymm12
+	vperm2f128	$49, %ymm5, %ymm6, %ymm7
+	vmovaps	72(%rsp), %ymm5
+	vunpcklps	%ymm10, %ymm5, %ymm6
+	vunpckhps	%ymm10, %ymm5, %ymm5
+	vinsertf128	$1, %xmm5, %ymm6, %ymm10
+	vmovaps	%ymm10, 72(%rsp)
+	vperm2f128	$49, %ymm5, %ymm6, %ymm6
+	vmovaps	8(%rsp), %ymm10
+	vunpcklps	%ymm1, %ymm10, %ymm5
+	vunpckhps	%ymm1, %ymm10, %ymm1
+	vinsertf128	$1, %xmm1, %ymm5, %ymm10
+	vperm2f128	$49, %ymm1, %ymm5, %ymm5
+	vunpcklps	%ymm13, %ymm0, %ymm1
+	vunpckhps	%ymm13, %ymm0, %ymm13
+	vinsertf128	$1, %xmm13, %ymm1, %ymm0
+	vperm2f128	$49, %ymm13, %ymm1, %ymm1
+	vunpcklps	%ymm9, %ymm4, %ymm13
+	vunpckhps	%ymm9, %ymm4, %ymm4
+	vinsertf128	$1, %xmm4, %ymm13, %ymm9
+	vperm2f128	$49, %ymm4, %ymm13, %ymm13
+	vunpcklps	%ymm12, %ymm8, %ymm4
+	vunpckhps	%ymm12, %ymm8, %ymm8
+	vinsertf128	$1, %xmm8, %ymm4, %ymm12
+	vperm2f128	$49, %ymm8, %ymm4, %ymm4
+	vmovaps	%ymm4, -88(%rsp)
+	vunpcklps	%ymm7, %ymm3, %ymm4
+	vunpckhps	%ymm7, %ymm3, %ymm3
+	vinsertf128	$1, %xmm3, %ymm4, %ymm8
+	vmovaps	%ymm8, -56(%rsp)
+	vperm2f128	$49, %ymm3, %ymm4, %ymm3
+	vmovaps	%ymm3, -24(%rsp)
+	vmovaps	72(%rsp), %ymm4
+	vunpcklps	%ymm4, %ymm2, %ymm3
+	vunpckhps	%ymm4, %ymm2, %ymm2
+	vinsertf128	$1, %xmm2, %ymm3, %ymm4
+	vperm2f128	$49, %ymm2, %ymm3, %ymm2
+	vmovaps	-120(%rsp), %ymm7
+	vunpcklps	%ymm6, %ymm7, %ymm3
+	vunpckhps	%ymm6, %ymm7, %ymm7
+	vinsertf128	$1, %xmm7, %ymm3, %ymm6
+	vperm2f128	$49, %ymm7, %ymm3, %ymm3
+	vmovaps	40(%rsp), %ymm8
+	vunpcklps	%ymm10, %ymm8, %ymm7
+	vunpckhps	%ymm10, %ymm8, %ymm10
+	vinsertf128	$1, %xmm10, %ymm7, %ymm8
+	vperm2f128	$49, %ymm10, %ymm7, %ymm7
+	vunpcklps	%ymm5, %ymm11, %ymm10
+	vunpckhps	%ymm5, %ymm11, %ymm11
+	vinsertf128	$1, %xmm11, %ymm10, %ymm5
+	vperm2f128	$49, %ymm11, %ymm10, %ymm10
+	vunpcklps	%ymm4, %ymm0, %ymm11
+	vunpckhps	%ymm4, %ymm0, %ymm0
+	vinsertf128	$1, %xmm0, %ymm11, %ymm4
+	vperm2f128	$49, %ymm0, %ymm11, %ymm0
+	vunpcklps	%ymm2, %ymm1, %ymm11
+	vunpckhps	%ymm2, %ymm1, %ymm1
+	vinsertf128	$1, %xmm1, %ymm11, %ymm2
+	vperm2f128	$49, %ymm1, %ymm11, %ymm11
+	vunpcklps	%ymm6, %ymm9, %ymm1
+	vunpckhps	%ymm6, %ymm9, %ymm6
+	vinsertf128	$1, %xmm6, %ymm1, %ymm9
+	vperm2f128	$49, %ymm6, %ymm1, %ymm6
+	vmovaps	%ymm6, 72(%rsp)
+	vunpcklps	%ymm3, %ymm13, %ymm1
+	vunpckhps	%ymm3, %ymm13, %ymm3
+	vinsertf128	$1, %xmm3, %ymm1, %ymm6
+	vmovaps	%ymm6, 40(%rsp)
+	vperm2f128	$49, %ymm3, %ymm1, %ymm1
+	vmovaps	%ymm1, 8(%rsp)
+	vunpcklps	%ymm8, %ymm12, %ymm1
+	vunpckhps	%ymm8, %ymm12, %ymm12
+	vinsertf128	$1, %xmm12, %ymm1, %ymm6
+	vperm2f128	$49, %ymm12, %ymm1, %ymm12
+	vmovaps	-88(%rsp), %ymm3
+	vunpcklps	%ymm7, %ymm3, %ymm1
+	vunpckhps	%ymm7, %ymm3, %ymm8
+	vinsertf128	$1, %xmm8, %ymm1, %ymm7
+	vperm2f128	$49, %ymm8, %ymm1, %ymm1
+	vmovaps	-56(%rsp), %ymm8
+	vunpcklps	%ymm5, %ymm8, %ymm3
+	vunpckhps	%ymm5, %ymm8, %ymm5
+	vinsertf128	$1, %xmm5, %ymm3, %ymm8
+	vperm2f128	$49, %ymm5, %ymm3, %ymm3
+	vmovaps	-24(%rsp), %ymm13
+	vunpcklps	%ymm10, %ymm13, %ymm5
+	vunpckhps	%ymm10, %ymm13, %ymm10
+	vinsertf128	$1, %xmm10, %ymm5, %ymm13
+	vperm2f128	$49, %ymm10, %ymm5, %ymm10
+	vunpcklps	%ymm6, %ymm4, %ymm5
+	vunpckhps	%ymm6, %ymm4, %ymm4
+	vinsertf128	$1, %xmm4, %ymm5, %ymm6
+	vmovups	%ymm6, (%rdi)
+	vperm2f128	$49, %ymm4, %ymm5, %ymm4
+	vmovups	%ymm4, 32(%rdi)
+	vunpcklps	%ymm12, %ymm0, %ymm4
+	vunpckhps	%ymm12, %ymm0, %ymm0
+	vinsertf128	$1, %xmm0, %ymm4, %ymm5
+	vmovups	%ymm5, 64(%rdi)
+	vperm2f128	$49, %ymm0, %ymm4, %ymm0
+	vmovups	%ymm0, 96(%rdi)
+	vunpcklps	%ymm7, %ymm2, %ymm0
+	vunpckhps	%ymm7, %ymm2, %ymm2
+	vinsertf128	$1, %xmm2, %ymm0, %ymm4
+	vmovups	%ymm4, 128(%rdi)
+	vperm2f128	$49, %ymm2, %ymm0, %ymm2
+	vmovups	%ymm2, 160(%rdi)
+	vunpcklps	%ymm1, %ymm11, %ymm0
+	vunpckhps	%ymm1, %ymm11, %ymm1
+	vinsertf128	$1, %xmm1, %ymm0, %ymm2
+	vmovups	%ymm2, 192(%rdi)
+	vperm2f128	$49, %ymm1, %ymm0, %ymm1
+	vmovups	%ymm1, 224(%rdi)
+	vunpcklps	%ymm8, %ymm9, %ymm0
+	vunpckhps	%ymm8, %ymm9, %ymm8
+	vinsertf128	$1, %xmm8, %ymm0, %ymm1
+	vmovups	%ymm1, 256(%rdi)
+	vperm2f128	$49, %ymm8, %ymm0, %ymm8
+	vmovups	%ymm8, 288(%rdi)
+	vmovaps	72(%rsp), %ymm2
+	vunpcklps	%ymm3, %ymm2, %ymm0
+	vunpckhps	%ymm3, %ymm2, %ymm3
+	vinsertf128	$1, %xmm3, %ymm0, %ymm1
+	vmovups	%ymm1, 320(%rdi)
+	vperm2f128	$49, %ymm3, %ymm0, %ymm3
+	vmovups	%ymm3, 352(%rdi)
+	vmovaps	40(%rsp), %ymm2
+	vunpcklps	%ymm13, %ymm2, %ymm0
+	vunpckhps	%ymm13, %ymm2, %ymm13
+	vinsertf128	$1, %xmm13, %ymm0, %ymm1
+	vmovups	%ymm1, 384(%rdi)
+	vperm2f128	$49, %ymm13, %ymm0, %ymm13
+	vmovups	%ymm13, 416(%rdi)
+	vmovaps	8(%rsp), %ymm2
+	vunpcklps	%ymm10, %ymm2, %ymm0
+	vunpckhps	%ymm10, %ymm2, %ymm10
+	vinsertf128	$1, %xmm10, %ymm0, %ymm1
+	vmovups	%ymm1, 448(%rdi)
+	vperm2f128	$49, %ymm10, %ymm0, %ymm10
+	vmovups	%ymm10, 480(%rdi)
+	addq	$512, %rdi
+	vpaddd	.LC18(%rip), %ymm15, %ymm15
+	cmpq	%rax, %rdi
+	jne	.L10
+	vzeroupper
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE5462:
+	.size	assignMatrixf32, .-assignMatrixf32
+	.p2align 4,,15
+	.globl	assignImagei32
+	.type	assignImagei32, @function
+assignImagei32:
+.LFB5463:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	andq	$-32, %rsp
+	subq	$8, %rsp
+	leaq	1024(%rdi), %rax
+	vmovdqa	.LC17(%rip), %ymm14
+.L14:
+	vpsrad	$1, %ymm14, %ymm9
+	vpaddd	%ymm14, %ymm9, %ymm9
+	vpsrlq	$32, %ymm14, %ymm2
+	vpmuldq	.LC20(%rip), %ymm14, %ymm3
+	vpmuldq	.LC20(%rip), %ymm2, %ymm0
+	vpshufb	.LC21(%rip), %ymm3, %ymm3
+	vpshufb	.LC22(%rip), %ymm0, %ymm0
+	vpor	%ymm0, %ymm3, %ymm3
+	vpslld	$1, %ymm14, %ymm4
+	vpaddd	%ymm3, %ymm4, %ymm3
+	vpsrad	$2, %ymm14, %ymm15
+	vpaddd	%ymm14, %ymm4, %ymm4
+	vpaddd	%ymm4, %ymm15, %ymm15
+	vpmuldq	.LC23(%rip), %ymm14, %ymm1
+	vpmuldq	.LC23(%rip), %ymm2, %ymm0
+	vpshufb	.LC21(%rip), %ymm1, %ymm1
+	vpshufb	.LC22(%rip), %ymm0, %ymm0
+	vpor	%ymm0, %ymm1, %ymm1
+	vpsrad	$1, %ymm1, %ymm12
+	vpslld	$2, %ymm14, %ymm8
+	vpaddd	%ymm8, %ymm12, %ymm12
+	vpmuldq	.LC24(%rip), %ymm14, %ymm7
+	vpmuldq	.LC24(%rip), %ymm2, %ymm0
+	vpshufb	.LC21(%rip), %ymm7, %ymm7
+	vpshufb	.LC22(%rip), %ymm0, %ymm0
+	vpor	%ymm0, %ymm7, %ymm7
+	vpaddd	%ymm14, %ymm8, %ymm8
+	vpaddd	%ymm7, %ymm8, %ymm11
+	vpmuldq	.LC25(%rip), %ymm14, %ymm5
+	vpmuldq	.LC25(%rip), %ymm2, %ymm0
+	vpshufb	.LC21(%rip), %ymm5, %ymm5
+	vpshufb	.LC22(%rip), %ymm0, %ymm0
+	vpor	%ymm0, %ymm5, %ymm5
+	vpaddd	%ymm5, %ymm14, %ymm5
+	vpsrad	$2, %ymm5, %ymm0
+	vpslld	$1, %ymm4, %ymm6
+	vpaddd	%ymm6, %ymm0, %ymm6
+	vmovdqa	%ymm6, -24(%rsp)
+	vpsrad	$3, %ymm14, %ymm0
+	vpslld	$3, %ymm14, %ymm10
+	vpsubd	%ymm14, %ymm10, %ymm6
+	vpaddd	%ymm6, %ymm0, %ymm0
+	vmovdqa	%ymm0, -56(%rsp)
+	vpmuldq	.LC26(%rip), %ymm14, %ymm0
+	vpmuldq	.LC26(%rip), %ymm2, %ymm13
+	vpshufb	.LC21(%rip), %ymm0, %ymm0
+	vpshufb	.LC22(%rip), %ymm13, %ymm13
+	vpor	%ymm13, %ymm0, %ymm0
+	vpsrad	$1, %ymm0, %ymm0
+	vpaddd	%ymm10, %ymm0, %ymm0
+	vpsrad	$2, %ymm1, %ymm1
+	vpaddd	%ymm14, %ymm10, %ymm10
+	vpaddd	%ymm10, %ymm1, %ymm1
+	vpmuldq	.LC27(%rip), %ymm14, %ymm10
+	vpmuldq	.LC27(%rip), %ymm2, %ymm13
+	vpshufb	.LC21(%rip), %ymm10, %ymm10
+	vpshufb	.LC22(%rip), %ymm13, %ymm13
+	vpor	%ymm13, %ymm10, %ymm13
+	vpsrad	$1, %ymm13, %ymm13
+	vpslld	$1, %ymm8, %ymm8
+	vpaddd	%ymm8, %ymm13, %ymm13
+	vpsrad	$1, %ymm7, %ymm7
+	vpslld	$2, %ymm4, %ymm4
+	vpsubd	%ymm14, %ymm4, %ymm10
+	vpaddd	%ymm10, %ymm7, %ymm10
+	vpmuldq	.LC28(%rip), %ymm14, %ymm7
+	vpmuldq	.LC28(%rip), %ymm2, %ymm8
+	vpshufb	.LC21(%rip), %ymm7, %ymm7
+	vpshufb	.LC22(%rip), %ymm8, %ymm8
+	vpor	%ymm8, %ymm7, %ymm8
+	vpsrad	$2, %ymm8, %ymm8
+	vpaddd	%ymm4, %ymm8, %ymm8
+	vpsrad	$3, %ymm5, %ymm5
+	vpaddd	%ymm14, %ymm4, %ymm4
+	vpaddd	%ymm4, %ymm5, %ymm7
+	vpmuldq	.LC29(%rip), %ymm14, %ymm4
+	vpmuldq	.LC29(%rip), %ymm2, %ymm2
+	vpshufb	.LC21(%rip), %ymm4, %ymm4
+	vpshufb	.LC22(%rip), %ymm2, %ymm2
+	vpor	%ymm2, %ymm4, %ymm2
+	vpaddd	%ymm2, %ymm14, %ymm2
+	vpsrad	$3, %ymm2, %ymm2
+	vpslld	$1, %ymm6, %ymm6
+	vpaddd	%ymm6, %ymm2, %ymm6
+	vpslld	$4, %ymm14, %ymm2
+	vpsubd	%ymm14, %ymm2, %ymm2
+	vpunpckldq	%ymm0, %ymm14, %ymm5
+	vpunpckhdq	%ymm0, %ymm14, %ymm4
+	vperm2i128	$32, %ymm4, %ymm5, %ymm0
+	vperm2i128	$49, %ymm4, %ymm5, %ymm5
+	vpunpckldq	%ymm1, %ymm9, %ymm4
+	vpunpckhdq	%ymm1, %ymm9, %ymm1
+	vperm2i128	$32, %ymm1, %ymm4, %ymm9
+	vperm2i128	$49, %ymm1, %ymm4, %ymm4
+	vpunpckldq	%ymm13, %ymm3, %ymm1
+	vpunpckhdq	%ymm13, %ymm3, %ymm13
+	vperm2i128	$32, %ymm13, %ymm1, %ymm3
+	vperm2i128	$49, %ymm13, %ymm1, %ymm1
+	vpunpckldq	%ymm10, %ymm15, %ymm13
+	vpunpckhdq	%ymm10, %ymm15, %ymm10
+	vperm2i128	$32, %ymm10, %ymm13, %ymm15
+	vmovdqa	%ymm15, -88(%rsp)
+	vperm2i128	$49, %ymm10, %ymm13, %ymm10
+	vmovdqa	%ymm10, -120(%rsp)
+	vpunpckldq	%ymm8, %ymm12, %ymm10
+	vpunpckhdq	%ymm8, %ymm12, %ymm8
+	vperm2i128	$32, %ymm8, %ymm10, %ymm15
+	vperm2i128	$49, %ymm8, %ymm10, %ymm10
+	vpunpckldq	%ymm7, %ymm11, %ymm8
+	vpunpckhdq	%ymm7, %ymm11, %ymm7
+	vperm2i128	$32, %ymm7, %ymm8, %ymm13
+	vperm2i128	$49, %ymm7, %ymm8, %ymm8
+	vmovdqa	-24(%rsp), %ymm12
+	vpunpckldq	%ymm6, %ymm12, %ymm7
+	vpunpckhdq	%ymm6, %ymm12, %ymm6
+	vperm2i128	$32, %ymm6, %ymm7, %ymm12
+	vperm2i128	$49, %ymm6, %ymm7, %ymm7
+	vmovdqa	-56(%rsp), %ymm11
+	vpunpckldq	%ymm2, %ymm11, %ymm6
+	vpunpckhdq	%ymm2, %ymm11, %ymm2
+	vperm2i128	$32, %ymm2, %ymm6, %ymm11
+	vperm2i128	$49, %ymm2, %ymm6, %ymm6
+	vpunpckldq	%ymm15, %ymm0, %ymm2
+	vpunpckhdq	%ymm15, %ymm0, %ymm15
+	vperm2i128	$32, %ymm15, %ymm2, %ymm0
+	vperm2i128	$49, %ymm15, %ymm2, %ymm2
+	vpunpckldq	%ymm10, %ymm5, %ymm15
+	vpunpckhdq	%ymm10, %ymm5, %ymm5
+	vperm2i128	$32, %ymm5, %ymm15, %ymm10
+	vperm2i128	$49, %ymm5, %ymm15, %ymm15
+	vpunpckldq	%ymm13, %ymm9, %ymm5
+	vpunpckhdq	%ymm13, %ymm9, %ymm9
+	vperm2i128	$32, %ymm9, %ymm5, %ymm13
+	vperm2i128	$49, %ymm9, %ymm5, %ymm9
+	vpunpckldq	%ymm8, %ymm4, %ymm5
+	vpunpckhdq	%ymm8, %ymm4, %ymm4
+	vperm2i128	$32, %ymm4, %ymm5, %ymm8
+	vmovdqa	%ymm8, -24(%rsp)
+	vperm2i128	$49, %ymm4, %ymm5, %ymm5
+	vmovdqa	%ymm5, -56(%rsp)
+	vpunpckldq	%ymm12, %ymm3, %ymm4
+	vpunpckhdq	%ymm12, %ymm3, %ymm3
+	vperm2i128	$32, %ymm3, %ymm4, %ymm5
+	vperm2i128	$49, %ymm3, %ymm4, %ymm3
+	vpunpckldq	%ymm7, %ymm1, %ymm4
+	vpunpckhdq	%ymm7, %ymm1, %ymm1
+	vperm2i128	$32, %ymm1, %ymm4, %ymm7
+	vperm2i128	$49, %ymm1, %ymm4, %ymm4
+	vmovdqa	-88(%rsp), %ymm12
+	vpunpckldq	%ymm11, %ymm12, %ymm1
+	vpunpckhdq	%ymm11, %ymm12, %ymm11
+	vperm2i128	$32, %ymm11, %ymm1, %ymm8
+	vperm2i128	$49, %ymm11, %ymm1, %ymm1
+	vmovdqa	-120(%rsp), %ymm12
+	vpunpckldq	%ymm6, %ymm12, %ymm11
+	vpunpckhdq	%ymm6, %ymm12, %ymm12
+	vperm2i128	$32, %ymm12, %ymm11, %ymm6
+	vperm2i128	$49, %ymm12, %ymm11, %ymm11
+	vpunpckldq	%ymm5, %ymm0, %ymm12
+	vpunpckhdq	%ymm5, %ymm0, %ymm0
+	vperm2i128	$32, %ymm0, %ymm12, %ymm5
+	vperm2i128	$49, %ymm0, %ymm12, %ymm0
+	vpunpckldq	%ymm3, %ymm2, %ymm12
+	vpunpckhdq	%ymm3, %ymm2, %ymm2
+	vperm2i128	$32, %ymm2, %ymm12, %ymm3
+	vperm2i128	$49, %ymm2, %ymm12, %ymm12
+	vpunpckldq	%ymm7, %ymm10, %ymm2
+	vpunpckhdq	%ymm7, %ymm10, %ymm7
+	vperm2i128	$32, %ymm7, %ymm2, %ymm10
+	vperm2i128	$49, %ymm7, %ymm2, %ymm7
+	vpunpckldq	%ymm4, %ymm15, %ymm2
+	vpunpckhdq	%ymm4, %ymm15, %ymm4
+	vperm2i128	$32, %ymm4, %ymm2, %ymm15
+	vmovdqa	%ymm15, -88(%rsp)
+	vperm2i128	$49, %ymm4, %ymm2, %ymm2
+	vmovdqa	%ymm2, -120(%rsp)
+	vpunpckldq	%ymm8, %ymm13, %ymm2
+	vpunpckhdq	%ymm8, %ymm13, %ymm13
+	vperm2i128	$32, %ymm13, %ymm2, %ymm8
+	vperm2i128	$49, %ymm13, %ymm2, %ymm2
+	vpunpckldq	%ymm1, %ymm9, %ymm4
+	vpunpckhdq	%ymm1, %ymm9, %ymm1
+	vperm2i128	$32, %ymm1, %ymm4, %ymm13
+	vperm2i128	$49, %ymm1, %ymm4, %ymm1
+	vmovdqa	-24(%rsp), %ymm9
+	vpunpckldq	%ymm6, %ymm9, %ymm4
+	vpunpckhdq	%ymm6, %ymm9, %ymm6
+	vperm2i128	$32, %ymm6, %ymm4, %ymm9
+	vperm2i128	$49, %ymm6, %ymm4, %ymm4
+	vmovdqa	-56(%rsp), %ymm15
+	vpunpckldq	%ymm11, %ymm15, %ymm6
+	vpunpckhdq	%ymm11, %ymm15, %ymm11
+	vperm2i128	$32, %ymm11, %ymm6, %ymm15
+	vperm2i128	$49, %ymm11, %ymm6, %ymm11
+	vpunpckldq	%ymm8, %ymm5, %ymm6
+	vpunpckhdq	%ymm8, %ymm5, %ymm5
+	vperm2i128	$32, %ymm5, %ymm6, %ymm8
+	vmovdqu	%ymm8, (%rdi)
+	vperm2i128	$49, %ymm5, %ymm6, %ymm5
+	vmovdqu	%ymm5, 32(%rdi)
+	vpunpckldq	%ymm2, %ymm0, %ymm5
+	vpunpckhdq	%ymm2, %ymm0, %ymm2
+	vperm2i128	$32, %ymm2, %ymm5, %ymm0
+	vmovdqu	%ymm0, 64(%rdi)
+	vperm2i128	$49, %ymm2, %ymm5, %ymm2
+	vmovdqu	%ymm2, 96(%rdi)
+	vpunpckldq	%ymm13, %ymm3, %ymm0
+	vpunpckhdq	%ymm13, %ymm3, %ymm3
+	vperm2i128	$32, %ymm3, %ymm0, %ymm2
+	vmovdqu	%ymm2, 128(%rdi)
+	vperm2i128	$49, %ymm3, %ymm0, %ymm3
+	vmovdqu	%ymm3, 160(%rdi)
+	vpunpckldq	%ymm1, %ymm12, %ymm0
+	vpunpckhdq	%ymm1, %ymm12, %ymm12
+	vperm2i128	$32, %ymm12, %ymm0, %ymm1
+	vmovdqu	%ymm1, 192(%rdi)
+	vperm2i128	$49, %ymm12, %ymm0, %ymm12
+	vmovdqu	%ymm12, 224(%rdi)
+	vpunpckldq	%ymm9, %ymm10, %ymm0
+	vpunpckhdq	%ymm9, %ymm10, %ymm9
+	vperm2i128	$32, %ymm9, %ymm0, %ymm1
+	vmovdqu	%ymm1, 256(%rdi)
+	vperm2i128	$49, %ymm9, %ymm0, %ymm9
+	vmovdqu	%ymm9, 288(%rdi)
+	vpunpckldq	%ymm4, %ymm7, %ymm0
+	vpunpckhdq	%ymm4, %ymm7, %ymm4
+	vperm2i128	$32, %ymm4, %ymm0, %ymm1
+	vmovdqu	%ymm1, 320(%rdi)
+	vperm2i128	$49, %ymm4, %ymm0, %ymm4
+	vmovdqu	%ymm4, 352(%rdi)
+	vmovdqa	-88(%rsp), %ymm3
+	vpunpckldq	%ymm15, %ymm3, %ymm0
+	vpunpckhdq	%ymm15, %ymm3, %ymm15
+	vperm2i128	$32, %ymm15, %ymm0, %ymm1
+	vmovdqu	%ymm1, 384(%rdi)
+	vperm2i128	$49, %ymm15, %ymm0, %ymm15
+	vmovdqu	%ymm15, 416(%rdi)
+	vmovdqa	-120(%rsp), %ymm3
+	vpunpckldq	%ymm11, %ymm3, %ymm0
+	vpunpckhdq	%ymm11, %ymm3, %ymm11
+	vperm2i128	$32, %ymm11, %ymm0, %ymm1
+	vmovdqu	%ymm1, 448(%rdi)
+	vperm2i128	$49, %ymm11, %ymm0, %ymm11
+	vmovdqu	%ymm11, 480(%rdi)
+	addq	$512, %rdi
+	vpaddd	.LC18(%rip), %ymm14, %ymm14
+	cmpq	%rax, %rdi
+	jne	.L14
+	vzeroupper
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE5463:
+	.size	assignImagei32, .-assignImagei32
+	.p2align 4,,15
+	.globl	assignMatrixi32
+	.type	assignMatrixi32, @function
+assignMatrixi32:
+.LFB5464:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	vpxor	%xmm0, %xmm0, %xmm0
+	vmovdqu	%ymm0, (%rdi)
+	vmovdqu	%ymm0, 32(%rdi)
+	vmovdqa	.LC17(%rip), %ymm0
+	vmovdqu	%ymm0, 64(%rdi)
+	vmovdqa	.LC30(%rip), %ymm0
+	vmovdqu	%ymm0, 96(%rdi)
+	vmovdqa	.LC31(%rip), %ymm0
+	vmovdqu	%ymm0, 128(%rdi)
+	vmovdqa	.LC32(%rip), %ymm0
+	vmovdqu	%ymm0, 160(%rdi)
+	vmovdqa	.LC33(%rip), %ymm0
+	vmovdqu	%ymm0, 192(%rdi)
+	vmovdqa	.LC34(%rip), %ymm0
+	vmovdqu	%ymm0, 224(%rdi)
+	vmovdqa	.LC35(%rip), %ymm0
+	vmovdqu	%ymm0, 256(%rdi)
+	vmovdqa	.LC36(%rip), %ymm0
+	vmovdqu	%ymm0, 288(%rdi)
+	vmovdqa	.LC37(%rip), %ymm0
+	vmovdqu	%ymm0, 320(%rdi)
+	vmovdqa	.LC38(%rip), %ymm0
+	vmovdqu	%ymm0, 352(%rdi)
+	vmovdqa	.LC39(%rip), %ymm0
+	vmovdqu	%ymm0, 384(%rdi)
+	vmovdqa	.LC40(%rip), %ymm0
+	vmovdqu	%ymm0, 416(%rdi)
+	vmovdqa	.LC41(%rip), %ymm0
+	vmovdqu	%ymm0, 448(%rdi)
+	vmovdqa	.LC42(%rip), %ymm0
+	vmovdqu	%ymm0, 480(%rdi)
+	vmovdqa	.LC43(%rip), %ymm0
+	vmovdqu	%ymm0, 512(%rdi)
+	vmovdqa	.LC44(%rip), %ymm0
+	vmovdqu	%ymm0, 544(%rdi)
+	vmovdqa	.LC45(%rip), %ymm0
+	vmovdqu	%ymm0, 576(%rdi)
+	vmovdqa	.LC46(%rip), %ymm0
+	vmovdqu	%ymm0, 608(%rdi)
+	vmovdqa	.LC47(%rip), %ymm0
+	vmovdqu	%ymm0, 640(%rdi)
+	vmovdqa	.LC48(%rip), %ymm0
+	vmovdqu	%ymm0, 672(%rdi)
+	vmovdqa	.LC49(%rip), %ymm0
+	vmovdqu	%ymm0, 704(%rdi)
+	vmovdqa	.LC50(%rip), %ymm0
+	vmovdqu	%ymm0, 736(%rdi)
+	vmovdqa	.LC51(%rip), %ymm0
+	vmovdqu	%ymm0, 768(%rdi)
+	vmovdqa	.LC52(%rip), %ymm0
+	vmovdqu	%ymm0, 800(%rdi)
+	vmovdqa	.LC53(%rip), %ymm0
+	vmovdqu	%ymm0, 832(%rdi)
+	vmovdqa	.LC54(%rip), %ymm0
+	vmovdqu	%ymm0, 864(%rdi)
+	vmovdqa	.LC55(%rip), %ymm0
+	vmovdqu	%ymm0, 896(%rdi)
+	vmovdqa	.LC56(%rip), %ymm0
+	vmovdqu	%ymm0, 928(%rdi)
+	vmovdqa	.LC57(%rip), %ymm0
+	vmovdqu	%ymm0, 960(%rdi)
+	vmovdqa	.LC58(%rip), %ymm0
+	vmovdqu	%ymm0, 992(%rdi)
+	vzeroupper
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE5464:
+	.size	assignMatrixi32, .-assignMatrixi32
+	.p2align 4,,15
+	.globl	assignMatrixi16
+	.type	assignMatrixi16, @function
+assignMatrixi16:
+.LFB5465:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 64
+	leaq	32(%rdi), %rbx
+	xorl	%r13d, %r13d
+	movl	$1717986919, %r12d
+	.p2align 4,,10
+	.p2align 3
+.L20:
+	movl	%r13d, %ebp
+	leaq	-32(%rbx), %r14
+	xorl	%r15d, %r15d
+	.p2align 4,,10
+	.p2align 3
+.L21:
+	call	rand
+	movl	%eax, %ecx
+	imull	%r12d
+	sarl	$2, %edx
+	movl	%ecx, %eax
+	sarl	$31, %eax
+	subl	%eax, %edx
+	leal	(%rdx,%rdx,4), %eax
+	addl	%eax, %eax
+	subl	%eax, %ecx
+	addl	%r15d, %ecx
+	movw	%cx, (%r14)
+	addl	%ebp, %r15d
+	addq	$2, %r14
+	cmpq	%rbx, %r14
+	jne	.L21
+	incl	%r13d
+	leaq	32(%r14), %rbx
+	cmpl	$16, %r13d
+	jne	.L20
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5465:
+	.size	assignMatrixi16, .-assignMatrixi16
+	.p2align 4,,15
+	.globl	assignImagei16
+	.type	assignImagei16, @function
+assignImagei16:
+.LFB5485:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 64
+	leaq	32(%rdi), %rbx
+	xorl	%r13d, %r13d
+	movl	$1717986919, %r12d
+	.p2align 4,,10
+	.p2align 3
+.L27:
+	movl	%r13d, %ebp
+	leaq	-32(%rbx), %r14
+	xorl	%r15d, %r15d
+	.p2align 4,,10
+	.p2align 3
+.L28:
+	call	rand
+	movl	%eax, %ecx
+	imull	%r12d
+	sarl	$2, %edx
+	movl	%ecx, %eax
+	sarl	$31, %eax
+	subl	%eax, %edx
+	leal	(%rdx,%rdx,4), %eax
+	addl	%eax, %eax
+	subl	%eax, %ecx
+	addl	%r15d, %ecx
+	movw	%cx, (%r14)
+	addl	%ebp, %r15d
+	addq	$2, %r14
+	cmpq	%rbx, %r14
+	jne	.L28
+	incl	%r13d
+	leaq	32(%r14), %rbx
+	cmpl	$16, %r13d
+	jne	.L27
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5485:
+	.size	assignImagei16, .-assignImagei16
+	.p2align 4,,15
+	.globl	imageTranspose
+	.type	imageTranspose, @function
+imageTranspose:
+.LFB5467:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%rbx
+	.cfi_offset 3, -24
+	movq	%rdi, %rax
+	movl	$76, %edx
+	movl	$80, %r10d
+	xorl	%esi, %esi
+	movl	$1, %r8d
+	movl	$4, %ebx
+	subq	%rdi, %rbx
+	jmp	.L34
+	.p2align 4,,10
+	.p2align 3
+.L100:
+	cmpl	$6, %esi
+	jbe	.L40
+	vmovups	(%rdi,%rdx), %ymm0
+	vmovss	460(%rax), %xmm2
+	vinsertps	$0x10, 536(%rax), %xmm2, %xmm3
+	vmovss	308(%rax), %xmm2
+	vinsertps	$0x10, 384(%rax), %xmm2, %xmm2
+	vmovss	156(%rax), %xmm1
+	vinsertps	$0x10, 232(%rax), %xmm1, %xmm4
+	vmovss	4(%rax), %xmm1
+	vinsertps	$0x10, 80(%rax), %xmm1, %xmm1
+	vmovlhps	%xmm4, %xmm1, %xmm1
+	vmovlhps	%xmm3, %xmm2, %xmm2
+	vinsertf128	$0x1, %xmm2, %ymm1, %ymm1
+	vmovups	%ymm1, (%rdi,%rdx)
+	vmovss	%xmm0, 4(%rax)
+	vextractps	$1, %xmm0, 80(%rax)
+	vextractps	$2, %xmm0, 156(%rax)
+	vextractps	$3, %xmm0, 232(%rax)
+	vextractf128	$0x1, %ymm0, %xmm0
+	vmovss	%xmm0, 308(%rax)
+	vextractps	$1, %xmm0, 384(%rax)
+	vextractps	$2, %xmm0, 460(%rax)
+	vextractps	$3, %xmm0, 536(%rax)
+	cmpl	$8, %r8d
+	je	.L36
+	vmovss	32(%rcx), %xmm0
+	movslq	%r8d, %r9
+	salq	$2, %r9
+	leaq	608(%rdi,%r9), %r11
+	vmovss	(%r11), %xmm1
+	vmovss	%xmm1, 32(%rcx)
+	vmovss	%xmm0, (%r11)
+	cmpl	$8, %esi
+	jbe	.L36
+	vmovss	36(%rcx), %xmm0
+	leaq	684(%rdi,%r9), %r11
+	vmovss	(%r11), %xmm1
+	vmovss	%xmm1, 36(%rcx)
+	vmovss	%xmm0, (%r11)
+	cmpl	$9, %esi
+	je	.L36
+	vmovss	40(%rcx), %xmm0
+	leaq	760(%rdi,%r9), %r11
+	vmovss	(%r11), %xmm1
+	vmovss	%xmm1, 40(%rcx)
+	vmovss	%xmm0, (%r11)
+	cmpl	$10, %esi
+	je	.L36
+	vmovss	44(%rcx), %xmm0
+	leaq	836(%rdi,%r9), %r11
+	vmovss	(%r11), %xmm1
+	vmovss	%xmm1, 44(%rcx)
+	vmovss	%xmm0, (%r11)
+	cmpl	$11, %esi
+	je	.L36
+	vmovss	48(%rcx), %xmm0
+	leaq	912(%rdi,%r9), %r11
+	vmovss	(%r11), %xmm1
+	vmovss	%xmm1, 48(%rcx)
+	vmovss	%xmm0, (%r11)
+	cmpl	$12, %esi
+	je	.L36
+	vmovss	52(%rcx), %xmm0
+	leaq	988(%rdi,%r9), %r11
+	vmovss	(%r11), %xmm1
+	vmovss	%xmm1, 52(%rcx)
+	vmovss	%xmm0, (%r11)
+	cmpl	$14, %esi
+	jne	.L36
+	vmovss	56(%rcx), %xmm0
+	leaq	1064(%rdi,%r9), %r9
+	vmovss	(%r9), %xmm1
+	vmovss	%xmm1, 56(%rcx)
+	vmovss	%xmm0, (%r9)
+.L36:
+	incl	%r8d
+	incl	%esi
+	addq	$4, %rax
+	addq	$80, %r10
+	addq	$76, %rdx
+	cmpl	$16, %r8d
+	je	.L98
+.L34:
+	leaq	(%rdi,%rdx), %rcx
+	leaq	(%rbx,%rax), %r9
+	cmpq	%r9, %r10
+	setle	%r11b
+	leaq	-72(%r10), %r9
+	cmpq	%rdx, %r9
+	setle	%r9b
+	orb	%r9b, %r11b
+	jne	.L100
+.L40:
+	vmovss	(%rdi,%rdx), %xmm0
+	vmovss	4(%rax), %xmm1
+	vmovss	%xmm1, (%rdi,%rdx)
+	vmovss	%xmm0, 4(%rax)
+	movl	%r8d, %ecx
+	decl	%ecx
+	je	.L36
+	vmovss	4(%rdi,%rdx), %xmm0
+	vmovss	80(%rax), %xmm1
+	vmovss	%xmm1, 4(%rdi,%rdx)
+	vmovss	%xmm0, 80(%rax)
+	cmpl	$1, %ecx
+	je	.L36
+	vmovss	8(%rdi,%rdx), %xmm0
+	vmovss	156(%rax), %xmm1
+	vmovss	%xmm1, 8(%rdi,%rdx)
+	vmovss	%xmm0, 156(%rax)
+	cmpl	$2, %ecx
+	je	.L36
+	vmovss	12(%rdi,%rdx), %xmm0
+	vmovss	232(%rax), %xmm1
+	vmovss	%xmm1, 12(%rdi,%rdx)
+	vmovss	%xmm0, 232(%rax)
+	cmpl	$3, %ecx
+	je	.L36
+	vmovss	16(%rdi,%rdx), %xmm0
+	vmovss	308(%rax), %xmm1
+	vmovss	%xmm1, 16(%rdi,%rdx)
+	vmovss	%xmm0, 308(%rax)
+	cmpl	$4, %ecx
+	je	.L36
+	vmovss	20(%rdi,%rdx), %xmm0
+	vmovss	384(%rax), %xmm1
+	vmovss	%xmm1, 20(%rdi,%rdx)
+	vmovss	%xmm0, 384(%rax)
+	cmpl	$5, %ecx
+	je	.L36
+	vmovss	24(%rdi,%rdx), %xmm0
+	vmovss	460(%rax), %xmm1
+	vmovss	%xmm1, 24(%rdi,%rdx)
+	vmovss	%xmm0, 460(%rax)
+	cmpl	$6, %ecx
+	je	.L36
+	vmovss	28(%rdi,%rdx), %xmm0
+	vmovss	536(%rax), %xmm1
+	vmovss	%xmm1, 28(%rdi,%rdx)
+	vmovss	%xmm0, 536(%rax)
+	cmpl	$7, %ecx
+	je	.L36
+	vmovss	32(%rdi,%rdx), %xmm0
+	vmovss	612(%rax), %xmm1
+	vmovss	%xmm1, 32(%rdi,%rdx)
+	vmovss	%xmm0, 612(%rax)
+	cmpl	$8, %ecx
+	je	.L36
+	vmovss	36(%rdi,%rdx), %xmm0
+	vmovss	688(%rax), %xmm1
+	vmovss	%xmm1, 36(%rdi,%rdx)
+	vmovss	%xmm0, 688(%rax)
+	cmpl	$9, %ecx
+	je	.L36
+	vmovss	40(%rdi,%rdx), %xmm0
+	vmovss	764(%rax), %xmm1
+	vmovss	%xmm1, 40(%rdi,%rdx)
+	vmovss	%xmm0, 764(%rax)
+	cmpl	$10, %ecx
+	je	.L36
+	vmovss	44(%rdi,%rdx), %xmm0
+	vmovss	840(%rax), %xmm1
+	vmovss	%xmm1, 44(%rdi,%rdx)
+	vmovss	%xmm0, 840(%rax)
+	cmpl	$11, %ecx
+	je	.L36
+	vmovss	48(%rdi,%rdx), %xmm0
+	vmovss	916(%rax), %xmm1
+	vmovss	%xmm1, 48(%rdi,%rdx)
+	vmovss	%xmm0, 916(%rax)
+	cmpl	$12, %ecx
+	je	.L36
+	vmovss	52(%rdi,%rdx), %xmm0
+	vmovss	992(%rax), %xmm1
+	vmovss	%xmm1, 52(%rdi,%rdx)
+	vmovss	%xmm0, 992(%rax)
+	cmpl	$14, %ecx
+	jne	.L36
+	vmovss	56(%rdi,%rdx), %xmm0
+	vmovss	1068(%rax), %xmm1
+	vmovss	%xmm1, 56(%rdi,%rdx)
+	vmovss	%xmm0, 1068(%rax)
+	jmp	.L36
+.L98:
+	vzeroupper
+	popq	%rbx
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE5467:
+	.size	imageTranspose, .-imageTranspose
+	.p2align 4,,15
+	.globl	assignMatrixui16
+	.type	assignMatrixui16, @function
+assignMatrixui16:
+.LFB5468:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	vmovdqa	.LC59(%rip), %ymm0
+	vmovdqu	%ymm0, (%rdi)
+	vmovdqa	.LC60(%rip), %ymm0
+	vmovdqu	%ymm0, 32(%rdi)
+	vmovdqa	.LC61(%rip), %ymm0
+	vmovdqu	%ymm0, 64(%rdi)
+	vmovdqa	.LC62(%rip), %ymm0
+	vmovdqu	%ymm0, 96(%rdi)
+	vmovdqa	.LC63(%rip), %ymm0
+	vmovdqu	%ymm0, 128(%rdi)
+	vmovdqa	.LC64(%rip), %ymm0
+	vmovdqu	%ymm0, 160(%rdi)
+	vmovdqa	.LC65(%rip), %ymm0
+	vmovdqu	%ymm0, 192(%rdi)
+	vmovdqa	.LC66(%rip), %ymm0
+	vmovdqu	%ymm0, 224(%rdi)
+	vmovdqa	.LC67(%rip), %ymm0
+	vmovdqu	%ymm0, 256(%rdi)
+	vmovdqa	.LC68(%rip), %ymm0
+	vmovdqu	%ymm0, 288(%rdi)
+	vmovdqa	.LC69(%rip), %ymm0
+	vmovdqu	%ymm0, 320(%rdi)
+	vmovdqa	.LC70(%rip), %ymm0
+	vmovdqu	%ymm0, 352(%rdi)
+	vmovdqa	.LC71(%rip), %ymm0
+	vmovdqu	%ymm0, 384(%rdi)
+	vmovdqa	.LC72(%rip), %ymm0
+	vmovdqu	%ymm0, 416(%rdi)
+	vmovdqa	.LC73(%rip), %ymm0
+	vmovdqu	%ymm0, 448(%rdi)
+	vmovdqa	.LC74(%rip), %ymm0
+	vmovdqu	%ymm0, 480(%rdi)
+	vzeroupper
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE5468:
+	.size	assignMatrixui16, .-assignMatrixui16
+	.p2align 4,,15
+	.globl	assignMatrixi8
+	.type	assignMatrixi8, @function
+assignMatrixi8:
+.LFB5469:
+	.cfi_startproc
+	pushq	%r13
+	.cfi_def_cfa_offset 16
+	.cfi_offset 13, -16
+	pushq	%r12
+	.cfi_def_cfa_offset 24
+	.cfi_offset 12, -24
+	pushq	%rbp
+	.cfi_def_cfa_offset 32
+	.cfi_offset 6, -32
+	pushq	%rbx
+	.cfi_def_cfa_offset 40
+	.cfi_offset 3, -40
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 48
+	leaq	16(%rdi), %rbp
+	xorl	%ebx, %ebx
+	.p2align 4,,10
+	.p2align 3
+.L104:
+	leaq	-16(%rbp), %r12
+	xorl	%r13d, %r13d
+	.p2align 4,,10
+	.p2align 3
+.L105:
+	call	rand
+	movl	%eax, %edx
+	shrl	$31, %edx
+	addl	%edx, %eax
+	andl	$1, %eax
+	subl	%edx, %eax
+	addl	%r13d, %eax
+	movb	%al, (%r12)
+	addl	%ebx, %r13d
+	incq	%r12
+	cmpq	%rbp, %r12
+	jne	.L105
+	incl	%ebx
+	leaq	16(%r12), %rbp
+	cmpl	$16, %ebx
+	jne	.L104
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 40
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r13
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE5469:
+	.size	assignMatrixi8, .-assignMatrixi8
+	.p2align 4,,15
+	.globl	assignArrayi32
+	.type	assignArrayi32, @function
+assignArrayi32:
+.LFB5470:
+	.cfi_startproc
+	leaq	1024(%rdi), %rax
+	vmovdqa	.LC75(%rip), %ymm4
+	vmovdqa	.LC17(%rip), %ymm3
+	vmovdqa	.LC18(%rip), %ymm6
+	vmovdqa	.LC76(%rip), %ymm5
+	vmovdqa	.LC21(%rip), %ymm8
+	vmovdqa	.LC22(%rip), %ymm7
+	.p2align 4,,10
+	.p2align 3
+.L111:
+	vpmulld	%ymm3, %ymm4, %ymm2
+	vpsrlq	$32, %ymm2, %ymm1
+	vpmuldq	%ymm5, %ymm2, %ymm0
+	vpmuldq	%ymm5, %ymm1, %ymm1
+	vpshufb	%ymm8, %ymm0, %ymm0
+	vpshufb	%ymm7, %ymm1, %ymm1
+	vpor	%ymm1, %ymm0, %ymm0
+	vpsrad	$6, %ymm0, %ymm1
+	vpslld	$5, %ymm1, %ymm0
+	vpsubd	%ymm1, %ymm0, %ymm0
+	vpslld	$2, %ymm0, %ymm0
+	vpaddd	%ymm1, %ymm0, %ymm0
+	vpslld	$3, %ymm0, %ymm0
+	vpsubd	%ymm0, %ymm2, %ymm0
+	vmovdqu	%ymm0, (%rdi)
+	addq	$32, %rdi
+	vpaddd	%ymm6, %ymm3, %ymm3
+	vpaddd	%ymm6, %ymm4, %ymm4
+	cmpq	%rdi, %rax
+	jne	.L111
+	vzeroupper
+	ret
+	.cfi_endproc
+.LFE5470:
+	.size	assignArrayi32, .-assignArrayi32
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC77:
+	.string	"CDF97FULL "
+	.section	.rodata.str1.8,"aMS",@progbits,1
+	.align 8
+.LC78:
+	.string	"\nthe best is %lld in %lldth iteration and %lld repetitions\n"
+	.section	.rodata.str1.1
+.LC79:
+	.string	"a"
+.LC80:
+	.string	"fileForSpeedups"
+.LC81:
+	.string	"%s, %dx%d, %lld\n"
+.LC82:
+	.string	"output = %f\n"
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB5483:
+	.cfi_startproc
+	subq	$168, %rsp
+	.cfi_def_cfa_offset 176
+	movl	$3, %esi
+	movl	$2, %edi
+	call	assignToThisCore12
+	movq	$.LC77, programName(%rip)
+	movl	$8, half_row(%rip)
+	movl	$8, half_col(%rip)
+	movl	$in_image, %edi
+	call	assignImagef32
+	movq	$9999999, elapsed_rdtsc(%rip)
+	movabsq	$19999999999, %rax
+	movq	%rax, overal_time(%rip)
+	movq	$0, ttime(%rip)
+	movl	$9999999, %r10d
+.L126:
+#APP
+# 31 "IMP1.c" 1
+	#mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm1
+# 0 "" 2
+#NO_APP
+	rdtsc
+	salq	$32, %rdx
+	orq	%rdx, %rax
+	movq	%rax, t1_rdtsc(%rip)
+	vmovss	low+16(%rip), %xmm8
+	vmovss	low+12(%rip), %xmm9
+	vmovss	low+8(%rip), %xmm6
+	vmovss	low+4(%rip), %xmm7
+	vmovss	low(%rip), %xmm10
+	vmovss	high+8(%rip), %xmm5
+	vmovss	%xmm5, (%rsp)
+	vmovss	high+4(%rip), %xmm3
+	vmovss	%xmm3, 12(%rsp)
+	vmovss	high(%rip), %xmm4
+	vmovss	%xmm4, 4(%rsp)
+	vmovss	high+12(%rip), %xmm2
+	vmovss	%xmm2, 8(%rsp)
+	movslq	half_col(%rip), %rsi
+	movq	%rsi, %rax
+	leal	3(%rsi), %edi
+	salq	$2, %rsi
+	leal	1(%rax), %r9d
+	movslq	%r9d, %r9
+	salq	$2, %r9
+	leal	2(%rax), %r8d
+	movslq	%r8d, %r8
+	salq	$2, %r8
+	movslq	%edi, %r11
+	salq	$2, %r11
+	xorl	%eax, %eax
+	vshufps	$0, %xmm10, %xmm10, %xmm0
+	vmovaps	%xmm0, 16(%rsp)
+	vshufps	$0, %xmm9, %xmm9, %xmm0
+	vmovaps	%xmm0, 32(%rsp)
+	vshufps	$0, %xmm8, %xmm8, %xmm0
+	vmovaps	%xmm0, 48(%rsp)
+	vshufps	$0, %xmm7, %xmm7, %xmm0
+	vmovaps	%xmm0, 64(%rsp)
+	vshufps	$0, %xmm6, %xmm6, %xmm0
+	vmovaps	%xmm0, 80(%rsp)
+	vshufps	$0, %xmm5, %xmm5, %xmm5
+	vmovaps	%xmm5, 96(%rsp)
+	vshufps	$0, %xmm3, %xmm3, %xmm5
+	vmovaps	%xmm5, 112(%rsp)
+	vshufps	$0, %xmm4, %xmm4, %xmm5
+	vmovaps	%xmm5, 128(%rsp)
+	vshufps	$0, %xmm2, %xmm2, %xmm5
+	vmovaps	%xmm5, 144(%rsp)
+	jmp	.L116
+	.p2align 4,,10
+	.p2align 3
+.L167:
+	vmovaps	in_image(%rax), %xmm11
+	vmovaps	in_image+16(%rax), %xmm1
+	vshufps	$136, %xmm1, %xmm11, %xmm13
+	vshufps	$221, %xmm1, %xmm11, %xmm11
+	vmovups	in_image+8(%rax), %xmm4
+	vmovups	in_image+24(%rax), %xmm0
+	vshufps	$136, %xmm0, %xmm4, %xmm12
+	vshufps	$221, %xmm0, %xmm4, %xmm4
+	vmovaps	in_image+32(%rax), %xmm2
+	vshufps	$136, %xmm2, %xmm1, %xmm5
+	vshufps	$221, %xmm2, %xmm1, %xmm1
+	vmovups	in_image+40(%rax), %xmm14
+	vshufps	$136, %xmm14, %xmm0, %xmm3
+	vshufps	$136, in_image+48(%rax), %xmm2, %xmm2
+	vaddps	%xmm13, %xmm2, %xmm2
+	vmulps	48(%rsp), %xmm2, %xmm2
+	vshufps	$221, %xmm14, %xmm0, %xmm0
+	vaddps	%xmm11, %xmm0, %xmm0
+	vfmadd132ps	32(%rsp), %xmm2, %xmm0
+	vaddps	%xmm12, %xmm3, %xmm14
+	vmulps	80(%rsp), %xmm14, %xmm14
+	vaddps	%xmm4, %xmm1, %xmm2
+	vfmadd132ps	64(%rsp), %xmm14, %xmm2
+	vaddps	%xmm2, %xmm0, %xmm2
+	vfmadd231ps	16(%rsp), %xmm5, %xmm2
+	vmovaps	%xmm2, ou_image(%rax)
+	vaddps	%xmm11, %xmm1, %xmm1
+	vmulps	112(%rsp), %xmm1, %xmm1
+	vaddps	%xmm13, %xmm3, %xmm3
+	vfmadd132ps	96(%rsp), %xmm1, %xmm3
+	vmulps	144(%rsp), %xmm4, %xmm4
+	vaddps	%xmm12, %xmm5, %xmm5
+	vfmadd231ps	128(%rsp), %xmm5, %xmm4
+	vaddps	%xmm4, %xmm3, %xmm3
+	vmovups	%xmm3, ou_image(%rsi,%rax)
+	addq	$64, %rax
+	cmpq	$1024, %rax
+	je	.L166
+.L116:
+	cmpl	$6, %edi
+	ja	.L167
+	vmovss	in_image+4(%rax), %xmm14
+	vmovss	in_image+12(%rax), %xmm11
+	vmovss	in_image+20(%rax), %xmm4
+	vmovss	in_image+8(%rax), %xmm5
+	vmovss	in_image+16(%rax), %xmm1
+	vmovss	in_image+24(%rax), %xmm0
+	vmovss	in_image(%rax), %xmm12
+	vmovss	in_image+28(%rax), %xmm3
+	vmovss	in_image+32(%rax), %xmm2
+	vaddss	%xmm0, %xmm5, %xmm13
+	vmulss	%xmm6, %xmm13, %xmm13
+	vaddss	%xmm4, %xmm11, %xmm15
+	vfmadd132ss	%xmm7, %xmm13, %xmm15
+	vaddss	%xmm12, %xmm2, %xmm13
+	vmulss	%xmm8, %xmm13, %xmm13
+	vfmadd231ss	%xmm1, %xmm10, %xmm13
+	vaddss	%xmm13, %xmm15, %xmm13
+	vaddss	%xmm14, %xmm3, %xmm15
+	vfmadd231ss	%xmm15, %xmm9, %xmm13
+	vmovss	%xmm13, ou_image(%rax)
+	vaddss	%xmm4, %xmm14, %xmm14
+	vmulss	12(%rsp), %xmm14, %xmm14
+	vaddss	%xmm0, %xmm12, %xmm12
+	vfmadd132ss	(%rsp), %xmm14, %xmm12
+	vmulss	8(%rsp), %xmm11, %xmm14
+	vaddss	%xmm1, %xmm5, %xmm13
+	vfmadd132ss	4(%rsp), %xmm14, %xmm13
+	vaddss	%xmm13, %xmm12, %xmm13
+	vmovss	%xmm13, ou_image(%rsi,%rax)
+	vmovss	in_image+36(%rax), %xmm12
+	vmovss	in_image+40(%rax), %xmm13
+	vaddss	%xmm1, %xmm2, %xmm14
+	vmulss	%xmm6, %xmm14, %xmm14
+	vaddss	%xmm4, %xmm3, %xmm15
+	vfmadd132ss	%xmm7, %xmm14, %xmm15
+	vaddss	%xmm13, %xmm5, %xmm14
+	vmulss	%xmm8, %xmm14, %xmm14
+	vfmadd231ss	%xmm0, %xmm10, %xmm14
+	vaddss	%xmm14, %xmm15, %xmm14
+	vaddss	%xmm12, %xmm11, %xmm15
+	vfmadd231ss	%xmm15, %xmm9, %xmm14
+	vmovss	%xmm14, ou_image+4(%rax)
+	vaddss	%xmm11, %xmm3, %xmm11
+	vmulss	12(%rsp), %xmm11, %xmm11
+	vaddss	%xmm5, %xmm2, %xmm5
+	vfmadd132ss	(%rsp), %xmm11, %xmm5
+	vmulss	8(%rsp), %xmm4, %xmm14
+	vaddss	%xmm0, %xmm1, %xmm11
+	vfmadd132ss	4(%rsp), %xmm14, %xmm11
+	vaddss	%xmm11, %xmm5, %xmm11
+	vmovss	%xmm11, ou_image(%r9,%rax)
+	vmovss	in_image+44(%rax), %xmm14
+	vmovss	in_image+48(%rax), %xmm11
+	vaddss	%xmm13, %xmm0, %xmm5
+	vmulss	%xmm6, %xmm5, %xmm5
+	vaddss	%xmm12, %xmm3, %xmm15
+	vfmadd132ss	%xmm7, %xmm5, %xmm15
+	vaddss	%xmm14, %xmm4, %xmm5
+	vmulss	%xmm9, %xmm5, %xmm5
+	vfmadd231ss	%xmm2, %xmm10, %xmm5
+	vaddss	%xmm5, %xmm15, %xmm5
+	vaddss	%xmm11, %xmm1, %xmm15
+	vfmadd231ss	%xmm15, %xmm8, %xmm5
+	vmovss	%xmm5, ou_image+8(%rax)
+	vaddss	%xmm12, %xmm4, %xmm4
+	vmovss	12(%rsp), %xmm15
+	vmulss	%xmm15, %xmm4, %xmm4
+	vaddss	%xmm1, %xmm13, %xmm1
+	vfmadd132ss	(%rsp), %xmm4, %xmm1
+	vmulss	8(%rsp), %xmm3, %xmm5
+	vaddss	%xmm0, %xmm2, %xmm4
+	vfmadd132ss	4(%rsp), %xmm5, %xmm4
+	vaddss	%xmm4, %xmm1, %xmm4
+	vmovss	%xmm4, ou_image(%r8,%rax)
+	vaddss	in_image+56(%rax), %xmm0, %xmm1
+	vmulss	%xmm8, %xmm1, %xmm1
+	vaddss	in_image+52(%rax), %xmm3, %xmm4
+	vfmadd231ss	%xmm4, %xmm9, %xmm1
+	vaddss	%xmm11, %xmm2, %xmm5
+	vmulss	%xmm6, %xmm5, %xmm5
+	vaddss	%xmm14, %xmm12, %xmm4
+	vfmadd132ss	%xmm7, %xmm5, %xmm4
+	vaddss	%xmm4, %xmm1, %xmm1
+	vfmadd231ss	%xmm13, %xmm10, %xmm1
+	vmovss	%xmm1, ou_image+12(%rax)
+	vaddss	%xmm14, %xmm3, %xmm3
+	vmulss	%xmm15, %xmm3, %xmm3
+	vaddss	%xmm11, %xmm0, %xmm0
+	vfmadd132ss	(%rsp), %xmm3, %xmm0
+	vmulss	8(%rsp), %xmm12, %xmm12
+	vaddss	%xmm13, %xmm2, %xmm2
+	vfmadd231ss	4(%rsp), %xmm2, %xmm12
+	vaddss	%xmm12, %xmm0, %xmm0
+	vmovss	%xmm0, ou_image(%r11,%rax)
+	addq	$64, %rax
+	cmpq	$1024, %rax
+	jne	.L116
+.L166:
+	movl	$ou_image+64, %edx
+	xorl	%eax, %eax
+	.p2align 4,,10
+	.p2align 3
+.L117:
+	vmovss	(%rdx), %xmm0
+	vmovss	ou_image+4(,%rax,4), %xmm1
+	vmovss	%xmm1, (%rdx)
+	vmovss	%xmm0, ou_image+4(,%rax,4)
+	movl	%eax, %ecx
+	testq	%rax, %rax
+	je	.L118
+	vmovss	4(%rdx), %xmm0
+	vmovss	ou_image+68(,%rax,4), %xmm1
+	vmovss	%xmm1, 4(%rdx)
+	vmovss	%xmm0, ou_image+68(,%rax,4)
+	cmpl	$1, %eax
+	je	.L118
+	vmovss	8(%rdx), %xmm0
+	vmovss	ou_image+132(,%rax,4), %xmm1
+	vmovss	%xmm1, 8(%rdx)
+	vmovss	%xmm0, ou_image+132(,%rax,4)
+	cmpl	$2, %ecx
+	je	.L118
+	vmovss	12(%rdx), %xmm0
+	vmovss	ou_image+196(,%rax,4), %xmm1
+	vmovss	%xmm1, 12(%rdx)
+	vmovss	%xmm0, ou_image+196(,%rax,4)
+	cmpl	$3, %ecx
+	je	.L118
+	vmovss	16(%rdx), %xmm0
+	vmovss	ou_image+260(,%rax,4), %xmm1
+	vmovss	%xmm1, 16(%rdx)
+	vmovss	%xmm0, ou_image+260(,%rax,4)
+	cmpl	$4, %ecx
+	je	.L118
+	vmovss	20(%rdx), %xmm0
+	vmovss	ou_image+324(,%rax,4), %xmm1
+	vmovss	%xmm1, 20(%rdx)
+	vmovss	%xmm0, ou_image+324(,%rax,4)
+	cmpl	$5, %ecx
+	je	.L118
+	vmovss	24(%rdx), %xmm0
+	vmovss	ou_image+388(,%rax,4), %xmm1
+	vmovss	%xmm1, 24(%rdx)
+	vmovss	%xmm0, ou_image+388(,%rax,4)
+	cmpl	$6, %ecx
+	je	.L118
+	vmovss	28(%rdx), %xmm0
+	vmovss	ou_image+452(,%rax,4), %xmm1
+	vmovss	%xmm1, 28(%rdx)
+	vmovss	%xmm0, ou_image+452(,%rax,4)
+	cmpl	$7, %ecx
+	je	.L118
+	vmovss	32(%rdx), %xmm0
+	vmovss	ou_image+516(,%rax,4), %xmm1
+	vmovss	%xmm1, 32(%rdx)
+	vmovss	%xmm0, ou_image+516(,%rax,4)
+	cmpl	$8, %ecx
+	je	.L118
+	vmovss	36(%rdx), %xmm0
+	vmovss	ou_image+580(,%rax,4), %xmm1
+	vmovss	%xmm1, 36(%rdx)
+	vmovss	%xmm0, ou_image+580(,%rax,4)
+	cmpl	$9, %ecx
+	je	.L118
+	vmovss	40(%rdx), %xmm0
+	vmovss	ou_image+644(,%rax,4), %xmm1
+	vmovss	%xmm1, 40(%rdx)
+	vmovss	%xmm0, ou_image+644(,%rax,4)
+	cmpl	$10, %ecx
+	je	.L118
+	vmovss	44(%rdx), %xmm0
+	vmovss	ou_image+708(,%rax,4), %xmm1
+	vmovss	%xmm1, 44(%rdx)
+	vmovss	%xmm0, ou_image+708(,%rax,4)
+	cmpl	$11, %ecx
+	je	.L118
+	vmovss	48(%rdx), %xmm0
+	vmovss	ou_image+772(,%rax,4), %xmm1
+	vmovss	%xmm1, 48(%rdx)
+	vmovss	%xmm0, ou_image+772(,%rax,4)
+	cmpl	$12, %ecx
+	je	.L118
+	vmovss	52(%rdx), %xmm0
+	vmovss	ou_image+836(,%rax,4), %xmm1
+	vmovss	%xmm1, 52(%rdx)
+	vmovss	%xmm0, ou_image+836(,%rax,4)
+	cmpl	$14, %ecx
+	jne	.L118
+	vmovss	56(%rdx), %xmm0
+	vmovss	ou_image+900(,%rax,4), %xmm1
+	vmovss	%xmm1, 56(%rdx)
+	vmovss	%xmm0, ou_image+900(,%rax,4)
+	.p2align 4,,10
+	.p2align 3
+.L118:
+	incq	%rax
+	addq	$64, %rdx
+	cmpq	$15, %rax
+	jne	.L117
+	xorl	%eax, %eax
+	vshufps	$0, %xmm10, %xmm10, %xmm5
+	vmovaps	%xmm5, 16(%rsp)
+	vshufps	$0, %xmm9, %xmm9, %xmm5
+	vmovaps	%xmm5, 32(%rsp)
+	vshufps	$0, %xmm8, %xmm8, %xmm5
+	vmovaps	%xmm5, 48(%rsp)
+	vshufps	$0, %xmm7, %xmm7, %xmm5
+	vmovaps	%xmm5, 64(%rsp)
+	vshufps	$0, %xmm6, %xmm6, %xmm5
+	vmovaps	%xmm5, 80(%rsp)
+	vbroadcastss	(%rsp), %xmm5
+	vmovaps	%xmm5, 96(%rsp)
+	vbroadcastss	12(%rsp), %xmm5
+	vmovaps	%xmm5, 112(%rsp)
+	vbroadcastss	4(%rsp), %xmm5
+	vmovaps	%xmm5, 128(%rsp)
+	vbroadcastss	8(%rsp), %xmm5
+	vmovaps	%xmm5, 144(%rsp)
+	jmp	.L119
+	.p2align 4,,10
+	.p2align 3
+.L169:
+	vmovaps	ou_image(%rax), %xmm11
+	vmovaps	ou_image+16(%rax), %xmm1
+	vshufps	$136, %xmm1, %xmm11, %xmm13
+	vshufps	$221, %xmm1, %xmm11, %xmm11
+	vmovups	ou_image+8(%rax), %xmm4
+	vmovups	ou_image+24(%rax), %xmm0
+	vshufps	$136, %xmm0, %xmm4, %xmm12
+	vshufps	$221, %xmm0, %xmm4, %xmm4
+	vmovaps	ou_image+32(%rax), %xmm2
+	vshufps	$136, %xmm2, %xmm1, %xmm5
+	vshufps	$221, %xmm2, %xmm1, %xmm1
+	vmovups	ou_image+40(%rax), %xmm14
+	vshufps	$136, %xmm14, %xmm0, %xmm3
+	vshufps	$136, ou_image+48(%rax), %xmm2, %xmm2
+	vaddps	%xmm13, %xmm2, %xmm2
+	vmulps	48(%rsp), %xmm2, %xmm2
+	vshufps	$221, %xmm14, %xmm0, %xmm0
+	vaddps	%xmm11, %xmm0, %xmm0
+	vfmadd132ps	32(%rsp), %xmm2, %xmm0
+	vaddps	%xmm12, %xmm3, %xmm14
+	vmulps	80(%rsp), %xmm14, %xmm14
+	vaddps	%xmm4, %xmm1, %xmm2
+	vfmadd132ps	64(%rsp), %xmm14, %xmm2
+	vaddps	%xmm2, %xmm0, %xmm2
+	vfmadd231ps	16(%rsp), %xmm5, %xmm2
+	vmovaps	%xmm2, in_image(%rax)
+	vaddps	%xmm11, %xmm1, %xmm1
+	vmulps	112(%rsp), %xmm1, %xmm1
+	vaddps	%xmm13, %xmm3, %xmm3
+	vfmadd132ps	96(%rsp), %xmm1, %xmm3
+	vmulps	144(%rsp), %xmm4, %xmm4
+	vaddps	%xmm12, %xmm5, %xmm5
+	vfmadd231ps	128(%rsp), %xmm5, %xmm4
+	vaddps	%xmm4, %xmm3, %xmm3
+	vmovups	%xmm3, in_image(%rsi,%rax)
+	addq	$64, %rax
+	cmpq	$1024, %rax
+	je	.L168
+.L119:
+	cmpl	$6, %edi
+	ja	.L169
+	vmovss	ou_image+4(%rax), %xmm14
+	vmovss	ou_image+12(%rax), %xmm11
+	vmovss	ou_image+20(%rax), %xmm3
+	vmovss	ou_image+8(%rax), %xmm4
+	vmovss	ou_image+16(%rax), %xmm1
+	vmovss	ou_image+24(%rax), %xmm0
+	vmovss	ou_image(%rax), %xmm5
+	vmovss	ou_image+28(%rax), %xmm2
+	vmovss	ou_image+32(%rax), %xmm13
+	vaddss	%xmm4, %xmm0, %xmm12
+	vmulss	%xmm6, %xmm12, %xmm12
+	vaddss	%xmm3, %xmm11, %xmm15
+	vfmadd132ss	%xmm7, %xmm12, %xmm15
+	vaddss	%xmm5, %xmm13, %xmm12
+	vmulss	%xmm8, %xmm12, %xmm12
+	vfmadd231ss	%xmm1, %xmm10, %xmm12
+	vaddss	%xmm12, %xmm15, %xmm12
+	vaddss	%xmm2, %xmm14, %xmm15
+	vfmadd231ss	%xmm15, %xmm9, %xmm12
+	vmovss	%xmm12, in_image(%rax)
+	vaddss	%xmm3, %xmm14, %xmm14
+	vmulss	12(%rsp), %xmm14, %xmm14
+	vaddss	%xmm5, %xmm0, %xmm5
+	vfmadd132ss	(%rsp), %xmm14, %xmm5
+	vmulss	8(%rsp), %xmm11, %xmm14
+	vaddss	%xmm4, %xmm1, %xmm12
+	vfmadd132ss	4(%rsp), %xmm14, %xmm12
+	vaddss	%xmm12, %xmm5, %xmm12
+	vmovss	%xmm12, in_image(%rsi,%rax)
+	vmovss	ou_image+36(%rax), %xmm12
+	vmovss	ou_image+40(%rax), %xmm5
+	vaddss	%xmm13, %xmm1, %xmm14
+	vmulss	%xmm6, %xmm14, %xmm14
+	vaddss	%xmm2, %xmm3, %xmm15
+	vfmadd132ss	%xmm7, %xmm14, %xmm15
+	vaddss	%xmm4, %xmm5, %xmm14
+	vmulss	%xmm8, %xmm14, %xmm14
+	vfmadd231ss	%xmm0, %xmm10, %xmm14
+	vaddss	%xmm14, %xmm15, %xmm14
+	vaddss	%xmm12, %xmm11, %xmm15
+	vfmadd231ss	%xmm15, %xmm9, %xmm14
+	vmovss	%xmm14, in_image+4(%rax)
+	vaddss	%xmm2, %xmm11, %xmm11
+	vmulss	12(%rsp), %xmm11, %xmm11
+	vaddss	%xmm13, %xmm4, %xmm4
+	vfmadd132ss	(%rsp), %xmm11, %xmm4
+	vmulss	8(%rsp), %xmm3, %xmm14
+	vaddss	%xmm0, %xmm1, %xmm11
+	vfmadd132ss	4(%rsp), %xmm14, %xmm11
+	vaddss	%xmm11, %xmm4, %xmm11
+	vmovss	%xmm11, in_image(%r9,%rax)
+	vmovss	ou_image+44(%rax), %xmm14
+	vmovss	ou_image+48(%rax), %xmm11
+	vaddss	%xmm0, %xmm5, %xmm4
+	vmulss	%xmm6, %xmm4, %xmm4
+	vaddss	%xmm2, %xmm12, %xmm15
+	vfmadd132ss	%xmm7, %xmm4, %xmm15
+	vaddss	%xmm14, %xmm3, %xmm4
+	vmulss	%xmm9, %xmm4, %xmm4
+	vfmadd231ss	%xmm13, %xmm10, %xmm4
+	vaddss	%xmm4, %xmm15, %xmm4
+	vaddss	%xmm11, %xmm1, %xmm15
+	vfmadd231ss	%xmm15, %xmm8, %xmm4
+	vmovss	%xmm4, in_image+8(%rax)
+	vaddss	%xmm3, %xmm12, %xmm3
+	vmovss	12(%rsp), %xmm15
+	vmulss	%xmm15, %xmm3, %xmm3
+	vaddss	%xmm5, %xmm1, %xmm1
+	vfmadd132ss	(%rsp), %xmm3, %xmm1
+	vaddss	%xmm13, %xmm0, %xmm3
+	vmulss	8(%rsp), %xmm2, %xmm4
+	vfmadd132ss	4(%rsp), %xmm4, %xmm3
+	vaddss	%xmm3, %xmm1, %xmm3
+	vmovss	%xmm3, in_image(%r8,%rax)
+	vaddss	ou_image+56(%rax), %xmm0, %xmm1
+	vmulss	%xmm8, %xmm1, %xmm1
+	vaddss	ou_image+52(%rax), %xmm2, %xmm3
+	vfmadd231ss	%xmm3, %xmm9, %xmm1
+	vaddss	%xmm11, %xmm13, %xmm4
+	vmulss	%xmm6, %xmm4, %xmm4
+	vaddss	%xmm14, %xmm12, %xmm3
+	vfmadd132ss	%xmm7, %xmm4, %xmm3
+	vaddss	%xmm3, %xmm1, %xmm1
+	vfmadd231ss	%xmm5, %xmm10, %xmm1
+	vmovss	%xmm1, in_image+12(%rax)
+	vaddss	%xmm14, %xmm2, %xmm2
+	vmulss	%xmm15, %xmm2, %xmm2
+	vaddss	%xmm11, %xmm0, %xmm0
+	vfmadd132ss	(%rsp), %xmm2, %xmm0
+	vmulss	8(%rsp), %xmm12, %xmm12
+	vaddss	%xmm13, %xmm5, %xmm5
+	vfmadd231ss	4(%rsp), %xmm5, %xmm12
+	vaddss	%xmm12, %xmm0, %xmm0
+	vmovss	%xmm0, in_image(%r11,%rax)
+	addq	$64, %rax
+	cmpq	$1024, %rax
+	jne	.L119
+.L168:
+	movl	$12, jj(%rip)
+	rdtsc
+	salq	$32, %rdx
+	orq	%rdx, %rax
+	movq	%rax, t2_rdtsc(%rip)
+#APP
+# 76 "IMP1.c" 1
+	#mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm2
+# 0 "" 2
+#NO_APP
+	movq	t2_rdtsc(%rip), %rax
+	subq	t1_rdtsc(%rip), %rax
+	movq	%rax, ttotal_rdtsc(%rip)
+	movq	ttbest_rdtsc(%rip), %rsi
+	movq	elapsed_rdtsc(%rip), %rdx
+	cmpq	%rsi, %rax
+	jge	.L124
+	movq	%rax, ttbest_rdtsc(%rip)
+	movq	elapsed_rdtsc(%rip), %rdx
+	movq	%r10, %rcx
+	subq	%rdx, %rcx
+	movq	%rcx, elapsed(%rip)
+	movq	%rax, %rsi
+.L124:
+	addq	ttime(%rip), %rax
+	movq	%rax, ttime(%rip)
+	leaq	-1(%rdx), %rcx
+	movq	%rcx, elapsed_rdtsc(%rip)
+	testq	%rdx, %rdx
+	je	.L128
+	cmpq	overal_time(%rip), %rax
+	jl	.L126
+.L125:
+	movl	$9999999, %eax
+	subq	%rcx, %rax
+	movq	%rax, %rcx
+	movq	elapsed(%rip), %rdx
+	movl	$.LC78, %edi
+	xorl	%eax, %eax
+	call	printf
+	movl	$.LC79, %esi
+	movl	$.LC80, %edi
+	call	fopen
+	movq	%rax, fileForSpeedups(%rip)
+	movq	ttbest_rdtsc(%rip), %r9
+	movl	$16, %r8d
+	movl	$16, %ecx
+	movq	programName(%rip), %rdx
+	movl	$.LC81, %esi
+	movq	%rax, %rdi
+	xorl	%eax, %eax
+	call	fprintf
+	vcvtss2sd	in_image+544(%rip), %xmm0, %xmm0
+	movl	$.LC82, %edi
+	movb	$1, %al
+	call	printf
+	xorl	%eax, %eax
+	addq	$168, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 8
+	ret
+.L128:
+	.cfi_restore_state
+	orq	$-1, %rcx
+	jmp	.L125
+	.cfi_endproc
+.LFE5483:
+	.size	main, .-main
+	.globl	high
+	.data
+	.align 16
+	.type	high, @object
+	.size	high, 16
+high:
+	.long	3205979542
+	.long	3177951939
+	.long	1035660465
+	.long	1066318636
+	.globl	low
+	.align 16
+	.type	low, @object
+	.size	low, 20
+low:
+	.long	1058691821
+	.long	1049141866
+	.long	3181392773
+	.long	3163170463
+	.long	1020993590
+	.comm	ou_image,1536,32
+	.comm	in_image,1536,32
+	.comm	half_col,4,4
+	.comm	half_row,4,4
+	.comm	jj,4,4
+	.comm	j,4,4
+	.comm	i,4,4
+	.comm	temp2i16,32,32
+	.comm	mask,128,32
+	.globl	ttime
+	.bss
+	.align 8
+	.type	ttime, @object
+	.size	ttime, 8
+ttime:
+	.zero	8
+	.globl	overal_time
+	.data
+	.align 8
+	.type	overal_time, @object
+	.size	overal_time, 8
+overal_time:
+	.quad	19999999999
+	.globl	elapsed_rdtsc
+	.align 8
+	.type	elapsed_rdtsc, @object
+	.size	elapsed_rdtsc, 8
+elapsed_rdtsc:
+	.quad	9999999
+	.comm	elapsed,8,8
+	.globl	ttbest_rdtsc
+	.align 8
+	.type	ttbest_rdtsc, @object
+	.size	ttbest_rdtsc, 8
+ttbest_rdtsc:
+	.quad	99999999999999999
+	.comm	ttotal_rdtsc,8,8
+	.comm	t2_rdtsc,8,8
+	.comm	t1_rdtsc,8,8
+	.comm	mask1,128,32
+	.globl	programName
+	.section	.rodata.str1.1
+.LC83:
+	.string	" "
+	.data
+	.align 8
+	.type	programName, @object
+	.size	programName, 8
+programName:
+	.quad	.LC83
+	.globl	fileForSpeedups
+	.bss
+	.align 8
+	.type	fileForSpeedups, @object
+	.size	fileForSpeedups, 8
+fileForSpeedups:
+	.zero	8
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align 8
+.LC0:
+	.long	2296604913
+	.long	1056241845
+	.align 8
+.LC1:
+	.long	2439541424
+	.long	1069513965
+	.align 8
+.LC2:
+	.long	1460976075
+	.long	1069514133
+	.align 8
+.LC3:
+	.long	482410727
+	.long	1069514301
+	.align 8
+.LC4:
+	.long	3798812674
+	.long	1069514468
+	.align 8
+.LC5:
+	.long	2820247325
+	.long	1069514636
+	.align 8
+.LC6:
+	.long	1841681976
+	.long	1069514804
+	.align 8
+.LC7:
+	.long	863116628
+	.long	1069514972
+	.align 8
+.LC8:
+	.long	4179518575
+	.long	1069515139
+	.align 8
+.LC9:
+	.long	3200953226
+	.long	1069515307
+	.align 8
+.LC10:
+	.long	2222387878
+	.long	1069515475
+	.align 8
+.LC11:
+	.long	1243822529
+	.long	1069515643
+	.align 8
+.LC12:
+	.long	265257180
+	.long	1069515811
+	.align 8
+.LC13:
+	.long	3581659127
+	.long	1069515978
+	.align 8
+.LC14:
+	.long	2603093779
+	.long	1069516146
+	.align 8
+.LC15:
+	.long	1624528430
+	.long	1069516314
+	.align 8
+.LC16:
+	.long	645963081
+	.long	1069516482
+	.section	.rodata.cst32,"aM",@progbits,32
+	.align 32
+.LC17:
+	.long	0
+	.long	1
+	.long	2
+	.long	3
+	.long	4
+	.long	5
+	.long	6
+	.long	7
+	.align 32
+.LC18:
+	.long	8
+	.long	8
+	.long	8
+	.long	8
+	.long	8
+	.long	8
+	.long	8
+	.long	8
+	.align 32
+.LC19:
+	.long	2439541424
+	.long	1069513965
+	.long	2439541424
+	.long	1069513965
+	.long	2439541424
+	.long	1069513965
+	.long	2439541424
+	.long	1069513965
+	.align 32
+.LC20:
+	.long	1431655766
+	.long	1431655766
+	.long	1431655766
+	.long	1431655766
+	.long	1431655766
+	.long	1431655766
+	.long	1431655766
+	.long	1431655766
+	.align 32
+.LC21:
+	.byte	4
+	.byte	5
+	.byte	6
+	.byte	7
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	12
+	.byte	13
+	.byte	14
+	.byte	15
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	4
+	.byte	5
+	.byte	6
+	.byte	7
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	12
+	.byte	13
+	.byte	14
+	.byte	15
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.align 32
+.LC22:
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	4
+	.byte	5
+	.byte	6
+	.byte	7
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	12
+	.byte	13
+	.byte	14
+	.byte	15
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	4
+	.byte	5
+	.byte	6
+	.byte	7
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	-128
+	.byte	12
+	.byte	13
+	.byte	14
+	.byte	15
+	.align 32
+.LC23:
+	.long	1717986919
+	.long	1717986919
+	.long	1717986919
+	.long	1717986919
+	.long	1717986919
+	.long	1717986919
+	.long	1717986919
+	.long	1717986919
+	.align 32
+.LC24:
+	.long	715827883
+	.long	715827883
+	.long	715827883
+	.long	715827883
+	.long	715827883
+	.long	715827883
+	.long	715827883
+	.long	715827883
+	.align 32
+.LC25:
+	.long	-1840700269
+	.long	-1840700269
+	.long	-1840700269
+	.long	-1840700269
+	.long	-1840700269
+	.long	-1840700269
+	.long	-1840700269
+	.long	-1840700269
+	.align 32
+.LC26:
+	.long	954437177
+	.long	954437177
+	.long	954437177
+	.long	954437177
+	.long	954437177
+	.long	954437177
+	.long	954437177
+	.long	954437177
+	.align 32
+.LC27:
+	.long	780903145
+	.long	780903145
+	.long	780903145
+	.long	780903145
+	.long	780903145
+	.long	780903145
+	.long	780903145
+	.long	780903145
+	.align 32
+.LC28:
+	.long	1321528399
+	.long	1321528399
+	.long	1321528399
+	.long	1321528399
+	.long	1321528399
+	.long	1321528399
+	.long	1321528399
+	.long	1321528399
+	.align 32
+.LC29:
+	.long	-2004318071
+	.long	-2004318071
+	.long	-2004318071
+	.long	-2004318071
+	.long	-2004318071
+	.long	-2004318071
+	.long	-2004318071
+	.long	-2004318071
+	.align 32
+.LC30:
+	.long	8
+	.long	9
+	.long	10
+	.long	11
+	.long	12
+	.long	13
+	.long	14
+	.long	15
+	.align 32
+.LC31:
+	.long	0
+	.long	2
+	.long	4
+	.long	6
+	.long	8
+	.long	10
+	.long	12
+	.long	14
+	.align 32
+.LC32:
+	.long	16
+	.long	18
+	.long	20
+	.long	22
+	.long	24
+	.long	26
+	.long	28
+	.long	30
+	.align 32
+.LC33:
+	.long	0
+	.long	3
+	.long	6
+	.long	9
+	.long	12
+	.long	15
+	.long	18
+	.long	21
+	.align 32
+.LC34:
+	.long	24
+	.long	27
+	.long	30
+	.long	33
+	.long	36
+	.long	39
+	.long	42
+	.long	45
+	.align 32
+.LC35:
+	.long	0
+	.long	4
+	.long	8
+	.long	12
+	.long	16
+	.long	20
+	.long	24
+	.long	28
+	.align 32
+.LC36:
+	.long	32
+	.long	36
+	.long	40
+	.long	44
+	.long	48
+	.long	52
+	.long	56
+	.long	60
+	.align 32
+.LC37:
+	.long	0
+	.long	5
+	.long	10
+	.long	15
+	.long	20
+	.long	25
+	.long	30
+	.long	35
+	.align 32
+.LC38:
+	.long	40
+	.long	45
+	.long	50
+	.long	55
+	.long	60
+	.long	65
+	.long	70
+	.long	75
+	.align 32
+.LC39:
+	.long	0
+	.long	6
+	.long	12
+	.long	18
+	.long	24
+	.long	30
+	.long	36
+	.long	42
+	.align 32
+.LC40:
+	.long	48
+	.long	54
+	.long	60
+	.long	66
+	.long	72
+	.long	78
+	.long	84
+	.long	90
+	.align 32
+.LC41:
+	.long	0
+	.long	7
+	.long	14
+	.long	21
+	.long	28
+	.long	35
+	.long	42
+	.long	49
+	.align 32
+.LC42:
+	.long	56
+	.long	63
+	.long	70
+	.long	77
+	.long	84
+	.long	91
+	.long	98
+	.long	105
+	.align 32
+.LC43:
+	.long	0
+	.long	8
+	.long	16
+	.long	24
+	.long	32
+	.long	40
+	.long	48
+	.long	56
+	.align 32
+.LC44:
+	.long	64
+	.long	72
+	.long	80
+	.long	88
+	.long	96
+	.long	104
+	.long	112
+	.long	120
+	.align 32
+.LC45:
+	.long	0
+	.long	9
+	.long	18
+	.long	27
+	.long	36
+	.long	45
+	.long	54
+	.long	63
+	.align 32
+.LC46:
+	.long	72
+	.long	81
+	.long	90
+	.long	99
+	.long	108
+	.long	117
+	.long	126
+	.long	135
+	.align 32
+.LC47:
+	.long	0
+	.long	10
+	.long	20
+	.long	30
+	.long	40
+	.long	50
+	.long	60
+	.long	70
+	.align 32
+.LC48:
+	.long	80
+	.long	90
+	.long	100
+	.long	110
+	.long	120
+	.long	130
+	.long	140
+	.long	150
+	.align 32
+.LC49:
+	.long	0
+	.long	11
+	.long	22
+	.long	33
+	.long	44
+	.long	55
+	.long	66
+	.long	77
+	.align 32
+.LC50:
+	.long	88
+	.long	99
+	.long	110
+	.long	121
+	.long	132
+	.long	143
+	.long	154
+	.long	165
+	.align 32
+.LC51:
+	.long	0
+	.long	12
+	.long	24
+	.long	36
+	.long	48
+	.long	60
+	.long	72
+	.long	84
+	.align 32
+.LC52:
+	.long	96
+	.long	108
+	.long	120
+	.long	132
+	.long	144
+	.long	156
+	.long	168
+	.long	180
+	.align 32
+.LC53:
+	.long	0
+	.long	13
+	.long	26
+	.long	39
+	.long	52
+	.long	65
+	.long	78
+	.long	91
+	.align 32
+.LC54:
+	.long	104
+	.long	117
+	.long	130
+	.long	143
+	.long	156
+	.long	169
+	.long	182
+	.long	195
+	.align 32
+.LC55:
+	.long	0
+	.long	14
+	.long	28
+	.long	42
+	.long	56
+	.long	70
+	.long	84
+	.long	98
+	.align 32
+.LC56:
+	.long	112
+	.long	126
+	.long	140
+	.long	154
+	.long	168
+	.long	182
+	.long	196
+	.long	210
+	.align 32
+.LC57:
+	.long	0
+	.long	15
+	.long	30
+	.long	45
+	.long	60
+	.long	75
+	.long	90
+	.long	105
+	.align 32
+.LC58:
+	.long	120
+	.long	135
+	.long	150
+	.long	165
+	.long	180
+	.long	195
+	.long	210
+	.long	225
+	.align 32
+.LC59:
+	.value	10
+	.value	11
+	.value	12
+	.value	13
+	.value	14
+	.value	15
+	.value	16
+	.value	17
+	.value	18
+	.value	19
+	.value	20
+	.value	21
+	.value	22
+	.value	23
+	.value	24
+	.value	25
+	.align 32
+.LC60:
+	.value	11
+	.value	12
+	.value	13
+	.value	14
+	.value	15
+	.value	16
+	.value	17
+	.value	18
+	.value	19
+	.value	20
+	.value	21
+	.value	22
+	.value	23
+	.value	24
+	.value	25
+	.value	26
+	.align 32
+.LC61:
+	.value	12
+	.value	13
+	.value	14
+	.value	15
+	.value	16
+	.value	17
+	.value	18
+	.value	19
+	.value	20
+	.value	21
+	.value	22
+	.value	23
+	.value	24
+	.value	25
+	.value	26
+	.value	27
+	.align 32
+.LC62:
+	.value	13
+	.value	14
+	.value	15
+	.value	16
+	.value	17
+	.value	18
+	.value	19
+	.value	20
+	.value	21
+	.value	22
+	.value	23
+	.value	24
+	.value	25
+	.value	26
+	.value	27
+	.value	28
+	.align 32
+.LC63:
+	.value	14
+	.value	15
+	.value	16
+	.value	17
+	.value	18
+	.value	19
+	.value	20
+	.value	21
+	.value	22
+	.value	23
+	.value	24
+	.value	25
+	.value	26
+	.value	27
+	.value	28
+	.value	29
+	.align 32
+.LC64:
+	.value	15
+	.value	16
+	.value	17
+	.value	18
+	.value	19
+	.value	20
+	.value	21
+	.value	22
+	.value	23
+	.value	24
+	.value	25
+	.value	26
+	.value	27
+	.value	28
+	.value	29
+	.value	30
+	.align 32
+.LC65:
+	.value	16
+	.value	17
+	.value	18
+	.value	19
+	.value	20
+	.value	21
+	.value	22
+	.value	23
+	.value	24
+	.value	25
+	.value	26
+	.value	27
+	.value	28
+	.value	29
+	.value	30
+	.value	31
+	.align 32
+.LC66:
+	.value	17
+	.value	18
+	.value	19
+	.value	20
+	.value	21
+	.value	22
+	.value	23
+	.value	24
+	.value	25
+	.value	26
+	.value	27
+	.value	28
+	.value	29
+	.value	30
+	.value	31
+	.value	32
+	.align 32
+.LC67:
+	.value	18
+	.value	19
+	.value	20
+	.value	21
+	.value	22
+	.value	23
+	.value	24
+	.value	25
+	.value	26
+	.value	27
+	.value	28
+	.value	29
+	.value	30
+	.value	31
+	.value	32
+	.value	33
+	.align 32
+.LC68:
+	.value	19
+	.value	20
+	.value	21
+	.value	22
+	.value	23
+	.value	24
+	.value	25
+	.value	26
+	.value	27
+	.value	28
+	.value	29
+	.value	30
+	.value	31
+	.value	32
+	.value	33
+	.value	34
+	.align 32
+.LC69:
+	.value	20
+	.value	21
+	.value	22
+	.value	23
+	.value	24
+	.value	25
+	.value	26
+	.value	27
+	.value	28
+	.value	29
+	.value	30
+	.value	31
+	.value	32
+	.value	33
+	.value	34
+	.value	35
+	.align 32
+.LC70:
+	.value	21
+	.value	22
+	.value	23
+	.value	24
+	.value	25
+	.value	26
+	.value	27
+	.value	28
+	.value	29
+	.value	30
+	.value	31
+	.value	32
+	.value	33
+	.value	34
+	.value	35
+	.value	36
+	.align 32
+.LC71:
+	.value	22
+	.value	23
+	.value	24
+	.value	25
+	.value	26
+	.value	27
+	.value	28
+	.value	29
+	.value	30
+	.value	31
+	.value	32
+	.value	33
+	.value	34
+	.value	35
+	.value	36
+	.value	37
+	.align 32
+.LC72:
+	.value	23
+	.value	24
+	.value	25
+	.value	26
+	.value	27
+	.value	28
+	.value	29
+	.value	30
+	.value	31
+	.value	32
+	.value	33
+	.value	34
+	.value	35
+	.value	36
+	.value	37
+	.value	38
+	.align 32
+.LC73:
+	.value	24
+	.value	25
+	.value	26
+	.value	27
+	.value	28
+	.value	29
+	.value	30
+	.value	31
+	.value	32
+	.value	33
+	.value	34
+	.value	35
+	.value	36
+	.value	37
+	.value	38
+	.value	39
+	.align 32
+.LC74:
+	.value	25
+	.value	26
+	.value	27
+	.value	28
+	.value	29
+	.value	30
+	.value	31
+	.value	32
+	.value	33
+	.value	34
+	.value	35
+	.value	36
+	.value	37
+	.value	38
+	.value	39
+	.value	40
+	.align 32
+.LC75:
+	.long	1234
+	.long	1235
+	.long	1236
+	.long	1237
+	.long	1238
+	.long	1239
+	.long	1240
+	.long	1241
+	.align 32
+.LC76:
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.long	274877907
+	.ident	"GCC: (GNU) 8.1.1 20180502 (Red Hat 8.1.1-1)"
+	.section	.note.GNU-stack,"",@progbits

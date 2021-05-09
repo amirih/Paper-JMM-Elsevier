@@ -1,0 +1,84 @@
+spliter
+Time: Thu May 17 01:25:43 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+CONMOD91, 128x128, 917608
+CONMOD91, 128x128, 540034
+spliter
+Time: Thu May 17 01:26:00 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CONMOD91, 128x128, 1892104
+CONMOD91, 128x128, 435150
+spliter
+Time: Thu May 17 01:26:16 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+CONMOD91, 128x128, 886452
+CONMOD91, 128x128, 224322
+spliter
+Time: Thu May 17 01:46:30 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+CONMOD91, 256x256, 3921106
+CONMOD91, 256x256, 1610462
+spliter
+Time: Thu May 17 01:46:47 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CONMOD91, 256x256, 8096798
+CONMOD91, 256x256, 1661562
+spliter
+Time: Thu May 17 01:47:03 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+CONMOD91, 256x256, 3777274
+CONMOD91, 256x256, 944528
+spliter
+Time: Thu May 17 02:07:15 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+CONMOD91, 512x512, 16169748
+CONMOD91, 512x512, 6462936
+spliter
+Time: Thu May 17 02:07:32 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CONMOD91, 512x512, 33487512
+CONMOD91, 512x512, 6454906
+spliter
+Time: Thu May 17 02:07:48 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+CONMOD91, 512x512, 15580068
+CONMOD91, 512x512, 3933086
+spliter
+Time: Thu May 17 02:28:03 +0430 2018
+icc
+-D _GNU_SOURCE -O3 -xHOST
+-no-vec
+CONMOD91, 1024x1024, 65823378
+CONMOD91, 1024x1024, 26275762
+spliter
+Time: Thu May 17 02:28:20 +0430 2018
+gcc
+-D _GNU_SOURCE -O3 -march=native
+-fno-tree-vectorize -fno-tree-slp-vectorize
+CONMOD91, 1024x1024, 136808304
+CONMOD91, 1024x1024, 25737680
+spliter
+Time: Thu May 17 02:28:36 +0430 2018
+clang
+-D _GNU_SOURCE -O3 -march=native
+-fno-vectorize -fno-slp-vectorize
+CONMOD91, 1024x1024, 63259284
+CONMOD91, 1024x1024, 15989508
